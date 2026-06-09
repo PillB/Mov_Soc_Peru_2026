@@ -171,7 +171,7 @@
           <article class="rev-kpi">
             <span class="rev-kpi-label">Ventaja actual Sánchez</span>
             <span class="rev-kpi-value" id="rev-ventaja">—</span>
-            <span class="rev-kpi-sub">al 95,979 % escrutado (ONPE)</span>
+            <span class="rev-kpi-sub" id="rev-ventaja-sub">al 95,84 % escrutado (ONPE)</span>
           </article>
         </div>
 
@@ -222,6 +222,111 @@
             <h4>Limitaciones</h4>
             <ul id="rev-meta-lims"></ul>
             <p class="rev-meta-fuente" id="rev-meta-fuente"></p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ===== VALIDACIÓN CRUZADA · Sección 2c ===== -->
+    <section id="validacion">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Sección 2c · Validación cruzada y predicción ajustada</p>
+          <h2>Cuatro modelos, un mercado, una predicción robusta</h2>
+          <p>El modelo único de la Sección 2b funciona pero asume <em>independencia</em> entre países y no incorpora el voto exterior ya observado. Para evitar sobreajuste, replicamos el cálculo con cuatro especificaciones distintas, contrastamos con los mercados de predicción y ejecutamos siete escenarios adversariales. La probabilidad publicada arriba ya está calibrada con esta evidencia.</p>
+        </div>
+
+        <!-- KPI de predicción ajustada -->
+        <div class="val-headline">
+          <article class="val-headline-card">
+            <span class="val-headline-eyebrow">Predicción ajustada</span>
+            <span class="val-headline-value" id="val-prob-ajustada">—</span>
+            <span class="val-headline-formula" id="val-formula">60 % ensemble de modelos + 40 % mercados de predicción</span>
+            <div class="val-headline-band">
+              <span class="val-headline-band-lbl">Margen mediano</span>
+              <span class="val-headline-band-val" id="val-margen-mediano">—</span>
+              <span class="val-headline-band-lbl">Intervalo de credibilidad 90 %</span>
+              <span class="val-headline-band-val" id="val-margen-ic">—</span>
+            </div>
+          </article>
+          <article class="val-headline-side">
+            <h3>Lectura ejecutiva</h3>
+            <ul id="val-lectura">
+              <li><strong>Consistencia interna:</strong> los cuatro modelos coinciden en P&nbsp;&gt;&nbsp;93 % — robustez estructural alta.</li>
+              <li><strong>Convergencia externa:</strong> el ajustado (94 %) se acerca al promedio de mercados (86 %) sin perder señal de los modelos.</li>
+              <li><strong>Validación empírica:</strong> el voto exterior observado al 26 % escrutado (64 % Fujimori) cae a 1&nbsp;pp del prior 2021 (66,2&nbsp;%).</li>
+              <li><strong>Robustez adversarial:</strong> seis de los siete escenarios de cola mantienen P&nbsp;&gt;&nbsp;60 %; solo el cisne negro la rompe.</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Comparación de modelos -->
+        <div class="val-block">
+          <h3>Comparación de las cuatro especificaciones</h3>
+          <p class="val-block-desc">Cada modelo cambia un supuesto crítico. La tabla muestra cómo varía la probabilidad y el margen al hacerlo — la dispersión entre modelos es la verdadera incertidumbre.</p>
+          <div class="val-modelos-wrap">
+            <table class="val-modelos" id="val-modelos">
+              <thead>
+                <tr>
+                  <th scope="col">Modelo</th>
+                  <th scope="col">Supuesto clave</th>
+                  <th scope="col" class="num">P(Fuj revierte)</th>
+                  <th scope="col" class="num">Margen mediano</th>
+                  <th scope="col" class="num">IC 90 %</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Actualización bayesiana -->
+        <div class="val-block val-bayes">
+          <h3>Actualización bayesiana del voto exterior</h3>
+          <p class="val-block-desc">Partimos del desempeño 2021 como <em>prior</em> y lo actualizamos con el 26 % del exterior ya contabilizado. El posterior se desplaza un punto hacia abajo — evidencia ligeramente menos favorable que en 2021, pero aún ampliamente pro-Fujimori.</p>
+          <div id="val-bayes-canvas" class="val-bayes-canvas" role="img" aria-label="Distribución prior y posterior del voto exterior"></div>
+          <div class="val-bayes-legend">
+            <span><span class="bayes-sw bayes-sw-prior"></span> Prior · calibrado a 2021 (μ&nbsp;=&nbsp;66,2&nbsp;%)</span>
+            <span><span class="bayes-sw bayes-sw-likeli"></span> Likelihood · 64,0&nbsp;% observado al 26&nbsp;% escrutado</span>
+            <span><span class="bayes-sw bayes-sw-post"></span> Posterior · actualizado</span>
+          </div>
+        </div>
+
+        <!-- Escenarios adversariales -->
+        <div class="val-block">
+          <h3>Siete escenarios adversariales (worst-case Sánchez)</h3>
+          <p class="val-block-desc">Reejecutamos M3 perturbando los parámetros más sensibles uno a uno y combinados. Solo el cisne negro — cuatro shocks simultáneos sin precedente histórico — invierte la señal.</p>
+          <div id="val-adversarial" class="val-adversarial"></div>
+        </div>
+
+        <!-- Benchmark externo -->
+        <div class="val-block val-twocol">
+          <div>
+            <h3>Benchmarks externos de mercado</h3>
+            <p class="val-block-desc">Cuatro fuentes independientes proyectan probabilidades entre 78 % y 95 %. Promedio: 86 %. Usamos este valor como ancla para corregir la sobreconfianza del modelo crudo.</p>
+            <div id="val-mercados" class="val-mercados"></div>
+          </div>
+          <aside class="val-historico">
+            <h3>Calibración histórica · segunda vuelta 2021</h3>
+            <p>Fujimori obtuvo <strong>66,2&nbsp;%</strong> del voto exterior (220&thinsp;588 vs 112&thinsp;671 de Castillo) y aun así perdió por <strong>44&thinsp;263</strong> votos. El exterior aporta entre 80&thinsp;k y 110&thinsp;k de margen neto a Fujimori — magnitud que en 2026 alcanza para revertir los ≈25&thinsp;k de ventaja de Sánchez.</p>
+            <div class="val-historico-stats">
+              <div><span class="val-historico-num">66,2 %</span><span class="val-historico-lbl">Fujimori exterior 2021</span></div>
+              <div><span class="val-historico-num">+107&thinsp;917</span><span class="val-historico-lbl">Margen exterior neto 2021</span></div>
+              <div><span class="val-historico-num">−44&thinsp;263</span><span class="val-historico-lbl">Resultado final 2021</span></div>
+            </div>
+            <p class="val-historico-fuente">Fuente: <a href="https://es.wikipedia.org/wiki/Elecciones_generales_de_Per%C3%BA_de_2021" target="_blank" rel="noopener">ONPE 2021 · Wikipedia</a>.</p>
+          </aside>
+        </div>
+
+        <!-- Limitaciones residuales -->
+        <details class="val-meta">
+          <summary>Validación cruzada · supuestos y limitaciones residuales</summary>
+          <div class="val-meta-body">
+            <h4>Convergencias detectadas</h4>
+            <ul id="val-convergencias"></ul>
+            <h4>Limitaciones que persisten</h4>
+            <ul id="val-limitaciones"></ul>
+            <p class="val-meta-fuentes">Fuentes principales: <a href="https://elpais.com/america/2026-06-09/resultados-de-las-elecciones-en-peru-en-vivo.html" target="_blank" rel="noopener">El País (live)</a> · <a href="https://www.libertaddigital.com/internacional/latinoamerica/2026-06-09/keiko-fujimori-a-un-paso-de-ganar-las-elecciones-en-peru-gracias-al-voto-en-el-extranjero-7418051/" target="_blank" rel="noopener">Libertad Digital (Polymarket)</a> · <a href="https://octagonai.co/news/peru-presidential-election-2026-odds/" target="_blank" rel="noopener">Octagon AI (Kalshi)</a> · <a href="https://www.infobae.com/peru/2026/06/08/el-voto-del-extranjero-aun-no-es-contabilizado-por-la-onpe-podria-cambiar-el-rumbo-de-la-eleccion-presidencial/" target="_blank" rel="noopener">Infobae (Henry Rafael)</a> · <a href="https://ojo-publico.com/ultimas-noticias/6355/segunda-vuelta-mas-1500-actas-votacion-fueron-observadas" target="_blank" rel="noopener">OjoPúblico (actas observadas)</a>.</p>
           </div>
         </details>
       </div>

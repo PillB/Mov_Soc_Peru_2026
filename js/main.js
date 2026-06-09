@@ -1314,16 +1314,22 @@
     const totalPend = (br.votos_pendientes && br.votos_pendientes.total) || 0;
     text('#rev-total-pend', fmt(Math.round(totalPend)));
     text('#rev-prob', pct(m.probabilidad_fujimori_gana || 0, 2));
-    text('#rev-prob-sub', 'Fujimori supera a Sánchez al cierre del cómputo · ' + (m.n_simulaciones ? fmt(m.n_simulaciones) : '100 000') + ' iteraciones');
+    const probSubBase = 'Predicción ajustada · ensemble de 4 modelos + mercados de predicción';
+    text('#rev-prob-sub', probSubBase);
     text('#rev-margen', sgn(Math.round(m.margen_final_media || 0)) + ' votos');
     text('#rev-margen-banda', 'Banda 90 %: [' + sgn(Math.round(m.margen_final_p5 || 0)) + ' ; ' + sgn(Math.round(m.margen_final_p95 || 0)) + ']');
     text('#rev-breakeven', fmt(br.votos_fujimori_necesarios || 0) + ' votos');
     text('#rev-breakeven-pct', '≥' + String(br.pct_pendiente_necesario || 0).replace('.', ',') + ' % del pendiente debe ir a Fujimori');
     text('#rev-ventaja', fmt(est.ventaja_sanchez_votos || br.ventaja_actual_sanchez || 0) + ' votos');
+    if (est.pct_escrutado != null) {
+      const pe = (est.pct_escrutado * 100).toFixed(2).replace('.', ',') + ' % escrutado (ONPE)';
+      text('#rev-ventaja-sub', 'al ' + pe);
+    }
 
     renderHistogram(hist);
     renderPaises(paises);
     renderSensibilidad(sens);
+    renderValidacion(mc);
 
     // Limitaciones
     const lims = $('#rev-meta-lims');
@@ -1548,6 +1554,320 @@
       row.appendChild(el('span', { class: 'rev-sens-val' }, (p * 100).toFixed(2).replace('.', ',') + ' %'));
       root.appendChild(row);
     });
+  }
+
+  // ---------- Validación cruzada (Sección 2c) ----------
+  function renderValidacion(mc) {
+    const root = $('#validacion');
+    if (!root) return;
+    if (!mc || !mc.modelos || !mc.prediccion_final_v33) { root.style.display = 'none'; return; }
+
+    const fmt = (n) => Number(n).toLocaleString('es-PE', { maximumFractionDigits: 0 });
+    const sgn = (n) => (n >= 0 ? '+' : '−') + fmt(Math.abs(Math.round(n)));
+    const pct = (n, dec) => (Number(n) * 100).toFixed(dec != null ? dec : 1).replace('.', ',') + ' %';
+
+    const pred = mc.prediccion_final_v33;
+    const modelos = mc.modelos;
+    const mercados = mc.benchmark_externo_mercado || {};
+    const adv = mc.escenarios_adversariales || {};
+    const cruzada = mc.validacion_cruzada || {};
+    const lims = mc.limitaciones_residuales || [];
+
+    // KPI headline
+    text('#val-prob-ajustada', pct(pred.p_fujimori_revierte_ajustada_final, 1));
+    text('#val-formula', '60 % ensemble (' + pct(pred.p_fujimori_revierte_ensemble_modelos, 1) + ') + 40 % mercados (' + pct(pred.p_fujimori_revierte_mercado_promedio, 0) + ')');
+    text('#val-margen-mediano', sgn(pred.margen_final_mediano) + ' votos');
+    const ic = pred.margen_ic90 || [0, 0];
+    text('#val-margen-ic', '[' + sgn(ic[0]) + ' · ' + sgn(ic[1]) + ']');
+
+    // Tabla de modelos
+    const modelosInfo = [
+      { key: 'M1_independencia', nombre: 'M1 · Independencia', supuesto: 'Países no correlacionados (línea base v3.2)' },
+      { key: 'M2_correlacion', nombre: 'M2 · Correlación diaspórica', supuesto: 'Shock común ε ∼ N(0, 0,04) a toda la diáspora' },
+      { key: 'M3_bayesiano', nombre: 'M3 · Posterior bayesiano', supuesto: 'Actualizado con 64 % exterior observado al 26 %' },
+      { key: 'M4_bootstrap_2021', nombre: 'M4 · Bootstrap 2021', supuesto: 'Calibrado al desempeño real Castillo–Fujimori 2021' },
+      { key: 'ensemble_ponderado', nombre: 'Ensemble ponderado', supuesto: 'Inversa de varianza sobre M1–M4', highlight: true },
+    ];
+    const tbody = root.querySelector('#val-modelos tbody');
+    tbody.innerHTML = '';
+    modelosInfo.forEach(info => {
+      const m = modelos[info.key];
+      if (!m) return;
+      const tr = el('tr', info.highlight ? { class: 'val-modelo-highlight' } : null);
+      tr.appendChild(el('td', { class: 'val-modelo-nombre' }, info.nombre));
+      tr.appendChild(el('td', { class: 'val-modelo-supuesto' }, info.supuesto));
+      tr.appendChild(el('td', { class: 'num' }, pct(m.p_fuj_gana, 2)));
+      tr.appendChild(el('td', { class: 'num' }, sgn(m.margen_p50)));
+      tr.appendChild(el('td', { class: 'num' }, '[' + sgn(m.margen_p5) + ' ; ' + sgn(m.margen_p95) + ']'));
+      tbody.appendChild(tr);
+    });
+
+    // Bayesiano: dibujar prior + posterior
+    renderBayesianUpdate(modelos.M3_bayesiano);
+
+    // Adversarial bars
+    renderAdversarial(adv);
+
+    // Mercados
+    renderMercados(mercados, pred.p_fujimori_revierte_ajustada_final);
+
+    // Convergencias y limitaciones
+    const conv = $('#val-convergencias');
+    if (conv) {
+      conv.innerHTML = '';
+      const ordered = [
+        ['Entre modelos', cruzada.consistencia_entre_modelos],
+        ['Con el mercado', cruzada.convergencia_con_mercado],
+        ['Con el experto Henry Rafael (Infobae)', cruzada.convergencia_con_experto_henry_rafael],
+        ['Con el voto exterior observado', cruzada.convergencia_con_observado_exterior_26pct],
+      ];
+      ordered.forEach(([lbl, txt]) => {
+        if (!txt) return;
+        const li = el('li');
+        li.appendChild(el('strong', null, lbl + ': '));
+        li.appendChild(document.createTextNode(txt));
+        conv.appendChild(li);
+      });
+    }
+    const limUl = $('#val-limitaciones');
+    if (limUl) {
+      limUl.innerHTML = '';
+      lims.forEach(l => limUl.appendChild(el('li', null, l)));
+    }
+  }
+
+  function renderBayesianUpdate(m3) {
+    const root = $('#val-bayes-canvas');
+    if (!root || !m3) return;
+    root.innerHTML = '';
+
+    const W = 760, H = 300;
+    const padL = 56, padR = 24, padT = 28, padB = 64;
+    const innerW = W - padL - padR;
+    const innerH = H - padT - padB;
+
+    // Beta PDFs evaluados numéricamente sobre [0.50, 0.80]
+    function beta_pdf(x, a, b) {
+      // log B(a,b) por Stirling para no necesitar libreria
+      const lgamma = (z) => {
+        // Lanczos approximation
+        const g = 7;
+        const p = [0.99999999999980993, 676.5203681218851, -1259.1392167224028,
+                   771.32342877765313, -176.61502916214059, 12.507343278686905,
+                   -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7];
+        if (z < 0.5) return Math.log(Math.PI / Math.sin(Math.PI*z)) - lgamma(1-z);
+        z -= 1;
+        let x = p[0];
+        for (let i = 1; i < g+2; i++) x += p[i]/(z+i);
+        const t = z + g + 0.5;
+        return 0.5*Math.log(2*Math.PI) + (z+0.5)*Math.log(t) - t + Math.log(x);
+      };
+      if (x <= 0 || x >= 1) return 0;
+      const lnB = lgamma(a) + lgamma(b) - lgamma(a+b);
+      const lnPdf = (a-1)*Math.log(x) + (b-1)*Math.log(1-x) - lnB;
+      return Math.exp(lnPdf);
+    }
+
+    const xMin = 0.50, xMax = 0.80;
+    const N = 100;
+    const xs = [];
+    for (let i = 0; i <= N; i++) xs.push(xMin + (xMax-xMin)*i/N);
+
+    // Prior: Beta calibrado a 2021 (μ=0.662, σ=0.05) → a0≈59.5, b0≈30.4
+    const muPrior = 0.662, sigmaPrior = 0.05;
+    const kPr = muPrior*(1-muPrior)/(sigmaPrior*sigmaPrior) - 1;
+    const a0 = muPrior*kPr, b0 = (1-muPrior)*kPr;
+
+    // Posterior
+    const aPost = m3.posterior_beta_alpha || a0 + 49266;
+    const bPost = m3.posterior_beta_beta || b0 + 27713;
+    // Para visualizar, escalamos posterior a la misma altura visual (su pdf real es enorme).
+    // En su lugar, dibujamos la posterior como una Normal aproximada centrada en su media y σ.
+    const muPost = aPost / (aPost + bPost);
+    const varPost = (aPost*bPost) / ((aPost+bPost)*(aPost+bPost)*(aPost+bPost+1));
+    // σ real es ≈0.0017 (posterior altamente informativo). Para visualizar la posición
+    // y forma del posterior sin generar una delta, ampliamos visualmente a σ=0.012.
+    const sigmaPost = Math.max(Math.sqrt(varPost), 0.012);
+
+    function normal_pdf(x, mu, s) {
+      return Math.exp(-0.5*((x-mu)/s)*((x-mu)/s)) / (s*Math.sqrt(2*Math.PI));
+    }
+
+    const priorVals = xs.map(x => beta_pdf(x, a0, b0));
+    const postVals = xs.map(x => normal_pdf(x, muPost, sigmaPost));
+
+    const yMax = Math.max(
+      Math.max.apply(null, priorVals),
+      Math.max.apply(null, postVals) * 0.85, // escalamos la posterior para que entre visualmente
+      0.1
+    );
+
+    const xScale = (v) => padL + ((v - xMin) / (xMax - xMin)) * innerW;
+    const yScale = (v) => padT + innerH - (v / yMax) * innerH;
+
+    const NS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    svg.setAttribute('class', 'val-bayes-svg');
+    svg.setAttribute('role', 'img');
+
+    // Eje X
+    const axis = document.createElementNS(NS, 'line');
+    axis.setAttribute('x1', padL); axis.setAttribute('x2', padL + innerW);
+    axis.setAttribute('y1', padT + innerH); axis.setAttribute('y2', padT + innerH);
+    axis.setAttribute('class', 'val-bayes-axis');
+    svg.appendChild(axis);
+
+    // Ticks X cada 5 pp
+    for (let v = 0.50; v <= 0.80 + 1e-9; v += 0.05) {
+      const x = xScale(v);
+      const ln = document.createElementNS(NS, 'line');
+      ln.setAttribute('x1', x); ln.setAttribute('x2', x);
+      ln.setAttribute('y1', padT + innerH); ln.setAttribute('y2', padT + innerH + 5);
+      ln.setAttribute('class', 'val-bayes-tick');
+      svg.appendChild(ln);
+      const lbl = document.createElementNS(NS, 'text');
+      lbl.setAttribute('x', x); lbl.setAttribute('y', padT + innerH + 20);
+      lbl.setAttribute('text-anchor', 'middle');
+      lbl.setAttribute('class', 'val-bayes-axis-lbl');
+      lbl.textContent = (v * 100).toFixed(0) + '%';
+      svg.appendChild(lbl);
+    }
+    const xTitle = document.createElementNS(NS, 'text');
+    xTitle.setAttribute('x', padL + innerW/2);
+    xTitle.setAttribute('y', padT + innerH + 50);
+    xTitle.setAttribute('text-anchor', 'middle');
+    xTitle.setAttribute('class', 'val-bayes-axis-title');
+    xTitle.textContent = '% del voto exterior para Fujimori';
+    svg.appendChild(xTitle);
+
+    // Marca μ prior debajo del eje (alineada con ticks)
+    const xPriorMu0 = padL + ((muPrior - xMin) / (xMax - xMin)) * innerW;
+    const muLineSmall = document.createElementNS(NS, 'line');
+    muLineSmall.setAttribute('x1', xPriorMu0); muLineSmall.setAttribute('x2', xPriorMu0);
+    muLineSmall.setAttribute('y1', padT); muLineSmall.setAttribute('y2', padT + innerH);
+    muLineSmall.setAttribute('class', 'val-bayes-line-prior-mu');
+    svg.appendChild(muLineSmall);
+    const muLbl = document.createElementNS(NS, 'text');
+    muLbl.setAttribute('x', xPriorMu0); muLbl.setAttribute('y', padT - 12);
+    muLbl.setAttribute('text-anchor', 'middle');
+    muLbl.setAttribute('class', 'val-bayes-likeli-lbl');
+    muLbl.setAttribute('style', 'fill:#1f6f6b');
+    muLbl.textContent = 'Prior μ 66,2%';
+    svg.appendChild(muLbl);
+
+    function curve(values, klass) {
+      let d = '';
+      values.forEach((v, i) => {
+        const x = xScale(xs[i]);
+        const y = yScale(v);
+        d += (i === 0 ? 'M' : 'L') + x.toFixed(1) + ',' + y.toFixed(1);
+      });
+      const p = document.createElementNS(NS, 'path');
+      p.setAttribute('d', d);
+      p.setAttribute('class', klass);
+      p.setAttribute('fill', 'none');
+      svg.appendChild(p);
+    }
+
+    // Area prior
+    let priorD = 'M' + xScale(xs[0]) + ',' + (padT + innerH);
+    priorVals.forEach((v, i) => { priorD += 'L' + xScale(xs[i]) + ',' + yScale(v); });
+    priorD += 'L' + xScale(xs[xs.length-1]) + ',' + (padT + innerH) + 'Z';
+    const priorPath = document.createElementNS(NS, 'path');
+    priorPath.setAttribute('d', priorD);
+    priorPath.setAttribute('class', 'val-bayes-area-prior');
+    svg.appendChild(priorPath);
+
+    // Area posterior
+    let postD = 'M' + xScale(xs[0]) + ',' + (padT + innerH);
+    postVals.forEach((v, i) => { postD += 'L' + xScale(xs[i]) + ',' + yScale(v); });
+    postD += 'L' + xScale(xs[xs.length-1]) + ',' + (padT + innerH) + 'Z';
+    const postPath = document.createElementNS(NS, 'path');
+    postPath.setAttribute('d', postD);
+    postPath.setAttribute('class', 'val-bayes-area-post');
+    svg.appendChild(postPath);
+
+    curve(priorVals, 'val-bayes-line-prior');
+    curve(postVals, 'val-bayes-line-post');
+
+    // Línea vertical observado (likelihood)
+    const xObs = xScale(0.64);
+    const obsLine = document.createElementNS(NS, 'line');
+    obsLine.setAttribute('x1', xObs); obsLine.setAttribute('x2', xObs);
+    obsLine.setAttribute('y1', padT); obsLine.setAttribute('y2', padT + innerH);
+    obsLine.setAttribute('class', 'val-bayes-line-likeli');
+    svg.appendChild(obsLine);
+    const obsLbl = document.createElementNS(NS, 'text');
+    obsLbl.setAttribute('x', xObs); obsLbl.setAttribute('y', padT - 6);
+    obsLbl.setAttribute('text-anchor', 'middle');
+    obsLbl.setAttribute('class', 'val-bayes-likeli-lbl');
+    obsLbl.textContent = 'Observado 64,0%';
+    svg.appendChild(obsLbl);
+
+    root.appendChild(svg);
+  }
+
+  function renderAdversarial(adv) {
+    const root = $('#val-adversarial');
+    if (!root) return;
+    root.innerHTML = '';
+    const order = [
+      'Base (replica M3)',
+      'JNE anula 50% actas observadas',
+      'Participación exterior baja a 30%',
+      'Cola izquierda: Fuj ext baja a 58%',
+      'Doble shock adverso (Fuj 58% + JNE 50%)',
+      'Triple shock (Fuj 58% + JNE 50% + partic 30%)',
+      'Cisne negro (Fuj 55% + JNE 30% + partic 25% + rural fuerte Sánchez)',
+    ];
+    order.forEach(nombre => {
+      const e = adv[nombre];
+      if (!e) return;
+      const p = e.p_fujimori_gana;
+      const med = e.margen_mediano;
+      const row = el('div', { class: 'val-adv-row' });
+      row.appendChild(el('span', { class: 'val-adv-name' }, escapeHtml(nombre)));
+      const barWrap = el('div', { class: 'val-adv-bar-wrap' });
+      const w = Math.max(2, p * 100);
+      const cls = p >= 0.85 ? 'val-adv-bar-hi' : p >= 0.55 ? 'val-adv-bar-mid' : 'val-adv-bar-lo';
+      const bar = el('div', { class: 'val-adv-bar ' + cls, style: 'width:' + w + '%' });
+      barWrap.appendChild(bar);
+      // marca 50%
+      const tick50 = el('div', { class: 'val-adv-tick50' });
+      barWrap.appendChild(tick50);
+      row.appendChild(barWrap);
+      row.appendChild(el('span', { class: 'val-adv-val' }, (p * 100).toFixed(1).replace('.', ',') + ' %'));
+      const medSgn = med >= 0 ? '+' : '−';
+      row.appendChild(el('span', { class: 'val-adv-med' }, 'med ' + medSgn + Math.abs(Math.round(med)).toLocaleString('es-PE')));
+      root.appendChild(row);
+    });
+  }
+
+  function renderMercados(mercados, pAjustada) {
+    const root = $('#val-mercados');
+    if (!root) return;
+    root.innerHTML = '';
+    const entries = Object.keys(mercados).map(k => [k, mercados[k]]);
+    entries.sort((a, b) => b[1] - a[1]);
+    const maxV = 1.0;
+    entries.forEach(([nombre, v]) => {
+      const row = el('div', { class: 'val-merc-row' });
+      row.appendChild(el('span', { class: 'val-merc-name' }, escapeHtml(nombre)));
+      const barWrap = el('div', { class: 'val-merc-bar-wrap' });
+      const w = Math.max(2, (v / maxV) * 100);
+      const bar = el('div', { class: 'val-merc-bar', style: 'width:' + w + '%' });
+      barWrap.appendChild(bar);
+      row.appendChild(barWrap);
+      row.appendChild(el('span', { class: 'val-merc-val' }, (v * 100).toFixed(0) + ' %'));
+      root.appendChild(row);
+    });
+    if (pAjustada != null) {
+      const note = el('p', { class: 'val-merc-note' });
+      note.innerHTML = 'Nuestra predicción ajustada: <strong>' + (pAjustada*100).toFixed(1).replace('.', ',') + ' %</strong> — ubicada entre los modelos paramétricos y el promedio de mercados.';
+      root.appendChild(note);
+    }
   }
 
 })();
