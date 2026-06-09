@@ -1488,3 +1488,294 @@ tr:hover td { background: var(--c-bg-soft); }
   .grass-comunicados-grid { grid-template-columns: 1fr; }
   .grass-stats { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ============================================================
+   v3.2 — Escenario de Reversión (Montecarlo)
+============================================================ */
+
+#reversion { padding: var(--s-12) 0; background: var(--c-bg); border-top: 1px solid var(--c-line); }
+#reversion h2 { font-family: var(--font-serif); font-size: var(--text-2xl); line-height: 1.15; margin: var(--s-2) 0 var(--s-3); color: var(--c-ink); }
+#reversion h3 { font-family: var(--font-sans); font-size: var(--text-base); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--c-ink); margin: var(--s-8) 0 var(--s-2); }
+
+/* KPIs */
+.reversion-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-4);
+  margin-top: var(--s-6);
+}
+.rev-kpi {
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
+  padding: var(--s-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+.rev-kpi-primary {
+  background: linear-gradient(180deg, #3a1f1c 0%, #2a1612 100%);
+  color: #fef9f2;
+  border-color: #5a2d28;
+}
+.rev-kpi-label {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--c-muted);
+  font-weight: 600;
+}
+.rev-kpi-primary .rev-kpi-label { color: #d9b48f; }
+.rev-kpi-value {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--c-ink);
+  font-variant-numeric: tabular-nums;
+}
+.rev-kpi-primary .rev-kpi-value { color: #fef9f2; font-size: var(--text-3xl); }
+.rev-kpi-sub {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--c-muted);
+  line-height: 1.4;
+}
+.rev-kpi-primary .rev-kpi-sub { color: #c9a87a; }
+
+/* Histograma */
+.rev-dist { margin-top: var(--s-10); }
+.rev-dist-desc, .rev-paises-desc, .rev-sens-desc {
+  font-size: var(--text-sm);
+  color: var(--c-muted);
+  max-width: 70ch;
+  margin-bottom: var(--s-4);
+  line-height: 1.55;
+}
+.rev-histogram {
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
+  padding: var(--s-4);
+  position: relative;
+  overflow-x: auto;
+}
+.rev-histogram svg { width: 100%; height: 280px; display: block; }
+.hist-bar-f { fill: #2d5d3f; }
+.hist-bar-s { fill: #c08a3e; }
+.hist-bar-f-band { fill: #4a8a64; }
+.hist-bar-s-band { fill: #d9a55c; }
+.hist-axis-line { stroke: var(--c-line); stroke-width: 1; }
+.hist-zero-line { stroke: var(--c-ink); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.hist-label { font-family: var(--font-sans); font-size: 11px; fill: var(--c-muted); }
+.hist-label-zero { font-family: var(--font-sans); font-size: 11px; font-weight: 700; fill: var(--c-ink); }
+.rev-hist-legend {
+  display: flex;
+  gap: var(--s-6);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--c-muted);
+  margin-top: var(--s-3);
+  flex-wrap: wrap;
+}
+.rev-hist-legend span { display: inline-flex; align-items: center; gap: var(--s-2); }
+.hist-sw { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+.hist-sw-f { background: #2d5d3f; }
+.hist-sw-s { background: #c08a3e; }
+.hist-sw-band { background: linear-gradient(90deg, #4a8a64 50%, #d9a55c 50%); }
+
+/* Breakdown por país */
+.rev-paises { margin-top: var(--s-10); }
+.rev-paises-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-3);
+}
+.rev-pais-card {
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
+  padding: var(--s-4) var(--s-5);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--s-3);
+  align-items: start;
+}
+.rev-pais-name {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--text-base);
+  color: var(--c-ink);
+}
+.rev-pais-meta {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--c-muted);
+  margin-top: var(--s-1);
+}
+.rev-pais-stats {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.rev-pais-margen {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: #6e3a1a;
+}
+.rev-pais-banda {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--c-muted);
+}
+.rev-pais-bar {
+  grid-column: 1 / -1;
+  height: 6px;
+  background: rgba(192, 138, 62, 0.15);
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  margin-top: var(--s-2);
+}
+.rev-pais-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #c08a3e 0%, #8a5a28 100%);
+  border-radius: 3px;
+}
+.rev-pais-ciudades {
+  grid-column: 1 / -1;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--c-muted);
+  margin-top: var(--s-2);
+  font-style: italic;
+}
+
+/* Sensibilidad */
+.rev-sens { margin-top: var(--s-10); }
+.rev-sens-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+.rev-sens-item {
+  display: grid;
+  grid-template-columns: 1fr 90px 100px;
+  gap: var(--s-4);
+  padding: var(--s-3) var(--s-4);
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-sm);
+  align-items: center;
+}
+.rev-sens-name { font-family: var(--font-sans); font-size: var(--text-sm); color: var(--c-ink); }
+.rev-sens-bar { height: 8px; background: rgba(45, 93, 63, 0.12); border-radius: 4px; overflow: hidden; }
+.rev-sens-bar-fill { height: 100%; background: #2d5d3f; }
+.rev-sens-pct { font-family: var(--font-sans); font-size: var(--text-sm); font-weight: 700; color: var(--c-ink); font-variant-numeric: tabular-nums; text-align: right; }
+
+/* Metodología */
+.rev-meta {
+  margin-top: var(--s-10);
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
+  padding: 0;
+}
+.rev-meta summary {
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--c-ink);
+  padding: var(--s-4) var(--s-5);
+  list-style: none;
+  position: relative;
+}
+.rev-meta summary::after {
+  content: "+";
+  position: absolute;
+  right: var(--s-5);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--c-muted);
+}
+.rev-meta[open] summary::after { content: "−"; }
+.rev-meta-body { padding: 0 var(--s-5) var(--s-5); }
+.rev-meta-body h4 { font-family: var(--font-sans); font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.05em; color: var(--c-muted); margin: var(--s-4) 0 var(--s-2); }
+.rev-meta-body ul { padding-left: var(--s-5); margin: 0 0 var(--s-3); }
+.rev-meta-body li { font-size: var(--text-sm); line-height: 1.6; color: var(--c-ink); margin-bottom: var(--s-1); }
+.rev-meta-fuente { font-size: var(--text-xs); color: var(--c-muted); margin-top: var(--s-4); padding-top: var(--s-3); border-top: 1px solid var(--c-line); }
+
+/* Mobile */
+@media (max-width: 640px) {
+  .reversion-kpis { grid-template-columns: 1fr 1fr; }
+  .rev-kpi-primary { grid-column: 1 / -1; }
+  .rev-paises-grid { grid-template-columns: 1fr; }
+  .rev-sens-item { grid-template-columns: 1fr 70px; }
+  .rev-sens-bar { display: none; }
+  .rev-kpi-primary .rev-kpi-value { font-size: var(--text-2xl); }
+}
+
+/* === v3.2 · Reversion: complementos para SVG histograma y barras de país === */
+/* SVG histograma */
+.rev-hist-svg { width: 100%; height: 280px; display: block; }
+.rev-hist-bar { stroke: none; }
+.rev-hist-bar-f { fill: #2d5d3f; }
+.rev-hist-bar-s { fill: #c08a3e; }
+.rev-hist-band { fill: rgba(45, 93, 63, 0.10); }
+.rev-hist-zero { stroke: #c08a3e; stroke-width: 1.5; stroke-dasharray: 4 3; }
+.rev-hist-median { stroke: #0f2436; stroke-width: 1.5; stroke-dasharray: 2 2; }
+.rev-hist-median-lbl { font-family: var(--font-sans); font-size: 10px; fill: #0f2436; font-weight: 600; }
+.rev-hist-tick { stroke: var(--c-line); stroke-width: 1; }
+.rev-hist-axis-lbl { font-family: var(--font-sans); font-size: 11px; fill: var(--c-muted); }
+.rev-hist-axis-title { font-family: var(--font-sans); font-size: 11px; fill: var(--c-muted); font-weight: 600; }
+
+/* Países: nueva estructura usada por el JS de v3.2 */
+.rev-pais-card { display: block; padding: var(--s-4) var(--s-5); }
+.rev-pais-head { display: flex; align-items: center; gap: var(--s-3); margin-bottom: var(--s-3); }
+.rev-pais-rank { font-family: var(--font-serif); font-size: var(--text-lg); font-weight: 700; color: #6e3a1a; min-width: 28px; }
+.rev-pais-head h4 { margin: 0; font-family: var(--font-sans); font-size: var(--text-base); font-weight: 700; color: var(--c-ink); flex: 1; }
+.rev-pais-iso { font-family: var(--font-mono, ui-monospace, Menlo, Consolas, monospace); font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; background: #f1e8d8; color: #6e3a1a; letter-spacing: 0.04em; }
+.rev-pais-stats { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-2) var(--s-3); margin-bottom: var(--s-3); text-align: left; }
+.rev-stat { display: flex; flex-direction: column; gap: 1px; }
+.rev-stat-lbl { font-family: var(--font-sans); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--c-muted); font-weight: 600; }
+.rev-stat-val { font-family: var(--font-sans); font-size: var(--text-sm); font-weight: 700; color: var(--c-ink); font-variant-numeric: tabular-nums; }
+
+.rev-pais-bar-wrap { margin-top: var(--s-2); }
+.rev-pais-bar-track { position: relative; height: 10px; background: rgba(15, 36, 54, 0.05); border-radius: 5px; }
+.rev-pais-bar-zero { position: absolute; top: -2px; bottom: -2px; width: 1px; background: var(--c-muted); opacity: 0.6; }
+.rev-pais-bar-band { position: absolute; top: 2px; bottom: 2px; background: rgba(45, 93, 63, 0.18); border-radius: 3px; }
+.rev-pais-bar { position: absolute; top: 0; bottom: 0; border-radius: 3px; }
+.rev-pais-bar-f { background: linear-gradient(90deg, #4a8a64 0%, #2d5d3f 100%); }
+.rev-pais-bar-s { background: linear-gradient(270deg, #d9a55c 0%, #c08a3e 100%); }
+.rev-pais-bar-lbls { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--s-2); font-family: var(--font-sans); font-size: 11px; color: var(--c-muted); margin-top: var(--s-1); font-variant-numeric: tabular-nums; }
+.rev-pais-bar-l { text-align: left; }
+.rev-pais-bar-c { text-align: center; color: var(--c-ink); font-weight: 700; }
+.rev-pais-bar-r { text-align: right; }
+.rev-pais-piv { margin-top: var(--s-3); padding-top: var(--s-2); border-top: 1px dashed var(--c-line); font-family: var(--font-sans); font-size: 11px; color: var(--c-muted); line-height: 1.5; }
+.rev-pais-piv-lbl { font-weight: 700; color: var(--c-ink); }
+
+/* Sensibilidad: estructura v3.2 (row) */
+.rev-sens-row { display: grid; grid-template-columns: 1fr 120px 80px; gap: var(--s-4); padding: var(--s-3) var(--s-4); background: var(--c-bg-elev); border: 1px solid var(--c-line); border-radius: var(--r-sm); align-items: center; }
+.rev-sens-bar-wrap { height: 8px; background: rgba(15, 36, 54, 0.06); border-radius: 4px; overflow: hidden; }
+.rev-sens-bar { height: 100%; border-radius: 4px; }
+.rev-sens-bar-hi { background: linear-gradient(90deg, #4a8a64 0%, #2d5d3f 100%); }
+.rev-sens-bar-mid { background: linear-gradient(90deg, #d9a55c 0%, #c08a3e 100%); }
+.rev-sens-bar-lo { background: linear-gradient(90deg, #d97a4c 0%, #a64320 100%); }
+.rev-sens-val { font-family: var(--font-sans); font-size: var(--text-sm); font-weight: 700; color: var(--c-ink); font-variant-numeric: tabular-nums; text-align: right; }
+
+@media (max-width: 640px) {
+  .rev-pais-stats { grid-template-columns: 1fr 1fr; }
+  .rev-sens-row { grid-template-columns: 1fr 60px; }
+  .rev-sens-bar-wrap { display: none; }
+  .rev-histogram { padding: var(--s-2); }
+  .rev-hist-svg { height: 220px; }
+}

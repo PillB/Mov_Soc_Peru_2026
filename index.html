@@ -50,6 +50,7 @@
       <nav class="nav" id="primaryNav" aria-label="Navegación principal">
         <a href="#alert">Alerta</a>
         <a href="#post-electoral">Post-electoral</a>
+        <a href="#reversion">Escenario de reversión</a>
         <a href="#regions">Regiones</a>
         <a href="#grassroots-nacional">Grassroots</a>
         <a href="#social">Social</a>
@@ -138,6 +139,91 @@
           </article>
         </div>
         <div class="post-flashpoints" id="post-flashpoints" aria-label="Puntos de fricción probables"></div>
+      </div>
+    </section>
+
+    <!-- ===== SCENARIO DE REVERSIÓN — MONTECARLO ===== -->
+    <section id="reversion">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Sección 2b · Análisis cuantitativo</p>
+          <h2>Escenario de reversión: ¿puede Fujimori superar a Sánchez con los votos pendientes?</h2>
+          <p>Modelo de Montecarlo (100 000 iteraciones) sobre los <strong id="rev-total-pend">—</strong> votos pendientes (voto exterior + actas observadas + zonas rurales), con priors calibrados a la primera vuelta 2026 y la segunda vuelta 2021.</p>
+        </div>
+
+        <!-- KPI principal -->
+        <div class="reversion-kpis">
+          <article class="rev-kpi rev-kpi-primary">
+            <span class="rev-kpi-label">Probabilidad de reversión</span>
+            <span class="rev-kpi-value" id="rev-prob">—</span>
+            <span class="rev-kpi-sub" id="rev-prob-sub">Fujimori supera a Sánchez al cierre del cómputo</span>
+          </article>
+          <article class="rev-kpi">
+            <span class="rev-kpi-label">Margen final esperado</span>
+            <span class="rev-kpi-value" id="rev-margen">—</span>
+            <span class="rev-kpi-sub" id="rev-margen-banda">Banda 90 %: —</span>
+          </article>
+          <article class="rev-kpi">
+            <span class="rev-kpi-label">Votos pro-Fujimori requeridos</span>
+            <span class="rev-kpi-value" id="rev-breakeven">—</span>
+            <span class="rev-kpi-sub" id="rev-breakeven-pct">% del pendiente que debe capturar</span>
+          </article>
+          <article class="rev-kpi">
+            <span class="rev-kpi-label">Ventaja actual Sánchez</span>
+            <span class="rev-kpi-value" id="rev-ventaja">—</span>
+            <span class="rev-kpi-sub">al 95,979 % escrutado (ONPE)</span>
+          </article>
+        </div>
+
+        <!-- Distribución del margen final (histograma SVG) -->
+        <div class="rev-dist">
+          <h3>Distribución del margen final (Fujimori − Sánchez)</h3>
+          <p class="rev-dist-desc">Cada barra representa la frecuencia con que el modelo proyectó ese margen tras 100 000 escenarios independientes. Área verde a la derecha del cero = Fujimori revierte; área ámbar a la izquierda = Sánchez consolida.</p>
+          <div id="rev-histogram" class="rev-histogram" role="img" aria-label="Histograma del margen final"></div>
+          <div class="rev-hist-legend">
+            <span><span class="hist-sw hist-sw-f"></span> Fujimori gana</span>
+            <span><span class="hist-sw hist-sw-s"></span> Sánchez gana</span>
+            <span><span class="hist-sw hist-sw-band"></span> Banda 90 %</span>
+          </div>
+        </div>
+
+        <!-- Breakdown por país (TOP 6 + resto) -->
+        <div class="rev-paises">
+          <h3>Voto exterior pendiente — Top 6 países por electores hábiles</h3>
+          <p class="rev-paises-desc">Aporte esperado al margen pro-Fujimori, ordenado por mayor contribución absoluta. Barras horizontales muestran el rango simulado (p5 – p95).</p>
+          <div id="rev-paises-grid" class="rev-paises-grid"></div>
+        </div>
+
+        <!-- Sensibilidad -->
+        <div class="rev-sens">
+          <h3>Análisis de sensibilidad</h3>
+          <p class="rev-sens-desc">Cómo cambia la probabilidad de reversión al perturbar los parámetros clave del modelo (20 000 sub-iteraciones por escenario).</p>
+          <div id="rev-sens-list" class="rev-sens-list"></div>
+        </div>
+
+        <!-- Metodología + limitaciones -->
+        <details class="rev-meta">
+          <summary>Metodología, supuestos y limitaciones</summary>
+          <div class="rev-meta-body">
+            <h4>Variables aleatorias</h4>
+            <ul>
+              <li><strong>Participación exterior por país</strong> ∼ Beta(μ, σ), calibrada a la primera vuelta de 2026.</li>
+              <li><strong>% Fujimori por país</strong> ∼ Beta(μ, σ), referenciada a Castillo–Fujimori 2021 (~65 % exterior pro-Fujimori) y tendencias 2026.</li>
+              <li><strong>Validación JEE de actas observadas</strong> ∼ Beta(0,85; 0,05).</li>
+              <li><strong>Sesgo rural pro-Sánchez</strong> ∼ Beta(0,62; 0,04).</li>
+            </ul>
+            <h4>Supuestos clave</h4>
+            <ul>
+              <li>Independencia entre países (no se modela correlación de sesgo ideológico transcontinental).</li>
+              <li>30 % del voto exterior ya contabilizado al cierre del 9-jun 13:00 (ONPE).</li>
+              <li>Actas observadas tienen mezcla 60 % Lima / 40 % resto; el sesgo Fujimori esperado es 55,5 %.</li>
+              <li>Semilla fija (42) para reproducibilidad.</li>
+            </ul>
+            <h4>Limitaciones</h4>
+            <ul id="rev-meta-lims"></ul>
+            <p class="rev-meta-fuente" id="rev-meta-fuente"></p>
+          </div>
+        </details>
       </div>
     </section>
 

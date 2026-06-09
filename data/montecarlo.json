@@ -1,0 +1,330 @@
+{
+  "metadata": {
+    "modelo": "Análisis de inversión electoral · Segunda Vuelta Perú 2026",
+    "fecha_corte_datos": "2026-06-09T13:00-05:00",
+    "fuente_principal": "ONPE (95.979% escrutado · 89,036 actas contabilizadas)",
+    "metodologia": "Montecarlo con priors Beta calibrados a 1ª vuelta 2026 y 2ª vuelta 2021",
+    "n_simulaciones": 100000,
+    "semilla_reproducibilidad": 42
+  },
+  "estado_actual": {
+    "pct_escrutado": 0.95979,
+    "votos_validos_contabilizados": 17949451,
+    "sanchez": {
+      "votos": 8984956,
+      "pct": 0.50057
+    },
+    "fujimori": {
+      "votos": 8964494,
+      "pct": 0.49943
+    },
+    "ventaja_sanchez_votos": 20462,
+    "actas_pendientes_total": 3730,
+    "actas_observadas_lima": 1547
+  },
+  "breakeven": {
+    "ventaja_actual_sanchez": 20462,
+    "votos_pendientes": {
+      "exterior": 288392.53799999994,
+      "observadas_lima_predominante": 301665,
+      "rurales": 114480,
+      "total": 704537.538
+    },
+    "votos_fujimori_necesarios": 362500,
+    "pct_pendiente_necesario": 51.45,
+    "votos_sanchez_para_consolidar": 342037,
+    "lectura": "Fujimori debe obtener ≥51.5% de los ~704,538 votos pendientes para revertir."
+  },
+  "montecarlo": {
+    "n_simulaciones": 100000,
+    "probabilidad_fujimori_gana": 0.99929,
+    "probabilidad_sanchez_gana": 0.0007099999999999884,
+    "margen_final_media": 66048.03534636836,
+    "margen_final_mediana": 65961.03293733392,
+    "margen_final_std": 20707.99171617793,
+    "margen_final_p5": 32199.273756216466,
+    "margen_final_p25": 52010.533837331925,
+    "margen_final_p50": 65961.03293733392,
+    "margen_final_p75": 79978.04588314518,
+    "margen_final_p95": 99984.8220994342,
+    "fujimori_total_media": 9336104.437679052,
+    "sanchez_total_media": 9270056.402332684,
+    "fujimori_total_p5": 9311081.60506334,
+    "fujimori_total_p95": 9361021.524910927,
+    "sanchez_total_p5": 9248368.383732367,
+    "sanchez_total_p95": 9291580.358576966
+  },
+  "histograma_margen": {
+    "bins_edges": [
+      18268.94954369668,
+      20200.65233578309,
+      22132.355127869498,
+      24064.057919955907,
+      25995.760712042313,
+      27927.463504128726,
+      29859.16629621513,
+      31790.86908830154,
+      33722.57188038795,
+      35654.27467247436,
+      37585.97746456077,
+      39517.680256647174,
+      41449.38304873358,
+      43381.08584081999,
+      45312.788632906406,
+      47244.49142499281,
+      49176.19421707922,
+      51107.89700916562,
+      53039.59980125204,
+      54971.30259333845,
+      56903.005385424854,
+      58834.70817751126,
+      60766.41096959768,
+      62698.113761684086,
+      64629.81655377049,
+      66561.5193458569,
+      68493.2221379433,
+      70424.92493002972,
+      72356.62772211613,
+      74288.33051420253,
+      76220.03330628894,
+      78151.73609837536,
+      80083.43889046177,
+      82015.14168254817,
+      83946.84447463458,
+      85878.547266721,
+      87810.2500588074,
+      89741.95285089381,
+      91673.65564298021,
+      93605.35843506664,
+      95537.06122715304,
+      97468.76401923945,
+      99400.46681132585,
+      101332.16960341226,
+      103263.87239549868,
+      105195.57518758508,
+      107127.27797967149,
+      109058.9807717579,
+      110990.6835638443,
+      112922.38635593072,
+      114854.08914801713
+    ],
+    "counts": [
+      286,
+      358,
+      452,
+      527,
+      616,
+      710,
+      827,
+      1063,
+      1179,
+      1435,
+      1510,
+      1701,
+      1985,
+      2176,
+      2414,
+      2618,
+      2756,
+      3049,
+      3156,
+      3313,
+      3452,
+      3464,
+      3589,
+      3765,
+      3678,
+      3669,
+      3699,
+      3599,
+      3502,
+      3349,
+      3199,
+      3070,
+      2789,
+      2661,
+      2482,
+      2239,
+      2044,
+      1852,
+      1647,
+      1415,
+      1247,
+      1142,
+      915,
+      765,
+      597,
+      539,
+      460,
+      421,
+      359,
+      260
+    ],
+    "x_p5": 32199.273756216466,
+    "x_p50": 65961.03293733392,
+    "x_p95": 99984.8220994342,
+    "x_zero": 0
+  },
+  "breakdown_paises": [
+    {
+      "pais": "Estados Unidos",
+      "iso": "US",
+      "electores_habiles": 368185,
+      "participacion_2da_media": 0.22,
+      "fujimori_pct_media": 0.68,
+      "ciudades_pivote": [
+        "Miami",
+        "Nueva York",
+        "Los Ángeles",
+        "Houston",
+        "Chicago"
+      ],
+      "actas_pendientes_pct": 0.9,
+      "votos_esperados": 72900,
+      "margen_fujimori_media": 25024,
+      "margen_fujimori_p5": 16105,
+      "margen_fujimori_p95": 34449
+    },
+    {
+      "pais": "España",
+      "iso": "ES",
+      "electores_habiles": 219544,
+      "participacion_2da_media": 0.4,
+      "fujimori_pct_media": 0.64,
+      "ciudades_pivote": [
+        "Madrid",
+        "Barcelona",
+        "Bilbao",
+        "Tenerife",
+        "Valencia"
+      ],
+      "actas_pendientes_pct": 0.88,
+      "votos_esperados": 77279,
+      "margen_fujimori_media": 20500,
+      "margen_fujimori_p5": 10562,
+      "margen_fujimori_p95": 30628
+    },
+    {
+      "pais": "Argentina",
+      "iso": "AR",
+      "electores_habiles": 145893,
+      "participacion_2da_media": 0.44,
+      "fujimori_pct_media": 0.61,
+      "ciudades_pivote": [
+        "Buenos Aires",
+        "Córdoba",
+        "Mendoza",
+        "Rosario"
+      ],
+      "actas_pendientes_pct": 0.35,
+      "votos_esperados": 22467,
+      "margen_fujimori_media": 4684,
+      "margen_fujimori_p5": 1460,
+      "margen_fujimori_p95": 7925
+    },
+    {
+      "pais": "Chile",
+      "iso": "CL",
+      "electores_habiles": 137987,
+      "participacion_2da_media": 0.4,
+      "fujimori_pct_media": 0.59,
+      "ciudades_pivote": [
+        "Santiago",
+        "Iquique",
+        "Arica",
+        "Antofagasta"
+      ],
+      "actas_pendientes_pct": 0.5,
+      "votos_esperados": 27597,
+      "margen_fujimori_media": 4692,
+      "margen_fujimori_p5": 834,
+      "margen_fujimori_p95": 8619
+    },
+    {
+      "pais": "Italia",
+      "iso": "IT",
+      "electores_habiles": 123185,
+      "participacion_2da_media": 0.48,
+      "fujimori_pct_media": 0.66,
+      "ciudades_pivote": [
+        "Milán",
+        "Roma",
+        "Florencia",
+        "Génova",
+        "Bolonia"
+      ],
+      "actas_pendientes_pct": 0.85,
+      "votos_esperados": 50259,
+      "margen_fujimori_media": 15326,
+      "margen_fujimori_p5": 8806,
+      "margen_fujimori_p95": 21822
+    },
+    {
+      "pais": "Japón",
+      "iso": "JP",
+      "electores_habiles": 28503,
+      "participacion_2da_media": 0.55,
+      "fujimori_pct_media": 0.74,
+      "ciudades_pivote": [
+        "Tokio",
+        "Osaka",
+        "Nagoya",
+        "Yokohama"
+      ],
+      "actas_pendientes_pct": 0.85,
+      "votos_esperados": 13325,
+      "margen_fujimori_media": 6090,
+      "margen_fujimori_p5": 4559,
+      "margen_fujimori_p95": 7635
+    },
+    {
+      "pais": "Resto del mundo (67 países)",
+      "iso": "WW",
+      "electores_habiles": 170875,
+      "participacion_2da_media": 0.36,
+      "fujimori_pct_media": 0.6,
+      "ciudades_pivote": [],
+      "actas_pendientes_pct": 0.7,
+      "votos_esperados": 43060,
+      "margen_fujimori_media": 8124,
+      "margen_fujimori_p5": 1270,
+      "margen_fujimori_p95": 15057
+    }
+  ],
+  "sensibilidad": [
+    {
+      "escenario": "Participación exterior baja (30%)",
+      "p_fujimori_gana": 0.98295
+    },
+    {
+      "escenario": "Participación exterior alta (50%)",
+      "p_fujimori_gana": 0.99995
+    },
+    {
+      "escenario": "Sesgo Fujimori exterior menor (-6pp)",
+      "p_fujimori_gana": 0.93415
+    },
+    {
+      "escenario": "Sesgo Fujimori exterior mayor (+6pp)",
+      "p_fujimori_gana": 1.0
+    },
+    {
+      "escenario": "JEE anula 30% actas observadas",
+      "p_fujimori_gana": 0.99945
+    },
+    {
+      "escenario": "Rural llega completo y vota Sánchez fuerte",
+      "p_fujimori_gana": 0.99655
+    }
+  ],
+  "interpretacion": {
+    "veredicto_principal": "P(Fujimori revierte) ≈ 99.9%. Margen final esperado (Fujimori − Sánchez) = +66,048 votos con banda de 90% en [+32,199, +99,985].",
+    "factor_decisivo": "Estados Unidos aporta el mayor margen pro-Fujimori esperado entre los pendientes (diáspora urbana conservadora con baja participación histórica).",
+    "limitaciones": [
+      "Asume independencia entre países (puede subestimar correlación de sesgo ideológico exterior).",
+      "Priors de Fujimori-exterior calibrados a 2021 (Castillo-Fujimori) ajustados a tendencias 2026.",
+      "No modela posible anulación masiva por JNE más allá del 30% en sensibilidad.",
+      "Participación 2ª vuelta exterior aún no totalmente observada (40-45% es estimación)."
+    ]
+  }
+}

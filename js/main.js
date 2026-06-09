@@ -78,8 +78,11 @@
   }
 
   // ---------- Load ----------
-  fetch('data/events.json', { cache: 'no-cache' })
-    .then(r => { if (!r.ok) throw new Error('No se pudo cargar events.json (HTTP ' + r.status + ')'); return r.json(); })
+  Promise.all([
+    fetch('data/events.json', { cache: 'no-cache' }).then(r => { if (!r.ok) throw new Error('No se pudo cargar events.json (HTTP ' + r.status + ')'); return r.json(); }),
+    fetch('data/montecarlo.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).catch(() => null)
+  ])
+    .then(([events, mc]) => { if (mc) events.montecarlo = mc; return events; })
     .then(render)
     .catch(err => {
       console.error(err);
@@ -115,6 +118,7 @@
     renderAltMedia(d.alt_media || []);
     renderDisinfo(d.disinformation_cases || []);
     renderRiskMatrix(d.risk_matrix || []);
+    renderReversion(d.montecarlo || null);
     renderEarlyWarning(d.early_warning_indicators || []);
     renderMethod(d.methodology || {});
     renderSources(d.sources_index || []);
@@ -1284,6 +1288,265 @@
       }
       card.appendChild(meta);
       wrap.appendChild(card);
+    });
+  }
+
+  // ---------- Reversion / Montecarlo ----------
+  function renderReversion(mc) {
+    const root = $('#reversion');
+    if (!root) return;
+    if (!mc) { root.style.display = 'none'; return; }
+
+    const fmt = (n) => Number(n).toLocaleString('es-PE', { maximumFractionDigits: 0 });
+    const sgn = (n) => (n >= 0 ? '+' : '−') + fmt(Math.abs(n));
+    const pct = (n, dec = 2) => (Number(n) * 100).toFixed(dec).replace('.', ',') + ' %';
+
+    const est = mc.estado_actual || {};
+    const br = mc.breakeven || {};
+    const m = mc.montecarlo || {};
+    const hist = mc.histograma_margen || {};
+    const paises = mc.breakdown_paises || [];
+    const sens = mc.sensibilidad || [];
+    const interp = mc.interpretacion || {};
+    const meta = mc.metadata || {};
+
+    // KPIs
+    const totalPend = (br.votos_pendientes && br.votos_pendientes.total) || 0;
+    text('#rev-total-pend', fmt(Math.round(totalPend)));
+    text('#rev-prob', pct(m.probabilidad_fujimori_gana || 0, 2));
+    text('#rev-prob-sub', 'Fujimori supera a Sánchez al cierre del cómputo · ' + (m.n_simulaciones ? fmt(m.n_simulaciones) : '100 000') + ' iteraciones');
+    text('#rev-margen', sgn(Math.round(m.margen_final_media || 0)) + ' votos');
+    text('#rev-margen-banda', 'Banda 90 %: [' + sgn(Math.round(m.margen_final_p5 || 0)) + ' ; ' + sgn(Math.round(m.margen_final_p95 || 0)) + ']');
+    text('#rev-breakeven', fmt(br.votos_fujimori_necesarios || 0) + ' votos');
+    text('#rev-breakeven-pct', '≥' + String(br.pct_pendiente_necesario || 0).replace('.', ',') + ' % del pendiente debe ir a Fujimori');
+    text('#rev-ventaja', fmt(est.ventaja_sanchez_votos || br.ventaja_actual_sanchez || 0) + ' votos');
+
+    renderHistogram(hist);
+    renderPaises(paises);
+    renderSensibilidad(sens);
+
+    // Limitaciones
+    const lims = $('#rev-meta-lims');
+    if (lims) {
+      lims.innerHTML = '';
+      (interp.limitaciones || []).forEach(li => lims.appendChild(el('li', null, li)));
+    }
+    const fuente = $('#rev-meta-fuente');
+    if (fuente) {
+      fuente.innerHTML = '';
+      const small = el('span', null, 'Fuente principal: ');
+      fuente.appendChild(small);
+      fuente.appendChild(el('strong', null, meta.fuente_principal || 'ONPE'));
+      fuente.appendChild(document.createTextNode(' · Semilla: ' + (meta.semilla_reproducibilidad || 42) + ' · Corte: ' + (meta.fecha_corte_datos || '—')));
+    }
+  }
+
+  function renderHistogram(hist) {
+    const root = $('#rev-histogram');
+    if (!root) return;
+    root.innerHTML = '';
+    const edges = hist.bins_edges || [];
+    const counts = hist.counts || [];
+    if (edges.length < 2 || counts.length === 0) return;
+
+    const W = 720, H = 280;
+    const padL = 48, padR = 18, padT = 16, padB = 36;
+    const innerW = W - padL - padR;
+    const innerH = H - padT - padB;
+
+    const xMin = edges[0];
+    const xMax = edges[edges.length - 1];
+    const xRange = xMax - xMin || 1;
+    const yMax = Math.max.apply(null, counts) || 1;
+
+    const xScale = (v) => padL + ((v - xMin) / xRange) * innerW;
+    const yScale = (v) => padT + innerH - (v / yMax) * innerH;
+
+    const NS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    svg.setAttribute('class', 'rev-hist-svg');
+    svg.setAttribute('role', 'img');
+
+    // Bandas p5–p95
+    if (hist.x_p5 != null && hist.x_p95 != null) {
+      const x1 = xScale(hist.x_p5);
+      const x2 = xScale(hist.x_p95);
+      const band = document.createElementNS(NS, 'rect');
+      band.setAttribute('x', x1);
+      band.setAttribute('y', padT);
+      band.setAttribute('width', Math.max(0, x2 - x1));
+      band.setAttribute('height', innerH);
+      band.setAttribute('class', 'rev-hist-band');
+      svg.appendChild(band);
+    }
+
+    // Barras
+    for (let i = 0; i < counts.length; i++) {
+      const e0 = edges[i];
+      const e1 = edges[i + 1] != null ? edges[i + 1] : (e0 + (xRange / counts.length));
+      const center = (e0 + e1) / 2;
+      const x = xScale(e0);
+      const w = Math.max(1, xScale(e1) - xScale(e0) - 0.5);
+      const y = yScale(counts[i]);
+      const h = padT + innerH - y;
+      const rect = document.createElementNS(NS, 'rect');
+      rect.setAttribute('x', x);
+      rect.setAttribute('y', y);
+      rect.setAttribute('width', w);
+      rect.setAttribute('height', h);
+      rect.setAttribute('class', center >= 0 ? 'rev-hist-bar rev-hist-bar-f' : 'rev-hist-bar rev-hist-bar-s');
+      svg.appendChild(rect);
+    }
+
+    // Línea cero
+    if (xMin < 0 && xMax > 0) {
+      const zx = xScale(0);
+      const ln = document.createElementNS(NS, 'line');
+      ln.setAttribute('x1', zx); ln.setAttribute('x2', zx);
+      ln.setAttribute('y1', padT); ln.setAttribute('y2', padT + innerH);
+      ln.setAttribute('class', 'rev-hist-zero');
+      svg.appendChild(ln);
+    }
+
+    // Mediana
+    if (hist.x_p50 != null) {
+      const mx = xScale(hist.x_p50);
+      const ln = document.createElementNS(NS, 'line');
+      ln.setAttribute('x1', mx); ln.setAttribute('x2', mx);
+      ln.setAttribute('y1', padT); ln.setAttribute('y2', padT + innerH);
+      ln.setAttribute('class', 'rev-hist-median');
+      svg.appendChild(ln);
+      const lbl = document.createElementNS(NS, 'text');
+      lbl.setAttribute('x', mx);
+      lbl.setAttribute('y', padT - 4);
+      lbl.setAttribute('class', 'rev-hist-median-lbl');
+      lbl.setAttribute('text-anchor', 'middle');
+      lbl.textContent = 'Mediana ' + (hist.x_p50 >= 0 ? '+' : '') + Math.round(hist.x_p50).toLocaleString('es-PE');
+      svg.appendChild(lbl);
+    }
+
+    // Eje X: ticks principales
+    const ticks = 5;
+    for (let t = 0; t <= ticks; t++) {
+      const v = xMin + (xRange * t / ticks);
+      const x = xScale(v);
+      const ln = document.createElementNS(NS, 'line');
+      ln.setAttribute('x1', x); ln.setAttribute('x2', x);
+      ln.setAttribute('y1', padT + innerH); ln.setAttribute('y2', padT + innerH + 4);
+      ln.setAttribute('class', 'rev-hist-tick');
+      svg.appendChild(ln);
+      const lbl = document.createElementNS(NS, 'text');
+      lbl.setAttribute('x', x);
+      lbl.setAttribute('y', padT + innerH + 18);
+      lbl.setAttribute('class', 'rev-hist-axis-lbl');
+      lbl.setAttribute('text-anchor', 'middle');
+      const sign = v >= 0 ? '+' : '';
+      lbl.textContent = sign + Math.round(v / 1000) + 'k';
+      svg.appendChild(lbl);
+    }
+    // Etiqueta eje X
+    const xTitle = document.createElementNS(NS, 'text');
+    xTitle.setAttribute('x', padL + innerW / 2);
+    xTitle.setAttribute('y', H - 4);
+    xTitle.setAttribute('class', 'rev-hist-axis-title');
+    xTitle.setAttribute('text-anchor', 'middle');
+    xTitle.textContent = 'Margen final (votos Fujimori − Sánchez)';
+    svg.appendChild(xTitle);
+
+    root.appendChild(svg);
+  }
+
+  function renderPaises(paises) {
+    const grid = $('#rev-paises-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    if (!paises.length) return;
+    const sorted = paises.slice().sort((a, b) => (b.margen_fujimori_media || 0) - (a.margen_fujimori_media || 0));
+    const maxAbs = Math.max.apply(null, sorted.map(p => Math.abs(p.margen_fujimori_p95 || p.margen_fujimori_media || 0)));
+    const fmt = (n) => Number(n).toLocaleString('es-PE', { maximumFractionDigits: 0 });
+    const sgn = (n) => (n >= 0 ? '+' : '−') + fmt(Math.abs(n));
+
+    sorted.forEach((p, idx) => {
+      const card = el('article', { class: 'rev-pais-card' });
+      const head = el('header', { class: 'rev-pais-head' });
+      head.appendChild(el('span', { class: 'rev-pais-rank' }, '#' + (idx + 1)));
+      head.appendChild(el('h4', null, escapeHtml(p.pais || '—')));
+      const badge = el('span', { class: 'rev-pais-iso' }, escapeHtml(p.iso || ''));
+      head.appendChild(badge);
+      card.appendChild(head);
+
+      const stats = el('div', { class: 'rev-pais-stats' });
+      stats.appendChild(buildStat('Electores hábiles', fmt(p.electores_habiles || 0)));
+      stats.appendChild(buildStat('Votos esperados', fmt(p.votos_esperados || 0)));
+      stats.appendChild(buildStat('% Fujimori medio', ((p.fujimori_pct_media || 0) * 100).toFixed(0).replace('.', ',') + ' %'));
+      stats.appendChild(buildStat('% pendiente', ((p.actas_pendientes_pct || 0) * 100).toFixed(0).replace('.', ',') + ' %'));
+      card.appendChild(stats);
+
+      // Barra horizontal del margen
+      const barWrap = el('div', { class: 'rev-pais-bar-wrap' });
+      const center = 50; // % del contenedor
+      const margen = p.margen_fujimori_media || 0;
+      const w = maxAbs > 0 ? Math.abs(margen) / maxAbs * 48 : 0;
+      const p5 = p.margen_fujimori_p5 || 0;
+      const p95 = p.margen_fujimori_p95 || 0;
+      const wP5 = maxAbs > 0 ? Math.abs(p5) / maxAbs * 48 : 0;
+      const wP95 = maxAbs > 0 ? Math.abs(p95) / maxAbs * 48 : 0;
+
+      const track = el('div', { class: 'rev-pais-bar-track' });
+      track.appendChild(el('div', { class: 'rev-pais-bar-zero', style: 'left:' + center + '%' }));
+      // banda p5–p95
+      const bandLeft = p5 >= 0 ? center : center - wP5;
+      const bandWidth = (p5 >= 0 ? wP5 : wP5) + (p95 >= 0 ? wP95 : wP95);
+      const bandW = (p5 >= 0 && p95 >= 0) ? (wP95 - wP5) : (p5 < 0 && p95 < 0) ? (wP5 - wP95) : (wP5 + wP95);
+      const bandL = p5 >= 0 ? center + wP5 : center - wP5;
+      const band = el('div', { class: 'rev-pais-bar-band', style: 'left:' + bandL + '%;width:' + Math.max(0.5, bandW) + '%' });
+      track.appendChild(band);
+      // barra media
+      const bar = el('div', { class: 'rev-pais-bar ' + (margen >= 0 ? 'rev-pais-bar-f' : 'rev-pais-bar-s'), style: (margen >= 0 ? 'left:' + center + '%;' : 'left:' + (center - w) + '%;') + 'width:' + w + '%' });
+      track.appendChild(bar);
+      barWrap.appendChild(track);
+      const lbls = el('div', { class: 'rev-pais-bar-lbls' });
+      lbls.appendChild(el('span', { class: 'rev-pais-bar-l' }, sgn(p5)));
+      lbls.appendChild(el('span', { class: 'rev-pais-bar-c' }, sgn(margen) + ' votos'));
+      lbls.appendChild(el('span', { class: 'rev-pais-bar-r' }, sgn(p95)));
+      barWrap.appendChild(lbls);
+      card.appendChild(barWrap);
+
+      if (Array.isArray(p.ciudades_pivote) && p.ciudades_pivote.length) {
+        const piv = el('div', { class: 'rev-pais-piv' });
+        piv.appendChild(el('span', { class: 'rev-pais-piv-lbl' }, 'Ciudades pivote: '));
+        piv.appendChild(document.createTextNode(p.ciudades_pivote.join(' · ')));
+        card.appendChild(piv);
+      }
+
+      grid.appendChild(card);
+    });
+  }
+
+  function buildStat(label, value) {
+    const d = el('div', { class: 'rev-stat' });
+    d.appendChild(el('span', { class: 'rev-stat-lbl' }, label));
+    d.appendChild(el('span', { class: 'rev-stat-val' }, value));
+    return d;
+  }
+
+  function renderSensibilidad(sens) {
+    const root = $('#rev-sens-list');
+    if (!root) return;
+    root.innerHTML = '';
+    sens.forEach(s => {
+      const row = el('div', { class: 'rev-sens-row' });
+      row.appendChild(el('span', { class: 'rev-sens-name' }, escapeHtml(s.escenario || '—')));
+      const barWrap = el('div', { class: 'rev-sens-bar-wrap' });
+      const p = Number(s.p_fujimori_gana || 0);
+      const w = Math.max(2, p * 100);
+      const bar = el('div', { class: 'rev-sens-bar ' + (p >= 0.95 ? 'rev-sens-bar-hi' : p >= 0.85 ? 'rev-sens-bar-mid' : 'rev-sens-bar-lo'), style: 'width:' + w + '%' });
+      barWrap.appendChild(bar);
+      row.appendChild(barWrap);
+      row.appendChild(el('span', { class: 'rev-sens-val' }, (p * 100).toFixed(2).replace('.', ',') + ' %'));
+      root.appendChild(row);
     });
   }
 
