@@ -175,31 +175,36 @@
           </article>
         </div>
 
-        <!-- Distribución del margen final (histograma SVG) -->
-        <div class="rev-dist">
-          <h3>Distribución del margen final (Fujimori − Sánchez)</h3>
-          <p class="rev-dist-desc">Cada barra representa la frecuencia con que el modelo proyectó ese margen tras 100 000 escenarios independientes. Área verde a la derecha del cero = Fujimori revierte; área ámbar a la izquierda = Sánchez consolida.</p>
-          <div id="rev-histogram" class="rev-histogram" role="img" aria-label="Histograma del margen final"></div>
-          <div class="rev-hist-legend">
-            <span><span class="hist-sw hist-sw-f"></span> Fujimori gana</span>
-            <span><span class="hist-sw hist-sw-s"></span> Sánchez gana</span>
-            <span><span class="hist-sw hist-sw-band"></span> Banda 90 %</span>
+        <details class="foldable" data-fold="reversion-detail" open>
+          <summary><span class="fold-label">Ver distribución, países y sensibilidad</span><span class="fold-meta">3 visualizaciones</span></summary>
+          <div class="foldable-body">
+            <!-- Distribución del margen final (histograma SVG) -->
+            <div class="rev-dist">
+              <h3>Distribución del margen final (Fujimori − Sánchez)</h3>
+              <p class="rev-dist-desc">Cada barra representa la frecuencia con que el modelo proyectó ese margen tras 100 000 escenarios independientes. Área verde a la derecha del cero = Fujimori revierte; área ámbar a la izquierda = Sánchez consolida.</p>
+              <div id="rev-histogram" class="rev-histogram" role="img" aria-label="Histograma del margen final"></div>
+              <div class="rev-hist-legend">
+                <span><span class="hist-sw hist-sw-f"></span> Fujimori gana</span>
+                <span><span class="hist-sw hist-sw-s"></span> Sánchez gana</span>
+                <span><span class="hist-sw hist-sw-band"></span> Banda 90 %</span>
+              </div>
+            </div>
+
+            <!-- Breakdown por país (TOP 6 + resto) -->
+            <div class="rev-paises">
+              <h3>Voto exterior pendiente — Top 6 países por electores hábiles</h3>
+              <p class="rev-paises-desc">Aporte esperado al margen pro-Fujimori, ordenado por mayor contribución absoluta. Barras horizontales muestran el rango simulado (p5 – p95).</p>
+              <div id="rev-paises-grid" class="rev-paises-grid"></div>
+            </div>
+
+            <!-- Sensibilidad -->
+            <div class="rev-sens">
+              <h3>Análisis de sensibilidad</h3>
+              <p class="rev-sens-desc">Cómo cambia la probabilidad de reversión al perturbar los parámetros clave del modelo (20 000 sub-iteraciones por escenario).</p>
+              <div id="rev-sens-list" class="rev-sens-list"></div>
+            </div>
           </div>
-        </div>
-
-        <!-- Breakdown por país (TOP 6 + resto) -->
-        <div class="rev-paises">
-          <h3>Voto exterior pendiente — Top 6 países por electores hábiles</h3>
-          <p class="rev-paises-desc">Aporte esperado al margen pro-Fujimori, ordenado por mayor contribución absoluta. Barras horizontales muestran el rango simulado (p5 – p95).</p>
-          <div id="rev-paises-grid" class="rev-paises-grid"></div>
-        </div>
-
-        <!-- Sensibilidad -->
-        <div class="rev-sens">
-          <h3>Análisis de sensibilidad</h3>
-          <p class="rev-sens-desc">Cómo cambia la probabilidad de reversión al perturbar los parámetros clave del modelo (20 000 sub-iteraciones por escenario).</p>
-          <div id="rev-sens-list" class="rev-sens-list"></div>
-        </div>
+        </details>
 
         <!-- Metodología + limitaciones -->
         <details class="rev-meta">
@@ -280,6 +285,9 @@
           </div>
         </div>
 
+        <details class="foldable" data-fold="validacion-detail" open>
+          <summary><span class="fold-label">Ver actualización bayesiana, escenarios adversariales y benchmarks</span><span class="fold-meta">3 bloques</span></summary>
+          <div class="foldable-body">
         <!-- Actualización bayesiana -->
         <div class="val-block val-bayes">
           <h3>Actualización bayesiana del voto exterior</h3>
@@ -317,6 +325,9 @@
             <p class="val-historico-fuente">Fuente: <a href="https://es.wikipedia.org/wiki/Elecciones_generales_de_Per%C3%BA_de_2021" target="_blank" rel="noopener">ONPE 2021 · Wikipedia</a>.</p>
           </aside>
         </div>
+
+          </div>
+        </details>
 
         <!-- Limitaciones residuales -->
         <details class="val-meta">
@@ -484,7 +495,12 @@
             <button class="filter-btn" data-value="nacional">Nacional</button>
           </div>
         </div>
-        <div class="alt-media-grid" id="alt-media-grid" aria-live="polite"></div>
+        <details class="foldable" data-fold="alt-media" open>
+          <summary><span class="fold-label">Ver listado de medios alternativos</span><span class="fold-meta" id="alt-media-count">—</span></summary>
+          <div class="foldable-body">
+            <div class="alt-media-grid" id="alt-media-grid" aria-live="polite"></div>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -496,7 +512,12 @@
           <h2>Casos verificados de desinformación, deepfakes y manipulación</h2>
           <p>Inventario de bulos detectados por verificadores independientes (OjoPúblico, Convoca, Verificador La República, Transparencia, IDL-Reporteros). Cada caso indica plataformas de propagación y verificador.</p>
         </div>
-        <div class="disinfo-grid" id="disinfo-grid"></div>
+        <details class="foldable" data-fold="disinfo" open>
+          <summary><span class="fold-label">Ver casos verificados</span><span class="fold-meta" id="disinfo-count">—</span></summary>
+          <div class="foldable-body">
+            <div class="disinfo-grid" id="disinfo-grid"></div>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -508,21 +529,26 @@
           <h2>Matriz nacional de riesgo por escenario y región</h2>
           <p>Probabilidad cruzada con severidad esperada — clasificación cualitativa basada en señales OSINT verificadas.</p>
         </div>
-        <div class="table-wrap">
-          <table id="risk-table">
-            <thead>
-              <tr>
-                <th scope="col">Escenario</th>
-                <th scope="col">Región</th>
-                <th scope="col">Probabilidad</th>
-                <th scope="col">Severidad</th>
-                <th scope="col">Ventana</th>
-                <th scope="col">Zonas</th>
-              </tr>
-            </thead>
-            <tbody id="risk-tbody"></tbody>
-          </table>
-        </div>
+        <details class="foldable" data-fold="risk-matrix" open>
+          <summary><span class="fold-label">Ver matriz cruzada</span><span class="fold-meta" id="risk-matrix-count">—</span></summary>
+          <div class="foldable-body">
+            <div class="table-wrap">
+              <table id="risk-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Escenario</th>
+                    <th scope="col">Región</th>
+                    <th scope="col">Probabilidad</th>
+                    <th scope="col">Severidad</th>
+                    <th scope="col">Ventana</th>
+                    <th scope="col">Zonas</th>
+                  </tr>
+                </thead>
+                <tbody id="risk-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -534,7 +560,12 @@
           <h2>Indicadores de escalamiento que monitorear</h2>
           <p>Señales públicas que, de aparecer, elevarían el nivel de alerta global o regional. Acompañan al ciudadano y al analista en la actualización del dossier.</p>
         </div>
-        <div class="ew-grid" id="ew-grid"></div>
+        <details class="foldable" data-fold="early-warning" open>
+          <summary><span class="fold-label">Ver indicadores</span><span class="fold-meta" id="ew-count">—</span></summary>
+          <div class="foldable-body">
+            <div class="ew-grid" id="ew-grid"></div>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -546,7 +577,12 @@
           <h2>Dieciocho fases de análisis OSINT</h2>
           <p>Doce fases base (contexto, eventos, regional) + seis de expansión social (monitoreo de plataformas, lives, alt media, desinformación). Cada fase con preámbulo y retrospección. Síntesis verificada contra fuentes originales.</p>
         </div>
-        <div class="method" id="method-grid"></div>
+        <details class="foldable" data-fold="methodology">
+          <summary><span class="fold-label">Ver las dieciocho fases</span><span class="fold-meta" id="method-count">—</span></summary>
+          <div class="foldable-body">
+            <div class="method" id="method-grid"></div>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -562,7 +598,16 @@
           <label for="sources-filter" class="eyebrow" style="margin-right:var(--s-3)">Filtrar</label>
           <input type="search" id="sources-filter" placeholder="Buscar por palabra clave o región…" aria-label="Filtrar fuentes" />
         </div>
-        <div class="sources-list" id="sources-list"></div>
+        <details class="foldable" data-fold="sources">
+          <summary><span class="fold-label">Ver índice maestro</span><span class="fold-meta" id="sources-total-count">—</span></summary>
+          <div class="foldable-body">
+            <div class="sources-list" id="sources-list"></div>
+            <div class="sources-pager" id="sources-pager" hidden>
+              <button type="button" class="btn-more" id="sources-more">Mostrar más fuentes</button>
+              <span class="sources-pager-info" id="sources-pager-info"></span>
+            </div>
+          </div>
+        </details>
       </div>
     </section>
   </main>
@@ -591,6 +636,11 @@
     </div>
   </footer>
 
+  <button type="button" id="back-to-top" class="back-to-top" aria-label="Volver arriba" title="Volver arriba" hidden>
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 14l6-6 6 6"/></svg>
+  </button>
+
   <script src="js/main.js" defer></script>
+  <script src="js/ui-enhancements.js" defer></script>
 </body>
 </html>

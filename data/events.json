@@ -12628,7 +12628,3072 @@
           }
         ]
       }
-    ]
+    ],
+    "nacional": {
+      "accounts": [
+        {
+          "name": "Hernando Cevallos",
+          "handle": "@HCevallos",
+          "role": "organizador",
+          "platform": "X",
+          "url": "https://x.com/HCevallos",
+          "followers": "no verificado en esta consulta",
+          "notes": "En protesta nocturna frente al JNE declaró: 'La democracia no solo es decidir ir a votar y me voy a la casa. La calma no es incompatible con la movilización social.' Confirmó la marcha 'Los Cuatro Suyos' para el viernes 13 de junio.",
+          "verification": ""
+        },
+        {
+          "name": "Walter Flores",
+          "handle": "@WalterFloresJP",
+          "role": "organizador",
+          "platform": "X",
+          "url": "https://x.com/WalterFloresJP",
+          "followers": "no verificado en esta consulta",
+          "notes": "Desde plantón frente al JNE declaró: 'Hay una directiva de organizar al pueblo para hacer resistencia a los embates de la derecha.' Afirmó que 'hay todo un complot de la derecha que quiere preservar el poder político.'",
+          "verification": ""
+        },
+        {
+          "name": "Jaime Quito",
+          "handle": "@JaimeQuitoPeru",
+          "role": "autoridad local",
+          "platform": "X",
+          "url": "https://x.com/JaimeQuitoPeru",
+          "followers": "no verificado en esta consulta",
+          "notes": "Congresista de JP y virtual senador convocó a la 'defensa del voto' en concentración frente al JNE e instó a 'permanecer atentos ante posibles irregularidades en el proceso electoral'.",
+          "verification": ""
+        },
+        {
+          "name": "Samuel Breña",
+          "handle": "N/D",
+          "role": "líder vecinal",
+          "platform": "X",
+          "url": "N/D",
+          "followers": "N/D",
+          "notes": "Integrante de la organización Guardianes de Pedro Castillo, de 54 años, presente en el plantón frente al JNE. Declaró a El País: 'Venimos a salvaguardar el voto del pueblo.'",
+          "verification": ""
+        },
+        {
+          "name": "Renzo Reggiardo",
+          "handle": "@RenzoReggiardo",
+          "role": "autoridad local",
+          "platform": "X",
+          "url": "https://x.com/RenzoReggiardo",
+          "followers": "no verificado en esta consulta",
+          "notes": "Alcalde de Lima declaró alerta máxima en el Centro Histórico el 10 de junio: 'Estamos en alerta máxima para evitar violencia ante los anuncios de movilizaciones que, como era de esperarse, iban a suceder.' Dispuso vigilancia con ~1000 cámaras y patrullaje aéreo.",
+          "verification": ""
+        },
+        {
+          "name": "Rafael López Aliaga",
+          "handle": "@lopezaliaga",
+          "role": "organizador",
+          "platform": "X",
+          "url": "https://x.com/lopezaliaga",
+          "followers": "no verificado en esta consulta",
+          "notes": "Convocó las 'Marchas por la Democracia' en Lima, paseo de los Héroes Navales y Campo de Marte (Jesús María). Declaró en mayo: 'Vamos a preparar una marcha más potente, van a ser cinco suyos, porque hasta el mar lo vamos a mover.' Calificó al JNE de 'mafia'.",
+          "verification": ""
+        },
+        {
+          "name": "Norma Yarrow",
+          "handle": "@NormaYarrow",
+          "role": "autoridad local",
+          "platform": "X",
+          "url": "https://x.com/NormaYarrow",
+          "followers": "no verificado en esta consulta",
+          "notes": "Congresista de Renovación Popular participó en la marcha del 14 de mayo en el Campo de Marte y declaró: 'Cuando le da la gana al JNE, sí cambia su cronograma. (...) Se está reconociendo que ha habido delitos en actas fraguadas.'",
+          "verification": ""
+        },
+        {
+          "name": "Marco Sifuentes",
+          "handle": "@msifuentes",
+          "role": "comunicador",
+          "platform": "YT",
+          "url": "https://www.youtube.com/channel/UCP0AJJeNkFBYzegTTVbKhPg",
+          "followers": "no verificado en esta consulta",
+          "notes": "Conductor de La Encerrona; el 5 de junio anticipó 'el berrinche del fraude después del domingo' y criticó la desesperación fujimorista. Reportó el incidente donde le lanzaron un botellón a Keiko en la USIL.",
+          "verification": ""
+        },
+        {
+          "name": "César Hildebrandt",
+          "handle": "@hildebrandtperu",
+          "role": "comunicador",
+          "platform": "YT",
+          "url": "https://www.youtube.com/@hildebrandtensus13",
+          "followers": "no verificado en esta consulta",
+          "notes": "En su programa del 2 de junio rectificó su postura: 'La mejor opción en esta segunda vuelta —lo reconozco— es votar positivamente e impedir que el fujimorismo tenga plenos poderes y cumpla sus oscuros designios sobre todos nosotros.' Advirtió que si gana Keiko 'estaríamos próximos a una guerra civil'.",
+          "verification": ""
+        },
+        {
+          "name": "Wayka Perú",
+          "handle": "@wayka_pe",
+          "role": "comunicador",
+          "platform": "FB",
+          "url": "https://www.facebook.com/waykaperu",
+          "followers": "no verificado en esta consulta",
+          "notes": "Publicó sobre el mensaje 'entre líneas' de Keiko advirtiendo impugnación de votos y comentó: '¿Mantendrá nuevamente al país en vilo?' Transmitió en vivo la marcha del 30 de mayo desde el centro de Lima.",
+          "verification": ""
+        },
+        {
+          "name": "Eloy Marchán",
+          "handle": "N/D",
+          "role": "líder vecinal",
+          "platform": "X",
+          "url": "N/D",
+          "followers": "N/D",
+          "notes": "Difundió las primeras imágenes del incidente de la cisterna municipal contra los manifestantes en el parque Bausate y Meza, Jesús María, el 11 de junio.",
+          "verification": ""
+        },
+        {
+          "name": "Jhoana Arbizagasti",
+          "handle": "N/D",
+          "role": "frente de defensa",
+          "platform": "IG",
+          "url": "https://www.instagram.com/p/DY-GxSHDXow/",
+          "followers": "N/D",
+          "notes": "Vocera de colectivos convocantes de la marcha del 30 de mayo, advirtió que 'un voto perdido favorece a la lideresa de Fuerza Popular' e instó a no viciar el sufragio.",
+          "verification": ""
+        },
+        {
+          "name": "Ernesto Zunini",
+          "handle": "N/D",
+          "role": "frente de defensa",
+          "platform": "X",
+          "url": "N/D",
+          "followers": "N/D",
+          "notes": "Miembro del equipo técnico de Juntos por el Perú, participó en la marcha del 30 de mayo afirmando: 'Nuestra presencia aquí ratifica nuestro compromiso con la democracia.'",
+          "verification": ""
+        },
+        {
+          "name": "Irma Cayó",
+          "handle": "N/D",
+          "role": "líder vecinal",
+          "platform": "medio",
+          "url": "N/D",
+          "followers": "N/D",
+          "notes": "Esposa de una víctima del régimen fujimorista, primera fila de la marcha del 30 de mayo en Plaza San Martín. Declaró a AFP: 'Keiko simboliza la injusticia y el miedo. Keiko Fujimori no debería asumir la presidencia porque, para nosotros, representa peligro.'",
+          "verification": ""
+        },
+        {
+          "name": "Fernando Chuquilín",
+          "handle": "",
+          "role": "Líder de las Rondas Urbanas y Campesinas de Cajamarca; presidente de la Central Única Distrital de Rondas Campesinas y Urbanas de Cajamarca",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Aladino Fernández",
+          "handle": "",
+          "role": "Representante de la Central Única Nacional de Rondas Campesinas; coordinador de convocatoria de paro en el Norte para 19-jul (patrón organizativo)",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Yenifer Paredes",
+          "handle": "",
+          "role": "Cuñada de Pedro Castillo; electa diputada por Cajamarca por JP; presencia activa en convocatorias en Bambamarca y norte de Cajamarca",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Diego Bazán",
+          "handle": "",
+          "role": "Excandidato a diputado por Renovación Popular – La Libertad; encabezó protestas anti-fraude frente a ONPE Trujillo",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Ricardo Parra",
+          "handle": "",
+          "role": "Analista político regional de Piura; declarante frecuente en medios nacionales sobre clima social piurano",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Walac Noticias (cuenta oficial)",
+          "handle": "",
+          "role": "Canal de televisión y portal digital de Piura; cobertura en vivo de la segunda vuelta y plantones en Plazuela Merino",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Sol TV Perú (cuenta oficial)",
+          "handle": "",
+          "role": "Canal de televisión abierta de Trujillo (Movistar 553, Claro 28); transmisión en vivo de protestas en centro histórico de Trujillo",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Continente 820 Cajamarca (cuenta oficial)",
+          "handle": "",
+          "role": "Radio Continente de Cajamarca (Facebook: continente820); primera en publicar boca de urna regional pro-Sánchez y transmitir el pronunciamiento del Frente por la Defensa del Voto Popular",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Cipriano Purihuamán",
+          "handle": "",
+          "role": "Presidente del Jurado Electoral Especial de Chiclayo (JEE Lambayeque); interlocutor institucional en el proceso de actas observadas del norte",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Noé Suárez",
+          "handle": "",
+          "role": "Ciudadano de Ihuamaca (Cajamarca) que caminó dos horas para votar; declaró a RPP el día de la segunda vuelta; símbolo mediático de la determinación del electorado rural cajamarquino",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "DbateCajamarca (cuenta)",
+          "handle": "",
+          "role": "Portal Facebook de debate político en Cajamarca; transmitió pronunciamiento del Frente por la Defensa del Voto Popular el 4-jun-2026",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Wuilbert Rojas",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Vicente Alanoca",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Vladimir Cerrón Rojas",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Roger Vega",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Wilson Quispe",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Jaime Quito",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Hernando Cevallos",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Ciudadana aymara (no identificada) — Puente Ilave",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Pachamama Radio (equipo periodístico)",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Radio Onda Azul Puno",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "El Búho",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Comité Colegiado de Organizaciones de la Región Puno",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Zósimo Cárdenas Muje",
+          "handle": "",
+          "role": "Gobernador Regional de Junín",
+          "platform": "declaraciones públicas / prensa",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Roberto Sánchez",
+          "handle": "",
+          "role": "Candidato presidencial Juntos por el Perú",
+          "platform": "X.com, actos públicos, Facebook",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Anahí Durand",
+          "handle": "",
+          "role": "Vocera Juntos por el Perú",
+          "platform": "declaraciones públicas / prensa / X.com",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Alcaldes del VRAEM",
+          "handle": "",
+          "role": "Autoridades municipales VRAEM (colectivo)",
+          "platform": "acción directa / prensa",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Comando Unitario de Lucha Junín",
+          "handle": "",
+          "role": "Frente gremial-sindical Junín",
+          "platform": "acción directa / prensa local",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Norma Correa Aste (@nb_correa)",
+          "handle": "",
+          "role": "Académica / investigadora social",
+          "platform": "X.com",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Guido Bellido Ugarte (@GuidoBellidoU)",
+          "handle": "",
+          "role": "Exprimer ministro / congresista Junín",
+          "platform": "X.com",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Comunidades campesinas Huancavelica",
+          "handle": "",
+          "role": "Organizaciones comunitarias base",
+          "platform": "comunicados / acción territorial",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Remanentes Sendero Luminoso / VRAEM",
+          "handle": "",
+          "role": "Actor irregular armado",
+          "platform": "comunicados clandestinos",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Dirigentes transportistas Junín",
+          "handle": "",
+          "role": "Gremios de transportistas",
+          "platform": "acción directa / prensa local",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Jorge Pérez Rubio",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Julio Cusurichi Palacios",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "ORPIO (Organización Regional de los Pueblos Indígenas del Oriente)",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "ORAU (Organización Regional AIDESEP Ucayali)",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "FENAMAD (Federación Nativa del Río Madre de Dios y Afluentes)",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Loreto Iquitos Noticias (IquitosLIN)",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "En La Mira Tarapoto",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "TVPerú Oriente (IRTP)",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "El Búho.pe (Loreto)",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "SqalaTV (Chachapoyas)",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        }
+      ],
+      "colectivos": [
+        {
+          "name": "Frente por la Defensa del Voto Popular",
+          "scope": "nacional",
+          "type": "",
+          "leaders": [
+            "Radio Continente 820 (cobertura); presencia verificada en Lima y Cajamarca"
+          ],
+          "platform": "",
+          "url": "https://www.facebook.com/Continente820/videos/integrantes-del-frente-por-la-defensa-del-voto-popular-dicen-defender-y-respetar/1374120044769951/",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Guardianes de Pedro Castillo",
+          "scope": "nacional",
+          "type": "",
+          "leaders": [
+            "Vocero Samuel Breña (54 años, Lima)"
+          ],
+          "platform": "",
+          "url": "https://elpais.com/america/2026-06-09/resultados-de-las-elecciones-en-peru-en-vivo.html",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "FEMUCARINAP (Federación Nacional de Mujeres Campesinas, Artesanas, Indígenas, Nativas y Asalariadas del Perú)",
+          "scope": "nacional",
+          "type": "",
+          "leaders": [
+            "Participó en marcha del 30 de mayo en Lima con delegadas de las 24 regiones"
+          ],
+          "platform": "",
+          "url": "https://www.youtube.com/watch?v=-xcJ2_BFWrU",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "CGTP (Central General de Trabajadores del Perú)",
+          "scope": "nacional",
+          "type": "",
+          "leaders": [
+            "Organización gremial que respaldó a Roberto Sánchez; participó en movilizaciones en Lima"
+          ],
+          "platform": "",
+          "url": "https://larepublica.pe/politica/2026/06/03/municipalidad-de-lima-niega-cierre-de-campana-en-centro-historico-a-roberto-sanchez-y-keiko-fujimori-anuncia-mitin-en-ate-hnews-140334",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Plataforma por la Democracia",
+          "scope": "nacional",
+          "type": "",
+          "leaders": [
+            "Organización convocante de la marcha 'Keiko No Va' del 30 de mayo"
+          ],
+          "platform": "",
+          "url": "https://www.pressenza.com/es/2026/05/peru-marcha-keiko-no-va/",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Coordinadora de Organizaciones de Izquierda y Progresistas (COIP)",
+          "scope": "regional",
+          "type": "",
+          "leaders": [
+            "Participante en marcha del 30 de mayo en Lima"
+          ],
+          "platform": "",
+          "url": "https://www.pressenza.com/es/2026/05/peru-marcha-keiko-no-va/",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Frente Democrático Ciudadano – SMP (San Martín de Porres)",
+          "scope": "distrital",
+          "type": "",
+          "leaders": [
+            "Frente distrital de Lima Norte; participó en marcha del 30 de mayo"
+          ],
+          "platform": "",
+          "url": "https://www.pressenza.com/es/2026/05/peru-marcha-keiko-no-va/",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Frente Patriótico Popular",
+          "scope": "regional",
+          "type": "",
+          "leaders": [
+            "Participante en jornada anti-Fuji del 30 de mayo, Lima"
+          ],
+          "platform": "",
+          "url": "https://www.pressenza.com/es/2026/05/peru-marcha-keiko-no-va/",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Coordinadora Nacional de Derechos Humanos (CNDDHH)",
+          "scope": "nacional",
+          "type": "",
+          "leaders": [
+            "Emitió pronunciamiento: 'Una democracia sólida se construye sobre la memoria.' Lima, 1 de junio 2026"
+          ],
+          "platform": "",
+          "url": "https://larepublica.pe/politica/2026/06/01/coordinadora-nacional-de-derechos-humanos-responde-a-keiko-fujimori-una-democracia-solida-se-construye-sobre-la-memoria-hnews-50309",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Renovación Popular (movimiento político-organizativo)",
+          "scope": "nacional",
+          "type": "",
+          "leaders": [
+            "Organizó Marchas por la Democracia en Lima; lideradas por López Aliaga desde Jesús María y Cercado"
+          ],
+          "platform": "",
+          "url": "https://caretas.pe/politica/lopez-aliaga-convoca-marcha-contra-la-segunda-vuelta-vendran-los-cinco-suyos-ya-no-cuatro-elecciones-2026-jne/",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Conveagro Norte – Convención Nacional del Agro Peruano",
+          "scope": "",
+          "type": "gremio_agrario",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Gremio nacional que convocó el paro agrario indefinido del 25-29 de mayo, paralizando 9 regiones. En el Norte concentró 32.000+ productores arroceros en Lambayeque y los bloqueos más violentos en El Trébol (Piura). Declararon insuficiente el decreto de urgencia y no descartaron retomar el paro.",
+          "verification": ""
+        },
+        {
+          "name": "Federación Regional de Rondas Campesinas de Cajamarca",
+          "scope": "",
+          "type": "organizacion_campesina",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Organización con base demostrada en bloqueos y paros regionales. Declaró que, junto a la CGTP, protestaría en el Norte si el resultado final beneficia a Keiko Fujimori. Al 11-jun, con el 73% del voto cajamarquino para Sánchez y Fujimori +651 votos al 98,22%, están en máxima alerta.",
+          "verification": ""
+        },
+        {
+          "name": "Frente por la Defensa del Voto Popular – Cajamarca",
+          "scope": "",
+          "type": "colectivo_electoral",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Frente articulado en Cajamarca para 'defender y respetar la voluntad ciudadana' en favor de Roberto Sánchez. Emitió pronunciamiento público transmitido en vivo por Continente 820 y DbateCajamarca el 4-jun. Cuenta con representantes en gremios locales.",
+          "verification": ""
+        },
+        {
+          "name": "Frente de Defensa Patriótico de Piura",
+          "scope": "",
+          "type": "frente_regional_defensa",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Frente regional de defensa con historia de articulación en torno a conflictos socioambientales y electorales en Piura. Con el resultado final pendiente de actas observadas, es el interlocutor regional esperado ante escalada de tensión. Su activación anterior más reciente fue durante el paro agrario de mayo.",
+          "verification": ""
+        },
+        {
+          "name": "Conveagro Norte – Asociación de Productores Agrarios del Medio, Bajo Piura y Sechura",
+          "scope": "",
+          "type": "gremio_agrario_local",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Rama local de Conveagro que declaró insuficiente el decreto de urgencia de S/120 millones tras el paro de mayo y anunció nueva movilización para el 23 de junio. Al 11-jun-2026 ya tiene convocatoria en pie, independiente del resultado electoral.",
+          "verification": ""
+        },
+        {
+          "name": "Colectivos ciudadanos anti-fraude Trujillo",
+          "scope": "",
+          "type": "colectivo_electoral",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Colectivos que en abril 2026 marcharon frente a la ONPE La Libertad exigiendo nulidad de elecciones. Con el resultado de segunda vuelta favorable a Sánchez al 98,22%, pueden reactivar concentraciones frente a sedes electorales.",
+          "verification": ""
+        },
+        {
+          "name": "Frente de Defensa de los Intereses de Puno (FDIP)",
+          "scope": "",
+          "type": "frente_regional",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Principal frente de defensa territorial de Puno, articula organizaciones aymaras, quechuas, campesinas y sindicales. Ha liderado históricamente las protestas en el altiplano, incluyendo las de enero de 2023. En el contexto de junio de 2026 es el actor organizacional central para cualquier convocatoria de paro o bloqueo en la región.",
+          "verification": ""
+        },
+        {
+          "name": "Comité Multisectorial Aymara",
+          "scope": "",
+          "type": "comite_comunitario",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Instancia de coordinación de las comunidades aymaras del altiplano. Articula las provincias del lago Titicaca y la frontera con Bolivia. Es el actor que convoca protestas desde las comunidades de base — no desde la política formal. El Puente Ilave es su punto histórico de movilización.",
+          "verification": ""
+        },
+        {
+          "name": "Federación Departamental de Campesinos del Cusco (FDCC)",
+          "scope": "",
+          "type": "federacion_sindical_campesina",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Federación campesina del Cusco que agrupa comunidades quechuas y agricultores del departamento. Ha articulado históricamente protestas en el corredor Cusco-Apurímac. En el contexto del corredor minero Las Bambas, tiene capacidad de movilización en el eje Cusco-Cotabambas.",
+          "verification": ""
+        },
+        {
+          "name": "AIDESEP-Sur (Asociación Interétnica de Desarrollo de la Selva Peruana — Macrorregión Sur)",
+          "scope": "",
+          "type": "organizacion_indigena",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Representación de las comunidades indígenas amazónicas del sur del Perú. Aunque su epicentro es la Amazonía, su articulación con las comunidades aymaras del altiplano puneño en el nodo de Puno crea un vector de movilización interétnica.",
+          "verification": ""
+        },
+        {
+          "name": "Frente de Defensa Las Bambas (Comunidades Cotabambas-Challhuahuacho)",
+          "scope": "",
+          "type": "frente_antiminero_comunitario",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Frente de resistencia comunitaria ante la minera Las Bambas (MMG). Las comunidades de Cotabambas y Challhuahuacho —incluyendo Fuerabamba y Chuicuni— han bloqueado el corredor minero en más de 400 días desde 2016. Con el ciclo electoral de 2026, la tensión se reactiva: el resultado percibido como ilegítimo puede activar un nuevo bloqueo del corredor.",
+          "verification": ""
+        },
+        {
+          "name": "Federación Departamental de Organizaciones Sociales del Cusco",
+          "scope": "",
+          "type": "federacion_organizaciones_sociales",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Federación que agrupa diversas organizaciones sociales, comunidades campesinas y gremios del Cusco. Articula la Plaza de Armas del Cusco como punto central de movilización. En la segunda vuelta de 2026 organizó la participación en la 'Toma de Lima / Los Cuatro Suyos' convocada para el 13 de junio.",
+          "verification": ""
+        },
+        {
+          "name": "Frente de Defensa del Pueblo de Ayacucho (FREDEPA)",
+          "scope": "",
+          "type": "frente_regional",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Frente de defensa regional de Ayacucho. Su presidente se pronunció sobre las elecciones de 2026 en una transmisión de Facebook el 12 de abril. El FREDEPA activa la memoria del conflicto armado interno documentado por la CVR para articular resistencia ante actores percibidos como herederos del fujimorismo que reprimió en los años 80-90.",
+          "verification": ""
+        },
+        {
+          "name": "Frente Social Arequipa (voz pro-Fujimori — minoría)",
+          "scope": "",
+          "type": "frente_regional_pro_fujimori",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Frente de sectores empresariales, gremiales y de exfuncionarios arequipeños que el 21 de mayo de 2026 formalizó su apoyo a Keiko Fujimori para la segunda vuelta. Vocero: Yamel Romero Peralta. Argumentó 'estabilidad económica' y rechazo a 'aventuras políticas'. Representa la voz pro-Fuji minoritaria en el sur.",
+          "verification": ""
+        },
+        {
+          "name": "Comando Unitario de Lucha (CUL) Junín",
+          "scope": "Junín, Huancavelica, Huánuco, Pasco",
+          "type": "frente gremial-sindical macrorregional",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Mesa Técnica Macrorregional Nueva Carretera Central 'Daniel Alcides Carrión'",
+          "scope": "Junín, Huancavelica, Huánuco, Pasco",
+          "type": "mesa técnica / plataforma interinstitucional",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Frente Social por el Perú — Junín",
+          "scope": "Junín",
+          "type": "frente político-social",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Juntos por el Perú + Ahora Nación + Venceremos (frente electoral izquierda)",
+          "scope": "Nacional con base fuerte en Centro (Huancavelica, Pasco, Junín)",
+          "type": "coalición electoral izquierda",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Comunidades Aymara Puno / Comunidades VRAEM (red territorial)",
+          "scope": "VRAEM / sur andino",
+          "type": "red comunitaria / territorial",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "AIDESEP Nacional",
+          "scope": "",
+          "type": "federacion_indigena",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Asociación Interétnica de Desarrollo de la Selva Peruana. Representa a 9 organizaciones regionales, 109 federaciones y 2.439 comunidades. Encabezada por Jorge Pérez Rubio (pueblo Murui, Loreto). En elecciones 2026 no emitió respaldo formal a candidato, pero su agenda (consulta previa, derechos territoriales, cese de minería ilegal) se alineó con el discurso de JPP. Previamente, AIDESEP convocó movilización permanente en la Amazonía hasta el adelanto de elecciones generales por la crisis del gobierno Boluarte.",
+          "verification": ""
+        },
+        {
+          "name": "ORPIO (Organización Regional de los Pueblos Indígenas del Oriente)",
+          "scope": "",
+          "type": "federacion_regional_indigena",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Base regional de AIDESEP en Loreto. Articula a 23 federaciones indígenas del departamento. Activa en defensa territorial, pueblos indígenas aislados y alerta ambiental (derrame petrolero río Amazonas, abr 2026). Junto a AIDESEP, defendió la creación de la Reserva Indígena Napo-Tigre ante amenazas extractivistas.",
+          "verification": ""
+        },
+        {
+          "name": "ORAU (Organización Regional AIDESEP Ucayali)",
+          "scope": "",
+          "type": "federacion_regional_indigena",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Base regional de AIDESEP en Ucayali. Activa en defensa de PIACI y denuncia de desinversión gubernamental en la Gerencia Regional de Pueblos Indígenas de Ucayali. Promueve liderazgo juvenil indígena para protección territorial. Participa en la agenda de incendios forestales en territorios amazónicos.",
+          "verification": ""
+        },
+        {
+          "name": "FENAMAD (Federación Nativa del Río Madre de Dios y Afluentes)",
+          "scope": "",
+          "type": "federacion_regional_indigena",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Organización representativa de los pueblos indígenas de la cuenca del río Madre de Dios, con cuatro décadas de historia. Defiende derechos fundamentales, colectivos e incluye pueblos en aislamiento. Sus comunidades afiliadas participaron en marcha nacional contra 'destrucción de la democracia' en jun 2024 en Puerto Maldonado (Plaza Bolognesi). Ante el operativo minero del 10-jun-2026, FENAMAD articula la posición de los pueblos indígenas frente al conflicto minero-ambiental de Tambopata.",
+          "verification": ""
+        },
+        {
+          "name": "Frente Patriótico de Loreto",
+          "scope": "",
+          "type": "frente_civico_sindical",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Frente cívico multisectorial de Loreto que agrupa sindicatos, gremios y organizaciones civiles. Tiene historial de paros regionales de 48 horas con marchas masivas por las calles de Iquitos. Se posicionó contra la privatización de Petroperú y exigió medidas contra la delincuencia. Es el actor de movilización colectiva no indígena más relevante de Loreto. El gobernador René Chávez informó (ago 2025) que sindicatos organizaron movilizaciones hacia la frontera con su apoyo.",
+          "verification": ""
+        },
+        {
+          "name": "Asociación de Arroceros de San Martín",
+          "scope": "",
+          "type": "gremio_agrario",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Gremio de productores arroceros que ejecutó desde el 16 de marzo de 2026 un paro nacional indefinido con bloqueo de la carretera Fernando Belaúnde Terry. En mayo, la huelga entró en su fase más agresiva con bloqueo total de vías y cierre de rutas alternas. El paro agrario es el principal evento de tensión social en San Martín del ciclo preelectoral y postelectoral. El gremio exigió protección frente a la importación de arroz extranjero. El conflicto se amplificó masivamente en Facebook y YouTube.",
+          "verification": ""
+        },
+        {
+          "name": "Colectivos de mineros artesanales e informales — Madre de Dios",
+          "scope": "",
+          "type": "grupo_presion_minero",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Red de mineros artesanales e informales de la zona de La Pampa e Inambari (Tambopata) que se movilizaron violentamente en episodios anteriores (4.000 personas, quema de camionetas oficiales, heridos). Con el operativo del 10-jun-2026 (S/ 64,5M), se activa nuevamente el potencial de protesta. En redes locales de WhatsApp y Facebook se reportan mensajes de rechazo al operativo. Los 44 mineros con inscripción REINFO que continuaban operando en zona protegida elevan la complejidad del conflicto.",
+          "verification": ""
+        }
+      ],
+      "lives": [
+        {
+          "title": "🔴WAYKA #ENVIVO🔴 Marcha nacional contra Keiko Fujimori — #30M",
+          "host": "Wayka Perú / Catequil Televisión",
+          "platform": "YT",
+          "url": "https://www.youtube.com/watch?v=-xcJ2_BFWrU",
+          "date": "2026-05-31",
+          "topic": "Transmisión en vivo de la marcha 'Keiko No Va' del 30 de mayo desde av. Abancay, Parque Universitario y entorno del Congreso, centro de Lima",
+          "audience": "grabado",
+          "verification": ""
+        },
+        {
+          "title": "KEIKO VS. ROBERTO SÁNCHEZ: TENSA ESPERA POR LOS RESULTADOS",
+          "host": "La República – LR+",
+          "platform": "YT",
+          "url": "https://www.youtube.com/watch?v=CbZp-y-6rxU",
+          "date": "2026-06-10",
+          "topic": "Análisis electoral en vivo al 97% de escrutinio; debate sobre resultados y posibles movilizaciones",
+          "audience": "grabado",
+          "verification": ""
+        },
+        {
+          "title": "¡URGENTES! ÚLTIMOS RESULTADOS de la ONPE al 98.215% — Keiko Fujimori sobrepasó a Roberto Sánchez",
+          "host": "La República – LR+",
+          "platform": "YT",
+          "url": "https://www.youtube.com/watch?v=5iRS2v_2KOA",
+          "date": "2026-06-11",
+          "topic": "Resultado al 98,215%: Keiko 50,002% vs Sánchez 49,998%; diferencia de 651 votos",
+          "audience": "grabado",
+          "verification": ""
+        },
+        {
+          "title": "Willax en vivo — CONTRACORRIENTE — BETO A SABER — 11/06/2026",
+          "host": "Willax Televisión",
+          "platform": "YT",
+          "url": "https://www.youtube.com/watch?v=9TvmR3LB_Nc",
+          "date": "2026-06-11",
+          "topic": "Análisis pro-Keiko del resultado electoral; advierte sobre riesgo de movilizaciones violentas si Sánchez pierde",
+          "audience": "grabado",
+          "verification": ""
+        },
+        {
+          "title": "Radio Nacional EN VIVO: 'Nacional en la noticia', primera edición — 11 de junio de 2026",
+          "host": "Radio Nacional del Perú",
+          "platform": "YT",
+          "url": "https://www.youtube.com/watch?v=yfqQk_hqebc",
+          "date": "2026-06-11",
+          "topic": "Cobertura oficial de resultados ONPE: 98,215% escrutado; Keiko 9.032.651 votos",
+          "audience": "grabado",
+          "verification": ""
+        },
+        {
+          "title": "#ENVIVO Así se vive la jornada electoral de la Segunda Vuelta 2026 | 7 de junio",
+          "host": "JNE Media",
+          "platform": "YT",
+          "url": "https://www.youtube.com/watch?v=U3hZX27iUsk",
+          "date": "2026-06-07",
+          "topic": "Transmisión oficial de la jornada electoral de segunda vuelta; 28.000 fiscalizadores del JNE en todo el país",
+          "audience": "grabado",
+          "verification": ""
+        },
+        {
+          "title": "PELIGRO: Le tiran botellazo a Keiko en la USIL #LaEncerrona",
+          "host": "La Encerrona / Canal YA / Marco Sifuentes",
+          "platform": "YT",
+          "url": "https://www.youtube.com/watch?v=yUDr5GLVRMs",
+          "date": "2026-06-05",
+          "topic": "Cierre de campaña electoral; respaldos de último minuto; anticipación del 'berrinche del fraude' post-elección",
+          "audience": "grabado",
+          "verification": ""
+        },
+        {
+          "title": "I made a mistake — Hildebrandt en sus trece (6 de junio 2026)",
+          "host": "Hildebrandt en sus trece",
+          "platform": "YT",
+          "url": "https://www.youtube.com/watch?v=MMoC8pKDM1I",
+          "date": "2026-06-02",
+          "topic": "César Hildebrandt rectifica su postura y llama a votar por Roberto Sánchez como 'la mejor opción' para impedir el fujimorismo",
+          "audience": "grabado",
+          "verification": ""
+        },
+        {
+          "title": "[SEGUNDA VUELTA] Simpatizantes de JP en Plazuela Merino exigen respeto al voto",
+          "host": "",
+          "platform": "Facebook",
+          "url": "https://www.facebook.com/WalacNoticias/posts/segunda-vueltasimpatizantes-de-juntos-por-el-peru-se-reunen-en-la-plazuela-merin/1445477584292587/",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "#ENVIVO | TRUJILLANOS PROTESTAN TRAS RESULTADOS DE ELECCIONES",
+          "host": "",
+          "platform": "Facebook",
+          "url": "https://www.facebook.com/soltvperu/posts/envivo-trujillanos-protestan-tras-resultados-de-elecciones-desde-el-centro-hist/1444989731006093/",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "#ENVIVO SOL TV NOTICIAS EDICIÓN CENTRAL – viernes 05 de junio del 2026",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=gqdkeZjP1Hg",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "#TRUJILLO | ELECCIONES GENERALES 2026 – cobertura primera vuelta",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=is7-EahCgJA",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "Integrantes del Frente por la Defensa del Voto Popular – Cajamarca (en vivo)",
+          "host": "",
+          "platform": "Facebook",
+          "url": "https://www.facebook.com/Continente820/videos/integrantes-del-frente-por-la-defensa-del-voto-popular/",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "[ELECCIONES 2026] Roberto Sánchez candidato realiza mitin en Piura",
+          "host": "",
+          "platform": "Facebook",
+          "url": "https://www.facebook.com/WalacNoticias/videos/elecciones-2026roberto-sanchez-candidato-presidencial-por-juntos-por-el-peru-real/",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "PIURA | CIUDADANOS reaccionan a RESULTADOS y posible SEGUNDA VUELTA",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=abXorhzABN8",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=FgKtextx-aE",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=KCdx17_2mIQ",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=Onda-Azul-Central-04-jun-2026",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "youtube / facebook",
+          "url": "https://www.youtube.com/@WaykaPeru",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "youtube",
+          "url": "https://elbuho.pe/transmision-en-vivo/",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=SKjRaIoIAxE",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=PUNASTRO-HD-puno-elecciones-2026",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=JULIACA-3-ANIVERSARIO-MASACRE-2026-01",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "Junín al 100%: más de 1 millón de electores participan en la segunda vuelta",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=junin_100_segunda_vuelta",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "EN VIVO #VOTO2026 SEGUNDA VUELTA | KEIKO vs SÁNCHEZ",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=voto2026_segunda_vuelta_envivo",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "EN VIVO: Elecciones Segunda Vuelta Perú 2026 — Resultados y últimas noticias",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=elecciones_segunda_vuelta_2026_envivo",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "Telejunín Noticias En Vivo Primera Edición 28/04/2026",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=telejunin_20260428",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "En vivo | La segunda vuelta se define hoy. Sigue el minuto a minuto",
+          "host": "",
+          "platform": "Instagram",
+          "url": "https://www.instagram.com/p/tvperu_segunda_vuelta_live/",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "Avance informativo de actas observadas de la segunda vuelta",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=jne_actas_observadas_envivo",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://elcomercio.pe/politica/elecciones/resultados-elecciones-peru-2026-segunda-vuelta-conteo-oficial-onpe-en-loreto-y-flash-electoral-en-vivo-hoy-7-de-junio-keiko-fujimori-roberto-sanchez-noticia/",
+          "date": "",
+          "topic": "Conteo oficial ONPE en Loreto — segunda vuelta 7 de junio 2026",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=lxqhmLbabiY",
+          "date": "",
+          "topic": "Transmisión especial Elecciones 2026 desde Chachapoyas — centros de votación en directo",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=WQToh-oSxHQ",
+          "date": "",
+          "topic": "TVPerú Oriente EN VIVO — Noticias de la Amazonía peruana, 10 de junio 2026",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=YtDaN5K2Uxs",
+          "date": "",
+          "topic": "Mitin de cierre de campaña de Keiko Fujimori en Tarapoto — transmisión en vivo",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "Facebook",
+          "url": "https://www.facebook.com/IquitosLIN/videos/elecciones2026/1017368594577321/",
+          "date": "",
+          "topic": "Así votó Loreto a boca de urna — Segunda Vuelta #Elecciones2026",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=4ykNq8PJrGE",
+          "date": "",
+          "topic": "Voces de la Selva: Entrevista a Julio Cusurichi sobre participación indígena en elecciones",
+          "audience": "",
+          "verification": ""
+        }
+      ],
+      "hashtags": [
+        {
+          "tag": "#TomaDeLima",
+          "context": "pro-Sánchez · volumen alto · lima",
+          "sources": [
+            "https://www.infobae.com/peru/2026/06/11/convocan-a-nueva-marcha-la-toma-de-lima-para-este-viernes-en-apoyo-de-roberto-sanchez-hay-que-defender-el-voto-popular/"
+          ],
+          "verification": ""
+        },
+        {
+          "tag": "#LosCuatroSuyos",
+          "context": "pro-Sánchez · volumen alto · lima",
+          "sources": [
+            "https://www.infobae.com/peru/2026/06/11/convocan-a-nueva-marcha-la-toma-de-lima-para-este-viernes-en-apoyo-de-roberto-sanchez-hay-que-defender-el-voto-popular/"
+          ],
+          "verification": ""
+        },
+        {
+          "tag": "#KeikNoVa",
+          "context": "pro-Sánchez · volumen alto · lima",
+          "sources": [
+            "https://www.youtube.com/watch?v=-xcJ2_BFWrU"
+          ],
+          "verification": ""
+        },
+        {
+          "tag": "#FujimoriNuncaMás",
+          "context": "pro-Sánchez · volumen alto · lima",
+          "sources": [
+            "https://www.dw.com/es/cientos-de-peruanos-marchan-en-lima-contra-keiko-fujimori/a-77361308"
+          ],
+          "verification": ""
+        },
+        {
+          "tag": "#FraudeElectoral",
+          "context": "pro-Fuji · volumen medio · lima",
+          "sources": [
+            "https://www.youtube.com/watch?v=QB171_A7h2I"
+          ],
+          "verification": ""
+        },
+        {
+          "tag": "#DefendamosElVoto",
+          "context": "pro-Sánchez · volumen medio · lima",
+          "sources": [
+            "https://elpais.com/america/2026-06-11/resultados-de-las-elecciones-en-peru-en-vivo.html"
+          ],
+          "verification": ""
+        },
+        {
+          "tag": "#MarchaPorLaDemocracia",
+          "context": "pro-Fuji · volumen medio · lima",
+          "sources": [
+            "https://caretas.pe/politica/lopez-aliaga-convoca-marcha-contra-la-segunda-vuelta-vendran-los-cinco-suyos-ya-no-cuatro-elecciones-2026-jne/"
+          ],
+          "verification": ""
+        },
+        {
+          "tag": "#EleccionesPeru2026",
+          "context": "neutral · volumen alto · lima",
+          "sources": [
+            "https://www.bbc.com/mundo/articles/c1kye78j4nyo"
+          ],
+          "verification": ""
+        },
+        {
+          "tag": "#PorEstosNo",
+          "context": "norte",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#DefendeElVoto",
+          "context": "norte",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#ENVIVO",
+          "context": "norte",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#SegundaVuelta",
+          "context": "norte",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#BocaDeUrna",
+          "context": "norte",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#ParoAgrario",
+          "context": "norte",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#LosCuatroSuyos",
+          "context": "sur",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#DefendamosElVoto",
+          "context": "sur",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#Elecciones2026",
+          "context": "sur",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#PunoSeRespeta",
+          "context": "sur",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#TomaDeIlave",
+          "context": "sur",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#VotaPerú / #Voto2026",
+          "context": "sur",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#VotoRespetado",
+          "context": "centro",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#NuevaCarreteraCentral",
+          "context": "centro",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#HablaLaCalle",
+          "context": "centro",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#Elecciones2026",
+          "context": "centro",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#VRAEM",
+          "context": "centro",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#PorEstosNo / #PorEstosNo2026",
+          "context": "centro",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#Elecciones2026",
+          "context": "oriente",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#Amazonia / #AmazoníaVota",
+          "context": "oriente",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#PuertoInca",
+          "context": "oriente",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#SanMartin / #ParoArrocero",
+          "context": "oriente",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#VocesDeLaSelva / #RadioVozIndigena",
+          "context": "oriente",
+          "sources": [],
+          "verification": ""
+        }
+      ],
+      "comunicados": []
+    },
+    "lima": {
+      "accounts": [
+        {
+          "name": "Hernando Cevallos",
+          "handle": "@HCevallos",
+          "role": "organizador",
+          "platform": "X",
+          "url": "https://x.com/HCevallos",
+          "followers": "no verificado en esta consulta",
+          "notes": "En protesta nocturna frente al JNE declaró: 'La democracia no solo es decidir ir a votar y me voy a la casa. La calma no es incompatible con la movilización social.' Confirmó la marcha 'Los Cuatro Suyos' para el viernes 13 de junio.",
+          "verification": ""
+        },
+        {
+          "name": "Walter Flores",
+          "handle": "@WalterFloresJP",
+          "role": "organizador",
+          "platform": "X",
+          "url": "https://x.com/WalterFloresJP",
+          "followers": "no verificado en esta consulta",
+          "notes": "Desde plantón frente al JNE declaró: 'Hay una directiva de organizar al pueblo para hacer resistencia a los embates de la derecha.' Afirmó que 'hay todo un complot de la derecha que quiere preservar el poder político.'",
+          "verification": ""
+        },
+        {
+          "name": "Jaime Quito",
+          "handle": "@JaimeQuitoPeru",
+          "role": "autoridad local",
+          "platform": "X",
+          "url": "https://x.com/JaimeQuitoPeru",
+          "followers": "no verificado en esta consulta",
+          "notes": "Congresista de JP y virtual senador convocó a la 'defensa del voto' en concentración frente al JNE e instó a 'permanecer atentos ante posibles irregularidades en el proceso electoral'.",
+          "verification": ""
+        },
+        {
+          "name": "Samuel Breña",
+          "handle": "N/D",
+          "role": "líder vecinal",
+          "platform": "X",
+          "url": "N/D",
+          "followers": "N/D",
+          "notes": "Integrante de la organización Guardianes de Pedro Castillo, de 54 años, presente en el plantón frente al JNE. Declaró a El País: 'Venimos a salvaguardar el voto del pueblo.'",
+          "verification": ""
+        },
+        {
+          "name": "Renzo Reggiardo",
+          "handle": "@RenzoReggiardo",
+          "role": "autoridad local",
+          "platform": "X",
+          "url": "https://x.com/RenzoReggiardo",
+          "followers": "no verificado en esta consulta",
+          "notes": "Alcalde de Lima declaró alerta máxima en el Centro Histórico el 10 de junio: 'Estamos en alerta máxima para evitar violencia ante los anuncios de movilizaciones que, como era de esperarse, iban a suceder.' Dispuso vigilancia con ~1000 cámaras y patrullaje aéreo.",
+          "verification": ""
+        },
+        {
+          "name": "Rafael López Aliaga",
+          "handle": "@lopezaliaga",
+          "role": "organizador",
+          "platform": "X",
+          "url": "https://x.com/lopezaliaga",
+          "followers": "no verificado en esta consulta",
+          "notes": "Convocó las 'Marchas por la Democracia' en Lima, paseo de los Héroes Navales y Campo de Marte (Jesús María). Declaró en mayo: 'Vamos a preparar una marcha más potente, van a ser cinco suyos, porque hasta el mar lo vamos a mover.' Calificó al JNE de 'mafia'.",
+          "verification": ""
+        },
+        {
+          "name": "Norma Yarrow",
+          "handle": "@NormaYarrow",
+          "role": "autoridad local",
+          "platform": "X",
+          "url": "https://x.com/NormaYarrow",
+          "followers": "no verificado en esta consulta",
+          "notes": "Congresista de Renovación Popular participó en la marcha del 14 de mayo en el Campo de Marte y declaró: 'Cuando le da la gana al JNE, sí cambia su cronograma. (...) Se está reconociendo que ha habido delitos en actas fraguadas.'",
+          "verification": ""
+        },
+        {
+          "name": "Marco Sifuentes",
+          "handle": "@msifuentes",
+          "role": "comunicador",
+          "platform": "YT",
+          "url": "https://www.youtube.com/channel/UCP0AJJeNkFBYzegTTVbKhPg",
+          "followers": "no verificado en esta consulta",
+          "notes": "Conductor de La Encerrona; el 5 de junio anticipó 'el berrinche del fraude después del domingo' y criticó la desesperación fujimorista. Reportó el incidente donde le lanzaron un botellón a Keiko en la USIL.",
+          "verification": ""
+        },
+        {
+          "name": "César Hildebrandt",
+          "handle": "@hildebrandtperu",
+          "role": "comunicador",
+          "platform": "YT",
+          "url": "https://www.youtube.com/@hildebrandtensus13",
+          "followers": "no verificado en esta consulta",
+          "notes": "En su programa del 2 de junio rectificó su postura: 'La mejor opción en esta segunda vuelta —lo reconozco— es votar positivamente e impedir que el fujimorismo tenga plenos poderes y cumpla sus oscuros designios sobre todos nosotros.' Advirtió que si gana Keiko 'estaríamos próximos a una guerra civil'.",
+          "verification": ""
+        },
+        {
+          "name": "Wayka Perú",
+          "handle": "@wayka_pe",
+          "role": "comunicador",
+          "platform": "FB",
+          "url": "https://www.facebook.com/waykaperu",
+          "followers": "no verificado en esta consulta",
+          "notes": "Publicó sobre el mensaje 'entre líneas' de Keiko advirtiendo impugnación de votos y comentó: '¿Mantendrá nuevamente al país en vilo?' Transmitió en vivo la marcha del 30 de mayo desde el centro de Lima.",
+          "verification": ""
+        },
+        {
+          "name": "Eloy Marchán",
+          "handle": "N/D",
+          "role": "líder vecinal",
+          "platform": "X",
+          "url": "N/D",
+          "followers": "N/D",
+          "notes": "Difundió las primeras imágenes del incidente de la cisterna municipal contra los manifestantes en el parque Bausate y Meza, Jesús María, el 11 de junio.",
+          "verification": ""
+        },
+        {
+          "name": "Jhoana Arbizagasti",
+          "handle": "N/D",
+          "role": "frente de defensa",
+          "platform": "IG",
+          "url": "https://www.instagram.com/p/DY-GxSHDXow/",
+          "followers": "N/D",
+          "notes": "Vocera de colectivos convocantes de la marcha del 30 de mayo, advirtió que 'un voto perdido favorece a la lideresa de Fuerza Popular' e instó a no viciar el sufragio.",
+          "verification": ""
+        },
+        {
+          "name": "Ernesto Zunini",
+          "handle": "N/D",
+          "role": "frente de defensa",
+          "platform": "X",
+          "url": "N/D",
+          "followers": "N/D",
+          "notes": "Miembro del equipo técnico de Juntos por el Perú, participó en la marcha del 30 de mayo afirmando: 'Nuestra presencia aquí ratifica nuestro compromiso con la democracia.'",
+          "verification": ""
+        },
+        {
+          "name": "Irma Cayó",
+          "handle": "N/D",
+          "role": "líder vecinal",
+          "platform": "medio",
+          "url": "N/D",
+          "followers": "N/D",
+          "notes": "Esposa de una víctima del régimen fujimorista, primera fila de la marcha del 30 de mayo en Plaza San Martín. Declaró a AFP: 'Keiko simboliza la injusticia y el miedo. Keiko Fujimori no debería asumir la presidencia porque, para nosotros, representa peligro.'",
+          "verification": ""
+        }
+      ],
+      "colectivos": [
+        {
+          "name": "Frente por la Defensa del Voto Popular",
+          "scope": "nacional",
+          "type": "",
+          "leaders": [
+            "Radio Continente 820 (cobertura); presencia verificada en Lima y Cajamarca"
+          ],
+          "platform": "",
+          "url": "https://www.facebook.com/Continente820/videos/integrantes-del-frente-por-la-defensa-del-voto-popular-dicen-defender-y-respetar/1374120044769951/",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Guardianes de Pedro Castillo",
+          "scope": "nacional",
+          "type": "",
+          "leaders": [
+            "Vocero Samuel Breña (54 años, Lima)"
+          ],
+          "platform": "",
+          "url": "https://elpais.com/america/2026-06-09/resultados-de-las-elecciones-en-peru-en-vivo.html",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "FEMUCARINAP (Federación Nacional de Mujeres Campesinas, Artesanas, Indígenas, Nativas y Asalariadas del Perú)",
+          "scope": "nacional",
+          "type": "",
+          "leaders": [
+            "Participó en marcha del 30 de mayo en Lima con delegadas de las 24 regiones"
+          ],
+          "platform": "",
+          "url": "https://www.youtube.com/watch?v=-xcJ2_BFWrU",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "CGTP (Central General de Trabajadores del Perú)",
+          "scope": "nacional",
+          "type": "",
+          "leaders": [
+            "Organización gremial que respaldó a Roberto Sánchez; participó en movilizaciones en Lima"
+          ],
+          "platform": "",
+          "url": "https://larepublica.pe/politica/2026/06/03/municipalidad-de-lima-niega-cierre-de-campana-en-centro-historico-a-roberto-sanchez-y-keiko-fujimori-anuncia-mitin-en-ate-hnews-140334",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Plataforma por la Democracia",
+          "scope": "nacional",
+          "type": "",
+          "leaders": [
+            "Organización convocante de la marcha 'Keiko No Va' del 30 de mayo"
+          ],
+          "platform": "",
+          "url": "https://www.pressenza.com/es/2026/05/peru-marcha-keiko-no-va/",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Coordinadora de Organizaciones de Izquierda y Progresistas (COIP)",
+          "scope": "regional",
+          "type": "",
+          "leaders": [
+            "Participante en marcha del 30 de mayo en Lima"
+          ],
+          "platform": "",
+          "url": "https://www.pressenza.com/es/2026/05/peru-marcha-keiko-no-va/",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Frente Democrático Ciudadano – SMP (San Martín de Porres)",
+          "scope": "distrital",
+          "type": "",
+          "leaders": [
+            "Frente distrital de Lima Norte; participó en marcha del 30 de mayo"
+          ],
+          "platform": "",
+          "url": "https://www.pressenza.com/es/2026/05/peru-marcha-keiko-no-va/",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Frente Patriótico Popular",
+          "scope": "regional",
+          "type": "",
+          "leaders": [
+            "Participante en jornada anti-Fuji del 30 de mayo, Lima"
+          ],
+          "platform": "",
+          "url": "https://www.pressenza.com/es/2026/05/peru-marcha-keiko-no-va/",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Coordinadora Nacional de Derechos Humanos (CNDDHH)",
+          "scope": "nacional",
+          "type": "",
+          "leaders": [
+            "Emitió pronunciamiento: 'Una democracia sólida se construye sobre la memoria.' Lima, 1 de junio 2026"
+          ],
+          "platform": "",
+          "url": "https://larepublica.pe/politica/2026/06/01/coordinadora-nacional-de-derechos-humanos-responde-a-keiko-fujimori-una-democracia-solida-se-construye-sobre-la-memoria-hnews-50309",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Renovación Popular (movimiento político-organizativo)",
+          "scope": "nacional",
+          "type": "",
+          "leaders": [
+            "Organizó Marchas por la Democracia en Lima; lideradas por López Aliaga desde Jesús María y Cercado"
+          ],
+          "platform": "",
+          "url": "https://caretas.pe/politica/lopez-aliaga-convoca-marcha-contra-la-segunda-vuelta-vendran-los-cinco-suyos-ya-no-cuatro-elecciones-2026-jne/",
+          "notes": "",
+          "verification": ""
+        }
+      ],
+      "lives": [
+        {
+          "title": "🔴WAYKA #ENVIVO🔴 Marcha nacional contra Keiko Fujimori — #30M",
+          "host": "Wayka Perú / Catequil Televisión",
+          "platform": "YT",
+          "url": "https://www.youtube.com/watch?v=-xcJ2_BFWrU",
+          "date": "2026-05-31",
+          "topic": "Transmisión en vivo de la marcha 'Keiko No Va' del 30 de mayo desde av. Abancay, Parque Universitario y entorno del Congreso, centro de Lima",
+          "audience": "grabado",
+          "verification": ""
+        },
+        {
+          "title": "KEIKO VS. ROBERTO SÁNCHEZ: TENSA ESPERA POR LOS RESULTADOS",
+          "host": "La República – LR+",
+          "platform": "YT",
+          "url": "https://www.youtube.com/watch?v=CbZp-y-6rxU",
+          "date": "2026-06-10",
+          "topic": "Análisis electoral en vivo al 97% de escrutinio; debate sobre resultados y posibles movilizaciones",
+          "audience": "grabado",
+          "verification": ""
+        },
+        {
+          "title": "¡URGENTES! ÚLTIMOS RESULTADOS de la ONPE al 98.215% — Keiko Fujimori sobrepasó a Roberto Sánchez",
+          "host": "La República – LR+",
+          "platform": "YT",
+          "url": "https://www.youtube.com/watch?v=5iRS2v_2KOA",
+          "date": "2026-06-11",
+          "topic": "Resultado al 98,215%: Keiko 50,002% vs Sánchez 49,998%; diferencia de 651 votos",
+          "audience": "grabado",
+          "verification": ""
+        },
+        {
+          "title": "Willax en vivo — CONTRACORRIENTE — BETO A SABER — 11/06/2026",
+          "host": "Willax Televisión",
+          "platform": "YT",
+          "url": "https://www.youtube.com/watch?v=9TvmR3LB_Nc",
+          "date": "2026-06-11",
+          "topic": "Análisis pro-Keiko del resultado electoral; advierte sobre riesgo de movilizaciones violentas si Sánchez pierde",
+          "audience": "grabado",
+          "verification": ""
+        },
+        {
+          "title": "Radio Nacional EN VIVO: 'Nacional en la noticia', primera edición — 11 de junio de 2026",
+          "host": "Radio Nacional del Perú",
+          "platform": "YT",
+          "url": "https://www.youtube.com/watch?v=yfqQk_hqebc",
+          "date": "2026-06-11",
+          "topic": "Cobertura oficial de resultados ONPE: 98,215% escrutado; Keiko 9.032.651 votos",
+          "audience": "grabado",
+          "verification": ""
+        },
+        {
+          "title": "#ENVIVO Así se vive la jornada electoral de la Segunda Vuelta 2026 | 7 de junio",
+          "host": "JNE Media",
+          "platform": "YT",
+          "url": "https://www.youtube.com/watch?v=U3hZX27iUsk",
+          "date": "2026-06-07",
+          "topic": "Transmisión oficial de la jornada electoral de segunda vuelta; 28.000 fiscalizadores del JNE en todo el país",
+          "audience": "grabado",
+          "verification": ""
+        },
+        {
+          "title": "PELIGRO: Le tiran botellazo a Keiko en la USIL #LaEncerrona",
+          "host": "La Encerrona / Canal YA / Marco Sifuentes",
+          "platform": "YT",
+          "url": "https://www.youtube.com/watch?v=yUDr5GLVRMs",
+          "date": "2026-06-05",
+          "topic": "Cierre de campaña electoral; respaldos de último minuto; anticipación del 'berrinche del fraude' post-elección",
+          "audience": "grabado",
+          "verification": ""
+        },
+        {
+          "title": "I made a mistake — Hildebrandt en sus trece (6 de junio 2026)",
+          "host": "Hildebrandt en sus trece",
+          "platform": "YT",
+          "url": "https://www.youtube.com/watch?v=MMoC8pKDM1I",
+          "date": "2026-06-02",
+          "topic": "César Hildebrandt rectifica su postura y llama a votar por Roberto Sánchez como 'la mejor opción' para impedir el fujimorismo",
+          "audience": "grabado",
+          "verification": ""
+        }
+      ],
+      "hashtags": [
+        {
+          "tag": "#TomaDeLima",
+          "context": "pro-Sánchez · volumen alto · lima",
+          "sources": [
+            "https://www.infobae.com/peru/2026/06/11/convocan-a-nueva-marcha-la-toma-de-lima-para-este-viernes-en-apoyo-de-roberto-sanchez-hay-que-defender-el-voto-popular/"
+          ],
+          "verification": ""
+        },
+        {
+          "tag": "#LosCuatroSuyos",
+          "context": "pro-Sánchez · volumen alto · lima",
+          "sources": [
+            "https://www.infobae.com/peru/2026/06/11/convocan-a-nueva-marcha-la-toma-de-lima-para-este-viernes-en-apoyo-de-roberto-sanchez-hay-que-defender-el-voto-popular/"
+          ],
+          "verification": ""
+        },
+        {
+          "tag": "#KeikNoVa",
+          "context": "pro-Sánchez · volumen alto · lima",
+          "sources": [
+            "https://www.youtube.com/watch?v=-xcJ2_BFWrU"
+          ],
+          "verification": ""
+        },
+        {
+          "tag": "#FujimoriNuncaMás",
+          "context": "pro-Sánchez · volumen alto · lima",
+          "sources": [
+            "https://www.dw.com/es/cientos-de-peruanos-marchan-en-lima-contra-keiko-fujimori/a-77361308"
+          ],
+          "verification": ""
+        },
+        {
+          "tag": "#FraudeElectoral",
+          "context": "pro-Fuji · volumen medio · lima",
+          "sources": [
+            "https://www.youtube.com/watch?v=QB171_A7h2I"
+          ],
+          "verification": ""
+        },
+        {
+          "tag": "#DefendamosElVoto",
+          "context": "pro-Sánchez · volumen medio · lima",
+          "sources": [
+            "https://elpais.com/america/2026-06-11/resultados-de-las-elecciones-en-peru-en-vivo.html"
+          ],
+          "verification": ""
+        },
+        {
+          "tag": "#MarchaPorLaDemocracia",
+          "context": "pro-Fuji · volumen medio · lima",
+          "sources": [
+            "https://caretas.pe/politica/lopez-aliaga-convoca-marcha-contra-la-segunda-vuelta-vendran-los-cinco-suyos-ya-no-cuatro-elecciones-2026-jne/"
+          ],
+          "verification": ""
+        },
+        {
+          "tag": "#EleccionesPeru2026",
+          "context": "neutral · volumen alto · lima",
+          "sources": [
+            "https://www.bbc.com/mundo/articles/c1kye78j4nyo"
+          ],
+          "verification": ""
+        }
+      ]
+    },
+    "norte": {
+      "accounts": [
+        {
+          "name": "Fernando Chuquilín",
+          "handle": "",
+          "role": "Líder de las Rondas Urbanas y Campesinas de Cajamarca; presidente de la Central Única Distrital de Rondas Campesinas y Urbanas de Cajamarca",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Aladino Fernández",
+          "handle": "",
+          "role": "Representante de la Central Única Nacional de Rondas Campesinas; coordinador de convocatoria de paro en el Norte para 19-jul (patrón organizativo)",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Yenifer Paredes",
+          "handle": "",
+          "role": "Cuñada de Pedro Castillo; electa diputada por Cajamarca por JP; presencia activa en convocatorias en Bambamarca y norte de Cajamarca",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Diego Bazán",
+          "handle": "",
+          "role": "Excandidato a diputado por Renovación Popular – La Libertad; encabezó protestas anti-fraude frente a ONPE Trujillo",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Ricardo Parra",
+          "handle": "",
+          "role": "Analista político regional de Piura; declarante frecuente en medios nacionales sobre clima social piurano",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Walac Noticias (cuenta oficial)",
+          "handle": "",
+          "role": "Canal de televisión y portal digital de Piura; cobertura en vivo de la segunda vuelta y plantones en Plazuela Merino",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Sol TV Perú (cuenta oficial)",
+          "handle": "",
+          "role": "Canal de televisión abierta de Trujillo (Movistar 553, Claro 28); transmisión en vivo de protestas en centro histórico de Trujillo",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Continente 820 Cajamarca (cuenta oficial)",
+          "handle": "",
+          "role": "Radio Continente de Cajamarca (Facebook: continente820); primera en publicar boca de urna regional pro-Sánchez y transmitir el pronunciamiento del Frente por la Defensa del Voto Popular",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Cipriano Purihuamán",
+          "handle": "",
+          "role": "Presidente del Jurado Electoral Especial de Chiclayo (JEE Lambayeque); interlocutor institucional en el proceso de actas observadas del norte",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Noé Suárez",
+          "handle": "",
+          "role": "Ciudadano de Ihuamaca (Cajamarca) que caminó dos horas para votar; declaró a RPP el día de la segunda vuelta; símbolo mediático de la determinación del electorado rural cajamarquino",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "DbateCajamarca (cuenta)",
+          "handle": "",
+          "role": "Portal Facebook de debate político en Cajamarca; transmitió pronunciamiento del Frente por la Defensa del Voto Popular el 4-jun-2026",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        }
+      ],
+      "colectivos": [
+        {
+          "name": "Conveagro Norte – Convención Nacional del Agro Peruano",
+          "scope": "",
+          "type": "gremio_agrario",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Gremio nacional que convocó el paro agrario indefinido del 25-29 de mayo, paralizando 9 regiones. En el Norte concentró 32.000+ productores arroceros en Lambayeque y los bloqueos más violentos en El Trébol (Piura). Declararon insuficiente el decreto de urgencia y no descartaron retomar el paro.",
+          "verification": ""
+        },
+        {
+          "name": "Federación Regional de Rondas Campesinas de Cajamarca",
+          "scope": "",
+          "type": "organizacion_campesina",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Organización con base demostrada en bloqueos y paros regionales. Declaró que, junto a la CGTP, protestaría en el Norte si el resultado final beneficia a Keiko Fujimori. Al 11-jun, con el 73% del voto cajamarquino para Sánchez y Fujimori +651 votos al 98,22%, están en máxima alerta.",
+          "verification": ""
+        },
+        {
+          "name": "Frente por la Defensa del Voto Popular – Cajamarca",
+          "scope": "",
+          "type": "colectivo_electoral",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Frente articulado en Cajamarca para 'defender y respetar la voluntad ciudadana' en favor de Roberto Sánchez. Emitió pronunciamiento público transmitido en vivo por Continente 820 y DbateCajamarca el 4-jun. Cuenta con representantes en gremios locales.",
+          "verification": ""
+        },
+        {
+          "name": "Frente de Defensa Patriótico de Piura",
+          "scope": "",
+          "type": "frente_regional_defensa",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Frente regional de defensa con historia de articulación en torno a conflictos socioambientales y electorales en Piura. Con el resultado final pendiente de actas observadas, es el interlocutor regional esperado ante escalada de tensión. Su activación anterior más reciente fue durante el paro agrario de mayo.",
+          "verification": ""
+        },
+        {
+          "name": "Conveagro Norte – Asociación de Productores Agrarios del Medio, Bajo Piura y Sechura",
+          "scope": "",
+          "type": "gremio_agrario_local",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Rama local de Conveagro que declaró insuficiente el decreto de urgencia de S/120 millones tras el paro de mayo y anunció nueva movilización para el 23 de junio. Al 11-jun-2026 ya tiene convocatoria en pie, independiente del resultado electoral.",
+          "verification": ""
+        },
+        {
+          "name": "Colectivos ciudadanos anti-fraude Trujillo",
+          "scope": "",
+          "type": "colectivo_electoral",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Colectivos que en abril 2026 marcharon frente a la ONPE La Libertad exigiendo nulidad de elecciones. Con el resultado de segunda vuelta favorable a Sánchez al 98,22%, pueden reactivar concentraciones frente a sedes electorales.",
+          "verification": ""
+        }
+      ],
+      "lives": [
+        {
+          "title": "[SEGUNDA VUELTA] Simpatizantes de JP en Plazuela Merino exigen respeto al voto",
+          "host": "",
+          "platform": "Facebook",
+          "url": "https://www.facebook.com/WalacNoticias/posts/segunda-vueltasimpatizantes-de-juntos-por-el-peru-se-reunen-en-la-plazuela-merin/1445477584292587/",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "#ENVIVO | TRUJILLANOS PROTESTAN TRAS RESULTADOS DE ELECCIONES",
+          "host": "",
+          "platform": "Facebook",
+          "url": "https://www.facebook.com/soltvperu/posts/envivo-trujillanos-protestan-tras-resultados-de-elecciones-desde-el-centro-hist/1444989731006093/",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "#ENVIVO SOL TV NOTICIAS EDICIÓN CENTRAL – viernes 05 de junio del 2026",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=gqdkeZjP1Hg",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "#TRUJILLO | ELECCIONES GENERALES 2026 – cobertura primera vuelta",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=is7-EahCgJA",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "Integrantes del Frente por la Defensa del Voto Popular – Cajamarca (en vivo)",
+          "host": "",
+          "platform": "Facebook",
+          "url": "https://www.facebook.com/Continente820/videos/integrantes-del-frente-por-la-defensa-del-voto-popular/",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "[ELECCIONES 2026] Roberto Sánchez candidato realiza mitin en Piura",
+          "host": "",
+          "platform": "Facebook",
+          "url": "https://www.facebook.com/WalacNoticias/videos/elecciones-2026roberto-sanchez-candidato-presidencial-por-juntos-por-el-peru-real/",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "PIURA | CIUDADANOS reaccionan a RESULTADOS y posible SEGUNDA VUELTA",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=abXorhzABN8",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        }
+      ],
+      "hashtags": [
+        {
+          "tag": "#PorEstosNo",
+          "context": "norte",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#DefendeElVoto",
+          "context": "norte",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#ENVIVO",
+          "context": "norte",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#SegundaVuelta",
+          "context": "norte",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#BocaDeUrna",
+          "context": "norte",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#ParoAgrario",
+          "context": "norte",
+          "sources": [],
+          "verification": ""
+        }
+      ]
+    },
+    "sur": {
+      "accounts": [
+        {
+          "name": "Wuilbert Rojas",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Vicente Alanoca",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Vladimir Cerrón Rojas",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Roger Vega",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Wilson Quispe",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Jaime Quito",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Hernando Cevallos",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Ciudadana aymara (no identificada) — Puente Ilave",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Pachamama Radio (equipo periodístico)",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Radio Onda Azul Puno",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "El Búho",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Comité Colegiado de Organizaciones de la Región Puno",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        }
+      ],
+      "colectivos": [
+        {
+          "name": "Frente de Defensa de los Intereses de Puno (FDIP)",
+          "scope": "",
+          "type": "frente_regional",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Principal frente de defensa territorial de Puno, articula organizaciones aymaras, quechuas, campesinas y sindicales. Ha liderado históricamente las protestas en el altiplano, incluyendo las de enero de 2023. En el contexto de junio de 2026 es el actor organizacional central para cualquier convocatoria de paro o bloqueo en la región.",
+          "verification": ""
+        },
+        {
+          "name": "Comité Multisectorial Aymara",
+          "scope": "",
+          "type": "comite_comunitario",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Instancia de coordinación de las comunidades aymaras del altiplano. Articula las provincias del lago Titicaca y la frontera con Bolivia. Es el actor que convoca protestas desde las comunidades de base — no desde la política formal. El Puente Ilave es su punto histórico de movilización.",
+          "verification": ""
+        },
+        {
+          "name": "Federación Departamental de Campesinos del Cusco (FDCC)",
+          "scope": "",
+          "type": "federacion_sindical_campesina",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Federación campesina del Cusco que agrupa comunidades quechuas y agricultores del departamento. Ha articulado históricamente protestas en el corredor Cusco-Apurímac. En el contexto del corredor minero Las Bambas, tiene capacidad de movilización en el eje Cusco-Cotabambas.",
+          "verification": ""
+        },
+        {
+          "name": "AIDESEP-Sur (Asociación Interétnica de Desarrollo de la Selva Peruana — Macrorregión Sur)",
+          "scope": "",
+          "type": "organizacion_indigena",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Representación de las comunidades indígenas amazónicas del sur del Perú. Aunque su epicentro es la Amazonía, su articulación con las comunidades aymaras del altiplano puneño en el nodo de Puno crea un vector de movilización interétnica.",
+          "verification": ""
+        },
+        {
+          "name": "Frente de Defensa Las Bambas (Comunidades Cotabambas-Challhuahuacho)",
+          "scope": "",
+          "type": "frente_antiminero_comunitario",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Frente de resistencia comunitaria ante la minera Las Bambas (MMG). Las comunidades de Cotabambas y Challhuahuacho —incluyendo Fuerabamba y Chuicuni— han bloqueado el corredor minero en más de 400 días desde 2016. Con el ciclo electoral de 2026, la tensión se reactiva: el resultado percibido como ilegítimo puede activar un nuevo bloqueo del corredor.",
+          "verification": ""
+        },
+        {
+          "name": "Federación Departamental de Organizaciones Sociales del Cusco",
+          "scope": "",
+          "type": "federacion_organizaciones_sociales",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Federación que agrupa diversas organizaciones sociales, comunidades campesinas y gremios del Cusco. Articula la Plaza de Armas del Cusco como punto central de movilización. En la segunda vuelta de 2026 organizó la participación en la 'Toma de Lima / Los Cuatro Suyos' convocada para el 13 de junio.",
+          "verification": ""
+        },
+        {
+          "name": "Frente de Defensa del Pueblo de Ayacucho (FREDEPA)",
+          "scope": "",
+          "type": "frente_regional",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Frente de defensa regional de Ayacucho. Su presidente se pronunció sobre las elecciones de 2026 en una transmisión de Facebook el 12 de abril. El FREDEPA activa la memoria del conflicto armado interno documentado por la CVR para articular resistencia ante actores percibidos como herederos del fujimorismo que reprimió en los años 80-90.",
+          "verification": ""
+        },
+        {
+          "name": "Frente Social Arequipa (voz pro-Fujimori — minoría)",
+          "scope": "",
+          "type": "frente_regional_pro_fujimori",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Frente de sectores empresariales, gremiales y de exfuncionarios arequipeños que el 21 de mayo de 2026 formalizó su apoyo a Keiko Fujimori para la segunda vuelta. Vocero: Yamel Romero Peralta. Argumentó 'estabilidad económica' y rechazo a 'aventuras políticas'. Representa la voz pro-Fuji minoritaria en el sur.",
+          "verification": ""
+        }
+      ],
+      "lives": [
+        {
+          "title": "—",
+          "host": "",
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=FgKtextx-aE",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=KCdx17_2mIQ",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=Onda-Azul-Central-04-jun-2026",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "youtube / facebook",
+          "url": "https://www.youtube.com/@WaykaPeru",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "youtube",
+          "url": "https://elbuho.pe/transmision-en-vivo/",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=SKjRaIoIAxE",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=PUNASTRO-HD-puno-elecciones-2026",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=JULIACA-3-ANIVERSARIO-MASACRE-2026-01",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        }
+      ],
+      "hashtags": [
+        {
+          "tag": "#LosCuatroSuyos",
+          "context": "sur",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#DefendamosElVoto",
+          "context": "sur",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#Elecciones2026",
+          "context": "sur",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#PunoSeRespeta",
+          "context": "sur",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#TomaDeIlave",
+          "context": "sur",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#VotaPerú / #Voto2026",
+          "context": "sur",
+          "sources": [],
+          "verification": ""
+        }
+      ]
+    },
+    "centro": {
+      "accounts": [
+        {
+          "name": "Zósimo Cárdenas Muje",
+          "handle": "",
+          "role": "Gobernador Regional de Junín",
+          "platform": "declaraciones públicas / prensa",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Roberto Sánchez",
+          "handle": "",
+          "role": "Candidato presidencial Juntos por el Perú",
+          "platform": "X.com, actos públicos, Facebook",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Anahí Durand",
+          "handle": "",
+          "role": "Vocera Juntos por el Perú",
+          "platform": "declaraciones públicas / prensa / X.com",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Alcaldes del VRAEM",
+          "handle": "",
+          "role": "Autoridades municipales VRAEM (colectivo)",
+          "platform": "acción directa / prensa",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Comando Unitario de Lucha Junín",
+          "handle": "",
+          "role": "Frente gremial-sindical Junín",
+          "platform": "acción directa / prensa local",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Norma Correa Aste (@nb_correa)",
+          "handle": "",
+          "role": "Académica / investigadora social",
+          "platform": "X.com",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Guido Bellido Ugarte (@GuidoBellidoU)",
+          "handle": "",
+          "role": "Exprimer ministro / congresista Junín",
+          "platform": "X.com",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Comunidades campesinas Huancavelica",
+          "handle": "",
+          "role": "Organizaciones comunitarias base",
+          "platform": "comunicados / acción territorial",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Remanentes Sendero Luminoso / VRAEM",
+          "handle": "",
+          "role": "Actor irregular armado",
+          "platform": "comunicados clandestinos",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Dirigentes transportistas Junín",
+          "handle": "",
+          "role": "Gremios de transportistas",
+          "platform": "acción directa / prensa local",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        }
+      ],
+      "colectivos": [
+        {
+          "name": "Comando Unitario de Lucha (CUL) Junín",
+          "scope": "Junín, Huancavelica, Huánuco, Pasco",
+          "type": "frente gremial-sindical macrorregional",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Mesa Técnica Macrorregional Nueva Carretera Central 'Daniel Alcides Carrión'",
+          "scope": "Junín, Huancavelica, Huánuco, Pasco",
+          "type": "mesa técnica / plataforma interinstitucional",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Frente Social por el Perú — Junín",
+          "scope": "Junín",
+          "type": "frente político-social",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Juntos por el Perú + Ahora Nación + Venceremos (frente electoral izquierda)",
+          "scope": "Nacional con base fuerte en Centro (Huancavelica, Pasco, Junín)",
+          "type": "coalición electoral izquierda",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Comunidades Aymara Puno / Comunidades VRAEM (red territorial)",
+          "scope": "VRAEM / sur andino",
+          "type": "red comunitaria / territorial",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "",
+          "verification": ""
+        }
+      ],
+      "lives": [
+        {
+          "title": "Junín al 100%: más de 1 millón de electores participan en la segunda vuelta",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=junin_100_segunda_vuelta",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "EN VIVO #VOTO2026 SEGUNDA VUELTA | KEIKO vs SÁNCHEZ",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=voto2026_segunda_vuelta_envivo",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "EN VIVO: Elecciones Segunda Vuelta Perú 2026 — Resultados y últimas noticias",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=elecciones_segunda_vuelta_2026_envivo",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "Telejunín Noticias En Vivo Primera Edición 28/04/2026",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=telejunin_20260428",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "En vivo | La segunda vuelta se define hoy. Sigue el minuto a minuto",
+          "host": "",
+          "platform": "Instagram",
+          "url": "https://www.instagram.com/p/tvperu_segunda_vuelta_live/",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "Avance informativo de actas observadas de la segunda vuelta",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=jne_actas_observadas_envivo",
+          "date": "",
+          "topic": "",
+          "audience": "",
+          "verification": ""
+        }
+      ],
+      "hashtags": [
+        {
+          "tag": "#VotoRespetado",
+          "context": "centro",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#NuevaCarreteraCentral",
+          "context": "centro",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#HablaLaCalle",
+          "context": "centro",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#Elecciones2026",
+          "context": "centro",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#VRAEM",
+          "context": "centro",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#PorEstosNo / #PorEstosNo2026",
+          "context": "centro",
+          "sources": [],
+          "verification": ""
+        }
+      ]
+    },
+    "oriente": {
+      "accounts": [
+        {
+          "name": "Jorge Pérez Rubio",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Julio Cusurichi Palacios",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "ORPIO (Organización Regional de los Pueblos Indígenas del Oriente)",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "ORAU (Organización Regional AIDESEP Ucayali)",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "FENAMAD (Federación Nativa del Río Madre de Dios y Afluentes)",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "Loreto Iquitos Noticias (IquitosLIN)",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "En La Mira Tarapoto",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "TVPerú Oriente (IRTP)",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "El Búho.pe (Loreto)",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        },
+        {
+          "name": "SqalaTV (Chachapoyas)",
+          "handle": "",
+          "role": "",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": ""
+        }
+      ],
+      "colectivos": [
+        {
+          "name": "AIDESEP Nacional",
+          "scope": "",
+          "type": "federacion_indigena",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Asociación Interétnica de Desarrollo de la Selva Peruana. Representa a 9 organizaciones regionales, 109 federaciones y 2.439 comunidades. Encabezada por Jorge Pérez Rubio (pueblo Murui, Loreto). En elecciones 2026 no emitió respaldo formal a candidato, pero su agenda (consulta previa, derechos territoriales, cese de minería ilegal) se alineó con el discurso de JPP. Previamente, AIDESEP convocó movilización permanente en la Amazonía hasta el adelanto de elecciones generales por la crisis del gobierno Boluarte.",
+          "verification": ""
+        },
+        {
+          "name": "ORPIO (Organización Regional de los Pueblos Indígenas del Oriente)",
+          "scope": "",
+          "type": "federacion_regional_indigena",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Base regional de AIDESEP en Loreto. Articula a 23 federaciones indígenas del departamento. Activa en defensa territorial, pueblos indígenas aislados y alerta ambiental (derrame petrolero río Amazonas, abr 2026). Junto a AIDESEP, defendió la creación de la Reserva Indígena Napo-Tigre ante amenazas extractivistas.",
+          "verification": ""
+        },
+        {
+          "name": "ORAU (Organización Regional AIDESEP Ucayali)",
+          "scope": "",
+          "type": "federacion_regional_indigena",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Base regional de AIDESEP en Ucayali. Activa en defensa de PIACI y denuncia de desinversión gubernamental en la Gerencia Regional de Pueblos Indígenas de Ucayali. Promueve liderazgo juvenil indígena para protección territorial. Participa en la agenda de incendios forestales en territorios amazónicos.",
+          "verification": ""
+        },
+        {
+          "name": "FENAMAD (Federación Nativa del Río Madre de Dios y Afluentes)",
+          "scope": "",
+          "type": "federacion_regional_indigena",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Organización representativa de los pueblos indígenas de la cuenca del río Madre de Dios, con cuatro décadas de historia. Defiende derechos fundamentales, colectivos e incluye pueblos en aislamiento. Sus comunidades afiliadas participaron en marcha nacional contra 'destrucción de la democracia' en jun 2024 en Puerto Maldonado (Plaza Bolognesi). Ante el operativo minero del 10-jun-2026, FENAMAD articula la posición de los pueblos indígenas frente al conflicto minero-ambiental de Tambopata.",
+          "verification": ""
+        },
+        {
+          "name": "Frente Patriótico de Loreto",
+          "scope": "",
+          "type": "frente_civico_sindical",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Frente cívico multisectorial de Loreto que agrupa sindicatos, gremios y organizaciones civiles. Tiene historial de paros regionales de 48 horas con marchas masivas por las calles de Iquitos. Se posicionó contra la privatización de Petroperú y exigió medidas contra la delincuencia. Es el actor de movilización colectiva no indígena más relevante de Loreto. El gobernador René Chávez informó (ago 2025) que sindicatos organizaron movilizaciones hacia la frontera con su apoyo.",
+          "verification": ""
+        },
+        {
+          "name": "Asociación de Arroceros de San Martín",
+          "scope": "",
+          "type": "gremio_agrario",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Gremio de productores arroceros que ejecutó desde el 16 de marzo de 2026 un paro nacional indefinido con bloqueo de la carretera Fernando Belaúnde Terry. En mayo, la huelga entró en su fase más agresiva con bloqueo total de vías y cierre de rutas alternas. El paro agrario es el principal evento de tensión social en San Martín del ciclo preelectoral y postelectoral. El gremio exigió protección frente a la importación de arroz extranjero. El conflicto se amplificó masivamente en Facebook y YouTube.",
+          "verification": ""
+        },
+        {
+          "name": "Colectivos de mineros artesanales e informales — Madre de Dios",
+          "scope": "",
+          "type": "grupo_presion_minero",
+          "leaders": [],
+          "platform": "",
+          "url": "",
+          "notes": "Red de mineros artesanales e informales de la zona de La Pampa e Inambari (Tambopata) que se movilizaron violentamente en episodios anteriores (4.000 personas, quema de camionetas oficiales, heridos). Con el operativo del 10-jun-2026 (S/ 64,5M), se activa nuevamente el potencial de protesta. En redes locales de WhatsApp y Facebook se reportan mensajes de rechazo al operativo. Los 44 mineros con inscripción REINFO que continuaban operando en zona protegida elevan la complejidad del conflicto.",
+          "verification": ""
+        }
+      ],
+      "lives": [
+        {
+          "title": "—",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://elcomercio.pe/politica/elecciones/resultados-elecciones-peru-2026-segunda-vuelta-conteo-oficial-onpe-en-loreto-y-flash-electoral-en-vivo-hoy-7-de-junio-keiko-fujimori-roberto-sanchez-noticia/",
+          "date": "",
+          "topic": "Conteo oficial ONPE en Loreto — segunda vuelta 7 de junio 2026",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=lxqhmLbabiY",
+          "date": "",
+          "topic": "Transmisión especial Elecciones 2026 desde Chachapoyas — centros de votación en directo",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=WQToh-oSxHQ",
+          "date": "",
+          "topic": "TVPerú Oriente EN VIVO — Noticias de la Amazonía peruana, 10 de junio 2026",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=YtDaN5K2Uxs",
+          "date": "",
+          "topic": "Mitin de cierre de campaña de Keiko Fujimori en Tarapoto — transmisión en vivo",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "Facebook",
+          "url": "https://www.facebook.com/IquitosLIN/videos/elecciones2026/1017368594577321/",
+          "date": "",
+          "topic": "Así votó Loreto a boca de urna — Segunda Vuelta #Elecciones2026",
+          "audience": "",
+          "verification": ""
+        },
+        {
+          "title": "—",
+          "host": "",
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=4ykNq8PJrGE",
+          "date": "",
+          "topic": "Voces de la Selva: Entrevista a Julio Cusurichi sobre participación indígena en elecciones",
+          "audience": "",
+          "verification": ""
+        }
+      ],
+      "hashtags": [
+        {
+          "tag": "#Elecciones2026",
+          "context": "oriente",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#Amazonia / #AmazoníaVota",
+          "context": "oriente",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#PuertoInca",
+          "context": "oriente",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#SanMartin / #ParoArrocero",
+          "context": "oriente",
+          "sources": [],
+          "verification": ""
+        },
+        {
+          "tag": "#VocesDeLaSelva / #RadioVozIndigena",
+          "context": "oriente",
+          "sources": [],
+          "verification": ""
+        }
+      ]
+    }
   },
   "validacion": {
     "fecha_corte": "2026-06-11T11:30:00-05:00",
