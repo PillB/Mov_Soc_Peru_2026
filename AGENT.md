@@ -1,7 +1,7 @@
 # AGENT.md — Dossier OSINT Perú 2026
 
 > Documento de mantenimiento para futuras sesiones. Lee esto **antes** de modificar el dossier.
-> Última actualización: v3.5.8 (rutas siguen avenidas reales vía CORRIDORS gazetteer).
+> Última actualización: v3.5.9 (geometría real de calles vía OSRM-precomputado + fix tarjetas de rutas).
 
 ---
 
@@ -243,4 +243,5 @@ share_file(
 | 3.5.5   | 894207b   | rutas normalizadas + investigación expandida                          |
 | 3.5.6   | a63c705   | mapas Leaflet por región, gazetteer offline, 139 tests                |
 | 3.5.7   | e250f5d   | validación de fechas (`fecha_nota`/`fecha_fin`), interactividad mapa↔lista, AGENT.md |
-| 3.5.8   | (este)    | rutas siguen avenidas reales: `CORRIDORS` (17 polylines OSM-aligned) + `resolveCorridor()` con bbox filter; traza corredor (sólida) vs estimada (dashed) |
+| 3.5.8   | 9e2f833   | rutas siguen avenidas reales: `CORRIDORS` (17 polylines OSM-aligned) + `resolveCorridor()` con bbox filter; traza corredor (sólida) vs estimada (dashed) |
+| 3.5.9   | (este)    | **geometría real de calles**: `CORRIDORS_REAL` precomputado vía OSRM demo (17 corredores → 113k vertices → Douglas-Peucker → 6.5k vertices, 136 KB); **fix tarjetas .route** que mostraban solo "—" (nuevo buildRoutes lee `descripcion`/`distritos`/`puntos_clave`/`patron_historico`/`fuente`) |

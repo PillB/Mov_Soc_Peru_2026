@@ -1142,15 +1142,67 @@
     routes.forEach((r, i) => {
       const card = el('div', { class: 'route' });
       card.appendChild(el('span', { class: 'route-code' }, String(i + 1).padStart(2, '0')));
-      card.appendChild(el('h3', null, r.name || '—'));
-      const path = r.path || r.trayecto;
-      if (path) card.appendChild(el('p', { class: 'route-path' }, path));
+
+      // Derive title (v3.5.9): prefer explicit name, else compose from first puntos_clave / distritos
+      // anchors, else extract "X — ..." head from descripcion. Never render an empty "—".
+      const descRaw = cleanStr(r.descripcion) || '';
+      const puntos = Array.isArray(r.puntos_clave) ? r.puntos_clave.filter(Boolean) : [];
+      const distritos = Array.isArray(r.distritos) ? r.distritos.filter(Boolean) : [];
+      let title = cleanStr(r.name) || cleanStr(r.titulo) || cleanStr(r.title) || '';
+      if (!title) {
+        // Try "Head — rest" or "Head:" pattern in descripcion
+        const m = descRaw.match(/^([^:—–\-]{4,80})[\s]*[:—–\-]/);
+        if (m) title = m[1].trim();
+      }
+      if (!title && puntos.length >= 2) title = puntos[0] + ' → ' + puntos[puntos.length - 1];
+      if (!title && distritos.length) title = distritos.join(' → ');
+      if (!title && descRaw) title = shortText(descRaw, 70);
+      if (!title) title = 'Ruta ' + (i + 1);
+      card.appendChild(el('h3', null, title));
+
+      // Trayectoria — puntos_clave ("A → B → C") cuando existen, si no la descripción.
+      let pathStr = '';
+      if (puntos.length) {
+        pathStr = puntos.join(' → ');
+      } else if (descRaw && descRaw !== title) {
+        pathStr = descRaw;
+      }
+      if (pathStr) card.appendChild(el('p', { class: 'route-path' }, pathStr));
+
+      // Distritos chips
+      if (distritos.length) {
+        const chips = el('div', { class: 'route-distritos' });
+        distritos.slice(0, 6).forEach(d => {
+          chips.appendChild(el('span', { class: 'route-distrito-chip' }, d));
+        });
+        card.appendChild(chips);
+      }
+
+      // Stats / meta (bando, patrón histórico)
       const stats = el('div', { class: 'route-stats' });
+      const bando = cleanStr(r.bando) || cleanStr(r.side);
+      if (bando) stats.appendChild(el('div', null, [document.createTextNode('Bando '), el('strong', null, bando)]));
+      const patron = cleanStr(r.patron_historico);
+      if (patron) {
+        const div = el('div', { class: 'route-patron' });
+        div.appendChild(el('strong', null, 'Patrón histórico: '));
+        div.appendChild(document.createTextNode(shortText(patron, 180)));
+        card.appendChild(div);
+      }
+      // Legacy fields (no se rompen si llegan)
       if (r.distance) stats.appendChild(el('div', null, [document.createTextNode('Distancia '), el('strong', null, r.distance)]));
       if (r.duration) stats.appendChild(el('div', null, [document.createTextNode('Duración '), el('strong', null, r.duration)]));
       if (r.frequency) stats.appendChild(el('div', null, [document.createTextNode('Frecuencia '), el('strong', null, r.frequency)]));
       if (r.actors) stats.appendChild(el('div', null, [document.createTextNode('Actores '), el('strong', null, r.actors)]));
       if (stats.childNodes.length) card.appendChild(stats);
+
+      // Fuente — link al primer source
+      const fuenteUrl = cleanStr(r.fuente) || cleanStr(r.source) || '';
+      if (/^https?:\/\//i.test(fuenteUrl)) {
+        const link = el('a', { class: 'route-fuente', href: fuenteUrl, target: '_blank', rel: 'noopener noreferrer' }, '↗ ' + safeAnchorText(fuenteUrl));
+        card.appendChild(link);
+      }
+
       grid.appendChild(card);
     });
     return grid;

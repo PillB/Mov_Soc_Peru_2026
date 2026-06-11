@@ -643,9 +643,9 @@ function section(title) {
   }
   ok('no quedan fechas malformadas tipo YYYY-MM-DDT<garbage>', weirdDates === 0, `n=${weirdDates} samples=${JSON.stringify(weirdSamples)}`);
 
-  section('N21. v3.5.8 — meta.version = 3.5.8');
+  section('N21. v3.5.9 — meta.version = 3.5.9');
   const metaVersion = data_v357.meta && data_v357.meta.version;
-  ok('meta.version es 3.5.8', metaVersion === '3.5.8', `got=${metaVersion}`);
+  ok('meta.version es 3.5.9', metaVersion === '3.5.9', `got=${metaVersion}`);
 
   section('N22. v3.5.8 — gazetteer expone CORRIDORS con polylines de avenidas reales');
   const corridorsInfo = await page.evaluate(() => {
@@ -684,6 +684,56 @@ function section(title) {
     return txt.includes('traza de la ruta');
   });
   ok('leyenda menciona "Traza de la ruta"', hasTrazaLegend === true, `hasTrazaLegend=${hasTrazaLegend}`);
+
+  section('N25. v3.5.9 — tarjetas .route NO muestran solo "—" como título');
+  const routeCardCheck = await page.evaluate(() => {
+    const cards = Array.from(document.querySelectorAll('.routes .route'));
+    const total = cards.length;
+    let emptyDash = 0;
+    cards.forEach(c => {
+      const h3 = (c.querySelector('h3')?.textContent || '').trim();
+      if (h3 === '—' || h3 === '-' || h3 === '') emptyDash++;
+    });
+    return { total, emptyDash };
+  });
+  ok('hay tarjetas .route renderizadas', routeCardCheck.total > 0, JSON.stringify(routeCardCheck));
+  ok('ninguna tarjeta .route muestra solo "—" como h3', routeCardCheck.emptyDash === 0, JSON.stringify(routeCardCheck));
+
+  section('N26. v3.5.9 — CORRIDORS_REAL expuesto con geometría densa (OSRM-precomputado)');
+  const corridorsRealInfo = await page.evaluate(() => {
+    const gz = window.DOSSIER_GAZETTEER;
+    if (!gz || !gz.CORRIDORS_REAL) return { ok:false, count:0, total:0 };
+    const keys = Object.keys(gz.CORRIDORS_REAL);
+    let total = 0, urbanMax = 0;
+    const urbanKeys = ['toma_de_lima', 'corredor_historico_lima', 'eje_norte_lima', 'cusco_urbano'];
+    keys.forEach(k => {
+      const arr = gz.CORRIDORS_REAL[k];
+      if (Array.isArray(arr)) {
+        total += arr.length;
+        if (urbanKeys.indexOf(k) >= 0 && arr.length > urbanMax) urbanMax = arr.length;
+      }
+    });
+    return { ok:true, count: keys.length, total, urbanMax };
+  });
+  ok('CORRIDORS_REAL existe', corridorsRealInfo.ok === true, JSON.stringify(corridorsRealInfo));
+  ok('CORRIDORS_REAL tiene >=15 corredores', corridorsRealInfo.count >= 15, JSON.stringify(corridorsRealInfo));
+  ok('CORRIDORS_REAL tiene >=1000 vertices totales (geom dense)', corridorsRealInfo.total >= 1000, JSON.stringify(corridorsRealInfo));
+  ok('algun corredor urbano tiene >=20 vertices reales', corridorsRealInfo.urbanMax >= 20, JSON.stringify(corridorsRealInfo));
+
+  section('N27. v3.5.9 — polyline urbana renderizada en Lima sigue geometría densa');
+  const limaPolyMax = await page.evaluate(() => {
+    const map = document.querySelector('#map-lima');
+    if (!map) return 0;
+    const paths = map.querySelectorAll('.leaflet-overlay-pane svg path');
+    let maxV = 0;
+    paths.forEach(p => {
+      const d = p.getAttribute('d') || '';
+      const v = (d.match(/[MLml]/g) || []).length;
+      if (v > maxV) maxV = v;
+    });
+    return maxV;
+  });
+  ok('polyline en #map-lima tiene >=20 vertices (real road geometry)', limaPolyMax >= 20, `maxV=${limaPolyMax}`);
 
   section('N. Global — no dash-only badge anywhere in regions/social/EW');
   const allDashBadges = await page.evaluate(() => {
