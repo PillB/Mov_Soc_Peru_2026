@@ -421,6 +421,21 @@ function section(title) {
   ok('zone cards rendered for centro/sur/oriente', zoneCheck.totalZones >= 1, `n=${zoneCheck.totalZones}`);
   ok('majority of zone cards have body text >30 chars', zoneCheck.withDesc >= Math.ceil(zoneCheck.totalZones * 0.5), `withDesc=${zoneCheck.withDesc}/${zoneCheck.totalZones}`);
 
+  section('N5. v3.5.3 — Live-card schedule and region-meta: no raw ISO datetime');
+  const isoLeakCheck = await page.evaluate(() => {
+    const out = { liveCardIso: 0, regionMetaIso: 0 };
+    const reIso = /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/;
+    document.querySelectorAll('.l-schedule').forEach(el => {
+      if (reIso.test((el.textContent || '').trim())) out.liveCardIso++;
+    });
+    document.querySelectorAll('.region-meta').forEach(el => {
+      if (reIso.test((el.textContent || '').trim())) out.regionMetaIso++;
+    });
+    return out;
+  });
+  ok('live-card schedule: zero raw ISO datetime', isoLeakCheck.liveCardIso === 0, `n=${isoLeakCheck.liveCardIso}`);
+  ok('region-meta corte: zero raw ISO datetime', isoLeakCheck.regionMetaIso === 0, `n=${isoLeakCheck.regionMetaIso}`);
+
   section('N4. v3.5.3 — Disinfo/Alt-media: no raw underscore-token chips');
   const labelCheck = await page.evaluate(() => {
     // only raw underscore tokens (definitely unmapped) — 'centro'/'izq'/'der' can be legit labels in some contexts

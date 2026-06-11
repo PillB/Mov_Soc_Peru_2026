@@ -3649,7 +3649,13 @@ window.__EMBEDDED_DATA = {"meta":{"version":"3.5.3","generated_at":"2026-06-11T1
     if (corrs.length)   meta.appendChild(el('span', { html: `Corredores · <strong>${corrs.length}</strong>` }));
     if (actors.length)  meta.appendChild(el('span', { html: `Actores · <strong>${actors.length}</strong>` }));
     if (narrLoc.length) meta.appendChild(el('span', { html: `Narrativas locales · <strong>${narrLoc.length}</strong>` }));
-    if (r.fecha_corte)  meta.appendChild(el('span', { html: `Corte · <strong>${escapeHtml(r.fecha_corte)}</strong>` }));
+    if (r.fecha_corte) {
+      // v3.5.3: humanize ISO datetime in region meta
+      const corteStr = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(String(r.fecha_corte))
+        ? (function () { try { return formatDate(r.fecha_corte); } catch (_) { return r.fecha_corte; } })()
+        : r.fecha_corte;
+      meta.appendChild(el('span', { html: `Corte · <strong>${escapeHtml(corteStr)}</strong>` }));
+    }
     if (meta.children.length) head.appendChild(meta);
 
     if (r.executive_alert) {
@@ -4787,7 +4793,13 @@ window.__EMBEDDED_DATA = {"meta":{"version":"3.5.3","generated_at":"2026-06-11T1
       if (isActive)  chips.appendChild(el('span', { class: 'badge', style: 'background:var(--c-risk-bajo,#e6f7ec);color:#0d5c2a;font-size:var(--text-xs)' }, '● En vivo'));
       else if (isArchived) chips.appendChild(el('span', { class: 'badge badge-latente', style: 'font-size:var(--text-xs)' }, 'Archivado'));
       if (chips.children.length) card.appendChild(chips);
-      if (sched) card.appendChild(el('div', { class: 'l-schedule' }, '🕒 ' + sched));
+      if (sched) {
+        // v3.5.3: humanize ISO datetime in live-card schedule
+        const schedStr = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(sched)
+          ? (function () { try { return formatDate(sched); } catch (_) { return sched; } })()
+          : sched;
+        card.appendChild(el('div', { class: 'l-schedule' }, '🕒 ' + schedStr));
+      }
       if (focus) card.appendChild(el('p', { class: 'l-focus' }, focus));
       if (note && note !== focus) card.appendChild(el('p', { class: 'l-focus', style: 'color:var(--c-ink-2);font-size:var(--text-xs)' }, note));
       const meta = el('div', { class: 'l-meta' });
