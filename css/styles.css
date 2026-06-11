@@ -2797,3 +2797,53 @@ details.foldable > .foldable-body {
     border-radius: 4px;
   }
 }
+
+/* ============================================================
+ * v3.5.7 — Event card interactivity (map↔list)
+ * ============================================================ */
+.event-card {
+  position: relative;
+  cursor: pointer;
+  transition: box-shadow 180ms ease, transform 180ms ease, background-color 240ms ease, border-color 240ms ease;
+}
+.event-card:hover {
+  box-shadow: 0 6px 18px rgba(11,26,43,0.10);
+  transform: translateY(-1px);
+}
+.event-card:focus-visible {
+  outline: 2px solid var(--c-accent, #1f5fa8);
+  outline-offset: 2px;
+}
+.event-card::after {
+  content: "🗺 ver en mapa";
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--c-ink-2, #4a5568);
+  opacity: 0;
+  transform: translateY(-2px);
+  transition: opacity 160ms ease, transform 160ms ease;
+  pointer-events: none;
+}
+.event-card:hover::after,
+.event-card:focus-visible::after {
+  opacity: 0.85;
+  transform: translateY(0);
+}
+.event-card.is-flashed {
+  background-color: rgba(255, 235, 130, 0.35);
+  border-color: #d4a017;
+  animation: cardFlash 1.6s ease-out;
+}
+@keyframes cardFlash {
+  0%   { background-color: rgba(255, 235, 130, 0.65); box-shadow: 0 0 0 4px rgba(212, 160, 23, 0.35); }
+  60%  { background-color: rgba(255, 235, 130, 0.30); box-shadow: 0 0 0 2px rgba(212, 160, 23, 0.15); }
+  100% { background-color: transparent; box-shadow: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .event-card { transition: none; }
+  .event-card.is-flashed { animation: none; background-color: rgba(255, 235, 130, 0.35); }
+}

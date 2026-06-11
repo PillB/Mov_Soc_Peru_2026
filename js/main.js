@@ -196,9 +196,47 @@
     renderSources(d.sources_index || []);
   }
 
+  // v3.5.7: robust date formatter — anti-"Invalid Date"
   function formatDate(iso) {
-    try { const d = new Date(iso); return d.toLocaleDateString('es-PE', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }); }
-    catch (e) { return iso; }
+    if (!iso) return 'Por confirmar';
+    const s = String(iso).trim();
+    // Pure YYYY-MM-DD (no time): treat as local date, no UTC shift
+    const mDateOnly = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s);
+    if (mDateOnly) {
+      const dt = new Date(+mDateOnly[1], +mDateOnly[2]-1, +mDateOnly[3]);
+      if (!isNaN(dt)) return dt.toLocaleDateString('es-PE', { day: '2-digit', month: 'short', year: 'numeric' });
+      return 'Por confirmar';
+    }
+    // Full ISO with time
+    const mISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?(Z|[+-]\d{2}:?\d{2})?$/.test(s);
+    if (mISO) {
+      const dt = new Date(s);
+      if (!isNaN(dt)) return dt.toLocaleDateString('es-PE', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+    }
+    try {
+      const dt = new Date(s);
+      if (!isNaN(dt)) return dt.toLocaleDateString('es-PE', { day: '2-digit', month: 'short', year: 'numeric' });
+    } catch (e) { /* fallthrough */ }
+    return 'Por confirmar';
+  }
+
+  // v3.5.7: returns combined human label including range and nota
+  function formatEventDate(ev) {
+    if (!ev) return 'Por confirmar';
+    const f = ev.fecha || ev.date || '';
+    const fin = ev.fecha_fin || '';
+    const nota = ev.fecha_nota || '';
+    const main = formatDate(f);
+    let out = main;
+    if (fin) {
+      const finStr = formatDate(fin);
+      if (finStr && finStr !== 'Por confirmar' && finStr !== main) out = `${main} – ${finStr}`;
+    }
+    if (nota) {
+      // Only append nota if it adds info
+      out = (out === 'Por confirmar') ? nota : `${out} · ${nota}`;
+    }
+    return out;
   }
 
   // ---------- Executive alert ----------
@@ -475,6 +513,16 @@
     const actors   = r.actors     || r.actores               || [];
     const future   = r.events_future || r.convocatorias_futuras || [];
     const narrLoc  = r.narratives_local || r.narrativas_locales || [];
+
+    // v3.5.7: assign stable evtid for map↔list interactivity
+    // Mutates raw event objects with __evtid so buildEvents and buildRegionMap can correlate.
+    function tagEvents(list, kind) {
+      list.forEach((ev, i) => {
+        if (!ev.__evtid) ev.__evtid = (ev.id ? ('ev_' + ev.id) : `${id}_${kind}_${i}`);
+      });
+    }
+    tagEvents(events, 'e');
+    tagEvents(future, 'f');
     const displayName = r.name || REGION_LABELS[id] || (r.region || id);
     const riskLvl = r.risk_level || inferRiskLevel(r.executive_alert);
 
@@ -515,10 +563,10 @@
     } catch (e) { console.warn('[map]', id, e); }
 
     if (events.length) {
-      frag.appendChild(buildSub('Eventos', `Inventario regional · ${events.length} entradas`, buildEvents(events)));
+      frag.appendChild(buildSub('Eventos', `Inventario regional · ${events.length} entradas`, buildEvents(events, id)));
     }
     if (future.length) {
-      frag.appendChild(buildSub('Convocatorias futuras', `${future.length} convocatorias previstas`, buildEvents(future)));
+      frag.appendChild(buildSub('Convocatorias futuras', `${future.length} convocatorias previstas`, buildEvents(future, id)));
     }
     if (zones.length) {
       frag.appendChild(buildSub('Zonas de foco', 'Geografía de riesgo y vías alternativas', buildZones(zones)));
@@ -878,9 +926,10 @@
     return w;
   }
 
-  function buildEvents(events) {
+  function buildEvents(events, regionId) {
     const grid = el('div', { class: 'cards', role: 'list' });
     events.forEach(raw => {
+      const evtid = raw.__evtid || '';
       // v3.5.2: bridge Spanish event keys + fall back to bando for status/side
       // Prefer Spanish name field (e.g. "La toma de Lima") over tipo ("marcha")
       const tipo = cleanStr(raw.tipo);
@@ -923,7 +972,10 @@
       else if (raw.fuente && typeof raw.fuente === 'object' && raw.fuente.url) sources.push(raw.fuente);
       if (typeof raw.fuente_secundaria === 'string' && /^https?:\/\//.test(raw.fuente_secundaria)) sources.push({ url: raw.fuente_secundaria });
 
-      const card = el('article', { class: 'card', role: 'listitem' });
+      const cardAttrs = { class: 'card event-card', role: 'listitem', tabindex: '0' };
+      if (evtid) cardAttrs['data-evtid'] = evtid;
+      if (regionId) cardAttrs['data-region-id'] = regionId;
+      const card = el('article', cardAttrs);
       const headerRow = el('div', { style: 'display:flex;gap:var(--s-3);justify-content:space-between;align-items:flex-start;flex-wrap:wrap;margin-bottom:var(--s-2)' });
 
       // Badge priority: explicit status → bando → tipo (so it's never "—")
@@ -951,10 +1003,9 @@
       if (e.summary) card.appendChild(el('p', { style: 'font-size:var(--text-sm);color:var(--c-ink-2)', html: parseInlineMd(e.summary) }));
 
       const meta = el('dl', { class: 'card-meta' });
-      // v3.5.3: humanize ISO date for display (keep raw if not parseable)
-      const displayDate = e.date && /^\d{4}-\d{2}-\d{2}/.test(e.date)
-        ? (function () { try { return formatDate(e.date); } catch (_) { return e.date; } })()
-        : e.date;
+      // v3.5.7: route through formatEventDate so fecha_nota and fecha_fin show up,
+      // and broken/empty dates render as "Por confirmar" instead of "Invalid Date"
+      const displayDate = formatEventDate(raw);
       const rows = [
         ['Fecha / hora', displayDate],
         ['Lugar', e.location],
@@ -977,6 +1028,22 @@
         });
         card.appendChild(src);
       }
+
+      // v3.5.7: click → map flyTo + open popup. Ignore clicks on inner anchors/buttons.
+      if (evtid && regionId) {
+        const tryFly = (e) => {
+          if (e.target && (e.target.closest('a') || e.target.closest('button'))) return;
+          const handle = window.__regionMaps && window.__regionMaps[regionId];
+          if (handle && typeof handle.focusEvent === 'function') {
+            handle.focusEvent(evtid);
+          }
+        };
+        card.addEventListener('click', tryFly);
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tryFly(e); }
+        });
+      }
+
       grid.appendChild(card);
     });
     return grid;
@@ -1193,7 +1260,7 @@
     const allEv = (data.events || []).concat(data.future || []);
     const eventsResolved = allEv.map((ev, i) => {
       const c = gz.resolve(ev.ubicacion, regionId) || gz.resolve(ev.titulo, regionId);
-      return c ? { idx: i, raw: ev, coord: c, side: sideKeyForMap(ev.bando) } : null;
+      return c ? { idx: i, raw: ev, coord: c, side: sideKeyForMap(ev.bando), evtid: ev.__evtid || '' } : null;
     }).filter(Boolean);
 
     const totalGeoItems = routesResolved.length + zonesResolved.length + eventsResolved.length;
@@ -1334,6 +1401,8 @@
       });
 
       // ----- Draw events -----
+      // v3.5.7: keep a registry so list↔map clicks work
+      const eventMarkers = Object.create(null);
       eventsResolved.forEach(ev => {
         const color = MAP_SIDE_COLORS[ev.side] || MAP_SIDE_COLORS.unknown;
         const marker = L.circleMarker(ev.coord, {
@@ -1360,6 +1429,18 @@
           { maxWidth: 320 }
         );
         marker.bindTooltip(shortText(titulo, 60), { direction: 'top', className: 'map-tip' });
+        // v3.5.7: marker click → scroll to list card + flash
+        if (ev.evtid) {
+          eventMarkers[ev.evtid] = { marker: marker, coord: ev.coord };
+          marker.on('click', () => {
+            const card = document.querySelector(`.event-card[data-evtid="${ev.evtid}"][data-region-id="${regionId}"]`);
+            if (card) {
+              card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              card.classList.add('is-flashed');
+              setTimeout(() => card.classList.remove('is-flashed'), 1600);
+            }
+          });
+        }
         marker.addTo(layerEvents);
         allPoints.push(ev.coord);
       });
@@ -1473,6 +1554,26 @@
       if (panelObs && 'MutationObserver' in window) {
         new MutationObserver(checkVisible).observe(panelObs, { attributes: true, attributeFilter: ['class'] });
       }
+
+      // v3.5.7: expose external handle for list → map interactivity
+      window.__regionMaps = window.__regionMaps || {};
+      window.__regionMaps[regionId] = {
+        focusEvent(evtid) {
+          const entry = eventMarkers[evtid];
+          if (!entry) return false;
+          // Make sure events layer is visible
+          if (!map.hasLayer(layerEvents)) layerEvents.addTo(map);
+          mapHolder.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // After scroll, fly + open popup
+          setTimeout(() => {
+            map.invalidateSize();
+            map.flyTo(entry.coord, Math.max(map.getZoom(), 12), { animate: true, duration: 0.6 });
+            setTimeout(() => entry.marker.openPopup(), 700);
+          }, 320);
+          return true;
+        },
+        resetView: fitAll
+      };
     }, 0);
 
     return wrap;

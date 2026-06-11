@@ -542,6 +542,111 @@ function section(title) {
   // by Leaflet regardless of network). file://-loaded HTML may have 0 successful loads but elements exist.
   ok('Leaflet creó elementos <img class=leaflet-tile>', totalTiles >= 1, `total=${totalTiles}`);
 
+  // ============================================================
+  // v3.5.7 — Date validation + map↔list interactivity
+  // ============================================================
+
+  section('N14. v3.5.7 — Sin "Invalid Date" en ninguna tarjeta de evento');
+  const invalidDateCount = await page.evaluate(() => {
+    const cards = Array.from(document.querySelectorAll('.event-card .card-meta'));
+    let n = 0;
+    cards.forEach(meta => {
+      if (/Invalid Date/i.test(meta.textContent || '')) n++;
+    });
+    return n;
+  });
+  ok('Ninguna tarjeta de evento muestra "Invalid Date"', invalidDateCount === 0, `n=${invalidDateCount}`);
+
+  section('N15. v3.5.7 — Eventos sin fecha muestran "Por confirmar" o fecha_nota');
+  const porConfirmarCount = await page.evaluate(() => {
+    const cards = Array.from(document.querySelectorAll('.event-card .card-meta'));
+    let porConf = 0, totalFecha = 0;
+    cards.forEach(meta => {
+      const txt = meta.textContent || '';
+      if (/Fecha/i.test(txt)) {
+        totalFecha++;
+        if (/Por confirmar|Sin fecha confirmada/i.test(txt)) porConf++;
+      }
+    });
+    return { porConf, totalFecha };
+  });
+  ok('Hay tarjetas con "Por confirmar" (las que no tenían fecha)', porConfirmarCount.porConf >= 1, JSON.stringify(porConfirmarCount));
+
+  section('N16. v3.5.7 — Tarjetas de evento tienen data-evtid y data-region-id');
+  const evtAttrs = await page.evaluate(() => {
+    const cards = Array.from(document.querySelectorAll('.event-card'));
+    const withBoth = cards.filter(c => c.getAttribute('data-evtid') && c.getAttribute('data-region-id')).length;
+    return { total: cards.length, withBoth };
+  });
+  ok('≥ 80% de event-cards tienen data-evtid + data-region-id', evtAttrs.total > 0 && (evtAttrs.withBoth / evtAttrs.total) >= 0.8, JSON.stringify(evtAttrs));
+
+  section('N17. v3.5.7 — window.__regionMaps expone focusEvent para 4+ regiones');
+  // Visit each region tab so its map initializes
+  for (const rid of REGIONS) {
+    await page.click(`.tab-btn[data-region="${rid}"]`).catch(() => {});
+    await page.waitForTimeout(300);
+  }
+  await page.waitForTimeout(500);
+  const regionMaps = await page.evaluate(() => {
+    const rm = window.__regionMaps || {};
+    return Object.keys(rm).filter(k => typeof rm[k].focusEvent === 'function');
+  });
+  ok('≥ 4 regiones registraron focusEvent en window.__regionMaps', regionMaps.length >= 4, `keys=${regionMaps.join(',')}`);
+
+  section('N18. v3.5.7 — Click en tarjeta dispara focusEvent del mapa');
+  await page.click('.tab-btn[data-region="lima"]').catch(() => {});
+  await page.waitForTimeout(500);
+  const focusResult = await page.evaluate(() => {
+    // find a lima event card with a valid evtid that's also in the map registry
+    const handle = (window.__regionMaps || {})['lima'];
+    if (!handle) return { ok: false, reason: 'no_lima_handle' };
+    const cards = Array.from(document.querySelectorAll('.event-card[data-region-id="lima"]'));
+    for (const card of cards) {
+      const id = card.getAttribute('data-evtid');
+      if (id && handle.focusEvent(id)) return { ok: true, id };
+    }
+    return { ok: false, reason: 'no_matching_event' };
+  });
+  ok('al menos un evento de Lima es enfocable vía focusEvent', focusResult.ok === true, JSON.stringify(focusResult));
+
+  section('N19. v3.5.7 — AGENT.md existe con secciones clave');
+  const agentPath = path.join(REPO_ROOT, 'AGENT.md');
+  let agentContent = '';
+  try { agentContent = fs.readFileSync(agentPath, 'utf8'); } catch (e) {}
+  ok('AGENT.md existe', agentContent.length > 0, `len=${agentContent.length}`);
+  ok('AGENT.md cubre arquitectura', /## 1\. Arquitectura/.test(agentContent));
+  ok('AGENT.md cubre shapes de datos', /## 2\. Shape de datos/.test(agentContent));
+  ok('AGENT.md cubre interdependencias', /## 3\. Interdependencias/.test(agentContent));
+  ok('AGENT.md cubre QA checklist', /## 4\. QA checklist/.test(agentContent));
+  ok('AGENT.md cubre errores comunes', /## 5\. Errores comunes/.test(agentContent));
+
+  section('N20. v3.5.7 — events.json sin fechas mal formadas (`YYYY-MM-DDT<garbage>`)');
+  const dataRaw_v357 = fs.readFileSync(DATA_PATH, 'utf8');
+  const data_v357 = JSON.parse(dataRaw_v357);
+  let weirdDates = 0; const weirdSamples = [];
+  function checkList(list) {
+    (list || []).forEach(ev => {
+      const f = ev.fecha || '';
+      if (typeof f === 'string' && /^\d{4}-\d{2}-\d{2}T/.test(f)) {
+        // Only valid if matches full ISO
+        if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?(Z|[+-]\d{2}:?\d{2})?$/.test(f)) {
+          weirdDates++;
+          if (weirdSamples.length < 3) weirdSamples.push(f);
+        }
+      }
+    });
+  }
+  for (const rid of Object.keys(data_v357.regions || {})) {
+    const r = data_v357.regions[rid];
+    checkList(r.eventos || r.events || []);
+    checkList(r.convocatorias_futuras || r.events_future || []);
+  }
+  ok('no quedan fechas malformadas tipo YYYY-MM-DDT<garbage>', weirdDates === 0, `n=${weirdDates} samples=${JSON.stringify(weirdSamples)}`);
+
+  section('N21. v3.5.7 — meta.version = 3.5.7');
+  const metaVersion = data_v357.meta && data_v357.meta.version;
+  ok('meta.version es 3.5.7', metaVersion === '3.5.7', `got=${metaVersion}`);
+
   section('N. Global — no dash-only badge anywhere in regions/social/EW');
   const allDashBadges = await page.evaluate(() => {
     const scope = Array.from(document.querySelectorAll(
