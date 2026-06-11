@@ -643,9 +643,9 @@ function section(title) {
   }
   ok('no quedan fechas malformadas tipo YYYY-MM-DDT<garbage>', weirdDates === 0, `n=${weirdDates} samples=${JSON.stringify(weirdSamples)}`);
 
-  section('N21. v3.5.11 — meta.version = 3.5.11');
+  section('N21. v3.5.12 — meta.version = 3.5.12');
   const metaVersion = data_v357.meta && data_v357.meta.version;
-  ok('meta.version es 3.5.11', metaVersion === '3.5.11', `got=${metaVersion}`);
+  ok('meta.version es 3.5.12', metaVersion === '3.5.12', `got=${metaVersion}`);
 
   section('N22. v3.5.8 — gazetteer expone CORRIDORS con polylines de avenidas reales');
   const corridorsInfo = await page.evaluate(() => {
@@ -805,6 +805,32 @@ function section(title) {
   ok('escenario pro-Fujimori y pro-Sánchez tienen texto', impCheck.pfLen > 30 && impCheck.psLen > 30, JSON.stringify(impCheck));
   ok('factor crítico renderizado', impCheck.criticoLen > 30, JSON.stringify(impCheck));
   ok('al menos 3 fuentes linkeadas', impCheck.fuentes >= 3, JSON.stringify(impCheck));
+
+  section('N34. v3.5.12 — row foldable de Extranjero existe y se expande');
+  const foldCheck = await page.evaluate(async () => {
+    const rows = document.querySelectorAll('.rev-actas-row-foldable');
+    if (rows.length === 0) return { rows: 0 };
+    let extRow = null;
+    rows.forEach(r => {
+      if ((r.querySelector('.rev-actas-origen') || {}).textContent && /Extranjero/i.test(r.querySelector('.rev-actas-origen').textContent)) extRow = r;
+    });
+    if (!extRow) return { rows: rows.length, extFound: false };
+    extRow.click();
+    await new Promise(r => setTimeout(r, 60));
+    const subrow = document.querySelector('.rev-actas-subrow');
+    const visible = subrow && subrow.style.display !== 'none';
+    const subTbl = document.querySelector('.rev-actas-sub-tbl');
+    const countryRows = subTbl ? subTbl.querySelectorAll('tbody tr:not(.rev-actas-sub-cont)').length : 0;
+    const contRows = subTbl ? subTbl.querySelectorAll('tbody tr.rev-actas-sub-cont').length : 0;
+    const hasONPE = !!(document.querySelector('.rev-actas-sub-fuente') && /ONPE/i.test(document.querySelector('.rev-actas-sub-fuente').textContent));
+    return { rows: rows.length, extFound: true, visible, countryRows, contRows, hasONPE };
+  });
+  ok('al menos 1 row foldable existe', foldCheck.rows >= 1, JSON.stringify(foldCheck));
+  ok('row Extranjero encontrada', foldCheck.extFound === true, JSON.stringify(foldCheck));
+  ok('sub-row se vuelve visible al click', foldCheck.visible === true, JSON.stringify(foldCheck));
+  ok('al menos 70 países listados', foldCheck.countryRows >= 70, JSON.stringify(foldCheck));
+  ok('al menos 5 grupos de continente', foldCheck.contRows >= 5, JSON.stringify(foldCheck));
+  ok('fuente directa ONPE etiquetada', foldCheck.hasONPE === true, JSON.stringify(foldCheck));
 
   section('N. Global — no dash-only badge anywhere in regions/social/EW');
   const allDashBadges = await page.evaluate(() => {

@@ -2711,13 +2711,116 @@
       thead.appendChild(trh);
       tbl.appendChild(thead);
       const tbody = el('tbody');
-      pendientes.forEach(p => {
-        const tr = el('tr');
-        tr.appendChild(el('td', { class: 'rev-actas-origen' }, p.origen || '—'));
+      pendientes.forEach((p, idx) => {
+        const hasDetalle = Array.isArray(p.detalle_paises) && p.detalle_paises.length > 0;
+        const tr = el('tr', hasDetalle ? { class: 'rev-actas-row-foldable', 'data-foldable-idx': String(idx) } : null);
+        const tdOrigen = el('td', { class: 'rev-actas-origen' });
+        if (hasDetalle) {
+          const caret = el('span', { class: 'rev-actas-caret', 'aria-hidden': 'true' }, '▸');
+          tdOrigen.appendChild(caret);
+          tdOrigen.appendChild(document.createTextNode(' ' + (p.origen || '—')));
+        } else {
+          tdOrigen.textContent = p.origen || '—';
+        }
+        tr.appendChild(tdOrigen);
         tr.appendChild(el('td', { class: 'num rev-actas-count' }, fmt(p.count || 0)));
         tr.appendChild(el('td', { class: 'rev-actas-detalle' }, p.detalle || ''));
         tr.appendChild(el('td', { class: 'rev-actas-voto' }, p.voto_esperado || '—'));
         tbody.appendChild(tr);
+
+        if (hasDetalle) {
+          tr.setAttribute('role', 'button');
+          tr.setAttribute('tabindex', '0');
+          tr.setAttribute('aria-expanded', 'false');
+          // Sub-row
+          const trSub = el('tr', { class: 'rev-actas-subrow', 'data-sub-of': String(idx), style: 'display:none' });
+          const tdSub = el('td', { colspan: '4', class: 'rev-actas-subcell' });
+          const subWrap = el('div', { class: 'rev-actas-sub-wrap' });
+          const subHead = el('div', { class: 'rev-actas-sub-head' });
+          subHead.appendChild(el('span', { class: 'rev-actas-sub-title' }, 'Desglose por país — ' + fmt(p.detalle_paises_total || 0) + ' países (datos ONPE en directo)'));
+          if (p.fuente_directa) {
+            subHead.appendChild(el('span', { class: 'rev-actas-sub-fuente' }, p.fuente_directa));
+          }
+          subWrap.appendChild(subHead);
+          const subTbl = el('table', { class: 'rev-actas-sub-tbl' });
+          const subTh = el('thead');
+          const subTrh = el('tr');
+          ['País', 'Total actas', 'Contab.', 'Obs. JEE', '% avance', 'Líder', '% líder', 'Votos F', 'Votos S'].forEach(h => subTrh.appendChild(el('th', null, h)));
+          subTh.appendChild(subTrh);
+          subTbl.appendChild(subTh);
+          const subTbody = el('tbody');
+          // v3.5.12: agrupar por continente — datos directos del portal ONPE
+          const grouped = {};
+          const contOrder = [];
+          (p.detalle_paises || []).forEach(c => {
+            const k = c.continente || 'OTROS';
+            if (!grouped[k]) { grouped[k] = []; contOrder.push(k); }
+            grouped[k].push(c);
+          });
+          // Orden de continentes
+          const contRank = { 'ÁFRICA': 1, 'AMÉRICA': 2, 'ASIA': 3, 'EUROPA': 4, 'OCEANÍA': 5 };
+          contOrder.sort((a, b) => (contRank[a] || 99) - (contRank[b] || 99));
+          const ncols = 9;
+          contOrder.forEach(cont => {
+            const arr = grouped[cont];
+            const totVotosF = arr.reduce((s, x) => s + (x.fujimori_votos || 0), 0);
+            const totVotosS = arr.reduce((s, x) => s + (x.sanchez_votos || 0), 0);
+            const totActas = arr.reduce((s, x) => s + (x.actas_total || 0), 0);
+            const totCont = arr.reduce((s, x) => s + (x.actas_contabilizadas || 0), 0);
+            // Encabezado del continente
+            const trCont = el('tr', { class: 'rev-actas-sub-cont' });
+            const tdCont = el('td', { colspan: String(ncols), class: 'rev-actas-sub-cont-cell' });
+            tdCont.appendChild(el('span', { class: 'rev-actas-sub-cont-name' }, cont + ' (' + arr.length + ' países)'));
+            const totalLider = totVotosF >= totVotosS ? 'Fujimori ' + pct(totVotosF / Math.max(1, totVotosF + totVotosS), 1) : 'Sánchez ' + pct(totVotosS / Math.max(1, totVotosF + totVotosS), 1);
+            tdCont.appendChild(el('span', { class: 'rev-actas-sub-cont-meta' }, totCont + '/' + totActas + ' actas · ' + totalLider));
+            trCont.appendChild(tdCont);
+            subTbody.appendChild(trCont);
+            // Ordenar países por votos totales (mayor primero)
+            arr.slice().sort((a, b) => ((b.fujimori_votos || 0) + (b.sanchez_votos || 0)) - ((a.fujimori_votos || 0) + (a.sanchez_votos || 0))).forEach(c => {
+              const cRow = el('tr');
+              const tdPais = el('td', { class: 'rev-actas-sub-pais' });
+              if (c.iso && c.iso !== '—') tdPais.appendChild(el('span', { class: 'rev-actas-sub-iso' }, c.iso));
+              tdPais.appendChild(document.createTextNode(' ' + (c.pais || '—')));
+              cRow.appendChild(tdPais);
+              cRow.appendChild(el('td', { class: 'num' }, fmt(c.actas_total || 0)));
+              cRow.appendChild(el('td', { class: 'num' }, fmt(c.actas_contabilizadas || 0)));
+              const obs = c.actas_observadas || 0;
+              const tdObs = el('td', { class: 'num' });
+              if (obs > 0) {
+                tdObs.appendChild(el('span', { class: 'rev-actas-sub-obs' }, String(obs)));
+              } else {
+                tdObs.textContent = '0';
+              }
+              cRow.appendChild(tdObs);
+              cRow.appendChild(el('td', { class: 'num' }, ((c.avance_pct || 0)).toFixed(1).replace('.', ',') + ' %'));
+              const liderCls = c.lider === 'Fujimori' ? 'rev-actas-lider rev-actas-lider-f'
+                            : c.lider === 'Sánchez' ? 'rev-actas-lider rev-actas-lider-s'
+                            : 'rev-actas-lider rev-actas-lider-m';
+              cRow.appendChild(el('td', null, el('span', { class: liderCls }, c.lider || '—')));
+              cRow.appendChild(el('td', { class: 'num' }, c.lider_pct != null ? pct(c.lider_pct, 1) : '—'));
+              cRow.appendChild(el('td', { class: 'num rev-actas-sub-vf' }, fmt(c.fujimori_votos || 0)));
+              cRow.appendChild(el('td', { class: 'num rev-actas-sub-vs' }, fmt(c.sanchez_votos || 0)));
+              subTbody.appendChild(cRow);
+            });
+          });
+          subTbl.appendChild(subTbody);
+          subWrap.appendChild(subTbl);
+          tdSub.appendChild(subWrap);
+          trSub.appendChild(tdSub);
+          tbody.appendChild(trSub);
+
+          // Toggle handler
+          const toggle = () => {
+            const expanded = tr.getAttribute('aria-expanded') === 'true';
+            tr.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            trSub.style.display = expanded ? 'none' : 'table-row';
+            tr.classList.toggle('rev-actas-row-open', !expanded);
+          };
+          tr.addEventListener('click', toggle);
+          tr.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+          });
+        }
       });
       tbl.appendChild(tbody);
       pendTable.appendChild(tbl);
