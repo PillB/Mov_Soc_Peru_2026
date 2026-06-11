@@ -1393,11 +1393,14 @@
   function adaptCuentaToHandle(c) {
     const platforms = normalizePlatforms(c.plataforma || c.platform);
     const handle = cleanStr(c.handle) || cleanStr(c.usuario);
-    const url = cleanUrl(c.url) || cleanUrl(c.fuente_url);
-    const nb = normalizeBando(c.posicion || c.bando || c.side);
+    // v3.5.4: bridge perfil_url and url_contenido as URL sources
+    const url = cleanUrl(c.url) || cleanUrl(c.fuente_url) || cleanUrl(c.perfil_url) || cleanUrl(c.url_contenido);
+    // v3.5.4: bando_aparente is another common key for political side
+    const nb = normalizeBando(c.posicion || c.bando || c.side || c.bando_aparente);
     return {
       name: cleanStr(c.nombre) || cleanStr(c.name) || handle,
-      role: cleanStr(c.descripcion) || cleanStr(c.rol) || cleanStr(c.role),
+      // v3.5.4: contenido_reciente is a richer description field used in many cuentas_emergentes entries
+      role: cleanStr(c.descripcion) || cleanStr(c.rol) || cleanStr(c.role) || cleanStr(c.contenido_reciente),
       side: nb.side,
       sideLabel: nb.label,
       followers: c.seguidores_aprox || c.followers,
@@ -1416,7 +1419,7 @@
     const out = {};
     Object.keys(buckets).forEach(k => {
       if (buckets[k] === 0) return;
-      out[k] = `${buckets[k]} entradas monitoreadas (handles + hashtags + lives) según dossier OSINT (v3.5.2)`;
+      out[k] = `${buckets[k]} entradas monitoreadas (handles + hashtags + lives)`;
     });
     return out;
   }
@@ -1565,7 +1568,9 @@
       const ctx = cleanStr(raw.context) || cleanStr(raw.nota) || cleanStr(raw.descripcion);
       const nb = normalizeBando(raw.side || raw.bando);
       const peak = cleanStr(raw.pico_observado) || cleanStr(raw.peak);
-      const srcUrl = cleanUrl(raw.evidence_url) || cleanUrl(raw.fuente_url) || cleanUrl(raw.source_url);
+      // v3.5.4: bridge additional Spanish source-url keys (fuente / fuente_secundaria / fuente2 / ejemplo_url)
+      const srcUrl = cleanUrl(raw.evidence_url) || cleanUrl(raw.fuente_url) || cleanUrl(raw.source_url) ||
+                     cleanUrl(raw.fuente) || cleanUrl(raw.ejemplo_url) || cleanUrl(raw.fuente_secundaria) || cleanUrl(raw.fuente2);
 
       const card = el('article', { class: 'hashtag-card side-' + (nb.side || 'neutro') });
       card.appendChild(el('div', { class: 'ht-tag' }, tag.startsWith('#') ? tag : '#' + tag));

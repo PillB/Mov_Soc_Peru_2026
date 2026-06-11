@@ -455,6 +455,30 @@ function section(title) {
   });
   ok('no raw type tokens in social chips', labelCheck.raw === 0, `raw=${labelCheck.raw} samples=${labelCheck.samples.join(',')}`);
 
+  section('N6. v3.5.4 — Hashtags and handles: majority have source links');
+  const linkCoverage = await page.evaluate(() => {
+    const r = {};
+    const hash = Array.from(document.querySelectorAll('.hashtag-card'));
+    r.hashTotal = hash.length;
+    r.hashWithLink = hash.filter(c => c.querySelector('a[href^="http"]')).length;
+    const handle = Array.from(document.querySelectorAll('.handle-card'));
+    r.handleTotal = handle.length;
+    r.handleWithLink = handle.filter(c => c.querySelector('a[href^="http"]')).length;
+    return r;
+  });
+  ok('≥90% of hashtag cards have a source link', linkCoverage.hashWithLink >= Math.floor(linkCoverage.hashTotal * 0.9), `${linkCoverage.hashWithLink}/${linkCoverage.hashTotal}`);
+  // v3.5.4: only 16/59 cuentas have URLs in raw data; renderer surfaces all of them
+  ok('≥25% of handle cards have a profile link (raw data ceiling)', linkCoverage.handleWithLink >= Math.floor(linkCoverage.handleTotal * 0.25), `${linkCoverage.handleWithLink}/${linkCoverage.handleTotal}`);
+
+  section('N7. v3.5.4 — Platforms grid: no hardcoded version string');
+  const platformsTextCheck = await page.evaluate(() => {
+    const cards = Array.from(document.querySelectorAll('.platform-card, #platforms-grid .card'));
+    let withHardcoded = 0;
+    cards.forEach(c => { if (/dossier OSINT \(v3\.\d+/.test(c.textContent || '')) withHardcoded++; });
+    return { total: cards.length, withHardcoded };
+  });
+  ok('platform cards: no hardcoded "dossier OSINT (vX.Y)" string', platformsTextCheck.withHardcoded === 0, `bad=${platformsTextCheck.withHardcoded}/${platformsTextCheck.total}`);
+
   section('N. Global — no dash-only badge anywhere in regions/social/EW');
   const allDashBadges = await page.evaluate(() => {
     const scope = Array.from(document.querySelectorAll(
