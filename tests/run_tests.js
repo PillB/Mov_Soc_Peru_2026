@@ -498,6 +498,50 @@ function section(title) {
   });
   ok('risk matrix has ≥16 rows', rmRows >= 16, `rows=${rmRows}`);
 
+  section('N10. v3.5.6 — Mapa Leaflet por región (al menos 4 de 5 con mapa)');
+  const mapResults = [];
+  for (const rid of REGIONS) {
+    // Activate the region tab
+    await page.evaluate((id) => {
+      const btn = document.querySelector(`.tab-btn[data-region="${id}"]`);
+      if (btn) btn.click();
+    }, rid);
+    await page.waitForTimeout(700);  // wait for setTimeout(0) + tile init
+    const r = await page.evaluate((id) => {
+      const mapEl = document.getElementById(`map-${id}`);
+      if (!mapEl) return { exists: false };
+      const hasLeafletContainer = mapEl.classList.contains('leaflet-container');
+      const polylines = mapEl.querySelectorAll('path.leaflet-interactive').length;
+      // include all interactive paths (polylines + circles)
+      const tileImgs = mapEl.querySelectorAll('img.leaflet-tile').length;
+      const legend = mapEl.closest('.region-map-holder')?.querySelector('.region-map-legend');
+      const legendRows = legend ? legend.querySelectorAll('.legend-row').length : 0;
+      const checkboxes = legend ? legend.querySelectorAll('input[type="checkbox"]').length : 0;
+      return { exists: true, hasLeafletContainer, polylines, tileImgs, legendRows, checkboxes };
+    }, rid);
+    mapResults.push({ region: rid, ...r });
+  }
+  const mapsWithContainer = mapResults.filter(r => r.exists && r.hasLeafletContainer).length;
+  ok(`≥4 de 5 regiones tienen contenedor Leaflet inicializado (got ${mapsWithContainer})`, mapsWithContainer >= 4,
+     JSON.stringify(mapResults));
+
+  section('N11. v3.5.6 — Mapas dibujan rutas/zonas/eventos como SVG paths');
+  const totalPaths = mapResults.reduce((s, r) => s + (r.polylines || 0), 0);
+  ok('≥10 paths SVG entre todas las regiones', totalPaths >= 10, `total=${totalPaths}`);
+  const regionsWithGeo = mapResults.filter(r => (r.polylines || 0) >= 1).length;
+  ok('≥4 de 5 regiones con al menos un path geo', regionsWithGeo >= 4, `n=${regionsWithGeo}`);
+
+  section('N12. v3.5.6 — Leyenda con toggles por capa');
+  const regionsWithLegend = mapResults.filter(r => (r.legendRows || 0) >= 1 && (r.checkboxes || 0) >= 1).length;
+  ok('≥4 de 5 regiones tienen leyenda con checkboxes', regionsWithLegend >= 4,
+     JSON.stringify(mapResults.map(r => ({region:r.region, rows:r.legendRows, cb:r.checkboxes}))));
+
+  section('N13. v3.5.6 — Tiles cargan (al menos una región con imágenes de tile)');
+  const totalTiles = mapResults.reduce((s, r) => s + (r.tileImgs || 0), 0);
+  // Tiles may fail offline-only contexts; just require at least *attempt* (the img elements get created
+  // by Leaflet regardless of network). file://-loaded HTML may have 0 successful loads but elements exist.
+  ok('Leaflet creó elementos <img class=leaflet-tile>', totalTiles >= 1, `total=${totalTiles}`);
+
   section('N. Global — no dash-only badge anywhere in regions/social/EW');
   const allDashBadges = await page.evaluate(() => {
     const scope = Array.from(document.querySelectorAll(

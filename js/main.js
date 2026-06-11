@@ -508,6 +508,12 @@
     }
     frag.appendChild(head);
 
+    // v3.5.6: mapa interactivo con rutas, zonas y eventos
+    try {
+      const mapNode = buildRegionMap(id, { events: events, future: future, zones: zones, routes: routes, corridors: corrs });
+      if (mapNode) frag.appendChild(mapNode);
+    } catch (e) { console.warn('[map]', id, e); }
+
     if (events.length) {
       frag.appendChild(buildSub('Eventos', `Inventario regional · ${events.length} entradas`, buildEvents(events)));
     }
@@ -1081,6 +1087,395 @@
       grid.appendChild(card);
     });
     return grid;
+  }
+
+  // ====================================================================
+  // v3.5.6 — Mapa interactivo por región (Leaflet)
+  // ====================================================================
+  // Color palette por bando — coordinada con CSS .side-* y .badge-*
+  const MAP_SIDE_COLORS = {
+    oficialismo: '#c0392b',    // rojo
+    oposicion:   '#1f5fa8',    // azul
+    'oposición': '#1f5fa8',
+    regional:    '#1d5f30',    // verde
+    comunitario: '#0e7c86',    // teal
+    indigena:    '#7a4ab8',    // púrpura
+    'indígena':  '#7a4ab8',
+    institucional:'#334155',   // slate
+    institucion: '#334155',
+    nacional:    '#7a4ab8',
+    mixto:       '#8a6d3b',    // dorado
+    grassroots:  '#0e7c86',
+    unknown:     '#6b7280'     // gris
+  };
+  const MAP_RISK_COLORS = {
+    'risk-maximo':   '#7a1a1a',
+    'risk-alto':     '#b8761f',
+    'risk-moderado': '#9c8b3a',
+    'risk-bajo':     '#3a7d3c'
+  };
+  // Normalize a bando/posicion token → palette key
+  function sideKeyForMap(raw) {
+    const s = String(raw || '').toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    if (!s) return 'unknown';
+    if (/oficial|gobierno|pro_san|pro san|sanchez/.test(s)) return 'oficialismo';
+    if (/opos|anti|pro_fp|pro fp|fujim|keiko/.test(s))      return 'oposicion';
+    if (/regional|local/.test(s))                            return 'regional';
+    if (/comun|barrio|vecin/.test(s))                        return 'comunitario';
+    if (/indig|aymara|quechua|originari/.test(s))            return 'indigena';
+    if (/institucion|policia|ffaa|fuerza/.test(s))           return 'institucional';
+    if (/nacional|multi|transv/.test(s))                     return 'nacional';
+    if (/grass|colectivo|frente/.test(s))                    return 'grassroots';
+    return 'unknown';
+  }
+  // Friendly label for legend
+  const MAP_SIDE_LABELS = {
+    oficialismo: 'Oficialismo',
+    oposicion: 'Oposición',
+    regional: 'Regional',
+    comunitario: 'Comunitario',
+    indigena: 'Indígena',
+    institucional: 'Institucional',
+    nacional: 'Multipartidario',
+    grassroots: 'Grassroots',
+    mixto: 'Mixto',
+    unknown: 'Sin clasificar'
+  };
+
+  // Resolve coords for a route: try puntos_clave first, then distritos, then fuzzy on descripcion
+  function resolveRouteCoords(route, regionId) {
+    const gz = window.DOSSIER_GAZETTEER;
+    if (!gz) return [];
+    let pts = [];
+    if (Array.isArray(route.puntos_clave) && route.puntos_clave.length) {
+      pts = gz.resolveMany(route.puntos_clave, regionId);
+    }
+    if (pts.length < 2 && Array.isArray(route.distritos) && route.distritos.length) {
+      pts = gz.resolveMany(route.distritos, regionId);
+    }
+    if (pts.length < 2 && route.descripcion) {
+      // Try splitting descripcion on arrows / dashes
+      const tokens = String(route.descripcion).split(/→|->|—|–|:|,|;/).map(s => s.trim()).filter(Boolean);
+      pts = gz.resolveMany(tokens, regionId);
+    }
+    // De-duplicate consecutive identical coords
+    const dedup = [];
+    for (let i = 0; i < pts.length; i++) {
+      if (i === 0 || pts[i][0] !== pts[i-1][0] || pts[i][1] !== pts[i-1][1]) dedup.push(pts[i]);
+    }
+    return dedup;
+  }
+
+  function shortText(s, n) {
+    s = String(s || '');
+    return s.length > n ? s.slice(0, n - 1) + '…' : s;
+  }
+
+  function buildRegionMap(regionId, data) {
+    const gz = window.DOSSIER_GAZETTEER;
+    if (!gz || typeof L === 'undefined' || typeof L.map !== 'function') {
+      // Mapping libs missing — skip silently
+      return null;
+    }
+    const regionMeta = gz.REGIONS[regionId] || { center: [-9.19, -75.02], zoom: 5 };
+
+    // Pre-resolve everything BEFORE creating the map so we know if there's nothing to show
+    const routesResolved = (data.routes || []).map((r, i) => ({
+      idx: i, raw: r, coords: resolveRouteCoords(r, regionId), side: sideKeyForMap(r.bando || r.side)
+    })).filter(x => x.coords.length >= 2);
+
+    const zonesResolved = (data.zones || []).map((z, i) => {
+      const c = gz.resolve(z.nombre, regionId) || gz.resolve(z.ubicacion, regionId);
+      return c ? { idx: i, raw: z, coord: c } : null;
+    }).filter(Boolean);
+
+    const allEv = (data.events || []).concat(data.future || []);
+    const eventsResolved = allEv.map((ev, i) => {
+      const c = gz.resolve(ev.ubicacion, regionId) || gz.resolve(ev.titulo, regionId);
+      return c ? { idx: i, raw: ev, coord: c, side: sideKeyForMap(ev.bando) } : null;
+    }).filter(Boolean);
+
+    const totalGeoItems = routesResolved.length + zonesResolved.length + eventsResolved.length;
+    if (totalGeoItems === 0) return null;  // Nothing geolocatable — don't render an empty map
+
+    // ----- DOM scaffolding -----
+    const wrap = el('section', { class: 'region-map-block', 'aria-label': 'Mapa de rutas, zonas y eventos' });
+    const head = el('div', { class: 'sub-head' });
+    head.appendChild(el('h4', null, '🗺️ Mapa de rutas, zonas y eventos'));
+    const eyebrow = `${routesResolved.length} rutas · ${zonesResolved.length} zonas · ${eventsResolved.length} eventos georeferenciados`;
+    head.appendChild(el('p', { class: 'eyebrow' }, eyebrow));
+    wrap.appendChild(head);
+
+    const mapHolder = el('div', { class: 'region-map-holder' });
+    const mapEl = el('div', { class: 'region-map', id: `map-${regionId}`, 'aria-label': `Mapa interactivo de ${regionId}`, tabindex: '0' });
+    mapHolder.appendChild(mapEl);
+
+    // QoL toolbar (fullscreen + reset + tile toggle)
+    const toolbar = el('div', { class: 'region-map-toolbar' });
+    const btnReset = el('button', { type: 'button', class: 'map-btn', title: 'Reencuadrar a todos los elementos', 'aria-label': 'Reencuadrar mapa' }, 'Reencuadrar');
+    const btnFull = el('button', { type: 'button', class: 'map-btn', title: 'Pantalla completa', 'aria-label': 'Pantalla completa', 'aria-pressed': 'false' }, '⤢ Expandir');
+    const btnStyle = el('button', { type: 'button', class: 'map-btn', title: 'Cambiar estilo de mapa', 'aria-label': 'Estilo de mapa' }, 'Estilo: Claro');
+    toolbar.appendChild(btnReset);
+    toolbar.appendChild(btnStyle);
+    toolbar.appendChild(btnFull);
+    mapHolder.appendChild(toolbar);
+
+    // Legend (collapsible)
+    const legend = el('div', { class: 'region-map-legend', role: 'group', 'aria-label': 'Leyenda y filtros del mapa' });
+    const legendHead = el('div', { class: 'legend-head' }, [
+      el('strong', null, 'Capas'),
+      el('button', { type: 'button', class: 'legend-toggle', 'aria-expanded': 'true', 'aria-label': 'Colapsar leyenda', title: 'Colapsar' }, '−')
+    ]);
+    legend.appendChild(legendHead);
+    const legendBody = el('div', { class: 'legend-body' });
+    legend.appendChild(legendBody);
+    mapHolder.appendChild(legend);
+
+    wrap.appendChild(mapHolder);
+
+    // ----- Initialize Leaflet -----
+    // Defer init until in DOM (use setTimeout so element has dimensions)
+    setTimeout(() => {
+      const map = L.map(mapEl, {
+        zoomControl: true,
+        scrollWheelZoom: false,           // less aggressive scrolling QoL
+        attributionControl: true,
+        worldCopyJump: false
+      }).setView(regionMeta.center, regionMeta.zoom);
+
+      // Enable scroll-zoom only on focus/click — QoL pattern from Google Maps embeds
+      map.on('focus click', () => map.scrollWheelZoom.enable());
+      map.on('blur', () => map.scrollWheelZoom.disable());
+      mapEl.addEventListener('mouseleave', () => map.scrollWheelZoom.disable());
+
+      // Tile layers — Carto Light + Carto Voyager (no API key)
+      const tileLight = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '© OpenStreetMap · © CARTO',
+        maxZoom: 19, subdomains: 'abcd'
+      });
+      const tileVoy = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        attribution: '© OpenStreetMap · © CARTO',
+        maxZoom: 19, subdomains: 'abcd'
+      });
+      tileLight.addTo(map);
+      let currentTile = 'light';
+
+      btnStyle.addEventListener('click', () => {
+        if (currentTile === 'light') {
+          map.removeLayer(tileLight); tileVoy.addTo(map);
+          currentTile = 'voyager'; btnStyle.textContent = 'Estilo: Detallado';
+        } else {
+          map.removeLayer(tileVoy); tileLight.addTo(map);
+          currentTile = 'light'; btnStyle.textContent = 'Estilo: Claro';
+        }
+      });
+
+      // ----- Layer groups (one per element type) -----
+      const layerRoutes = L.layerGroup().addTo(map);
+      const layerZones  = L.layerGroup().addTo(map);
+      const layerEvents = L.layerGroup().addTo(map);
+
+      // ----- Draw routes -----
+      const allPoints = [];
+      routesResolved.forEach((r, i) => {
+        const color = MAP_SIDE_COLORS[r.side] || MAP_SIDE_COLORS.unknown;
+        const polyline = L.polyline(r.coords, {
+          color: color, weight: 5, opacity: 0.85, lineJoin: 'round',
+          dashArray: r.side === 'oposicion' ? null : (r.side === 'regional' ? '8,6' : null)
+        });
+        // Popup
+        const desc = escapeHtml(shortText(r.raw.descripcion || `Ruta ${i+1}`, 220));
+        const distritos = (r.raw.distritos || []).map(escapeHtml).join(' · ');
+        const fuente = r.raw.fuente ? `<a href="${escapeHtml(r.raw.fuente)}" target="_blank" rel="noopener">Fuente</a>` : '';
+        polyline.bindPopup(
+          `<div class="map-popup">` +
+          `<div class="mp-tag" style="background:${color}">Ruta · ${escapeHtml(MAP_SIDE_LABELS[r.side] || '—')}</div>` +
+          `<div class="mp-body">${desc}</div>` +
+          (distritos ? `<div class="mp-meta"><strong>Distritos:</strong> ${distritos}</div>` : '') +
+          (fuente ? `<div class="mp-meta">${fuente}</div>` : '') +
+          `</div>`,
+          { maxWidth: 320 }
+        );
+        // Endpoint markers (origin = green dot, destination = arrow-ish marker)
+        const start = L.circleMarker(r.coords[0], { radius: 6, color: color, weight: 2, fillColor: '#ffffff', fillOpacity: 1 })
+          .bindTooltip('Inicio', { permanent: false, direction: 'top', className: 'map-tip' });
+        const end = L.circleMarker(r.coords[r.coords.length - 1], { radius: 7, color: color, weight: 2, fillColor: color, fillOpacity: 0.9 })
+          .bindTooltip('Punto final', { permanent: false, direction: 'top', className: 'map-tip' });
+        polyline.addTo(layerRoutes);
+        start.addTo(layerRoutes); end.addTo(layerRoutes);
+        r.coords.forEach(c => allPoints.push(c));
+      });
+
+      // ----- Draw zones -----
+      zonesResolved.forEach(z => {
+        const lvl = String(z.raw.nivel || z.raw.tipo_riesgo || 'medio').toLowerCase();
+        const cls = lvl.includes('alto') || lvl.includes('máx') ? 'risk-alto'
+          : lvl.includes('medio') || lvl.includes('moder') ? 'risk-moderado'
+          : lvl.includes('bajo') ? 'risk-bajo' : 'risk-moderado';
+        const color = MAP_RISK_COLORS[cls] || MAP_RISK_COLORS['risk-moderado'];
+        const marker = L.circleMarker(z.coord, {
+          radius: 11, color: color, weight: 2.5, fillColor: color, fillOpacity: 0.30
+        });
+        const desc = escapeHtml(shortText(z.raw.descripcion || z.raw.justificacion || '', 220));
+        const fuente = z.raw.fuente ? `<a href="${escapeHtml(z.raw.fuente)}" target="_blank" rel="noopener">Fuente</a>` : '';
+        marker.bindPopup(
+          `<div class="map-popup">` +
+          `<div class="mp-tag" style="background:${color}">Zona · ${escapeHtml((z.raw.nivel || z.raw.tipo_riesgo || 'medio').toUpperCase())}</div>` +
+          `<div class="mp-title">${escapeHtml(z.raw.nombre || '—')}</div>` +
+          (desc ? `<div class="mp-body">${desc}</div>` : '') +
+          (fuente ? `<div class="mp-meta">${fuente}</div>` : '') +
+          `</div>`,
+          { maxWidth: 320 }
+        );
+        marker.bindTooltip(z.raw.nombre || 'Zona', { direction: 'top', className: 'map-tip' });
+        marker.addTo(layerZones);
+        allPoints.push(z.coord);
+      });
+
+      // ----- Draw events -----
+      eventsResolved.forEach(ev => {
+        const color = MAP_SIDE_COLORS[ev.side] || MAP_SIDE_COLORS.unknown;
+        const marker = L.circleMarker(ev.coord, {
+          radius: 7, color: '#0b1a2b', weight: 1.5, fillColor: color, fillOpacity: 0.95
+        });
+        const titulo = ev.raw.titulo || ev.raw.tipo || 'Evento';
+        const fechaRaw = ev.raw.fecha || '';
+        const fecha = /^\d{4}-\d{2}-\d{2}/.test(String(fechaRaw))
+          ? (function () { try { return formatDate(fechaRaw); } catch (_) { return fechaRaw; } })()
+          : fechaRaw;
+        const desc = escapeHtml(shortText(ev.raw.descripcion || ev.raw.tipo || '', 200));
+        const ubic = escapeHtml(ev.raw.ubicacion || '');
+        const fuente = ev.raw.fuente || ev.raw.fuente_url;
+        const fuenteHtml = fuente ? `<a href="${escapeHtml(fuente)}" target="_blank" rel="noopener">Fuente</a>` : '';
+        marker.bindPopup(
+          `<div class="map-popup">` +
+          `<div class="mp-tag" style="background:${color}">Evento · ${escapeHtml(MAP_SIDE_LABELS[ev.side] || '—')}</div>` +
+          `<div class="mp-title">${escapeHtml(titulo)}</div>` +
+          (fecha ? `<div class="mp-meta"><strong>${escapeHtml(fecha)}</strong></div>` : '') +
+          (ubic ? `<div class="mp-meta">📍 ${ubic}</div>` : '') +
+          (desc ? `<div class="mp-body">${desc}</div>` : '') +
+          (fuenteHtml ? `<div class="mp-meta">${fuenteHtml}</div>` : '') +
+          `</div>`,
+          { maxWidth: 320 }
+        );
+        marker.bindTooltip(shortText(titulo, 60), { direction: 'top', className: 'map-tip' });
+        marker.addTo(layerEvents);
+        allPoints.push(ev.coord);
+      });
+
+      // ----- Fit bounds -----
+      function fitAll() {
+        if (allPoints.length) {
+          const bounds = L.latLngBounds(allPoints).pad(0.18);
+          map.fitBounds(bounds, { animate: true, maxZoom: 14 });
+        } else {
+          map.setView(regionMeta.center, regionMeta.zoom);
+        }
+      }
+      fitAll();
+      btnReset.addEventListener('click', fitAll);
+
+      // ----- Legend rows (with toggles) -----
+      const layerDefs = [
+        { key: 'routes', label: 'Rutas',  layer: layerRoutes, count: routesResolved.length, swatch: 'line' },
+        { key: 'zones',  label: 'Zonas de riesgo', layer: layerZones, count: zonesResolved.length, swatch: 'ring' },
+        { key: 'events', label: 'Eventos', layer: layerEvents, count: eventsResolved.length, swatch: 'dot' }
+      ];
+      layerDefs.forEach(L_ => {
+        if (!L_.count) return;
+        const row = el('label', { class: 'legend-row' });
+        const cb = el('input', { type: 'checkbox', checked: true, 'data-key': L_.key, 'aria-label': `Mostrar ${L_.label}` });
+        cb.addEventListener('change', () => {
+          if (cb.checked) L_.layer.addTo(map); else map.removeLayer(L_.layer);
+        });
+        const sw = el('span', { class: `legend-swatch swatch-${L_.swatch}` });
+        row.appendChild(cb);
+        row.appendChild(sw);
+        row.appendChild(el('span', { class: 'legend-label' }, L_.label));
+        row.appendChild(el('span', { class: 'legend-count' }, String(L_.count)));
+        legendBody.appendChild(row);
+      });
+
+      // Color legend (bandos used in this region)
+      const sidesPresent = new Set();
+      routesResolved.forEach(r => sidesPresent.add(r.side));
+      eventsResolved.forEach(ev => sidesPresent.add(ev.side));
+      const sidesList = Array.from(sidesPresent).filter(s => s && s !== 'unknown');
+      if (sidesList.length) {
+        legendBody.appendChild(el('div', { class: 'legend-divider' }));
+        legendBody.appendChild(el('div', { class: 'legend-subtitle' }, 'Bandos'));
+        sidesList.forEach(side => {
+          const row = el('div', { class: 'legend-row legend-row-static' });
+          row.appendChild(el('span', { class: 'legend-swatch swatch-band', style: `background:${MAP_SIDE_COLORS[side] || MAP_SIDE_COLORS.unknown}` }));
+          row.appendChild(el('span', { class: 'legend-label' }, MAP_SIDE_LABELS[side] || side));
+          legendBody.appendChild(row);
+        });
+      }
+
+      // Risk levels legend (only if zones present)
+      if (zonesResolved.length) {
+        legendBody.appendChild(el('div', { class: 'legend-divider' }));
+        legendBody.appendChild(el('div', { class: 'legend-subtitle' }, 'Nivel de riesgo'));
+        [['Alto','risk-alto'],['Moderado','risk-moderado'],['Bajo','risk-bajo']].forEach(([lbl, key]) => {
+          const row = el('div', { class: 'legend-row legend-row-static' });
+          row.appendChild(el('span', { class: 'legend-swatch swatch-band', style: `background:${MAP_RISK_COLORS[key]}` }));
+          row.appendChild(el('span', { class: 'legend-label' }, lbl));
+          legendBody.appendChild(row);
+        });
+      }
+
+      // Off-map count (items without coordinates)
+      const offTotal = (data.routes || []).length - routesResolved.length
+        + (data.zones || []).length - zonesResolved.length
+        + allEv.length - eventsResolved.length;
+      if (offTotal > 0) {
+        legendBody.appendChild(el('div', { class: 'legend-divider' }));
+        legendBody.appendChild(el('div', { class: 'legend-note' }, `${offTotal} sin geolocalizar (ver listados abajo)`));
+      }
+
+      // Collapse / expand legend
+      const legendBtn = legendHead.querySelector('.legend-toggle');
+      legendBtn.addEventListener('click', () => {
+        const expanded = legendBtn.getAttribute('aria-expanded') === 'true';
+        legendBtn.setAttribute('aria-expanded', String(!expanded));
+        legendBtn.textContent = expanded ? '+' : '−';
+        legendBtn.setAttribute('aria-label', expanded ? 'Expandir leyenda' : 'Colapsar leyenda');
+        legendBody.style.display = expanded ? 'none' : '';
+      });
+
+      // Fullscreen toggle
+      btnFull.addEventListener('click', () => {
+        const isFull = mapHolder.classList.toggle('is-fullscreen');
+        btnFull.setAttribute('aria-pressed', String(isFull));
+        btnFull.textContent = isFull ? '⤡ Salir' : '⤢ Expandir';
+        setTimeout(() => { map.invalidateSize(); fitAll(); }, 60);
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mapHolder.classList.contains('is-fullscreen')) {
+          mapHolder.classList.remove('is-fullscreen');
+          btnFull.setAttribute('aria-pressed', 'false');
+          btnFull.textContent = '⤢ Expandir';
+          setTimeout(() => { map.invalidateSize(); fitAll(); }, 60);
+        }
+      });
+
+      // Tab visibility: when region tab becomes active, invalidate size
+      // (Leaflet measures incorrectly when initialized in a display:none element)
+      const checkVisible = () => {
+        if (mapEl.offsetParent !== null) {
+          map.invalidateSize();
+          fitAll();
+        }
+      };
+      setTimeout(checkVisible, 200);
+      const panelObs = mapEl.closest('.tab-panel');
+      if (panelObs && 'MutationObserver' in window) {
+        new MutationObserver(checkVisible).observe(panelObs, { attributes: true, attributeFilter: ['class'] });
+      }
+    }, 0);
+
+    return wrap;
   }
 
   function buildCorridors(corridors) {
