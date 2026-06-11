@@ -1,7 +1,7 @@
 # AGENT.md — Dossier OSINT Perú 2026
 
 > Documento de mantenimiento para futuras sesiones. Lee esto **antes** de modificar el dossier.
-> Última actualización: v3.5.7 (validación de fechas + interactividad mapa↔lista).
+> Última actualización: v3.5.8 (rutas siguen avenidas reales vía CORRIDORS gazetteer).
 
 ---
 
@@ -14,7 +14,7 @@ dossier_osint/
 │   ├── css/styles.css         ~2860 líneas, tokens + componentes
 │   ├── js/
 │   │   ├── main.js            ~2820 líneas, render orquestador
-│   │   └── gazetteer.js       diccionario offline de coords PE
+│   │   └── gazetteer.js       diccionario offline de coords PE + CORRIDORS (polylines de avenidas/carreteras)
 │   ├── vendor/
 │   │   ├── leaflet.min.js     1.9.4 (vendored, sin CDN)
 │   │   └── leaflet.min.css
@@ -100,6 +100,7 @@ _deploy_gh/ (rsync)             →  GitHub Pages
 | Una ruta / `rutas[]`                           | `corredores[]` (¿impacto logístico?), `zonas[].puntos_calientes` (¿se solapa?) |
 | Un actor o bando                               | `narrativas_locales[]`, `social_intelligence`, `disinformation_cases[]`     |
 | Coordenadas / topónimo nuevo                   | `web/js/gazetteer.js` — añadir entrada con bbox correcto **y verificar regiones donde resuelve** (anti-Plazuela-Merino) |
+| Nueva avenida/corredor con geometría real     | `web/js/gazetteer.js` — añadir polyline a `CORRIDORS` (waypoints OSM-aligned) + entrada en `CORRIDOR_PATTERNS` (regex specific→general); `resolveCorridor()` filtra por bbox de región |
 | `formatDate()` / parseo de fechas              | `formatEventDate()`, popups del mapa, `meta.fecha_corte` display            |
 | Esquema de un campo (renombrar)                | Buscar `main.js` con todos los aliases (`cleanStr(raw.X) \|\| cleanStr(raw.Y)`) |
 | Agregar un nuevo bloque en `index.html`        | `render()` en `main.js` lo invoca, agregar test en `tests/run_tests.js`     |
@@ -241,4 +242,5 @@ share_file(
 | 3.5.4   | 8cf2dcb   | fallback título de evento                                             |
 | 3.5.5   | 894207b   | rutas normalizadas + investigación expandida                          |
 | 3.5.6   | a63c705   | mapas Leaflet por región, gazetteer offline, 139 tests                |
-| 3.5.7   | (este)    | validación de fechas (`fecha_nota`/`fecha_fin`), interactividad mapa↔lista, AGENT.md |
+| 3.5.7   | e250f5d   | validación de fechas (`fecha_nota`/`fecha_fin`), interactividad mapa↔lista, AGENT.md |
+| 3.5.8   | (este)    | rutas siguen avenidas reales: `CORRIDORS` (17 polylines OSM-aligned) + `resolveCorridor()` con bbox filter; traza corredor (sólida) vs estimada (dashed) |

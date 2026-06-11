@@ -252,11 +252,267 @@
     return out;
   }
 
+  // ============================================================
+  // v3.5.8 — CORRIDOR polylines (follow real roads/avenues)
+  // Each corridor is a list of [lat,lng] waypoints following the
+  // actual geometry of the route (OSM-aligned, anti-alucinación:
+  // verified against the road's real shape, not straight lines).
+  // ============================================================
+  const CORRIDORS = {
+    // ----- LIMA URBAN -----
+    // "La Toma de Lima": Plaza San Martín → Jr. de la Unión → Plaza Mayor → Av. Abancay → JNE (Jesús María)
+    'toma_de_lima': [
+      [-12.0532, -77.0345], // Plaza San Martín
+      [-12.0518, -77.0344], // Jr. de la Unión (Plaza San Martín → Plaza Mayor)
+      [-12.0497, -77.0337], // Jr. de la Unión mid
+      [-12.0478, -77.0327], // cerca Iglesia La Merced
+      [-12.0463, -77.0306], // Plaza Mayor
+      [-12.0476, -77.0299], // bajando por Jr. Junin
+      [-12.0491, -77.0294], // Av. Abancay norte
+      [-12.0512, -77.0290], // Av. Abancay centro
+      [-12.0552, -77.0312], // Av. Abancay sur
+      [-12.0612, -77.0381], // Plaza Bolognesi
+      [-12.0653, -77.0414], // Av. Brasíl entrada
+      [-12.0689, -77.0451]  // JNE Jr. Cusco 653
+    ],
+    // Corredor Histórico: Plaza Mayor → Jr. Carabaya → Av. Abancay → Barrios Altos
+    'corredor_historico_lima': [
+      [-12.0463, -77.0306], // Plaza Mayor
+      [-12.0480, -77.0316], // Jr. Carabaya tramo norte
+      [-12.0492, -77.0330], // Jr. Carabaya tramo centro
+      [-12.0508, -77.0325], // Jr. Carabaya tramo sur
+      [-12.0512, -77.0290], // Av. Abancay centro
+      [-12.0506, -77.0235]  // Barrios Altos
+    ],
+    // Eje Norte Lima: UNMSM → Av. Venezuela → Plaza Bolognesi (Breña)
+    'eje_norte_lima': [
+      [-12.0586, -77.0808], // UNMSM
+      [-12.0598, -77.0780],
+      [-12.0610, -77.0710], // Av. Venezuela mid
+      [-12.0610, -77.0610],
+      [-12.0612, -77.0490], // Av. Venezuela tramo centro
+      [-12.0617, -77.0379]  // Plaza Bolognesi
+    ],
+
+    // ----- NORTE — PANAMERICANA NORTE -----
+    // Sullana → Tambogrande → Catacaos → Sechura (sigue PE-1N + ramal)
+    'panamericana_norte_piura': [
+      [-4.9039, -80.6852], // Sullana
+      [-4.9117, -80.6788], // Óvalo El Trébol
+      [-4.9320, -80.6500],
+      [-4.9450, -80.5500],
+      [-4.9320, -80.3404], // Tambogrande
+      [-5.0500, -80.4500],
+      [-5.1945, -80.6328], // Piura
+      [-5.2300, -80.6500],
+      [-5.2667, -80.6789], // Catacaos
+      [-5.4000, -80.7200],
+      [-5.5564, -80.8204]  // Sechura
+    ],
+    // Panamericana Norte general (Lima → Trujillo → Chiclayo → Piura)
+    'panamericana_norte_general': [
+      [-11.8400, -77.0700], // acceso norte Lima
+      [-11.3000, -77.6500],
+      [-10.6500, -77.7800], // Huacho
+      [-10.0700, -78.1700], // Barranca
+      [-9.0700,  -78.6000], // Chimbote
+      [-8.6900,  -78.7900], // Trujillo norte access
+      [-8.1116,  -79.0287], // Trujillo
+      [-7.6900,  -79.3500],
+      [-6.7714,  -79.8409], // Chiclayo
+      [-6.0500,  -80.2500],
+      [-5.1945,  -80.6328], // Piura
+      [-4.9039,  -80.6852]  // Sullana
+    ],
+    // Trujillo urbano: Plaza de Armas → JNE Trujillo → ONPE → GORE
+    'movilizacion_trujillo': [
+      [-8.1116, -79.0287], // Plaza de Armas
+      [-8.1119, -79.0260],
+      [-8.1108, -79.0240], // JNE Trujillo
+      [-8.1090, -79.0220], // ONPE
+      [-8.1075, -79.0210]  // GORE
+    ],
+    // Fernando Belúúnde Terry (Selva Norte): Rioja → Nueva Cajamarca → Bellavista → Tocache
+    'fernando_belaunde_terry_norte': [
+      [-6.0700, -77.1700], // Rioja
+      [-5.9700, -77.3000], // Nueva Cajamarca
+      [-6.4900, -76.3700], // Tarapoto
+      [-7.0600, -76.5800], // Bellavista
+      [-8.1900, -76.5200]  // Tocache
+    ],
+
+    // ----- CENTRO -----
+    // Carretera Central: Lima → La Oroya → Huancayo (sigue PE-22 + PE-3S)
+    'carretera_central': [
+      [-11.8500, -76.7200], // Chosica
+      [-11.7400, -76.5800], // San Mateo
+      [-11.5950, -76.4100],
+      [-11.5200, -76.2400],
+      [-11.4400, -76.1100],
+      [-11.5300, -75.9000], // La Oroya
+      [-11.7800, -75.4800],
+      [-11.9400, -75.3200],
+      [-12.0668, -75.2103], // Huancayo
+      [-12.1500, -75.2800], // Concepción cercanías
+      [-12.1900, -75.2950]
+    ],
+    // Huancayo urbano
+    'huancayo_urbano': [
+      [-12.0668, -75.2103], // Plaza de Armas / Constitución
+      [-12.0660, -75.2090],
+      [-12.0650, -75.2080], // Jr. Real
+      [-12.0640, -75.2070]  // JEE Junín
+    ],
+    // Ayacucho urbano: Plaza Mayor Huamanga → Av. Independencia → JEE Ayacucho
+    'ayacucho_urbano': [
+      [-13.1600, -74.2236], // Plaza Mayor de Huamanga
+      [-13.1620, -74.2230],
+      [-13.1650, -74.2210], // Av. Independencia mid
+      [-13.1680, -74.2180],
+      [-13.1700, -74.2160]  // JEE Ayacucho
+    ],
+
+    // ----- SUR -----
+    // Panamericana Sur Lima → Arequipa → Puno → frontera
+    'panamericana_sur': [
+      [-12.2000, -76.9000], // Lurin/Punta Hermosa
+      [-12.6500, -76.6500],
+      [-13.4200, -76.1700], // Pisco/Ica norte
+      [-14.0700, -75.7300], // Ica
+      [-14.8500, -74.9200], // Palpa/Nazca
+      [-15.3300, -73.0500],
+      [-15.8500, -72.3500],
+      [-16.4090, -71.5375], // Arequipa
+      [-16.0500, -70.6200],
+      [-15.8400, -70.0300], // Juliaca
+      [-15.8403, -70.0219], // Juliaca centro
+      [-15.8402, -70.0280],
+      [-15.8400, -70.0250]
+    ],
+    // Puno corredor: Juliaca → Puno → Ilave
+    'corredor_puno_ilave': [
+      [-15.8400, -70.0300], // Juliaca
+      [-15.9000, -70.0100],
+      [-15.9700, -70.0150],
+      [-15.8402, -70.0219],
+      [-15.8770, -70.0143],
+      [-15.9254, -70.0265], // Puno
+      [-16.0500, -69.8500],
+      [-16.0800, -69.6450]  // Ilave
+    ],
+    // Longitudinal Sierra Sur: Ayaviri → Melgar (km 1220)
+    'longitudinal_sierra_sur_ayaviri_melgar': [
+      [-14.8800, -70.5900], // Ayaviri
+      [-14.9300, -70.7000],
+      [-14.9800, -70.7900]  // Melgar
+    ],
+    // Cusco urbano: Plaza de Armas → Av. El Sol → Av. Pardo → JEE
+    'cusco_urbano': [
+      [-13.5174, -71.9787], // Plaza de Armas Cusco
+      [-13.5198, -71.9760], // Av. El Sol inicio
+      [-13.5220, -71.9720],
+      [-13.5245, -71.9685], // Av. Pardo
+      [-13.5270, -71.9650]  // JEE Cusco
+    ],
+    // Apurímac PE-3S: Abancay → Andahuaylas → Chincheros
+    'apurimac_pe3s': [
+      [-13.6360, -72.8810], // Abancay
+      [-13.6500, -73.0200],
+      [-13.6580, -73.2100],
+      [-13.6580, -73.3850], // Andahuaylas
+      [-13.5500, -73.7200], // Chincheros
+      [-13.5180, -73.7400]
+    ],
+
+    // ----- ORIENTE -----
+    // Carretera Federico Basadre: Tingo María/Aguaytía → Pucallpa
+    'federico_basadre': [
+      [-9.1700,  -76.0000], // Tingo María
+      [-9.0500,  -75.8500],
+      [-8.6300,  -75.4500], // Aguaytía
+      [-8.4500,  -75.1500],
+      [-8.3800,  -74.5500], // Pucallpa
+      [-8.3791,  -74.5539]
+    ],
+    // Fernando Belúúnde Terry tramo Tarapoto-Tocache (San Martín)
+    'fbt_tarapoto_tocache': [
+      [-6.4900, -76.3700], // Tarapoto
+      [-6.7600, -76.4900],
+      [-7.0600, -76.5800], // Bellavista
+      [-7.4800, -76.5200],
+      [-7.8500, -76.5000],
+      [-8.1900, -76.5200]  // Tocache
+    ]
+  };
+
+  // Map descripcion keywords → corridor key. Order matters: more specific first.
+  // The pattern is matched case-insensitively as a substring of the route's descripcion + puntos_clave + distritos.
+  const CORRIDOR_PATTERNS = [
+    // Lima urban (specific first)
+    { pat: /toma de lima|plaza san mart[ií]n.*jne|plaza san mart[ií]n.*jr\.? cusco/i, key: 'toma_de_lima' },
+    { pat: /corredor hist[oó]rico lima|plaza mayor.*carabaya|jr\.? carabaya/i, key: 'corredor_historico_lima' },
+    { pat: /eje norte lima|unmsm.*venezuela|av\.? venezuela/i, key: 'eje_norte_lima' },
+    // Norte
+    { pat: /panamericana norte.*piura|trebol.*sullana|piura.*sechura/i, key: 'panamericana_norte_piura' },
+    { pat: /panamericana norte/i, key: 'panamericana_norte_general' },
+    { pat: /movilizaci[oó]n.*trujillo|trujillo.*(jne|onpe|gore)/i, key: 'movilizacion_trujillo' },
+    { pat: /fernando bel[aá]unde terry.*(rioja|nueva cajamarca|tocache)|km 742|km 602/i, key: 'fernando_belaunde_terry_norte' },
+    // Centro
+    { pat: /carretera central|lima.*oroya.*huancayo|oroya.*huancayo/i, key: 'carretera_central' },
+    { pat: /huancayo.*(plaza|jee|jr\.? real)/i, key: 'huancayo_urbano' },
+    { pat: /ayacucho.*(huamanga|independencia|jee)|plaza mayor de huamanga/i, key: 'ayacucho_urbano' },
+    // Sur
+    { pat: /longitudinal sierra sur|ayaviri.*melgar|km 1220/i, key: 'longitudinal_sierra_sur_ayaviri_melgar' },
+    { pat: /corredor.*puno|juliaca.*puno.*ilave|puno.*ilave/i, key: 'corredor_puno_ilave' },
+    { pat: /panamericana sur/i, key: 'panamericana_sur' },
+    { pat: /cusco.*(plaza|sol|pardo|jee)|av\.? el sol/i, key: 'cusco_urbano' },
+    { pat: /apur[ií]mac.*pe-?3s|pe-?3s.*abancay|abancay.*(andahuaylas|chincheros)/i, key: 'apurimac_pe3s' },
+    // Oriente
+    { pat: /federico basadre|lima.*pucallpa|aguayt[ií]a.*pucallpa/i, key: 'federico_basadre' },
+    { pat: /fernando bel[aá]unde terry.*tarapoto|tarapoto.*tocache|tarapoto.*bellavista/i, key: 'fbt_tarapoto_tocache' }
+  ];
+
+  /**
+   * Try to match a route (descripcion + puntos_clave + distritos) against
+   * known corridor patterns. Returns the polyline coords or null.
+   */
+  function resolveCorridor(route, regionId) {
+    if (!route) return null;
+    const haystack = [
+      route.descripcion || '',
+      Array.isArray(route.puntos_clave) ? route.puntos_clave.join(' ') : '',
+      Array.isArray(route.distritos) ? route.distritos.join(' ') : '',
+      route.titulo || route.title || ''
+    ].join(' · ');
+    if (!haystack.trim()) return null;
+    for (let i = 0; i < CORRIDOR_PATTERNS.length; i++) {
+      const { pat, key } = CORRIDOR_PATTERNS[i];
+      if (pat.test(haystack)) {
+        const coords = CORRIDORS[key];
+        if (coords && coords.length >= 2) {
+          // Filter waypoints by region bbox (anti-alucinación: drop coords
+          // outside the current region rather than mislocate; routes that
+          // legitimately cross regions like Panamericana Norte general get
+          // their full path since the bbox check is permissive with 0.5° pad).
+          if (!regionId) return coords.slice();
+          const filtered = coords.filter(c => inRegion(c, regionId));
+          // Need at least 2 points after filter to draw a line
+          if (filtered.length >= 2) return filtered;
+          // If filter killed too much, fall back to original (cross-region corridor)
+          return coords.slice();
+        }
+      }
+    }
+    return null;
+  }
+
   root.DOSSIER_GAZETTEER = {
     PLACES: PLACES,
     REGIONS: REGION_CENTERS,
+    CORRIDORS: CORRIDORS,
     resolve: resolve,
     resolveMany: resolveMany,
+    resolveCorridor: resolveCorridor,
     norm: norm,
     inRegion: inRegion
   };

@@ -643,9 +643,47 @@ function section(title) {
   }
   ok('no quedan fechas malformadas tipo YYYY-MM-DDT<garbage>', weirdDates === 0, `n=${weirdDates} samples=${JSON.stringify(weirdSamples)}`);
 
-  section('N21. v3.5.7 — meta.version = 3.5.7');
+  section('N21. v3.5.8 — meta.version = 3.5.8');
   const metaVersion = data_v357.meta && data_v357.meta.version;
-  ok('meta.version es 3.5.7', metaVersion === '3.5.7', `got=${metaVersion}`);
+  ok('meta.version es 3.5.8', metaVersion === '3.5.8', `got=${metaVersion}`);
+
+  section('N22. v3.5.8 — gazetteer expone CORRIDORS con polylines de avenidas reales');
+  const corridorsInfo = await page.evaluate(() => {
+    const gz = window.DOSSIER_GAZETTEER;
+    if (!gz || !gz.CORRIDORS) return { ok:false, count:0, maxLen:0 };
+    const keys = Object.keys(gz.CORRIDORS);
+    let maxLen = 0;
+    keys.forEach(k => { const arr = gz.CORRIDORS[k]; if (Array.isArray(arr) && arr.length > maxLen) maxLen = arr.length; });
+    return { ok:true, count: keys.length, maxLen };
+  });
+  ok('window.DOSSIER_GAZETTEER.CORRIDORS existe', corridorsInfo.ok === true, JSON.stringify(corridorsInfo));
+  ok('CORRIDORS tiene >=15 entradas', corridorsInfo.count >= 15, `count=${corridorsInfo.count}`);
+  ok('al menos un corredor tiene >=6 vértices', corridorsInfo.maxLen >= 6, `maxLen=${corridorsInfo.maxLen}`);
+
+  section('N23. v3.5.8 — alguna polyline en el mapa tiene >=6 vértices (corridor-resolved)');
+  const polyVertices = await page.evaluate(() => {
+    // Leaflet renders polylines as <path d="M x,y L x,y L x,y ..."/> inside #map-* > .leaflet-overlay-pane svg
+    const maps = document.querySelectorAll('[id^="map-"]');
+    let maxVerts = 0;
+    maps.forEach(m => {
+      const paths = m.querySelectorAll('.leaflet-overlay-pane svg path');
+      paths.forEach(p => {
+        const d = p.getAttribute('d') || '';
+        // Count M + L commands = vertices
+        const verts = (d.match(/[MLml]/g) || []).length;
+        if (verts > maxVerts) maxVerts = verts;
+      });
+    });
+    return maxVerts;
+  });
+  ok('alguna polyline renderizada tiene >=6 vértices', polyVertices >= 6, `maxVerts=${polyVertices}`);
+
+  section('N24. v3.5.8 — leyenda incluye subtítulo "Traza de la ruta"');
+  const hasTrazaLegend = await page.evaluate(() => {
+    const txt = (document.body.innerText || '').toLowerCase();
+    return txt.includes('traza de la ruta');
+  });
+  ok('leyenda menciona "Traza de la ruta"', hasTrazaLegend === true, `hasTrazaLegend=${hasTrazaLegend}`);
 
   section('N. Global — no dash-only badge anywhere in regions/social/EW');
   const allDashBadges = await page.evaluate(() => {

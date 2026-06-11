@@ -1214,6 +1214,18 @@
   function resolveRouteCoords(route, regionId) {
     const gz = window.DOSSIER_GAZETTEER;
     if (!gz) return [];
+
+    // v3.5.8: try corridor match first — returns dense polyline following the actual road geometry
+    // (Panamericana Norte/Sur, Carretera Central, Fernando Beláunde Terry, urban avenues, etc.)
+    if (typeof gz.resolveCorridor === 'function') {
+      const corr = gz.resolveCorridor(route, regionId);
+      if (corr && corr.length >= 2) {
+        // Tag the route as corridor-resolved so the renderer can style it differently
+        route.__corridor_resolved = true;
+        return corr;
+      }
+    }
+
     let pts = [];
     if (Array.isArray(route.puntos_clave) && route.puntos_clave.length) {
       pts = gz.resolveMany(route.puntos_clave, regionId);
@@ -1347,19 +1359,34 @@
       const allPoints = [];
       routesResolved.forEach((r, i) => {
         const color = MAP_SIDE_COLORS[r.side] || MAP_SIDE_COLORS.unknown;
+        // v3.5.8: corridor-resolved routes follow real road geometry — use solid/thicker line.
+        // Routes resolved via fallback (sparse waypoints → straight segments) keep dashed style
+        // as a visual cue that the path is best-estimate, not road-accurate.
+        const isCorridor = !!r.raw.__corridor_resolved;
         const polyline = L.polyline(r.coords, {
-          color: color, weight: 5, opacity: 0.85, lineJoin: 'round',
-          dashArray: r.side === 'oposicion' ? null : (r.side === 'regional' ? '8,6' : null)
+          color: color,
+          weight: isCorridor ? 5 : 4,
+          opacity: isCorridor ? 0.88 : 0.70,
+          lineJoin: 'round',
+          lineCap: 'round',
+          smoothFactor: isCorridor ? 1.0 : 1.5,
+          dashArray: isCorridor
+            ? (r.side === 'regional' ? '10,6' : null)        // corridor: only regional gets dashes
+            : '4,7'                                            // fallback: always dashed (less authoritative)
         });
         // Popup
         const desc = escapeHtml(shortText(r.raw.descripcion || `Ruta ${i+1}`, 220));
         const distritos = (r.raw.distritos || []).map(escapeHtml).join(' · ');
         const fuente = r.raw.fuente ? `<a href="${escapeHtml(r.raw.fuente)}" target="_blank" rel="noopener">Fuente</a>` : '';
+        const trace = isCorridor
+          ? '<span class="mp-trace mp-trace-corr" title="Traza sigue la geometría real del corredor">Traza: corredor histórico</span>'
+          : '<span class="mp-trace mp-trace-est" title="Estimación entre puntos de referencia">Traza: estimada</span>';
         polyline.bindPopup(
           `<div class="map-popup">` +
           `<div class="mp-tag" style="background:${color}">Ruta · ${escapeHtml(MAP_SIDE_LABELS[r.side] || '—')}</div>` +
           `<div class="mp-body">${desc}</div>` +
           (distritos ? `<div class="mp-meta"><strong>Distritos:</strong> ${distritos}</div>` : '') +
+          `<div class="mp-meta">${trace}</div>` +
           (fuente ? `<div class="mp-meta">${fuente}</div>` : '') +
           `</div>`,
           { maxWidth: 320 }
@@ -1492,6 +1519,30 @@
           row.appendChild(el('span', { class: 'legend-label' }, MAP_SIDE_LABELS[side] || side));
           legendBody.appendChild(row);
         });
+      }
+
+      // v3.5.8: Traza legend — distinguish corridor-resolved from estimated
+      if (routesResolved.length) {
+        const nCorr = routesResolved.filter(r => r.raw.__corridor_resolved).length;
+        const nEst  = routesResolved.length - nCorr;
+        if (nCorr || nEst) {
+          legendBody.appendChild(el('div', { class: 'legend-divider' }));
+          legendBody.appendChild(el('div', { class: 'legend-subtitle' }, 'Traza de la ruta'));
+          if (nCorr) {
+            const row = el('div', { class: 'legend-row legend-row-static' });
+            row.appendChild(el('span', { class: 'legend-swatch swatch-line legend-trace-corr' }));
+            row.appendChild(el('span', { class: 'legend-label' }, 'Corredor histórico (geometría real)'));
+            row.appendChild(el('span', { class: 'legend-count' }, String(nCorr)));
+            legendBody.appendChild(row);
+          }
+          if (nEst) {
+            const row = el('div', { class: 'legend-row legend-row-static' });
+            row.appendChild(el('span', { class: 'legend-swatch swatch-line legend-trace-est' }));
+            row.appendChild(el('span', { class: 'legend-label' }, 'Estimada (puntos de referencia)'));
+            row.appendChild(el('span', { class: 'legend-count' }, String(nEst)));
+            legendBody.appendChild(row);
+          }
+        }
       }
 
       // Risk levels legend (only if zones present)

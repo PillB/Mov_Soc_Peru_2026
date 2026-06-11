@@ -2847,3 +2847,39 @@ details.foldable > .foldable-body {
   .event-card { transition: none; }
   .event-card.is-flashed { animation: none; background-color: rgba(255, 235, 130, 0.35); }
 }
+
+/* ============================================================
+ * v3.5.8 — Route trace indicators (corridor vs estimated)
+ * ============================================================ */
+.map-popup .mp-trace {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 2px 7px;
+  border-radius: 3px;
+  margin-top: 2px;
+}
+.map-popup .mp-trace-corr {
+  background: #e8f3eb;
+  color: #1d5f30;
+  border: 1px solid #1d5f30;
+}
+.map-popup .mp-trace-est {
+  background: #fff4e0;
+  color: #8a6d3b;
+  border: 1px dashed #8a6d3b;
+}
+.legend-trace-corr {
+  height: 4px;
+  background: #475569;
+  border-radius: 2px;
+}
+.legend-trace-est {
+  height: 4px;
+  background: linear-gradient(to right, #475569 0, #475569 4px, transparent 4px, transparent 11px),
+              linear-gradient(to right, transparent 0);
+  background-size: 11px 4px, auto;
+  background-repeat: repeat-x, no-repeat;
+  border-radius: 2px;
+}
