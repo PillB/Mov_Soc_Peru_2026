@@ -2889,3 +2889,15 @@ details.foldable > .foldable-body {
   background-repeat: repeat-x, no-repeat;
   border-radius: 2px;
 }
+
+/* v3.5.10 — Rich route popup */
+.map-popup-route { max-width: 360px; }
+.map-popup-route .mp-title { font-size: 14px; font-weight: 700; margin: 4px 0 6px; color: var(--c-ink, #1e293b); line-height: 1.35; }
+.map-popup-route .mp-path { font-size: 12px; color: var(--c-ink-2, #475569); line-height: 1.5; }
+.map-popup-route .mp-patron { font-size: 11.5px; background: #fdf6ec; border-left: 2px solid #c4a45a; padding: 4px 7px; border-radius: 0 3px 3px 0; color: #5c4a1f; }
+.map-popup-route .mp-patron strong { color: #5c4a1f; }
+.map-popup-route .mp-related ul.mp-evt-list { list-style: none; margin: 4px 0 0; padding: 0; }
+.map-popup-route .mp-related ul.mp-evt-list li { font-size: 11.5px; line-height: 1.5; margin-bottom: 2px; color: var(--c-ink-2, #475569); }
+.map-popup-route .mp-related a.mp-evt-link { color: var(--c-accent, #1f5fa8); text-decoration: none; border-bottom: 1px dashed currentColor; cursor: pointer; }
+.map-popup-route .mp-related a.mp-evt-link:hover { color: #0e7c86; border-bottom-style: solid; }
+.map-popup-route .mp-evt-date { color: var(--c-muted, #94a3b8); font-size: 10.5px; font-family: var(--font-mono, ui-monospace, monospace); }

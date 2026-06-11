@@ -1262,6 +1262,41 @@
     unknown: 'Sin clasificar'
   };
 
+  // v3.5.10 — Fuzzy match events to a route by location overlap.
+  // Match strategy: tokenize route.distritos + route.puntos_clave, then check if any
+  // event.ubicacion / event.titulo contains any of those tokens. Score by # matching
+  // tokens; return top matches.
+  function findRelatedEvents(route, allEvents) {
+    if (!route || !Array.isArray(allEvents) || !allEvents.length) return [];
+    const stop = new Set(['de', 'del', 'la', 'el', 'los', 'las', 'y', 'a', 'al', 'en', 'por', 'lima', 'peru', 'perú']);
+    const normTok = (s) => String(s || '')
+      .toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9\s]/g, ' ')
+      .split(/\s+/)
+      .filter(t => t.length >= 4 && !stop.has(t));
+
+    const tokens = new Set();
+    (route.distritos || []).forEach(d => normTok(d).forEach(t => tokens.add(t)));
+    (route.puntos_clave || []).forEach(p => normTok(p).forEach(t => tokens.add(t)));
+    // Also extract location-y nouns from descripcion (capitalised words)
+    const descMatches = String(route.descripcion || '').match(/[A-ZÁÉÍÓÚÑ][a-záéíóúñ]{3,}/g) || [];
+    descMatches.forEach(w => normTok(w).forEach(t => tokens.add(t)));
+    if (!tokens.size) return [];
+
+    const scored = [];
+    allEvents.forEach(ev => {
+      const hay = normTok((ev.ubicacion || '') + ' ' + (ev.titulo || '') + ' ' + (ev.descripcion || ''));
+      if (!hay.length) return;
+      const haySet = new Set(hay);
+      let score = 0;
+      tokens.forEach(t => { if (haySet.has(t)) score++; });
+      if (score >= 1) scored.push({ ev, score });
+    });
+    scored.sort((a, b) => b.score - a.score);
+    return scored.slice(0, 5).map(x => x.ev);
+  }
+
   // Resolve coords for a route: try puntos_clave first, then distritos, then fuzzy on descripcion
   function resolveRouteCoords(route, regionId) {
     const gz = window.DOSSIER_GAZETTEER;
@@ -1426,23 +1461,99 @@
             ? (r.side === 'regional' ? '10,6' : null)        // corridor: only regional gets dashes
             : '4,7'                                            // fallback: always dashed (less authoritative)
         });
-        // Popup
-        const desc = escapeHtml(shortText(r.raw.descripcion || `Ruta ${i+1}`, 220));
-        const distritos = (r.raw.distritos || []).map(escapeHtml).join(' · ');
-        const fuente = r.raw.fuente ? `<a href="${escapeHtml(r.raw.fuente)}" target="_blank" rel="noopener">Fuente</a>` : '';
+        // ----- v3.5.10 — Rich route popup: title + descripción + patrón histórico + distritos + traza + eventos relacionados + fuente -----
+        // Título derivado (mismo algoritmo que la tarjeta .route)
+        const descRaw = cleanStr(r.raw.descripcion) || '';
+        const puntos = Array.isArray(r.raw.puntos_clave) ? r.raw.puntos_clave.filter(Boolean) : [];
+        const distritosArr = Array.isArray(r.raw.distritos) ? r.raw.distritos.filter(Boolean) : [];
+        let ruTitle = cleanStr(r.raw.name) || cleanStr(r.raw.titulo) || cleanStr(r.raw.title) || '';
+        if (!ruTitle) {
+          const m = descRaw.match(/^([^:—–\-]{4,80})[\s]*[:—–\-]/);
+          if (m) ruTitle = m[1].trim();
+        }
+        if (!ruTitle && puntos.length >= 2) ruTitle = puntos[0] + ' → ' + puntos[puntos.length - 1];
+        if (!ruTitle && distritosArr.length) ruTitle = distritosArr.join(' → ');
+        if (!ruTitle && descRaw) ruTitle = shortText(descRaw, 70);
+        if (!ruTitle) ruTitle = 'Ruta ' + (i + 1);
+
+        // Header tag: only show bando if known (no empty "—")
+        const bandoLabel = (r.side && r.side !== 'unknown') ? MAP_SIDE_LABELS[r.side] : null;
+        const tagText = bandoLabel ? ('Ruta · ' + bandoLabel) : 'Ruta';
+
+        // Path string (puntos_clave joined with arrows, fallback to descripcion if no puntos)
+        const pathHtml = puntos.length
+          ? `<div class="mp-meta mp-path"><strong>Trayecto:</strong> ${puntos.map(escapeHtml).join(' → ')}</div>`
+          : '';
+
+        // Descripción: only show if it differs from the title and is informative
+        const descHtml = (descRaw && descRaw !== ruTitle)
+          ? `<div class="mp-body">${escapeHtml(shortText(descRaw, 260))}</div>`
+          : '';
+
+        // Patrón histórico (best-estimate context)
+        const patron = cleanStr(r.raw.patron_historico);
+        const patronHtml = patron
+          ? `<div class="mp-meta mp-patron"><strong>Patrón histórico:</strong> ${escapeHtml(shortText(patron, 220))}</div>`
+          : '';
+
+        // Distritos chips
+        const distritosHtml = distritosArr.length
+          ? `<div class="mp-meta"><strong>Distritos:</strong> ${distritosArr.map(escapeHtml).join(' · ')}</div>`
+          : '';
+
+        // Eventos relacionados (fuzzy match by ubicacion overlap with distritos / puntos_clave)
+        const relatedEvents = findRelatedEvents(r.raw, allEv);
+        let relatedHtml = '';
+        if (relatedEvents.length) {
+          const items = relatedEvents.slice(0, 3).map(ev => {
+            const elabel = escapeHtml(shortText(ev.titulo || ev.descripcion || ev.tipo || ev.ubicacion || 'Evento', 70));
+            const efecha = ev.fecha ? escapeHtml(formatEventDate(ev.fecha, ev.fecha_nota)) : '';
+            const evid = ev.__evtid ? escapeHtml(ev.__evtid) : '';
+            return evid
+              ? `<li><a href="#" class="mp-evt-link" data-evtid="${evid}" data-region-id="${escapeHtml(regionId)}">· ${elabel}</a>${efecha ? ` <span class="mp-evt-date">(${efecha})</span>` : ''}</li>`
+              : `<li>· ${elabel}${efecha ? ` <span class="mp-evt-date">(${efecha})</span>` : ''}</li>`;
+          }).join('');
+          relatedHtml = `<div class="mp-meta mp-related"><strong>Eventos relacionados:</strong><ul class="mp-evt-list">${items}</ul></div>`;
+        }
+
+        // Traza badge
         const trace = isCorridor
           ? '<span class="mp-trace mp-trace-corr" title="Traza sigue la geometría real del corredor">Traza: corredor histórico</span>'
           : '<span class="mp-trace mp-trace-est" title="Estimación entre puntos de referencia">Traza: estimada</span>';
+
+        // Fuente
+        const fuente = cleanStr(r.raw.fuente);
+        const fuenteHtml = /^https?:\/\//i.test(fuente)
+          ? `<div class="mp-meta"><a href="${escapeHtml(fuente)}" target="_blank" rel="noopener noreferrer">↗ ${escapeHtml(safeAnchorText(fuente))}</a></div>`
+          : '';
+
         polyline.bindPopup(
-          `<div class="map-popup">` +
-          `<div class="mp-tag" style="background:${color}">Ruta · ${escapeHtml(MAP_SIDE_LABELS[r.side] || '—')}</div>` +
-          `<div class="mp-body">${desc}</div>` +
-          (distritos ? `<div class="mp-meta"><strong>Distritos:</strong> ${distritos}</div>` : '') +
+          `<div class="map-popup map-popup-route">` +
+          `<div class="mp-tag" style="background:${color}">${escapeHtml(tagText)}</div>` +
+          `<div class="mp-title">${escapeHtml(ruTitle)}</div>` +
+          pathHtml +
+          descHtml +
+          patronHtml +
+          distritosHtml +
+          relatedHtml +
           `<div class="mp-meta">${trace}</div>` +
-          (fuente ? `<div class="mp-meta">${fuente}</div>` : '') +
+          fuenteHtml +
           `</div>`,
-          { maxWidth: 320 }
+          { maxWidth: 360 }
         );
+        // v3.5.10: wire "eventos relacionados" links → focusEvent on this region's map
+        polyline.on('popupopen', (e) => {
+          const root = e.popup.getElement();
+          if (!root) return;
+          root.querySelectorAll('a.mp-evt-link[data-evtid]').forEach(a => {
+            a.addEventListener('click', (ev) => {
+              ev.preventDefault();
+              const evtid = a.getAttribute('data-evtid');
+              const rm = window.__regionMaps && window.__regionMaps[regionId];
+              if (rm && typeof rm.focusEvent === 'function') rm.focusEvent(evtid);
+            });
+          });
+        });
         // Endpoint markers (origin = green dot, destination = arrow-ish marker)
         const start = L.circleMarker(r.coords[0], { radius: 6, color: color, weight: 2, fillColor: '#ffffff', fillOpacity: 1 })
           .bindTooltip('Inicio', { permanent: false, direction: 'top', className: 'map-tip' });
@@ -1465,10 +1576,11 @@
         });
         const desc = escapeHtml(shortText(z.raw.descripcion || z.raw.justificacion || '', 220));
         const fuente = z.raw.fuente ? `<a href="${escapeHtml(z.raw.fuente)}" target="_blank" rel="noopener">Fuente</a>` : '';
+        const zNombre = cleanStr(z.raw.nombre) || cleanStr(z.raw.ubicacion) || 'Zona sin nombre';
         marker.bindPopup(
           `<div class="map-popup">` +
           `<div class="mp-tag" style="background:${color}">Zona · ${escapeHtml((z.raw.nivel || z.raw.tipo_riesgo || 'medio').toUpperCase())}</div>` +
-          `<div class="mp-title">${escapeHtml(z.raw.nombre || '—')}</div>` +
+          `<div class="mp-title">${escapeHtml(zNombre)}</div>` +
           (desc ? `<div class="mp-body">${desc}</div>` : '') +
           (fuente ? `<div class="mp-meta">${fuente}</div>` : '') +
           `</div>`,
@@ -1496,9 +1608,11 @@
         const ubic = escapeHtml(ev.raw.ubicacion || '');
         const fuente = ev.raw.fuente || ev.raw.fuente_url;
         const fuenteHtml = fuente ? `<a href="${escapeHtml(fuente)}" target="_blank" rel="noopener">Fuente</a>` : '';
+        const evBandoLabel = (ev.side && ev.side !== 'unknown') ? MAP_SIDE_LABELS[ev.side] : null;
+        const evTagText = evBandoLabel ? ('Evento · ' + evBandoLabel) : 'Evento';
         marker.bindPopup(
           `<div class="map-popup">` +
-          `<div class="mp-tag" style="background:${color}">Evento · ${escapeHtml(MAP_SIDE_LABELS[ev.side] || '—')}</div>` +
+          `<div class="mp-tag" style="background:${color}">${escapeHtml(evTagText)}</div>` +
           `<div class="mp-title">${escapeHtml(titulo)}</div>` +
           (fecha ? `<div class="mp-meta"><strong>${escapeHtml(fecha)}</strong></div>` : '') +
           (ubic ? `<div class="mp-meta">📍 ${ubic}</div>` : '') +
@@ -1661,6 +1775,7 @@
       // v3.5.7: expose external handle for list → map interactivity
       window.__regionMaps = window.__regionMaps || {};
       window.__regionMaps[regionId] = {
+        map,
         focusEvent(evtid) {
           const entry = eventMarkers[evtid];
           if (!entry) return false;

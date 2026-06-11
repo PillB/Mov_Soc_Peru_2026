@@ -1,7 +1,7 @@
 # AGENT.md — Dossier OSINT Perú 2026
 
 > Documento de mantenimiento para futuras sesiones. Lee esto **antes** de modificar el dossier.
-> Última actualización: v3.5.9 (geometría real de calles vía OSRM-precomputado + fix tarjetas de rutas).
+> Última actualización: v3.5.10 (popups de ruta con detalle histórico + eventos relacionados clickables + link a fuente).
 
 ---
 
@@ -244,4 +244,5 @@ share_file(
 | 3.5.6   | a63c705   | mapas Leaflet por región, gazetteer offline, 139 tests                |
 | 3.5.7   | e250f5d   | validación de fechas (`fecha_nota`/`fecha_fin`), interactividad mapa↔lista, AGENT.md |
 | 3.5.8   | 9e2f833   | rutas siguen avenidas reales: `CORRIDORS` (17 polylines OSM-aligned) + `resolveCorridor()` con bbox filter; traza corredor (sólida) vs estimada (dashed) |
-| 3.5.9   | (este)    | **geometría real de calles**: `CORRIDORS_REAL` precomputado vía OSRM demo (17 corredores → 113k vertices → Douglas-Peucker → 6.5k vertices, 136 KB); **fix tarjetas .route** que mostraban solo "—" (nuevo buildRoutes lee `descripcion`/`distritos`/`puntos_clave`/`patron_historico`/`fuente`) |
+| 3.5.9   | d1f9b71   | **geometría real de calles**: `CORRIDORS_REAL` precomputado vía OSRM demo (17 corredores → 113k vertices → Douglas-Peucker → 6.5k vertices, 136 KB); **fix tarjetas .route** que mostraban solo "—" (nuevo buildRoutes lee `descripcion`/`distritos`/`puntos_clave`/`patron_historico`/`fuente`) |
+| 3.5.10  | (este)    | **popups de ruta enriquecidos**: título derivado (cascada), patrón histórico en callout, lista de eventos relacionados clickables (`findRelatedEvents()` por overlap de tokens distritos∩ubicacion + puntos_clave∩ubicacion → `focusEvent(evtid)`), link a fuente externa; eliminado "Ruta · —" vacío en mp-tag (también en popup de zona y evento); `__regionMaps[id].map` ahora expuesto para QA |

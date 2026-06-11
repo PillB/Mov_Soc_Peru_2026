@@ -643,9 +643,9 @@ function section(title) {
   }
   ok('no quedan fechas malformadas tipo YYYY-MM-DDT<garbage>', weirdDates === 0, `n=${weirdDates} samples=${JSON.stringify(weirdSamples)}`);
 
-  section('N21. v3.5.9 — meta.version = 3.5.9');
+  section('N21. v3.5.10 — meta.version = 3.5.10');
   const metaVersion = data_v357.meta && data_v357.meta.version;
-  ok('meta.version es 3.5.9', metaVersion === '3.5.9', `got=${metaVersion}`);
+  ok('meta.version es 3.5.10', metaVersion === '3.5.10', `got=${metaVersion}`);
 
   section('N22. v3.5.8 — gazetteer expone CORRIDORS con polylines de avenidas reales');
   const corridorsInfo = await page.evaluate(() => {
@@ -719,6 +719,36 @@ function section(title) {
   ok('CORRIDORS_REAL tiene >=15 corredores', corridorsRealInfo.count >= 15, JSON.stringify(corridorsRealInfo));
   ok('CORRIDORS_REAL tiene >=1000 vertices totales (geom dense)', corridorsRealInfo.total >= 1000, JSON.stringify(corridorsRealInfo));
   ok('algun corredor urbano tiene >=20 vertices reales', corridorsRealInfo.urbanMax >= 20, JSON.stringify(corridorsRealInfo));
+
+  section('N28. v3.5.10 — popup de ruta NO contiene "· —" vacío');
+  const popupCheck = await page.evaluate(() => {
+    const m = window.__regionMaps && window.__regionMaps.lima && window.__regionMaps.lima.map;
+    if (!m) return { ok:false, reason:'no-map' };
+    const polylines = [];
+    m.eachLayer(l => { if (l instanceof L.Polyline && l.getPopup) polylines.push(l); });
+    if (!polylines.length) return { ok:false, reason:'no-polylines' };
+    let dashOffense = 0, popups = 0, withRelated = 0, withSource = 0, withPatron = 0;
+    const samples = [];
+    polylines.forEach(pl => {
+      const c = pl.getPopup() && pl.getPopup().getContent();
+      if (!c) return;
+      popups++;
+      if (/\u00b7\s*\u2014/.test(c) || /\u00b7\s*-\s*<\/div>/.test(c)) dashOffense++;
+      if (/mp-related/.test(c)) withRelated++;
+      if (/href="https?:/.test(c)) withSource++;
+      if (/mp-patron/.test(c)) withPatron++;
+      if (samples.length < 2) samples.push(c.slice(0,300));
+    });
+    return { ok:true, popups, dashOffense, withRelated, withSource, withPatron, samples };
+  });
+  ok('hay popups de ruta', popupCheck.ok && popupCheck.popups > 0, JSON.stringify(popupCheck));
+  ok('ningún popup de ruta tiene "· —" vacío', popupCheck.dashOffense === 0, JSON.stringify(popupCheck));
+
+  section('N29. v3.5.10 — popup de ruta linkea a eventos relacionados (al menos 1 en Lima)');
+  ok('al menos 1 popup en Lima tiene "Eventos relacionados"', popupCheck.withRelated >= 1, JSON.stringify(popupCheck));
+
+  section('N30. v3.5.10 — popup de ruta tiene link a fuente externa');
+  ok('al menos 1 popup tiene link a fuente https://', popupCheck.withSource >= 1, JSON.stringify(popupCheck));
 
   section('N27. v3.5.9 — polyline urbana renderizada en Lima sigue geometría densa');
   const limaPolyMax = await page.evaluate(() => {
