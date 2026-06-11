@@ -61,6 +61,43 @@
   const titleCase = (s) => String(s || '').replace(/\w\S*/g, w => w.charAt(0).toUpperCase() + w.substr(1).toLowerCase());
   const riskLabel = (lvl) => lvl ? String(lvl) : '—';
 
+  // v3.5.1: helpers to clean placeholder/no-data strings and parse markdown links
+  const PLACEHOLDER_RX = /^(?:n\/?d|n\.d\.|nd|sin dato[s]?|sin información|no verificado.*|no disponible|por confirmar|—|-)$/i;
+  const cleanStr = (v) => {
+    if (v == null) return '';
+    const s = String(v).trim();
+    if (!s) return '';
+    if (PLACEHOLDER_RX.test(s)) return '';
+    return s;
+  };
+  const cleanUrl = (v) => {
+    const s = cleanStr(v);
+    if (!s) return '';
+    if (!/^https?:\/\//i.test(s)) return '';
+    return s;
+  };
+  // Parse inline markdown links [text](url) → safe anchor HTML, escaping the rest.
+  const parseInlineMd = (raw) => {
+    if (raw == null) return '';
+    const src = String(raw);
+    const linkRe = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g;
+    let out = '', last = 0, m;
+    while ((m = linkRe.exec(src)) !== null) {
+      out += escapeHtml(src.slice(last, m.index));
+      out += `<a href="${escapeHtml(m[2])}" target="_blank" rel="noopener noreferrer">${escapeHtml(m[1])}</a>`;
+      last = m.index + m[0].length;
+    }
+    out += escapeHtml(src.slice(last));
+    return out;
+  };
+  // Infer risk level from executive_alert text or risk pill prefix
+  const inferRiskLevel = (alertText) => {
+    const s = String(alertText || '').toUpperCase();
+    if (s.includes('ROJA') || s.includes('ROJO')) return 'Alto';
+    if (s.includes('NARANJA')) return 'Medio';
+    if (s.includes('AMARILLA') || s.includes('AMARILLO')) return 'Bajo';
+    return '';
+  };
   // ---------- Header / menu ----------
   const menuBtn = $('#menuBtn');
   const nav = $('#primaryNav');
@@ -317,10 +354,10 @@
 
   // ---------- Regions with tabs ----------
   const REGION_LABELS = {
-    lima: 'Lima',
+    lima: 'Lima Metropolitana',
     norte: 'Norte',
     centro: 'Centro / Sierra',
-    sur: 'Sur',
+    sur: 'Sur andino',
     oriente: 'Oriente / Amazonía'
   };
   const REGION_ORDER = ['lima', 'norte', 'centro', 'sur', 'oriente'];
@@ -395,42 +432,58 @@
   function buildRegionContent(id, r) {
     const frag = document.createDocumentFragment();
 
+    // v3.5.1: bridge Spanish→English keys at render time (events.json uses Spanish)
+    const events   = r.events     || r.eventos               || [];
+    const zones    = r.zones      || r.puntos_riesgo         || [];
+    const routes   = r.routes     || r.rutas                 || [];
+    const corrs    = r.corridors  || r.corredores            || [];
+    const actors   = r.actors     || r.actores               || [];
+    const future   = r.events_future || r.convocatorias_futuras || [];
+    const narrLoc  = r.narratives_local || r.narrativas_locales || [];
+    const displayName = r.name || REGION_LABELS[id] || (r.region || id);
+    const riskLvl = r.risk_level || inferRiskLevel(r.executive_alert);
+
     // Head
     const head = el('div', { class: 'region-head' });
-    head.appendChild(el('h3', null, (r.icon ? r.icon + ' ' : '') + (r.name || REGION_LABELS[id] || id)));
+    head.appendChild(el('h3', null, (r.icon ? r.icon + ' ' : '') + displayName));
     if (r.result) head.appendChild(el('p', { class: 'region-sub' }, 'Resultado 2da vuelta: ' + r.result));
     if (r.summary) head.appendChild(el('p', { style: 'font-size:var(--text-sm);color:var(--c-ink-2);margin-bottom:var(--s-3)' }, r.summary));
 
     const meta = el('div', { class: 'region-meta' });
-    meta.appendChild(el('span', null, [el('span', { class: `region-risk-pill ${riskCls(r.risk_level)}` }, riskLabel(r.risk_level))]));
-    if (r.events) meta.appendChild(el('span', { html: `Eventos · <strong>${r.events.length}</strong>` }));
-    if (r.zones) meta.appendChild(el('span', { html: `Zonas · <strong>${r.zones.length}</strong>` }));
-    if (r.routes) meta.appendChild(el('span', { html: `Rutas · <strong>${r.routes.length}</strong>` }));
-    if (r.actors) meta.appendChild(el('span', { html: `Actores · <strong>${r.actors.length}</strong>` }));
-    head.appendChild(meta);
+    if (riskLvl) meta.appendChild(el('span', null, [el('span', { class: `region-risk-pill ${riskCls(riskLvl)}` }, riskLabel(riskLvl))]));
+    if (events.length)  meta.appendChild(el('span', { html: `Eventos · <strong>${events.length}</strong>` }));
+    if (future.length)  meta.appendChild(el('span', { html: `Convocatorias futuras · <strong>${future.length}</strong>` }));
+    if (zones.length)   meta.appendChild(el('span', { html: `Zonas de riesgo · <strong>${zones.length}</strong>` }));
+    if (routes.length)  meta.appendChild(el('span', { html: `Rutas · <strong>${routes.length}</strong>` }));
+    if (corrs.length)   meta.appendChild(el('span', { html: `Corredores · <strong>${corrs.length}</strong>` }));
+    if (actors.length)  meta.appendChild(el('span', { html: `Actores · <strong>${actors.length}</strong>` }));
+    if (narrLoc.length) meta.appendChild(el('span', { html: `Narrativas locales · <strong>${narrLoc.length}</strong>` }));
+    if (r.fecha_corte)  meta.appendChild(el('span', { html: `Corte · <strong>${escapeHtml(r.fecha_corte)}</strong>` }));
+    if (meta.children.length) head.appendChild(meta);
 
     if (r.executive_alert) {
-      head.appendChild(el('div', { class: 'region-alert' }, [
-        el('strong', null, 'Executive Alert · '),
-        document.createTextNode(r.executive_alert)
-      ]));
+      // v3.5.1: render inline markdown links instead of raw text
+      head.appendChild(el('div', { class: 'region-alert', html: '<strong>Executive Alert · </strong>' + parseInlineMd(r.executive_alert) }));
     }
     frag.appendChild(head);
 
-    if (r.events && r.events.length) {
-      frag.appendChild(buildSub('Eventos', `Inventario regional · ${r.events.length} entradas`, buildEvents(r.events)));
+    if (events.length) {
+      frag.appendChild(buildSub('Eventos', `Inventario regional · ${events.length} entradas`, buildEvents(events)));
     }
-    if (r.zones && r.zones.length) {
-      frag.appendChild(buildSub('Zonas de foco', 'Geografía de riesgo y vías alternativas', buildZones(r.zones)));
+    if (future.length) {
+      frag.appendChild(buildSub('Convocatorias futuras', `${future.length} convocatorias previstas`, buildEvents(future)));
     }
-    if (r.routes && r.routes.length) {
-      frag.appendChild(buildSub('Rutas', 'Trayectorias documentadas o previstas', buildRoutes(r.routes)));
+    if (zones.length) {
+      frag.appendChild(buildSub('Zonas de foco', 'Geografía de riesgo y vías alternativas', buildZones(zones)));
     }
-    if (r.corridors && r.corridors.length) {
-      frag.appendChild(buildSub('Corredores económicos', 'Vías críticas con impacto logístico', buildCorridors(r.corridors)));
+    if (routes.length) {
+      frag.appendChild(buildSub('Rutas', 'Trayectorias documentadas o previstas', buildRoutes(routes)));
     }
-    if (r.actors && r.actors.length) {
-      frag.appendChild(buildSub('Actores', 'Convocantes, líderes e intereses', buildActors(r.actors)));
+    if (corrs.length) {
+      frag.appendChild(buildSub('Corredores económicos', 'Vías críticas con impacto logístico', buildCorridors(corrs)));
+    }
+    if (actors.length) {
+      frag.appendChild(buildSub('Actores', 'Convocantes, líderes e intereses', buildActors(actors)));
     }
 
     // v3.1: grassroots layer for this region
@@ -523,26 +576,32 @@
   function buildAccountsGrid(accounts) {
     const grid = el('div', { class: 'grass-accounts-grid' });
     accounts.forEach(a => {
+      const name = cleanStr(a.name);
+      const role = cleanStr(a.role);
+      const handle = cleanStr(a.handle);
+      const notes = cleanStr(a.notes);
+      const platform = cleanStr(a.platform);
+      const followers = cleanStr(a.followers);
+      const verification = cleanStr(a.verification);
+      const url = cleanUrl(a.url);
+      // skip cards that would carry zero useful info
+      if (!name && !role && !handle && !notes && !url) return;
       const card = el('article', { class: 'grass-card account' });
       const top = el('div', { class: 'g-top' });
       const left = el('div');
-      left.appendChild(el('div', { class: 'g-name' }, a.name || '—'));
-      if (a.role) left.appendChild(el('div', { class: 'g-role' }, a.role));
-      if (a.handle) left.appendChild(el('div', { class: 'g-handle' }, a.handle));
+      if (name) left.appendChild(el('div', { class: 'g-name' }, name));
+      if (role) left.appendChild(el('div', { class: 'g-role' }, role));
+      if (handle) left.appendChild(el('div', { class: 'g-handle' }, handle));
       top.appendChild(left);
       card.appendChild(top);
-      if (a.notes) card.appendChild(el('p', { class: 'g-notes' }, a.notes));
+      if (notes) card.appendChild(el('p', { class: 'g-notes' }, notes));
       const meta = el('div', { class: 'g-meta' });
-      if (a.platform) {
-        const cls = platformClass(a.platform);
-        meta.appendChild(el('span', { class: 'g-tag ' + cls }, a.platform));
-      }
-      if (a.followers) meta.appendChild(el('span', { class: 'g-tag' }, a.followers));
-      if (a.verification) meta.appendChild(el('span', { class: 'g-tag ' + a.verification }, a.verification));
-      card.appendChild(meta);
-      if (a.url) {
-        const link = el('a', { class: 'g-link', href: a.url, target: '_blank', rel: 'noopener noreferrer' }, '↗ ' + safeAnchorText(a.url));
-        card.appendChild(link);
+      if (platform) meta.appendChild(el('span', { class: 'g-tag ' + platformClass(platform) }, platform));
+      if (followers) meta.appendChild(el('span', { class: 'g-tag' }, followers));
+      if (verification) meta.appendChild(el('span', { class: 'g-tag ' + verification }, verification));
+      if (meta.children.length) card.appendChild(meta);
+      if (url) {
+        card.appendChild(el('a', { class: 'g-link', href: url, target: '_blank', rel: 'noopener noreferrer' }, '↗ ' + safeAnchorText(url)));
       }
       grid.appendChild(card);
     });
@@ -552,27 +611,28 @@
   function buildColectivosGrid(items) {
     const grid = el('div', { class: 'grass-colectivos-grid' });
     items.forEach(c => {
+      const name = cleanStr(c.name);
+      const scope = cleanStr(c.scope);
+      const type = cleanStr(c.type);
+      const leaders = Array.isArray(c.leaders) ? c.leaders.map(cleanStr).filter(Boolean) : [];
+      const notes = cleanStr(c.notes);
+      const platform = cleanStr(c.platform);
+      const verification = cleanStr(c.verification);
+      const url = cleanUrl(c.url);
+      if (!name && !type && !notes && !leaders.length && !url) return;
       const card = el('article', { class: 'grass-card colectivo' });
       const top = el('div', { class: 'g-top' });
-      top.appendChild(el('div', { class: 'g-name' }, c.name || '—'));
-      if (c.scope) top.appendChild(el('span', { class: 'g-scope' }, c.scope));
+      if (name) top.appendChild(el('div', { class: 'g-name' }, name));
+      if (scope) top.appendChild(el('span', { class: 'g-scope' }, scope));
       card.appendChild(top);
-      if (c.type) card.appendChild(el('div', { class: 'g-role' }, c.type));
-      if (Array.isArray(c.leaders) && c.leaders.length) {
-        card.appendChild(el('div', { class: 'g-leaders' }, 'Líderes: ' + c.leaders.join(', ')));
-      }
-      if (c.notes) card.appendChild(el('p', { class: 'g-notes' }, c.notes));
+      if (type) card.appendChild(el('div', { class: 'g-role' }, type));
+      if (leaders.length) card.appendChild(el('div', { class: 'g-leaders' }, 'Líderes: ' + leaders.join(', ')));
+      if (notes) card.appendChild(el('p', { class: 'g-notes' }, notes));
       const meta = el('div', { class: 'g-meta' });
-      if (c.platform) {
-        const cls = platformClass(c.platform);
-        meta.appendChild(el('span', { class: 'g-tag ' + cls }, c.platform));
-      }
-      if (c.verification) meta.appendChild(el('span', { class: 'g-tag ' + c.verification }, c.verification));
-      card.appendChild(meta);
-      if (c.url) {
-        const link = el('a', { class: 'g-link', href: c.url, target: '_blank', rel: 'noopener noreferrer' }, '↗ ' + safeAnchorText(c.url));
-        card.appendChild(link);
-      }
+      if (platform) meta.appendChild(el('span', { class: 'g-tag ' + platformClass(platform) }, platform));
+      if (verification) meta.appendChild(el('span', { class: 'g-tag ' + verification }, verification));
+      if (meta.children.length) card.appendChild(meta);
+      if (url) card.appendChild(el('a', { class: 'g-link', href: url, target: '_blank', rel: 'noopener noreferrer' }, '↗ ' + safeAnchorText(url)));
       grid.appendChild(card);
     });
     return grid;
@@ -581,23 +641,26 @@
   function buildLivesGrid(items) {
     const grid = el('div', { class: 'grass-lives-grid' });
     items.forEach(l => {
+      const title = cleanStr(l.title);
+      const host = cleanStr(l.host);
+      const topic = cleanStr(l.topic);
+      const platform = cleanStr(l.platform);
+      const date = cleanStr(l.date);
+      const audience = cleanStr(l.audience);
+      const verification = cleanStr(l.verification);
+      const url = cleanUrl(l.url);
+      if (!title && !host && !topic && !url) return;
       const card = el('article', { class: 'grass-card live' });
-      card.appendChild(el('div', { class: 'g-name' }, l.title || '—'));
-      if (l.host) card.appendChild(el('div', { class: 'g-host' }, l.host));
-      if (l.topic) card.appendChild(el('p', { class: 'g-notes' }, l.topic));
+      if (title) card.appendChild(el('div', { class: 'g-name' }, title));
+      if (host) card.appendChild(el('div', { class: 'g-host' }, host));
+      if (topic) card.appendChild(el('p', { class: 'g-notes' }, topic));
       const meta = el('div', { class: 'g-meta' });
-      if (l.platform) {
-        const cls = platformClass(l.platform);
-        meta.appendChild(el('span', { class: 'g-tag ' + cls }, l.platform));
-      }
-      if (l.date) meta.appendChild(el('span', { class: 'g-date' }, '📅 ' + l.date));
-      if (l.audience) meta.appendChild(el('span', { class: 'g-tag' }, l.audience));
-      if (l.verification) meta.appendChild(el('span', { class: 'g-tag ' + l.verification }, l.verification));
-      card.appendChild(meta);
-      if (l.url) {
-        const link = el('a', { class: 'g-link', href: l.url, target: '_blank', rel: 'noopener noreferrer' }, '▶ ' + safeAnchorText(l.url));
-        card.appendChild(link);
-      }
+      if (platform) meta.appendChild(el('span', { class: 'g-tag ' + platformClass(platform) }, platform));
+      if (date) meta.appendChild(el('span', { class: 'g-date' }, '📅 ' + date));
+      if (audience) meta.appendChild(el('span', { class: 'g-tag' }, audience));
+      if (verification) meta.appendChild(el('span', { class: 'g-tag ' + verification }, verification));
+      if (meta.children.length) card.appendChild(meta);
+      if (url) card.appendChild(el('a', { class: 'g-link', href: url, target: '_blank', rel: 'noopener noreferrer' }, '▶ ' + safeAnchorText(url)));
       grid.appendChild(card);
     });
     return grid;
@@ -606,14 +669,17 @@
   function buildHashtagsGrid(items) {
     const grid = el('div', { class: 'grass-hashtags-grid' });
     items.forEach(h => {
+      const tag = cleanStr(h.tag);
+      const context = cleanStr(h.context);
+      const sources = Array.isArray(h.sources) ? h.sources.map(cleanUrl).filter(Boolean) : [];
+      if (!tag && !context && !sources.length) return;
       const pill = el('div', { class: 'grass-hashtag' });
-      const tagCls = h.verification && h.verification.startsWith('verified') ? 'h-tag verified' : 'h-tag';
-      pill.appendChild(el('div', { class: tagCls }, h.tag || '—'));
-      if (h.context) pill.appendChild(el('div', { class: 'h-context' }, h.context));
-      if (Array.isArray(h.sources) && h.sources.length) {
+      const tagCls = h.verification && String(h.verification).startsWith('verified') ? 'h-tag verified' : 'h-tag';
+      if (tag) pill.appendChild(el('div', { class: tagCls }, tag));
+      if (context) pill.appendChild(el('div', { class: 'h-context' }, context));
+      if (sources.length) {
         const linkWrap = el('div', { class: 'h-context' });
-        h.sources.slice(0, 2).forEach((u, i) => {
-          if (!u) return;
+        sources.slice(0, 2).forEach((u, i) => {
           if (i > 0) linkWrap.appendChild(document.createTextNode(' · '));
           linkWrap.appendChild(el('a', { class: 'g-link', href: u, target: '_blank', rel: 'noopener noreferrer' }, safeAnchorText(u)));
         });
@@ -730,7 +796,25 @@
 
   function buildEvents(events) {
     const grid = el('div', { class: 'cards', role: 'list' });
-    events.forEach(e => {
+    events.forEach(raw => {
+      // v3.5.1: bridge Spanish event keys
+      const e = {
+        status: raw.status || raw.estado,
+        risk: raw.risk || raw.nivel_riesgo,
+        title: cleanStr(raw.title) || cleanStr(raw.titulo) || cleanStr(raw.tipo) || cleanStr(raw.convocatoria),
+        summary: cleanStr(raw.summary) || cleanStr(raw.notas) || cleanStr(raw.descripcion),
+        date: cleanStr(raw.date) || cleanStr(raw.fecha) || cleanStr(raw.fecha_hora),
+        location: cleanStr(raw.location) || cleanStr(raw.place) || cleanStr(raw.ubicacion) || cleanStr(raw.lugar),
+        convener: cleanStr(raw.convener) || cleanStr(raw.convocante) || cleanStr(raw.bando),
+        magnitude: cleanStr(raw.magnitude) || cleanStr(raw.participantes_est) || cleanStr(raw.magnitud),
+        id: cleanStr(raw.id)
+      };
+      let sources = [];
+      if (Array.isArray(raw.sources)) sources = raw.sources.filter(s => s && s.url);
+      else if (raw.source && raw.source.url) sources = [raw.source];
+      else if (raw.fuente_url) sources = [{ url: raw.fuente_url, name: raw.fuente_nombre || raw.fuente_url }];
+      else if (Array.isArray(raw.fuentes)) sources = raw.fuentes.map(s => typeof s === 'string' ? { url: s } : s).filter(s => s && s.url);
+
       const card = el('article', { class: 'card', role: 'listitem' });
       const headerRow = el('div', { style: 'display:flex;gap:var(--s-3);justify-content:space-between;align-items:flex-start;flex-wrap:wrap;margin-bottom:var(--s-2)' });
       const si = stateInfo(e.status);
@@ -738,31 +822,29 @@
       if (e.risk) headerRow.appendChild(el('span', { class: `risk ${riskCls(e.risk)}` }, riskLabel(e.risk)));
       card.appendChild(headerRow);
 
-      card.appendChild(el('h3', null, e.title || '—'));
-      if (e.summary) card.appendChild(el('p', { style: 'font-size:var(--text-sm);color:var(--c-ink-2)' }, e.summary));
+      if (e.title) card.appendChild(el('h3', null, e.title));
+      if (e.summary) card.appendChild(el('p', { style: 'font-size:var(--text-sm);color:var(--c-ink-2)', html: parseInlineMd(e.summary) }));
 
       const meta = el('dl', { class: 'card-meta' });
       const rows = [
         ['Fecha / hora', e.date],
-        ['Lugar', e.location || e.place],
+        ['Lugar', e.location],
         ['Convocante', e.convener],
-        ['Magnitud', e.magnitude],
+        ['Magnitud', e.magnitude ? String(e.magnitude) : ''],
         ['ID', e.id]
       ];
       rows.forEach(([dt, dd]) => {
         if (!dd) return;
         meta.appendChild(el('div', null, [el('dt', null, dt), el('dd', null, dd)]));
       });
-      card.appendChild(meta);
+      if (meta.children.length) card.appendChild(meta);
 
-      // sources: puede ser objeto único o array
-      const sources = Array.isArray(e.sources) ? e.sources : (e.source ? [e.source] : []);
       if (sources.length) {
         const src = el('div', { class: 'card-sources' });
         src.appendChild(el('h4', null, 'Fuente' + (sources.length > 1 ? 's' : '')));
         sources.forEach(s => {
           if (!s || !s.url) return;
-          src.appendChild(el('a', { href: s.url, target: '_blank', rel: 'noopener noreferrer' }, s.name || s.label || s.url));
+          src.appendChild(el('a', { href: s.url, target: '_blank', rel: 'noopener noreferrer' }, s.name || s.label || safeAnchorText(s.url)));
         });
         card.appendChild(src);
       }
@@ -773,15 +855,24 @@
 
   function buildZones(zones) {
     const grid = el('div', { class: 'zones' });
-    zones.forEach(z => {
+    zones.forEach(raw => {
+      // v3.5.1: bridge Spanish zone keys (puntos_riesgo)
+      const z = {
+        name: cleanStr(raw.name) || cleanStr(raw.nombre),
+        risk: cleanStr(raw.risk) || cleanStr(raw.tipo_riesgo) || cleanStr(raw.nivel_riesgo),
+        polygon: cleanStr(raw.polygon) || cleanStr(raw.ubicacion),
+        hotspots: raw.hotspots || raw.key_points || raw.puntos_calientes,
+        alternatives: raw.alternatives || raw.advice || raw.recomendacion || raw.justificacion
+      };
+      if (!z.name && !z.polygon && !z.hotspots && !z.alternatives) return;
       const lvl = riskCls(z.risk);
       const zoneCls = lvl === 'risk-alto' || lvl === 'risk-maximo' ? 'zone-alto' : lvl === 'risk-bajo' ? 'zone-bajo' : 'zone-moderado';
       const card = el('div', { class: `zone ${zoneCls}` });
-      card.appendChild(el('h3', null, z.name || '—'));
+      if (z.name) card.appendChild(el('h3', null, z.name));
       if (z.risk) card.appendChild(el('span', { class: `risk ${lvl}` }, riskLabel(z.risk)));
       if (z.polygon) card.appendChild(el('div', { class: 'zone-poly' }, z.polygon));
 
-      const hotspots = z.hotspots || z.key_points;
+      const hotspots = z.hotspots;
       if (hotspots) {
         // Solo separar por comas si no hay abreviaciones (Jr./Av./Dr./Sr.) que las hagan ambiguas.
         // Para listas con esas abreviaciones, mostrar como párrafo.
@@ -808,17 +899,16 @@
         }
         card.appendChild(b);
       }
-      const alts = z.alternatives || z.advice;
+      const alts = z.alternatives;
       if (alts) {
         const b = el('div', { class: 'zone-block' });
-        b.appendChild(el('h4', null, 'Recomendación operativa'));
+        b.appendChild(el('h4', null, 'Justificación / recomendación'));
         if (Array.isArray(alts)) {
           const ul = el('ul', { class: 'zone-list' });
-          alts.forEach(h => h && ul.appendChild(el('li', null, h)));
+          alts.forEach(h => h && ul.appendChild(el('li', { html: parseInlineMd(String(h)) })));
           b.appendChild(ul);
         } else {
-          // Texto continuo: párrafo (no romper por puntos para evitar dividir Jr. / Av.)
-          b.appendChild(el('p', { style: 'font-size:var(--text-sm);color:var(--c-ink-2);margin:var(--s-2) 0 0' }, alts));
+          b.appendChild(el('p', { style: 'font-size:var(--text-sm);color:var(--c-ink-2);margin:var(--s-2) 0 0', html: parseInlineMd(String(alts)) }));
         }
         card.appendChild(b);
       }
@@ -860,14 +950,42 @@
 
   function buildActors(actors) {
     const grid = el('div', { class: 'actors' });
-    actors.forEach(a => {
+    actors.forEach(raw => {
+      // v3.5.1: bridge Spanish actor keys
+      const name = cleanStr(raw.name) || cleanStr(raw.nombre);
+      const type = cleanStr(raw.type) || cleanStr(raw.side) || cleanStr(raw.posicion) || cleanStr(raw.bando);
+      const leader = cleanStr(raw.leader) || cleanStr(raw.lider);
+      const interest = cleanStr(raw.interest) || cleanStr(raw.capacity) || cleanStr(raw.status) || cleanStr(raw.rol) || cleanStr(raw.descripcion);
+      const sourceUrl = cleanUrl(raw.fuente) || cleanUrl(raw.source_url) || (raw.source && cleanUrl(raw.source.url));
+      const redes = Array.isArray(raw.redes) ? raw.redes : [];
+      if (!name && !type && !interest && !redes.length) return;
       const card = el('div', { class: 'actor' });
-      const type = a.type || a.side;
       if (type) card.appendChild(el('div', { class: 'actor-type' }, type));
-      card.appendChild(el('div', { class: 'actor-name' }, a.name || '—'));
-      if (a.leader) card.appendChild(el('div', { class: 'actor-interest', style: 'margin-bottom:var(--s-1);font-size:var(--text-xs);color:var(--c-muted)' }, 'Líder: ' + a.leader));
-      const interest = a.interest || a.capacity || a.status;
+      if (name) card.appendChild(el('div', { class: 'actor-name' }, name));
+      if (leader) card.appendChild(el('div', { class: 'actor-interest', style: 'margin-bottom:var(--s-1);font-size:var(--text-xs);color:var(--c-muted)' }, 'Líder: ' + leader));
       if (interest) card.appendChild(el('div', { class: 'actor-interest' }, interest));
+      if (redes.length) {
+        const linksWrap = el('div', { class: 'actor-interest', style: 'margin-top:var(--s-1);font-size:var(--text-xs)' });
+        redes.forEach((r, i) => {
+          const url = cleanUrl(r.url);
+          const handle = cleanStr(r.handle) || cleanStr(r.plataforma);
+          if (!url) {
+            if (handle) {
+              if (linksWrap.childNodes.length) linksWrap.appendChild(document.createTextNode(' · '));
+              linksWrap.appendChild(document.createTextNode(handle));
+            }
+            return;
+          }
+          if (linksWrap.childNodes.length) linksWrap.appendChild(document.createTextNode(' · '));
+          linksWrap.appendChild(el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }, handle || safeAnchorText(url)));
+        });
+        if (linksWrap.childNodes.length) card.appendChild(linksWrap);
+      }
+      if (sourceUrl) {
+        card.appendChild(el('div', { class: 'actor-interest', style: 'margin-top:var(--s-1);font-size:var(--text-xs)' }, [
+          el('a', { href: sourceUrl, target: '_blank', rel: 'noopener noreferrer' }, 'Fuente ↗')
+        ]));
+      }
       grid.appendChild(card);
     });
     return grid;
@@ -877,16 +995,58 @@
   function renderRiskMatrix(rows) {
     const tbody = $('#risk-tbody');
     if (!tbody) return;
+    // v3.5.1: rebuild header to match actual data shape (escenario, categoría, probabilidad, impacto, ventana, triggers)
+    const table = tbody.closest('table');
+    if (table) {
+      const thead = table.querySelector('thead');
+      if (thead) {
+        thead.innerHTML = '<tr>' +
+          '<th scope="col">Escenario</th>' +
+          '<th scope="col">Categoría</th>' +
+          '<th scope="col">Probabilidad</th>' +
+          '<th scope="col">Impacto</th>' +
+          '<th scope="col">Ventana</th>' +
+          '<th scope="col">Disparadores</th>' +
+        '</tr>';
+      }
+    }
     tbody.innerHTML = '';
-    rows.forEach(r => {
+    (rows || []).forEach(r => {
+      const scenarioTitle = cleanStr(r.title) || cleanStr(r.scenario) || cleanStr(r.vector);
+      const scenarioBody  = cleanStr(r.scenario);
+      const category   = cleanStr(r.category) || cleanStr(r.region);
+      const probability = cleanStr(r.probability) || cleanStr(r.level);
+      const impact     = cleanStr(r.impact) || cleanStr(r.severity) || cleanStr(r.level);
+      const window_    = cleanStr(r.timeframe) || cleanStr(r.window);
+      const triggers   = Array.isArray(r.triggers) ? r.triggers.map(cleanStr).filter(Boolean) : [];
+      const zonesField = Array.isArray(r.zones) ? r.zones.map(cleanStr).filter(Boolean).join(' · ') : cleanStr(r.zones);
+      // skip empty rows (no scenario at all)
+      if (!scenarioTitle && !scenarioBody) return;
       const tr = el('tr');
-      // scenario: usar vector si no hay scenario explícito
-      tr.appendChild(el('td', { 'data-label': 'Escenario' }, [el('strong', null, r.scenario || r.vector || '—')]));
-      tr.appendChild(el('td', { 'data-label': 'Región' }, r.region || '—'));
-      tr.appendChild(el('td', { 'data-label': 'Probabilidad' }, [el('span', { class: `risk ${riskCls(r.probability || r.level)}` }, riskLabel(r.probability || r.level))]));
-      tr.appendChild(el('td', { 'data-label': 'Severidad' }, [el('span', { class: `risk ${riskCls(r.severity || r.level)}` }, riskLabel(r.severity || r.level))]));
-      tr.appendChild(el('td', { 'data-label': 'Ventana' }, r.window || '—'));
-      tr.appendChild(el('td', { 'data-label': 'Zonas' }, r.zones || r.vector || '—'));
+      // Escenario cell: bold title + truncated body summary
+      const scenarioCell = el('td', { 'data-label': 'Escenario' });
+      if (scenarioTitle) scenarioCell.appendChild(el('strong', null, scenarioTitle));
+      if (scenarioBody && scenarioBody !== scenarioTitle) {
+        const short = scenarioBody.length > 220 ? scenarioBody.slice(0, 220).trim() + '…' : scenarioBody;
+        scenarioCell.appendChild(el('div', { style: 'font-size:var(--text-xs);color:var(--c-ink-2);margin-top:4px;line-height:1.4' }, short));
+      }
+      tr.appendChild(scenarioCell);
+      tr.appendChild(el('td', { 'data-label': 'Categoría' }, category || '—'));
+      tr.appendChild(el('td', { 'data-label': 'Probabilidad' },
+        probability ? [el('span', { class: `risk ${riskCls(probability)}` }, probability)] : '—'));
+      tr.appendChild(el('td', { 'data-label': 'Impacto' },
+        impact ? [el('span', { class: `risk ${riskCls(impact)}` }, impact)] : '—'));
+      tr.appendChild(el('td', { 'data-label': 'Ventana' }, window_ || '—'));
+      const trigCell = el('td', { 'data-label': 'Disparadores' });
+      if (triggers.length) {
+        const shown = triggers.slice(0, 2).join(' · ');
+        trigCell.appendChild(document.createTextNode(shown + (triggers.length > 2 ? ` (+${triggers.length - 2})` : '')));
+      } else if (zonesField) {
+        trigCell.appendChild(document.createTextNode(zonesField));
+      } else {
+        trigCell.appendChild(document.createTextNode('—'));
+      }
+      tr.appendChild(trigCell);
       tbody.appendChild(tr);
     });
   }

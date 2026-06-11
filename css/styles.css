@@ -2370,3 +2370,55 @@ details.foldable > .foldable-body {
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
 }
+
+/* =============================================================
+   v3.5.1 fixes: hashtag overflow, region-alert links, risk table
+   ============================================================= */
+/* Hashtag pills: allow wrapping of long tags & longer max-width */
+.grass-hashtags-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--s-3);
+  margin-bottom: var(--s-7);
+}
+.grass-hashtag {
+  max-width: 100%;
+  min-width: 0;
+}
+.grass-hashtag .h-tag {
+  display: block;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  line-height: 1.35;
+}
+.grass-hashtag .h-context {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+.grass-hashtag .g-link {
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+
+/* Region executive-alert: ensure inline links from markdown look clickable */
+.region-alert a {
+  color: var(--c-amber, #c18a3a);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.region-alert a:hover { color: var(--c-navy, #0b1a2b); }
+
+/* Risk matrix: keep cells readable, allow long scenario column */
+#risk-tbody td {
+  vertical-align: top;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+#risk-tbody td:first-child {
+  min-width: 28ch;
+  max-width: 56ch;
+}
+#risk-tbody td:first-child strong { display: block; margin-bottom: 4px; line-height: 1.35; }
+@media (max-width: 720px) {
+  #risk-tbody td:first-child { max-width: none; }
+}
