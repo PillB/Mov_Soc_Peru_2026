@@ -98,6 +98,41 @@
     if (s.includes('AMARILLA') || s.includes('AMARILLO')) return 'Bajo';
     return '';
   };
+  // v3.5.2: normalize bando codes → side key + readable label
+  const normalizeBando = (raw) => {
+    const k = String(raw || '').toLowerCase().trim();
+    if (!k) return { side: '', label: '' };
+    if (/(pro[\s_-]?s[aá]nchez|pro[\s_-]?jpp|^jpp|izquier|defens|sanchez|s[aá]nchez)/.test(k)) return { side: 'jpp', label: 'Pro-Sánchez · Bloque A' };
+    if (/(pro[\s_-]?fp|fuerza\s*popular|fujimori|keiko|^fp|derech|renovaci[oó]n)/.test(k)) return { side: 'fp', label: 'Pro-Fujimori · Bloque B' };
+    if (/medio|periodis|prensa/.test(k))     return { side: 'medio', label: 'Medio / Prensa' };
+    if (/instit|onpe|jne|defensor/.test(k))  return { side: 'institucion', label: 'Institucional' };
+    if (/region|local/.test(k))              return { side: 'regional', label: 'Regional' };
+    if (/desinformaci[oó]n|disinfo|bulo/.test(k)) return { side: 'disinformation', label: 'Desinformación' };
+    if (/neutro|n\/a|indep/.test(k))         return { side: 'neutro', label: 'Neutral' };
+    return { side: 'neutro', label: titleCase(k.replace(/[_-]/g, ' ')) };
+  };
+  // v3.5.2: normalize platform string "YouTube / TikTok" → array of canonical keys
+  const PLATFORM_KEYS = ['x', 'twitter', 'tiktok', 'facebook', 'youtube', 'instagram'];
+  const normalizePlatforms = (raw) => {
+    if (!raw) return [];
+    const tokens = String(raw).toLowerCase().split(/[\/,|+·•]+/).map(t => t.trim()).filter(Boolean);
+    const out = [];
+    tokens.forEach(t => {
+      const k = t.replace(/[^a-z]/g, '');
+      if (k === 'twitter') { if (!out.includes('x')) out.push('x'); return; }
+      if (PLATFORM_KEYS.includes(k) && !out.includes(k)) out.push(k);
+    });
+    return out;
+  };
+  // v3.5.2: format big numbers "2400000" → "2,4 M seguidores"
+  const fmtFollowers = (n) => {
+    if (n == null || n === '') return '';
+    const num = Number(n);
+    if (!isFinite(num) || num <= 0) return '';
+    if (num >= 1e6) return (num / 1e6).toFixed(num >= 1e7 ? 0 : 1).replace('.', ',') + ' M';
+    if (num >= 1e3) return (num / 1e3).toFixed(num >= 1e5 ? 0 : 1).replace('.', ',') + ' K';
+    return String(num);
+  };
   // ---------- Header / menu ----------
   const menuBtn = $('#menuBtn');
   const nav = $('#primaryNav');
@@ -149,7 +184,7 @@
     window.__grassroots = d.grassroots || {};
     renderRegions(d.regions || {});
     renderNationalGrassroots(window.__grassroots.nacional || {});
-    renderSocialIntelligence(d.social_intelligence || {});
+    renderSocialIntelligence(d.social_intelligence || {}, d);
     renderLiveStreams(d.live_streams || []);
     renderNarratives(d.narratives || []);
     renderAltMedia(d.alt_media || []);
@@ -485,6 +520,10 @@
     if (actors.length) {
       frag.appendChild(buildSub('Actores', 'Convocantes, líderes e intereses', buildActors(actors)));
     }
+    // v3.5.2: narrativas locales (string array with embedded markdown links)
+    if (narrLoc.length) {
+      frag.appendChild(buildSub('Narrativas locales', `${narrLoc.length} encuadres en circulación`, buildNarrLoc(narrLoc)));
+    }
 
     // v3.1: grassroots layer for this region
     const grass = (window.__grassroots && window.__grassroots[id]) || null;
@@ -784,6 +823,39 @@
     return grid;
   }
 
+  // v3.5.2: narrativas locales — array of plain strings (often with markdown links)
+  // Some entries may be {texto, fuente_url} objects — handle both shapes.
+  function buildNarrLoc(items) {
+    const grid = el('div', { class: 'cards', role: 'list' });
+    items.forEach(raw => {
+      let text = '', sourceUrl = '', sourceLabel = '';
+      if (typeof raw === 'string') {
+        text = cleanStr(raw);
+      } else if (raw && typeof raw === 'object') {
+        const titulo = cleanStr(raw.titulo) || cleanStr(raw.title);
+        const desc = cleanStr(raw.descripcion) || cleanStr(raw.description) || cleanStr(raw.texto) || cleanStr(raw.text) || cleanStr(raw.summary) || cleanStr(raw.narrative);
+        text = desc || titulo;
+        // promote titulo to a separate label if both present
+        if (titulo && desc && titulo !== desc) raw.__titulo = titulo;
+        sourceUrl = cleanUrl(raw.fuente_url) || cleanUrl(raw.source_url) || cleanUrl(raw.url);
+        sourceLabel = cleanStr(raw.fuente_nombre) || cleanStr(raw.source_name) || '';
+      }
+      if (!text) return;
+      const card = el('article', { class: 'card narrative-loc-card', role: 'listitem' });
+      if (raw && raw.__titulo) {
+        card.appendChild(el('h5', { style: 'margin:0 0 var(--s-2) 0;font-size:var(--text-sm);color:var(--c-ink-0)' }, raw.__titulo));
+      }
+      card.appendChild(el('p', { style: 'font-size:var(--text-sm);color:var(--c-ink-1);line-height:1.55;margin:0', html: parseInlineMd(text) }));
+      if (sourceUrl) {
+        const src = el('div', { class: 'card-sources', style: 'margin-top:var(--s-2)' });
+        src.appendChild(el('a', { href: sourceUrl, target: '_blank', rel: 'noopener noreferrer' }, sourceLabel || safeAnchorText(sourceUrl)));
+        card.appendChild(src);
+      }
+      grid.appendChild(card);
+    });
+    return grid;
+  }
+
   function buildSub(title, eyebrow, body) {
     const w = el('div', { class: 'region-subsection' });
     const h = el('div', { class: 'sub-head' });
@@ -797,16 +869,26 @@
   function buildEvents(events) {
     const grid = el('div', { class: 'cards', role: 'list' });
     events.forEach(raw => {
-      // v3.5.1: bridge Spanish event keys
+      // v3.5.2: bridge Spanish event keys + fall back to bando for status/side
+      // Prefer Spanish name field (e.g. "La toma de Lima") over tipo ("marcha")
+      const tipo = cleanStr(raw.tipo);
+      const title = cleanStr(raw.title) || cleanStr(raw.titulo) || cleanStr(raw.nombre) || cleanStr(raw.convocatoria) || tipo;
+      // Convocantes: array → "a, b, c" or string
+      let convener = cleanStr(raw.convener) || cleanStr(raw.convocante);
+      if (!convener && Array.isArray(raw.convocantes) && raw.convocantes.length) {
+        convener = raw.convocantes.map(cleanStr).filter(Boolean).join(' · ');
+      }
       const e = {
-        status: raw.status || raw.estado,
-        risk: raw.risk || raw.nivel_riesgo,
-        title: cleanStr(raw.title) || cleanStr(raw.titulo) || cleanStr(raw.tipo) || cleanStr(raw.convocatoria),
-        summary: cleanStr(raw.summary) || cleanStr(raw.notas) || cleanStr(raw.descripcion),
-        date: cleanStr(raw.date) || cleanStr(raw.fecha) || cleanStr(raw.fecha_hora),
+        status: cleanStr(raw.status) || cleanStr(raw.estado),
+        risk: cleanStr(raw.risk) || cleanStr(raw.nivel_riesgo),
+        title,
+        type: tipo,
+        bando: cleanStr(raw.bando),
+        summary: cleanStr(raw.summary) || cleanStr(raw.notas) || cleanStr(raw.descripcion) || cleanStr(raw.nota),
+        date: cleanStr(raw.date) || cleanStr(raw.fecha) || cleanStr(raw.fecha_hora) || cleanStr(raw.fecha_convocatoria) || cleanStr(raw.fecha_inicio),
         location: cleanStr(raw.location) || cleanStr(raw.place) || cleanStr(raw.ubicacion) || cleanStr(raw.lugar),
-        convener: cleanStr(raw.convener) || cleanStr(raw.convocante) || cleanStr(raw.bando),
-        magnitude: cleanStr(raw.magnitude) || cleanStr(raw.participantes_est) || cleanStr(raw.magnitud),
+        convener,
+        magnitude: cleanStr(raw.magnitude) || cleanStr(raw.participantes_est) || cleanStr(raw.participantes_est_proyectado) || cleanStr(raw.magnitud),
         id: cleanStr(raw.id)
       };
       let sources = [];
@@ -817,10 +899,27 @@
 
       const card = el('article', { class: 'card', role: 'listitem' });
       const headerRow = el('div', { style: 'display:flex;gap:var(--s-3);justify-content:space-between;align-items:flex-start;flex-wrap:wrap;margin-bottom:var(--s-2)' });
-      const si = stateInfo(e.status);
-      headerRow.appendChild(el('span', { class: `badge ${si.cls}` }, si.label));
+
+      // Badge priority: explicit status → bando → tipo (so it's never "—")
+      let badgeCls = '', badgeLabel = '';
+      if (e.status) {
+        const si = stateInfo(e.status);
+        badgeCls = si.cls; badgeLabel = si.label;
+      } else if (e.bando) {
+        const nb = normalizeBando(e.bando);
+        badgeCls = 'badge side-' + (nb.side || 'neutro');
+        badgeLabel = nb.label || titleCase(e.bando.replace(/[_-]/g,' '));
+      } else if (e.type) {
+        badgeCls = 'badge-latente';
+        badgeLabel = titleCase(e.type);
+      }
+      if (badgeLabel) headerRow.appendChild(el('span', { class: `badge ${badgeCls}` }, badgeLabel));
+      // Show tipo as separate chip when we used bando for the main badge (keeps "marcha"/"plantón" visible)
+      if (e.type && e.bando && !e.status && e.title.toLowerCase() !== e.type.toLowerCase()) {
+        headerRow.appendChild(el('span', { class: 'badge badge-latente' }, titleCase(e.type)));
+      }
       if (e.risk) headerRow.appendChild(el('span', { class: `risk ${riskCls(e.risk)}` }, riskLabel(e.risk)));
-      card.appendChild(headerRow);
+      if (headerRow.children.length) card.appendChild(headerRow);
 
       if (e.title) card.appendChild(el('h3', null, e.title));
       if (e.summary) card.appendChild(el('p', { style: 'font-size:var(--text-sm);color:var(--c-ink-2)', html: parseInlineMd(e.summary) }));
@@ -1056,12 +1155,45 @@
     const grid = $('#ew-grid');
     if (!grid) return;
     grid.innerHTML = '';
-    items.forEach(i => {
+    items.forEach(raw => {
+      // v3.5.2: rich rendering of EW indicators (data has indicator/threshold/current_status/trend/data_source/rationale/next_check/sources)
+      const title = cleanStr(raw.signal) || cleanStr(raw.indicator) || cleanStr(raw.title);
+      if (!title) return;
+      const status = cleanStr(raw.current_status) || cleanStr(raw.status);
+      const trend  = cleanStr(raw.trend);
+      const threshold = cleanStr(raw.threshold) || cleanStr(raw.value);
+      const rationale = cleanStr(raw.rationale) || cleanStr(raw.description);
+      const action = cleanStr(raw.action) || cleanStr(raw.next_check);
+      const trigger = cleanStr(raw.trigger);
+      const dataSrc = cleanStr(raw.data_source);
+      const sources = Array.isArray(raw.sources) ? raw.sources.filter(s => s && s.url) : [];
+
       const c = el('div', { class: 'ew' });
-      c.appendChild(el('h4', null, i.signal || i.title || '—'));
-      if (i.description) c.appendChild(el('p', null, i.description));
-      if (i.action) c.appendChild(el('div', { class: 'ew-trigger' }, '→ ' + i.action));
-      if (i.trigger) c.appendChild(el('div', { class: 'ew-trigger' }, '↑ ' + i.trigger));
+      // Status pill
+      const head = el('div', { style: 'display:flex;gap:var(--s-2);align-items:center;flex-wrap:wrap;margin-bottom:var(--s-2)' });
+      if (status) {
+        const sLow = status.toLowerCase();
+        let bg = 'var(--c-amber, #f4c430)', fg = '#000';
+        if (/rojo|rojos|alto|max/.test(sLow)) { bg = 'var(--c-risk-alto, #c0392b)'; fg = '#fff'; }
+        else if (/amarillo|moder|medio/.test(sLow)) { bg = 'var(--c-amber, #f4c430)'; fg = '#000'; }
+        else if (/verde|bajo|estable/.test(sLow)) { bg = 'var(--c-risk-bajo, #6abf69)'; fg = '#0a3a1a'; }
+        const sCls = /rojo|alto|max/.test(sLow) ? 'rojo' : (/verde|bajo|estable/.test(sLow) ? 'verde' : 'amarillo');
+        head.appendChild(el('span', { class: `badge status-pill ew-status pill ${sCls}`, style: `background:${bg};color:${fg};font-size:var(--text-xs);font-weight:600` }, status));
+      }
+      if (trend) head.appendChild(el('span', { style: 'font-size:var(--text-xs);color:var(--c-ink-2)' }, trend));
+      if (head.children.length) c.appendChild(head);
+      c.appendChild(el('h4', null, title));
+      if (threshold) c.appendChild(el('p', { style: 'font-size:var(--text-sm);color:var(--c-ink-2);margin:var(--s-2) 0' }, '🎯 Umbral: ' + threshold));
+      if (rationale) c.appendChild(el('p', { style: 'font-size:var(--text-sm)' }, rationale));
+      if (action) c.appendChild(el('div', { class: 'ew-trigger' }, '→ ' + action));
+      if (trigger) c.appendChild(el('div', { class: 'ew-trigger' }, '↑ ' + trigger));
+      if (dataSrc) c.appendChild(el('div', { style: 'font-size:var(--text-xs);color:var(--c-muted);margin-top:var(--s-2)' }, 'Fuente de datos: ' + dataSrc));
+      if (sources.length) {
+        const src = el('div', { class: 'card-sources', style: 'margin-top:var(--s-2)' });
+        src.appendChild(el('h4', null, 'Fuentes'));
+        sources.forEach(s => src.appendChild(el('a', { href: s.url, target: '_blank', rel: 'noopener noreferrer' }, s.title || s.name || safeAnchorText(s.url))));
+        c.appendChild(src);
+      }
       grid.appendChild(c);
     });
   }
@@ -1136,6 +1268,8 @@
   const SIDE_LABEL = {
     jpp: 'Bloque A · JPP',
     fp: 'Bloque B · FP',
+    pro_sanchez: 'Pro-Sánchez',
+    pro_fujimori: 'Pro-Fujimori',
     medio: 'Medio',
     institucion: 'Institucional',
     regional: 'Regional',
@@ -1163,26 +1297,82 @@
   };
 
   // ---------- Social Intelligence (stats + platforms + handles + hashtags) ----------
-  function renderSocialIntelligence(si) {
-    if (!si || !si.title) return;
-    text('#social-title', si.title);
-    text('#social-desc', si.description || '');
-    renderSocialStats(si.stats || {});
-    renderPlatformsSummary(si.platforms_summary || {});
-    renderHandles(si.handles || []);
-    renderHashtags(si.hashtags || []);
+  function renderSocialIntelligence(si, d) {
+    si = si || {};
+    d = d || {};
+    // v3.5.2: title/desc fall back to defaults (no early-return on missing title)
+    if (si.title) text('#social-title', si.title);
+    if (si.description) text('#social-desc', si.description);
+    if (si.contexto) text('#social-desc', si.contexto);
+
+    // Derive handles from cuentas_emergentes if not provided
+    const handles = (Array.isArray(si.handles) && si.handles.length)
+      ? si.handles
+      : (Array.isArray(si.cuentas_emergentes) ? si.cuentas_emergentes.map(adaptCuentaToHandle) : []);
+
+    // Hashtags: support both keys
+    const hashtags = (Array.isArray(si.hashtags) ? si.hashtags : []);
+
+    // Lives are top-level, not in si
+    const lives = Array.isArray(d.live_streams) ? d.live_streams : [];
+
+    renderSocialStats(si.stats || {}, { handles, hashtags, lives, narratives: d.narratives || [], disinfo: d.disinformation_cases || [] });
+    renderPlatformsSummary(si.platforms_summary || derivePlatformsSummary(handles, hashtags, lives));
+    renderHandles(handles);
+    renderHashtags(hashtags);
   }
 
-  function renderSocialStats(stats) {
+  // v3.5.2: adapt cuentas_emergentes record → handle card shape
+  function adaptCuentaToHandle(c) {
+    const platforms = normalizePlatforms(c.plataforma || c.platform);
+    const handle = cleanStr(c.handle) || cleanStr(c.usuario);
+    const url = cleanUrl(c.url) || cleanUrl(c.fuente_url);
+    const nb = normalizeBando(c.posicion || c.bando || c.side);
+    return {
+      name: cleanStr(c.nombre) || cleanStr(c.name) || handle,
+      role: cleanStr(c.descripcion) || cleanStr(c.rol) || cleanStr(c.role),
+      side: nb.side,
+      sideLabel: nb.label,
+      followers: c.seguidores_aprox || c.followers,
+      region: cleanStr(c.region) || (cleanStr(c.cobertura) || ''),
+      priority: c.priority || c.prioridad || '',
+      platforms: platforms.length ? platforms.map(p => ({ platform: p, handle: handle || (c.nombre || ''), url: url || '', verified: !!c.verified })) : (url || handle ? [{ platform: '', handle: handle || '—', url, verified: !!c.verified }] : [])
+    };
+  }
+
+  // v3.5.2: derive a per-platform summary if data didn't ship one
+  function derivePlatformsSummary(handles, hashtags, lives) {
+    const buckets = { x: 0, tiktok: 0, facebook: 0, youtube: 0, instagram: 0 };
+    handles.forEach(h => (h.platforms || []).forEach(p => { if (buckets[p.platform] != null) buckets[p.platform]++; }));
+    hashtags.forEach(h => normalizePlatforms(h.plataforma || h.platform).forEach(p => { if (buckets[p] != null) buckets[p]++; }));
+    lives.forEach(lv => normalizePlatforms(lv.plataforma || lv.platform).forEach(p => { if (buckets[p] != null) buckets[p]++; }));
+    const out = {};
+    Object.keys(buckets).forEach(k => {
+      if (buckets[k] === 0) return;
+      out[k] = `${buckets[k]} entradas monitoreadas (handles + hashtags + lives) según dossier OSINT (v3.5.2)`;
+    });
+    return out;
+  }
+
+  function renderSocialStats(stats, derived) {
     const wrap = $('#social-stats');
     if (!wrap) return;
     wrap.innerHTML = '';
-    const items = [
-      { num: stats.jne_alerts_total, lbl: 'Alertas de desinformación (JNE)', src: stats.source_jne, srcLbl: 'JNE' },
-      { num: stats.jne_tiktok_alerts, lbl: 'Alertas reportadas en TikTok', src: stats.source_jne, srcLbl: 'JNE' },
-      { num: typeof stats.anp_press_attacks === 'string' ? stats.anp_press_attacks.split(' ')[0] : stats.anp_press_attacks, lbl: 'Ataques a periodistas 2026 (ANP)', src: stats.source_anp, srcLbl: 'ANP' },
-      { num: stats.journalists_killed, lbl: 'Periodistas asesinados', src: stats.source_anp, srcLbl: 'ANP' }
-    ];
+    derived = derived || {};
+    // v3.5.2: prefer real counts from data when stats object is empty
+    const items = [];
+    if (stats && (stats.jne_alerts_total || stats.jne_tiktok_alerts || stats.anp_press_attacks || stats.journalists_killed)) {
+      items.push({ num: stats.jne_alerts_total, lbl: 'Alertas de desinformación (JNE)', src: stats.source_jne, srcLbl: 'JNE' });
+      items.push({ num: stats.jne_tiktok_alerts, lbl: 'Alertas reportadas en TikTok', src: stats.source_jne, srcLbl: 'JNE' });
+      items.push({ num: typeof stats.anp_press_attacks === 'string' ? stats.anp_press_attacks.split(' ')[0] : stats.anp_press_attacks, lbl: 'Ataques a periodistas 2026 (ANP)', src: stats.source_anp, srcLbl: 'ANP' });
+      items.push({ num: stats.journalists_killed, lbl: 'Periodistas asesinados', src: stats.source_anp, srcLbl: 'ANP' });
+    } else {
+      items.push({ num: (derived.handles || []).length, lbl: 'Handles / cuentas monitoreadas' });
+      items.push({ num: (derived.hashtags || []).length, lbl: 'Hashtags activos' });
+      items.push({ num: (derived.lives || []).length, lbl: 'Transmisiones en vivo' });
+      items.push({ num: (derived.narratives || []).length, lbl: 'Narrativas dominantes' });
+      items.push({ num: (derived.disinfo || []).length, lbl: 'Casos de desinformación verificados' });
+    }
     items.forEach(it => {
       if (!it.num) return;
       const card = el('div', { class: 'stat' });
@@ -1200,13 +1390,14 @@
     const wrap = $('#platforms-grid');
     if (!wrap) return;
     wrap.innerHTML = '';
-    Object.entries(ps).forEach(([k, v]) => {
+    Object.entries(ps || {}).forEach(([k, v]) => {
+      const summary = typeof v === 'string' ? v : (v && v.summary) || '';
+      if (!summary) return;
       const card = el('article', { class: 'platform-card' });
       const name = el('div', { class: 'p-name' });
       name.appendChild(el('span', { class: 'p-icon' }, PLATFORM_ICON[k] || k.slice(0,2).toUpperCase()));
-      name.appendChild(document.createTextNode(PLATFORM_LABEL[k] || k));
+      name.appendChild(document.createTextNode(' ' + (PLATFORM_LABEL[k] || k)));
       card.appendChild(name);
-      const summary = typeof v === 'string' ? v : (v && v.summary) || '';
       card.appendChild(el('p', { class: 'p-summary' }, summary));
       wrap.appendChild(card);
     });
@@ -1253,23 +1444,27 @@
   }
 
   function buildHandleCard(h) {
-    const card = el('article', { class: 'handle-card' });
-    card.appendChild(el('div', { class: 'h-name' }, h.name || '—'));
+    const card = el('article', { class: 'handle-card side-' + (h.side || 'neutro') });
+    if (h.name) card.appendChild(el('div', { class: 'h-name' }, h.name));
     if (h.role) card.appendChild(el('div', { class: 'h-role' }, h.role));
     const plats = el('div', { class: 'h-platforms' });
     (h.platforms || []).forEach(p => {
-      if (!p.handle) return;
+      if (!p.handle && !p.url) return;
       const linkAttrs = { class: 'h-handle' + (p.verified ? ' verified' : '') };
       if (p.url) { linkAttrs.href = p.url; linkAttrs.target = '_blank'; linkAttrs.rel = 'noopener noreferrer'; }
       const a = p.url ? el('a', linkAttrs) : el('span', linkAttrs);
-      a.textContent = (PLATFORM_ICON[p.platform] || '?') + ' ' + p.handle;
+      const icon = p.platform ? (PLATFORM_ICON[p.platform] || '·') : '↗';
+      a.textContent = icon + ' ' + (p.handle || 'abrir');
       plats.appendChild(a);
     });
-    card.appendChild(plats);
+    if (plats.children.length) card.appendChild(plats);
     const tags = el('div', { class: 'h-tags' });
-    if (h.side) tags.appendChild(el('span', { class: 'h-tag side-' + h.side }, SIDE_LABEL[h.side] || h.side));
+    if (h.sideLabel) tags.appendChild(el('span', { class: 'h-tag side-' + h.side }, h.sideLabel));
+    else if (h.side) tags.appendChild(el('span', { class: 'h-tag side-' + h.side }, SIDE_LABEL[h.side] || h.side));
+    const followers = fmtFollowers(h.followers);
+    if (followers) tags.appendChild(el('span', { class: 'h-tag' }, '👥 ' + followers));
     if (h.priority) tags.appendChild(el('span', { class: 'h-tag priority-' + h.priority }, 'prioridad ' + h.priority));
-    if (h.region && h.region !== 'nacional') tags.appendChild(el('span', { class: 'h-tag side-regional' }, h.region));
+    if (h.region && h.region.toLowerCase() !== 'nacional') tags.appendChild(el('span', { class: 'h-tag side-regional' }, h.region));
     if (tags.children.length) card.appendChild(tags);
     return card;
   }
@@ -1292,19 +1487,40 @@
     const wrap = $('#hashtags-grid');
     if (!wrap) return;
     wrap.innerHTML = '';
-    hashtags.forEach(h => {
-      const card = el('article', { class: 'hashtag-card side-' + (h.side || 'neutro') });
-      card.appendChild(el('div', { class: 'ht-tag' }, h.tag || '—'));
-      if (h.context) card.appendChild(el('p', { class: 'ht-ctx' }, h.context));
+    hashtags.forEach(raw => {
+      // v3.5.2: bridge Spanish keys (hashtag/plataforma/volumen_estimado/bando/fuente_url/nota)
+      const tag = cleanStr(raw.tag) || cleanStr(raw.hashtag) || cleanStr(raw.name);
+      if (!tag) return;
+      const platforms = normalizePlatforms(raw.platform || raw.plataforma);
+      const platformLbl = platforms.map(p => PLATFORM_LABEL[p] || p).join(' / ') || cleanStr(raw.platform) || cleanStr(raw.plataforma);
+      const volume = cleanStr(raw.volume) || cleanStr(raw.volumen_estimado) || cleanStr(raw.volumen);
+      const region = cleanStr(raw.region);
+      const ctx = cleanStr(raw.context) || cleanStr(raw.nota) || cleanStr(raw.descripcion);
+      const nb = normalizeBando(raw.side || raw.bando);
+      const peak = cleanStr(raw.pico_observado) || cleanStr(raw.peak);
+      const srcUrl = cleanUrl(raw.evidence_url) || cleanUrl(raw.fuente_url) || cleanUrl(raw.source_url);
+
+      const card = el('article', { class: 'hashtag-card side-' + (nb.side || 'neutro') });
+      card.appendChild(el('div', { class: 'ht-tag' }, tag.startsWith('#') ? tag : '#' + tag));
+      if (ctx) card.appendChild(el('p', { class: 'ht-ctx' }, ctx));
       const meta = el('div', { class: 'ht-meta' });
-      if (h.platform) meta.appendChild(el('span', null, '📡 ' + (PLATFORM_LABEL[h.platform] || h.platform)));
-      if (h.volume) {
-        const v = el('span'); v.innerHTML = 'Volumen: <strong>' + escapeHtml(String(h.volume)) + '</strong>';
+      if (platformLbl) meta.appendChild(el('span', null, '📡 ' + platformLbl));
+      if (volume) {
+        const v = el('span'); v.innerHTML = 'Volumen: <strong>' + escapeHtml(volume) + '</strong>';
         meta.appendChild(v);
       }
-      if (h.region) meta.appendChild(el('span', null, '📍 ' + h.region));
-      if (h.side) meta.appendChild(el('span', null, SIDE_LABEL[h.side] || h.side));
-      card.appendChild(meta);
+      if (peak) {
+        const v = el('span'); v.innerHTML = 'Pico: <strong>' + escapeHtml(peak.split('T')[0]) + '</strong>';
+        meta.appendChild(v);
+      }
+      if (region) meta.appendChild(el('span', null, '📍 ' + region));
+      if (nb.label) meta.appendChild(el('span', { class: 'badge side-' + nb.side, style: 'font-size:var(--text-xs)' }, nb.label));
+      if (meta.children.length) card.appendChild(meta);
+      if (srcUrl) {
+        const s = el('div', { class: 'card-sources', style: 'margin-top:var(--s-2)' });
+        s.appendChild(el('a', { href: srcUrl, target: '_blank', rel: 'noopener noreferrer' }, 'Evidencia'));
+        card.appendChild(s);
+      }
       wrap.appendChild(card);
     });
   }
@@ -1315,20 +1531,56 @@
     const wrap = $('#lives-grid');
     if (!wrap) return;
     wrap.innerHTML = '';
-    lives.forEach(lv => {
-      const card = el('article', { class: 'live-card' });
-      card.appendChild(el('div', { class: 'l-platform' }, PLATFORM_LABEL[lv.platform] || lv.platform || ''));
-      card.appendChild(el('div', { class: 'l-channel' }, lv.channel || '—'));
-      if (lv.schedule) card.appendChild(el('div', { class: 'l-schedule' }, '🕒 ' + lv.schedule));
-      if (lv.focus) card.appendChild(el('p', { class: 'l-focus' }, lv.focus));
+    lives.forEach(raw => {
+      // v3.5.2: bridge Spanish keys (plataforma/canal/fecha_inicio/tema/bando/url/nota/activo_al_render)
+      const platformsArr = normalizePlatforms(raw.platform || raw.plataforma);
+      const platformLbl = platformsArr.map(p => PLATFORM_LABEL[p] || p).join(' / ') ||
+                          cleanStr(raw.platform) || cleanStr(raw.plataforma) || '';
+      // v3.5.2.1: alternate shapes — some live entries use nombre/host/canal_o_cuenta/cuenta;
+      // v3.5.2.2: if all channel keys are empty strings, derive from URL hostname (e.g. "youtube.com")
+      let channel = cleanStr(raw.channel) || cleanStr(raw.canal) ||
+                    cleanStr(raw.nombre) || cleanStr(raw.host) ||
+                    cleanStr(raw.canal_o_cuenta) || cleanStr(raw.cuenta);
+      if (!channel && raw.url) {
+        try {
+          const h = new URL(raw.url).hostname.replace(/^www\./, '');
+          if (h) channel = h;
+        } catch (_) { /* invalid URL — leave channel empty */ }
+      }
+      const focus = cleanStr(raw.focus) || cleanStr(raw.tema) || cleanStr(raw.descripcion) || cleanStr(raw.titulo) || cleanStr(raw.title) || cleanStr(raw.topic);
+      const url = cleanUrl(raw.url);
+      const sched = cleanStr(raw.schedule) || cleanStr(raw.fecha_inicio) || cleanStr(raw.fecha) ||
+                    cleanStr(raw.fecha_emision) || cleanStr(raw.fecha_aprox) || cleanStr(raw.date);
+      const audience = cleanStr(raw.audience) || cleanStr(raw.espectadores_pico) || cleanStr(raw.alcance) || cleanStr(raw.vistas);
+      const nb = normalizeBando(raw.side || raw.bando);
+      // active state: bool, or estado="vivo|live|en vivo", or activo_al_corte bool
+      const estadoStr = (cleanStr(raw.estado) || '').toLowerCase();
+      const isActive = raw.activo_al_render === true || raw.activo_al_corte === true ||
+                       /\b(vivo|live|en\s*vivo|directo|on\s*air)\b/.test(estadoStr);
+      const isArchived = raw.activo_al_render === false || raw.activo_al_corte === false ||
+                         /\b(archivad|finalizad|grabad|vod)\b/.test(estadoStr);
+      const note = cleanStr(raw.note) || cleanStr(raw.nota);
+      if (!channel && !focus && !url && !platformLbl) return;
+
+      const card = el('article', { class: 'live-card side-' + (nb.side || 'neutro') });
+      if (platformLbl) card.appendChild(el('div', { class: 'l-platform' }, platformLbl));
+      if (channel) card.appendChild(el('div', { class: 'l-channel' }, channel));
+      const chips = el('div', { class: 'l-meta', style: 'flex-wrap:wrap;gap:var(--s-2)' });
+      if (nb.label) chips.appendChild(el('span', { class: 'badge side-' + nb.side, style: 'font-size:var(--text-xs)' }, nb.label));
+      if (isActive)  chips.appendChild(el('span', { class: 'badge', style: 'background:var(--c-risk-bajo,#e6f7ec);color:#0d5c2a;font-size:var(--text-xs)' }, '● En vivo'));
+      else if (isArchived) chips.appendChild(el('span', { class: 'badge badge-latente', style: 'font-size:var(--text-xs)' }, 'Archivado'));
+      if (chips.children.length) card.appendChild(chips);
+      if (sched) card.appendChild(el('div', { class: 'l-schedule' }, '🕒 ' + sched));
+      if (focus) card.appendChild(el('p', { class: 'l-focus' }, focus));
+      if (note && note !== focus) card.appendChild(el('p', { class: 'l-focus', style: 'color:var(--c-ink-2);font-size:var(--text-xs)' }, note));
       const meta = el('div', { class: 'l-meta' });
-      if (lv.audience) meta.appendChild(el('span', null, '👥 ' + lv.audience));
-      if (lv.url) {
-        const a = el('a', { href: lv.url, target: '_blank', rel: 'noopener noreferrer', class: 'l-url' });
+      if (audience) meta.appendChild(el('span', null, '👥 ' + audience));
+      if (url) {
+        const a = el('a', { href: url, target: '_blank', rel: 'noopener noreferrer', class: 'l-url' });
         a.textContent = '↗ Abrir canal';
         meta.appendChild(a);
       }
-      card.appendChild(meta);
+      if (meta.children.length) card.appendChild(meta);
       wrap.appendChild(card);
     });
   }
@@ -1343,7 +1595,7 @@
       const card = el('article', { class: 'narrative-card' });
       if (n.side) card.appendChild(el('span', { class: 'n-side side-' + n.side }, SIDE_LABEL[n.side] || n.side));
       card.appendChild(el('h4', { class: 'n-title' }, n.title || '—'));
-      if (n.summary) card.appendChild(el('p', { class: 'n-summary' }, n.summary));
+      if (n.summary) card.appendChild(el('p', { class: 'n-summary', html: parseInlineMd(n.summary) }));
       if (Array.isArray(n.platforms) && n.platforms.length) {
         const pf = el('div', { class: 'n-platforms' });
         n.platforms.forEach(p => pf.appendChild(el('span', { class: 'n-pf' }, PLATFORM_LABEL[p] || p)));

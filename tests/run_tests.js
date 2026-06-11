@@ -232,6 +232,156 @@ function section(title) {
   ok('no "N/D" leaks into any rendered text outside <script>', globalNd.count === 0,
      `count=${globalNd.count} samples=${JSON.stringify(globalNd.samples)}`);
 
+  // ============ F. v3.5.2 — Section-by-section render contracts ============
+  section('F. Region events badge — never a bare dash');
+  for (const id of REGIONS) {
+    await page.evaluate(rid => {
+      const t = document.querySelector(`.tab-btn[data-region="${rid}"]`);
+      if (t) t.click();
+    }, id);
+    await page.waitForTimeout(250);
+    const dashBadges = await page.evaluate(rid => {
+      const panel = document.getElementById(`panel-${rid}`);
+      if (!panel) return -1;
+      const badges = Array.from(panel.querySelectorAll('.cards .card .badge, .cards .card .pill, .cards .card .chip, .cards .card .status, .cards .card .side'));
+      return badges.filter(b => {
+        const t = (b.textContent || '').trim();
+        return t === '' || t === '\u2014' || t === '-';
+      }).length;
+    }, id);
+    ok(`[${id}] no event badge is a bare dash`, dashBadges === 0, `dash-badges=${dashBadges}`);
+  }
+
+  section('G. Region narrativas_locales subsection rendered when data present');
+  for (const id of REGIONS) {
+    const r = data.regions[id] || {};
+    const nl = r.narrativas_locales || r.local_narratives || [];
+    if (!Array.isArray(nl) || nl.length === 0) continue;
+    await page.evaluate(rid => {
+      const t = document.querySelector(`.tab-btn[data-region="${rid}"]`);
+      if (t) t.click();
+    }, id);
+    await page.waitForTimeout(250);
+    const info = await page.evaluate(rid => {
+      const panel = document.getElementById(`panel-${rid}`);
+      if (!panel) return null;
+      const text = (panel.innerText || '').toLowerCase();
+      const hasHeader = /narrativas locales|narrativas_locales|local narratives/.test(text);
+      const cards = panel.querySelectorAll('.narrative-loc-card, .narr-loc-card, .narr-local').length;
+      // Also accept rendering inside a section with class hint
+      const altCards = panel.querySelectorAll('[data-section="narrativas-locales"] .card, .narrativas-locales .card').length;
+      return { hasHeader, cards: cards + altCards };
+    }, id);
+    ok(`[${id}] narrativas_locales subsection present`, info && info.hasHeader, `header=${info && info.hasHeader}`);
+    ok(`[${id}] narrativas_locales has \u22651 card`, info && info.cards >= 1, `cards=${info && info.cards}`);
+  }
+
+  section('H. Social — live streams have non-dash channel');
+  // Switch to social section (if it's a tab/section visible by id)
+  await page.evaluate(() => {
+    const el = document.getElementById('social') || document.getElementById('panel-social');
+    if (el) el.scrollIntoView();
+  });
+  await page.waitForTimeout(300);
+  const lives = await page.evaluate(() => {
+    const cards = Array.from(document.querySelectorAll('.live-card, .lives .card, #lives-grid .card'));
+    let dashChannels = 0;
+    cards.forEach(c => {
+      const ch = c.querySelector('.l-channel, .live-channel, .channel');
+      const txt = ch ? (ch.textContent || '').trim() : '';
+      if (txt === '\u2014' || txt === '-' || txt === '') dashChannels++;
+    });
+    return { total: cards.length, dashChannels };
+  });
+  ok(`live-stream cards rendered`, lives.total >= 1, `n=${lives.total}`);
+  ok(`no live-card has a dash/empty channel`, lives.dashChannels === 0, `dash=${lives.dashChannels} of ${lives.total}`);
+
+  section('I. Social — handles grid rendered from cuentas_emergentes');
+  const handles = await page.evaluate(() => {
+    const grid = document.querySelector('#handles-grid, .handles-grid');
+    if (!grid) return { found: false, cards: 0 };
+    const cards = grid.querySelectorAll('.handle-card, .card').length;
+    return { found: true, cards };
+  });
+  ok('handles grid exists', handles.found);
+  ok('handles grid has \u22651 card', handles.cards >= 1, `n=${handles.cards}`);
+
+  section('J. Social — hashtags grid rendered from data');
+  const tags = await page.evaluate(() => {
+    const grid = document.querySelector('#hashtags-grid, .hashtags-grid');
+    if (!grid) return { found: false, cards: 0, nonHash: 0 };
+    const cards = Array.from(grid.querySelectorAll('.hashtag-card, .card'));
+    let nonHash = 0;
+    cards.forEach(c => {
+      const tag = c.querySelector('.h-tag, .tag, .hashtag');
+      const txt = tag ? (tag.textContent || '').trim() : '';
+      if (txt && !txt.startsWith('#')) nonHash++;
+    });
+    return { found: true, cards: cards.length, nonHash };
+  });
+  ok('hashtags grid exists', tags.found);
+  ok('hashtags grid has \u22651 card', tags.cards >= 1, `n=${tags.cards}`);
+  ok('every hashtag tag starts with #', tags.nonHash === 0, `non-hash=${tags.nonHash}`);
+
+  section('K. Social — stats banner has cards');
+  const stats = await page.evaluate(() => {
+    const banner = document.querySelector('#social-stats, .social-stats');
+    if (!banner) return { found: false, cards: 0 };
+    const cards = banner.querySelectorAll('.stat, .stat-card, .card').length;
+    return { found: true, cards };
+  });
+  ok('social stats banner exists', stats.found);
+  ok('social stats has \u22651 stat card', stats.cards >= 1, `n=${stats.cards}`);
+
+  section('L. Social — platforms grid derived');
+  const platforms = await page.evaluate(() => {
+    const grid = document.querySelector('#platforms-grid, .platforms-grid');
+    if (!grid) return { found: false, cards: 0 };
+    const cards = grid.querySelectorAll('.platform-card, .card').length;
+    return { found: true, cards };
+  });
+  ok('platforms grid exists', platforms.found);
+  ok('platforms grid has \u22651 platform card', platforms.cards >= 1, `n=${platforms.cards}`);
+
+  section('M. Early-warning cards — rich rendering');
+  const ew = await page.evaluate(() => {
+    const cards = Array.from(document.querySelectorAll('#ew-grid .ew, .ew-grid .ew, .ew-card'));
+    if (cards.length === 0) {
+      const fallback = Array.from(document.querySelectorAll('[id*="early"] .card, [id*="warning"] .card'));
+      return { total: fallback.length, thin: fallback.length, hasStatusPill: 0, hasSources: 0 };
+    }
+    let thin = 0, hasStatusPill = 0, hasSources = 0;
+    cards.forEach(c => {
+      // Count meaningful children (title + at least one more block)
+      const children = Array.from(c.children).filter(ch => (ch.textContent || '').trim().length > 0);
+      if (children.length <= 1) thin++;
+      if (c.querySelector('.status-pill, .ew-status, .pill.rojo, .pill.amarillo, .pill.verde')) hasStatusPill++;
+      if (c.querySelector('a[href^="http"], .ew-sources, .sources')) hasSources++;
+    });
+    return { total: cards.length, thin, hasStatusPill, hasSources };
+  });
+  ok('EW cards rendered', ew.total >= 1, `n=${ew.total}`);
+  ok('no EW card is title-only (\u22652 meaningful children)', ew.thin === 0, `thin=${ew.thin}/${ew.total}`);
+  ok('majority of EW cards have a status pill', ew.hasStatusPill >= Math.ceil(ew.total * 0.5),
+     `pills=${ew.hasStatusPill}/${ew.total}`);
+  ok('majority of EW cards link to a source', ew.hasSources >= Math.ceil(ew.total * 0.5),
+     `sources=${ew.hasSources}/${ew.total}`);
+
+  section('N. Global — no dash-only badge anywhere in regions/social/EW');
+  const allDashBadges = await page.evaluate(() => {
+    const scope = Array.from(document.querySelectorAll(
+      '#regions .badge, #regions .pill, #regions .chip, #regions .side, ' +
+      '#social .badge, #social .pill, #social .chip, ' +
+      '#ew-grid .badge, #ew-grid .pill, #ew-grid .chip, ' +
+      '.live-card .badge, .live-card .pill, .handle-card .badge, .handle-card .pill'
+    ));
+    return scope.filter(b => {
+      const t = (b.textContent || '').trim();
+      return t === '\u2014' || t === '-' || t === '';
+    }).length;
+  });
+  ok('no dash-only badge across regions/social/EW', allDashBadges === 0, `n=${allDashBadges}`);
+
   await browser.close();
 
   // ---------- summary ----------

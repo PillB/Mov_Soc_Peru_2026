@@ -2422,3 +2422,99 @@ details.foldable > .foldable-body {
 @media (max-width: 720px) {
   #risk-tbody td:first-child { max-width: none; }
 }
+
+/* ============================================================
+ * v3.5.2 — additional renderer fixes
+ * ============================================================ */
+
+/* Side-color stripe for live, handle, hashtag cards */
+.live-card, .handle-card, .hashtag-card {
+  border-left: 3px solid var(--c-line, #d8d8d8);
+}
+.live-card.side-jpp, .handle-card.side-jpp, .hashtag-card.side-jpp { border-left-color: var(--c-jpp, #c0392b); }
+.live-card.side-fp,  .handle-card.side-fp,  .hashtag-card.side-fp  { border-left-color: var(--c-fp, #1f6f9e); }
+.live-card.side-medio, .handle-card.side-medio, .hashtag-card.side-medio { border-left-color: var(--c-amber, #c18a3a); }
+.live-card.side-institucion, .handle-card.side-institucion { border-left-color: var(--c-ink-2, #555); }
+.live-card.side-neutro, .handle-card.side-neutro { border-left-color: var(--c-line, #d8d8d8); }
+
+/* Live card: avoid overflowing channel name */
+.live-card .l-channel,
+.live-card .l-platform,
+.live-card .l-focus,
+.live-card .l-schedule {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+.live-card .l-channel {
+  font-weight: 700;
+  font-size: var(--text-base);
+  line-height: 1.3;
+}
+.live-card .l-platform {
+  font-size: var(--text-xs);
+  color: var(--c-ink-2);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Handle card: layout */
+.handle-card { padding: var(--s-3); }
+.handle-card .h-name { font-weight: 700; word-break: break-word; }
+.handle-card .h-role {
+  font-size: var(--text-sm);
+  color: var(--c-ink-2);
+  margin: var(--s-1) 0 var(--s-2);
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+.handle-card .h-platforms { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-bottom: var(--s-2); }
+.handle-card .h-handle { font-size: var(--text-sm); word-break: break-all; }
+.handle-card .h-tags { display: flex; flex-wrap: wrap; gap: var(--s-1); }
+.handle-card .h-tag {
+  font-size: var(--text-xs);
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--c-paper-2, #f4f1ea);
+  white-space: nowrap;
+}
+
+/* Narrative-loc (per-region narrative card) */
+.narrative-loc-card a {
+  color: var(--c-amber, #c18a3a);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.narrative-loc-card a:hover { color: var(--c-navy, #0b1a2b); }
+
+/* EW grid: structured card */
+.ew-grid .ew {
+  padding: var(--s-4);
+  border-left: 3px solid var(--c-line, #d8d8d8);
+}
+.ew-grid .ew h4 {
+  margin: var(--s-1) 0 var(--s-2);
+  line-height: 1.3;
+}
+.ew-grid .ew .card-sources a {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Platform summary: better legibility */
+.platform-card .p-name {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-weight: 700;
+}
+.platform-card .p-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  font-size: var(--text-xs);
+  border-radius: 6px;
+  background: var(--c-paper-2, #f4f1ea);
+  padding: 0 6px;
+}
