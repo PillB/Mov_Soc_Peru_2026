@@ -878,7 +878,17 @@
       // v3.5.2: bridge Spanish event keys + fall back to bando for status/side
       // Prefer Spanish name field (e.g. "La toma de Lima") over tipo ("marcha")
       const tipo = cleanStr(raw.tipo);
-      const title = cleanStr(raw.title) || cleanStr(raw.titulo) || cleanStr(raw.nombre) || cleanStr(raw.convocatoria) || tipo;
+      // v3.5.5: if only `tipo` is present, build a descriptive title "Tipo · primera frase de ubicación"
+      const ubicacionShort = (function () {
+        const u = cleanStr(raw.ubicacion) || cleanStr(raw.lugar) || cleanStr(raw.location);
+        if (!u) return '';
+        // primera parte antes de una coma o slash
+        return u.split(/[,/]/)[0].trim();
+      })();
+      let title = cleanStr(raw.title) || cleanStr(raw.titulo) || cleanStr(raw.nombre) || cleanStr(raw.convocatoria);
+      if (!title) {
+        title = tipo && ubicacionShort ? `${titleCase(tipo)} · ${ubicacionShort}` : (tipo || ubicacionShort || '');
+      }
       // Convocantes: array → "a, b, c" or string
       let convener = cleanStr(raw.convener) || cleanStr(raw.convocante);
       if (!convener && Array.isArray(raw.convocantes) && raw.convocantes.length) {

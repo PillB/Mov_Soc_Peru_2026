@@ -1,7 +1,7 @@
 {
   "meta": {
-    "version": "3.5.4",
-    "generated_at": "2026-06-11T19:35:00-05:00",
+    "version": "3.5.5",
+    "generated_at": "2026-06-11T20:05:00-05:00",
     "scope": "Manifestaciones, marchas y eventos de acumulación de personas — Perú + Capa de inteligencia social y medios alternativos",
     "window": "9–19 junio 2026 (post-2da vuelta · corte 98,22% escrutado)",
     "language": "es-PE",
@@ -38,7 +38,8 @@
       "routes": 55,
       "comunicados": 17
     },
-    "last_refresh_summary": "Refresh v3.5 · Expansión grassroots/social: 47 nuevos eventos, 57 cuentas individuales (mayoría líderes comunales/ronderos/aymaras/dirigentes territoriales), 36 frentes y colectivos, 35 transmisiones, 31 hashtags regionales. Granularidad distrital en Lima + provincial en macroregiones. Balance Ground News con voces pro-Fuji, pro-Sánchez y críticas. Diversidad de plataforma X/FB/IG/TikTok/YT. Marco cuantitativo v3.4 conservado: Fuj +651 al 98,22% · ensemble P(mantiene)=95,6%."
+    "last_refresh_summary": "Refresh v3.5 · Expansión grassroots/social: 47 nuevos eventos, 57 cuentas individuales (mayoría líderes comunales/ronderos/aymaras/dirigentes territoriales), 36 frentes y colectivos, 35 transmisiones, 31 hashtags regionales. Granularidad distrital en Lima + provincial en macroregiones. Balance Ground News con voces pro-Fuji, pro-Sánchez y críticas. Diversidad de plataforma X/FB/IG/TikTok/YT. Marco cuantitativo v3.4 conservado: Fuj +651 al 98,22% · ensemble P(mantiene)=95,6%.",
+    "fecha_corte": "2026-06-11T19:45:00-05:00"
   },
   "executive_alert": {
     "level": "ALTO",
@@ -190,6 +191,66 @@
           "fuente_url": "https://elpais.com/america/2026-06-09/resultados-de-las-elecciones-en-peru-en-vivo.html",
           "fuente_nombre": "El País en vivo 10-jun-2026",
           "notas": "Walter Flores anunció movilización nacional 'para este viernes' durante plantón en JNE. El acto del 13-jun consolida ambas convocatorias."
+        },
+        {
+          "titulo": "Marcha 'La Toma de Lima' / Los Cuatro Suyos",
+          "fecha": "2026-06-13T15:00:00-05:00",
+          "ubicacion": "Plaza San Martín, Cercado de Lima (punto de concentración). Ruta hacia el JNE (Jr. Cusco 653, Jesús María)",
+          "convocante": "Juntos por el Perú / equipo técnico Roberto Sánchez; vocero confirmado: Hernando Cevallos",
+          "bando": "pro-Sánchez",
+          "estado": "confirmado",
+          "descripcion": "Bautizada también 'Los Cuatro Suyos'. Hernando Cevallos confirmó desde plantón frente al JNE el 11-jun. Objetivo declarado: 'defender el voto popular' mientras ONPE procesa actas observadas.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://www.infobae.com/peru/2026/06/11/convocan-a-nueva-marcha-la-toma-de-lima-para-este-viernes-en-apoyo-de-roberto-sanchez-hay-que-defender-el-voto-popular/",
+          "origen_v355": true
+        },
+        {
+          "titulo": "Plantón continuo frente a sede JNE — Jesús María",
+          "fecha": "2026-06-12TPermanente / desde 08:00:00-05:00",
+          "ubicacion": "Jr. Cusco 653, Jesús María (sede JNE)",
+          "convocante": "Militantes y simpatizantes Juntos por el Perú; Congresista Jaime Quito",
+          "bando": "pro-Sánchez",
+          "estado": "confirmado",
+          "descripcion": "Plantón en curso desde el 11-jun. Jaime Quito (congresista JP) convocó explícitamente a 'defensa del voto'.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://www.instagram.com/reel/DZZAvEbMZkp/",
+          "origen_v355": true
+        },
+        {
+          "titulo": "Plantón en Plaza Constitución — Cercado de Lima",
+          "fecha": "2026-06-12TContinuación desde 10-jun:00-05:00",
+          "ubicacion": "Plaza Constitución, Cercado de Lima",
+          "convocante": "Militantes de base JP y organizaciones sociales afines",
+          "bando": "pro-Sánchez",
+          "estado": "confirmado",
+          "descripcion": "Live en Facebook: 'Entre arengas y cánticos, militantes de JP se reúnen en Plaza Constitución'. Iniciado el 10-jun.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://www.facebook.com/hytimes.pe/videos/envivo-juntos-por-el-per%C3%BA-hace-plant%C3%B3n-en-defensa-de-sus-votos/963103039883268/",
+          "origen_v355": true
+        },
+        {
+          "titulo": "Concentración pro-Fujimori — defensa de votos observados Lima/Callao",
+          "fecha": "2026-06-14T11:00 (probable):00-05:00",
+          "ubicacion": "Por confirmar; probablemente Av. Javier Prado Este (Ate) o Arena Monumental",
+          "convocante": "Fuerza Popular / colectivos pro-Keiko",
+          "bando": "pro-Fujimori",
+          "estado": "probable",
+          "descripcion": "En video del 9-jun se menciona 'convocatoria el sábado para marchas... la gente de Keiko Nova y otros colectivos anunciando marchas para defender el voto'. Fecha probable sábado 14-jun. No verificado con convocatoria pública.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://www.youtube.com/watch?v=TGeFSQdTH3o",
+          "origen_v355": true
+        },
+        {
+          "titulo": "Vigilia ciudadana frente a ONPE — Santiago de Surco",
+          "fecha": "2026-06-12 al 2026-06-15T20:00 en adelante:00-05:00",
+          "ubicacion": "Jr. Wash. Washington 1894, Santiago de Surco (sede ONPE)",
+          "convocante": "Juntos por el Perú / autoconvocatoria",
+          "bando": "pro-Sánchez",
+          "estado": "probable",
+          "descripcion": "Analí Márquez (1.ª vicepresidenta JP) llamó a 'vigilias ciudadanas y seguimiento permanente del conteo oficial'. Ubicación ONPE inferida, no confirmada en convocatoria.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://altavoz.pe/politica/juntos-por-el-peru-impulsa-movilizaciones-mientras-keiko-fujimori-sube-en-conteo-basta-de-fraude/",
+          "origen_v355": true
         }
       ],
       "actores": [
@@ -297,6 +358,78 @@
           ],
           "posicion": "pro_sanchez",
           "fuente": "https://www.facebook.com/ElBuho.pe/posts/el-expremier-de-pedro-castillo-an%C3%ADbal-torres-consider%C3%B3-que-keiko-fujimori-termin/1677781133883442/"
+        },
+        {
+          "nombre": null,
+          "cargo": null,
+          "posicion": "Partido JP — sede oficial que publica convocatorias y comunicados de movilización",
+          "bando": "pro-Sánchez",
+          "region": null,
+          "plataforma": "Instagram/Facebook/X",
+          "handle": "@juntosporelperuoficial",
+          "perfil_url": null,
+          "fuente": null,
+          "origen_v355": true
+        },
+        {
+          "nombre": null,
+          "cargo": null,
+          "posicion": "Medio regional Huancayo que retransmite en vivo concentraciones JP en Lima y regiones",
+          "bando": "pro-Sánchez (cobertura afín)",
+          "region": null,
+          "plataforma": "Facebook",
+          "handle": "@WalacNoticias",
+          "perfil_url": null,
+          "fuente": null,
+          "origen_v355": true
+        },
+        {
+          "nombre": null,
+          "cargo": null,
+          "posicion": "Medio digital Lima con lives en Facebook de plantones JP frente a ONPE/JNE",
+          "bando": "pro-Sánchez (cobertura afín)",
+          "region": null,
+          "plataforma": "Facebook",
+          "handle": "@hytimes.pe",
+          "perfil_url": null,
+          "fuente": null,
+          "origen_v355": true
+        },
+        {
+          "nombre": null,
+          "cargo": null,
+          "posicion": "Canal regional La Libertad/Trujillo — publicó convocatoria movilización 9-jun ante JNE Trujillo",
+          "bando": "pro-Sánchez (cobertura afín)",
+          "region": null,
+          "plataforma": "Facebook",
+          "handle": "@n60noticias",
+          "perfil_url": null,
+          "fuente": null,
+          "origen_v355": true
+        },
+        {
+          "nombre": null,
+          "cargo": null,
+          "posicion": "Partido Fuerza Popular — coordinación de personeros y convocatorias pro-Fujimori",
+          "bando": "pro-Fujimori",
+          "region": null,
+          "plataforma": "X/Facebook",
+          "handle": "@FuerzaPopular",
+          "perfil_url": null,
+          "fuente": null,
+          "origen_v355": true
+        },
+        {
+          "nombre": null,
+          "cargo": null,
+          "posicion": "Colectivo pro-Fujimori mencionado como convocante de marchas de defensa de votos (14-jun). No verificado independientemente.",
+          "bando": "pro-Fujimori",
+          "region": null,
+          "plataforma": "X (mencionado en video Arde Troya)",
+          "handle": "@KeikoNova",
+          "perfil_url": null,
+          "fuente": null,
+          "origen_v355": true
         }
       ],
       "narrativas_locales": [
@@ -304,7 +437,10 @@
         "El Fujimorismo y Renovación Popular sostienen que las más de 1.630 actas observadas favorecerán a Keiko y que la ventaja de Sánchez al 98,2% es artificial; la narrativa de 'fraude' es amplificada por Rafael López Aliaga y analistas del canal Arde Troya — según [Infobae Perú sobre actas observadas](https://www.infobae.com/peru/2026/06/10/actas-observadas-de-la-segunda-vuelta-2026-en-peru-cuantas-hay-de-donde-provienen-y-a-que-candidato-beneficiaran/).",
         "El gobierno de la ciudad (Reggiardo) enmarca su posición como 'preservación del orden y el patrimonio histórico' y no como represión política, declarando al Centro Histórico 'zona intangible' para protestas — según [Infobae Perú / MML](https://www.infobae.com/peru/2026/06/10/elecciones-2026-municipalidad-de-lima-declara-alerta-maxima-y-advierte-prohibicion-de-protestas-en-el-centro-historico/).",
         "La ONPE y el JNE rechazan categóricamente las acusaciones de fraude; el JNE rechazó las 8 peticiones de nulidad presentadas. La UE, en su declaración preliminar de observadores, no reportó irregularidades sistémicas — según [AFP Factual](https://factual.afp.com/doc.afp.com.B6NQ2WE) y [EEAS declaración UE](https://www.eeas.europa.eu/sites/default/files/2026/documents/Declaraci%C3%B3n%20preliminar-2nda%20vuelta%20en%20Per%C3%BA.pdf).",
-        "Expertos y medios internacionales describen un Perú 'partido en dos bloques' donde el voto costero/urbano favorece a Fujimori y el voto rural/andino a Sánchez, reproduciendo la polarización de 2021 — según [CNN en Español](https://cnnespanol.cnn.com/2026/06/08/latinoamerica/peru-dividido-elecciones-sanchez-fujimori-orix) y [DW Español](https://www.dw.com/es/sin-ganador-claro-per%C3%BA-vuelve-a-mostrar-su-polarizaci%C3%B3n/a-77478128)."
+        "Expertos y medios internacionales describen un Perú 'partido en dos bloques' donde el voto costero/urbano favorece a Fujimori y el voto rural/andino a Sánchez, reproduciendo la polarización de 2021 — según [CNN en Español](https://cnnespanol.cnn.com/2026/06/08/latinoamerica/peru-dividido-elecciones-sanchez-fujimori-orix) y [DW Español](https://www.dw.com/es/sin-ganador-claro-per%C3%BA-vuelve-a-mostrar-su-polarizaci%C3%B3n/a-77478128).",
+        "«Hay que defender el voto popular — la democracia no es solo ir a votar»",
+        "«La Toma de Lima / Los Cuatro Suyos: no dejen que decidan por nosotros»",
+        "«Centro Histórico intangible: el alcalde quiere silenciar al pueblo» (contra-narrativa pro-Sánchez frente a prohibición MML)"
       ],
       "puntos_riesgo": [
         {
@@ -336,6 +472,36 @@
           "ubicacion": "Barrios Altos / Cercado de Lima",
           "tipo_riesgo": "medio",
           "justificacion": "Manifestantes del ciclo 'Toma de Lima' han intentado movilizarse desde Plaza San Martín hacia el Congreso en episodios anteriores. [YouTube – RPP Toma de Lima](https://www.youtube.com/watch?v=vWEGWsNNEq4)"
+        },
+        {
+          "nombre": null,
+          "tipo": "Restricción administrativa / riesgo de confrontación",
+          "nivel": "Alto",
+          "descripcion": "Centro Histórico de Lima declarado 'intangible' para protestas por MML (alcalde Reggiardo)",
+          "antecedente": null,
+          "ubicacion": null,
+          "fuente": "https://www.infobae.com/peru/2026/06/10/elecciones-2026-municipalidad-de-lima-declara-alerta-maxima-y-advierte-prohibicion-de-protestas-en-el-centro-historico/",
+          "origen_v355": true
+        },
+        {
+          "nombre": null,
+          "tipo": "Punto de concentración de alta tensión",
+          "nivel": "Medio-Alto",
+          "descripcion": "Circunvalación JNE (Jr. Cusco 653, Jesús María): zona de concentración permanente JP con posible restricción policial",
+          "antecedente": null,
+          "ubicacion": null,
+          "fuente": "https://www.instagram.com/reel/DZZAvEbMZkp/",
+          "origen_v355": true
+        },
+        {
+          "nombre": null,
+          "tipo": "Punto sensible — procesamiento electoral",
+          "nivel": "Medio",
+          "descripcion": "Zona ONPE (Surco): potencial concentración frente a sede durante procesamiento de actas observadas",
+          "antecedente": null,
+          "ubicacion": null,
+          "fuente": "https://www.infobae.com/peru/2026/06/11/convocan-a-nueva-marcha-la-toma-de-lima-para-este-viernes-en-apoyo-de-roberto-sanchez-hay-que-defender-el-voto-popular/",
+          "origen_v355": true
         }
       ],
       "executive_alert": "Con Keiko Fujimori cruzando a +651 votos al 98,2% escrutado, Juntos por el Perú lanzó la convocatoria 'La toma de Lima' para el 13-jun en Plaza San Martín, zona declarada intangible por el alcalde Reggiardo — el choque entre convocatoria masiva y prohibición municipal eleva la probabilidad de incidentes severos en el Centro Histórico ([Infobae Perú](https://www.infobae.com/peru/2026/06/11/convocan-a-nueva-marcha-la-toma-de-lima-para-este-viernes-en-apoyo-de-roberto-sanchez-hay-que-defender-el-voto-popular/)). Las 1.630+ actas observadas pendientes en el JNE y la narrativa de fraude amplifican la tensión en los plantones nocturnos frente al JNE en Jesús María ([Infobae – actas](https://www.infobae.com/peru/2026/06/10/actas-observadas-de-la-segunda-vuelta-2026-en-peru-cuantas-hay-de-donde-provienen-y-a-que-candidato-beneficiaran/)).",
@@ -1073,7 +1239,54 @@
             "Ante señales de escalada, alejarse de la Plaza San Martín por la Av. Emancipación o por la Av. Tacna hacia el norte."
           ]
         }
-      }
+      },
+      "routes": [
+        {
+          "descripcion": "Ruta principal Toma de Lima (13-jun): Plaza San Martín (concentración) → Jr. de la Unión → Av. Abancay → sede JNE Jesús María",
+          "distritos": [
+            "Cercado de Lima",
+            "Jesús María"
+          ],
+          "puntos_clave": [
+            "Plaza San Martín",
+            "Jr. de la Unión",
+            "Av. Abancay",
+            "Jr. Cusco 653 (JNE)"
+          ],
+          "patron_historico": "Replica el recorrido de la marcha del 30-may-2026 desde Plaza San Martín que recorrió el Centro Histórico.",
+          "fuente": "https://www.dw.com/es/cientos-de-peruanos-marchan-en-lima-contra-keiko-fujimori/a-77361308",
+          "origen_v355": true
+        },
+        {
+          "descripcion": "Corredor Histórico Lima: Plaza Mayor → Jr. Carabaya → Av. Abancay → Plazuela Merino (Cercado)",
+          "distritos": [
+            "Cercado de Lima"
+          ],
+          "puntos_clave": [
+            "Plaza Mayor",
+            "Jr. Carabaya",
+            "Plazuela Merino"
+          ],
+          "patron_historico": null,
+          "fuente": "https://www.facebook.com/WalacNoticias/posts/segunda-vueltasimpatizantes-de-juntos-por-el-per%C3%BA-se-reunen-en-la-plazuela-merin/1445477584292587/",
+          "origen_v355": true
+        },
+        {
+          "descripcion": "Eje Norte Lima: Universidad Nacional Mayor de San Marcos (Lima Cercado) → Av. Venezuela → Plaza Bolognesi",
+          "distritos": [
+            "Cercado de Lima",
+            "Breña"
+          ],
+          "puntos_clave": [
+            "UNMSM",
+            "Av. Venezuela",
+            "Plaza Bolognesi"
+          ],
+          "patron_historico": null,
+          "fuente": "https://www.youtube.com/watch?v=xly3iBuUZYY",
+          "origen_v355": true
+        }
+      ]
     },
     "norte": {
       "region": "norte",
@@ -1211,6 +1424,66 @@
           "fuente_url": "https://elpais.com/america/2026-06-04/la-rebelion-del-agro-el-campo-lanza-una-advertencia-a-quien-gane-la-segunda-vuelta-en-peru.html",
           "fuente_nombre": "El País (4-jun-2026)",
           "notas": "Asociación de Productores Agrarios del Medio, Bajo Piura y Sechura declararon insuficiente el decreto de urgencia y no descartaron retomar protestas. La incertidumbre sobre el ganador puede catalizar nuevas movilizaciones agrarias."
+        },
+        {
+          "titulo": "Movilización militantes JP frente a JNE Trujillo",
+          "fecha": "2026-06-09 (antecedente) / probable continuación 12-14 junioT10:00:00-05:00",
+          "ubicacion": "Sede Jurado Nacional de Elecciones — Trujillo, La Libertad",
+          "convocante": "Militantes de base Juntos por el Perú — La Libertad",
+          "bando": "pro-Sánchez",
+          "estado": "confirmado (9-jun); probable extensión",
+          "descripcion": "Lema: 'No dejemos que decidan por nosotros, la democracia se defiende. La Libertad presente'. Documentado el 9-jun; patrón de continuación probable la semana 12-18 jun.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://www.facebook.com/n60noticias/posts/%EF%B8%8Fn60noticias-militantes-de-juntos-por-el-per%C3%BA-anuncian-movilizaci%C3%B3n-este-martes-/1611602120541790/",
+          "origen_v355": true
+        },
+        {
+          "titulo": "Potencial reactivación bloqueo Panamericana Norte — Sullana/Piura",
+          "fecha": "2026-06-12 al 2026-06-18 (riesgo latente)TVariable:00-05:00",
+          "ubicacion": "Panamericana Norte — Óvalo El Trébol, accesos a Sullana, Tambogrande, Catacaos y Sechura (Piura)",
+          "convocante": "Agricultores arroceros / gremios agrarios Piura",
+          "bando": "mixto/cívico (demanda económica)",
+          "estado": "no verificado — riesgo latente tras tregua de 10 días firmada el 28-may",
+          "descripcion": "La tregua de 10 días firmada el 28-may vence alrededor del 7-jun. Con resultado electoral polarizado, existe riesgo de reanudación de bloqueos si el Gobierno no cumple compromisos. No hay convocatoria publicada para semana 12-18 jun.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
+        },
+        {
+          "titulo": "Posible movilización pro-Sánchez Cajamarca post-escrutinio",
+          "fecha": "2026-06-12 al 2026-06-14 (probable)TPor confirmar:00-05:00",
+          "ubicacion": "Plaza de Armas de Cajamarca",
+          "convocante": "Bases JP Cajamarca / organizaciones campesinas",
+          "bando": "pro-Sánchez",
+          "estado": "probable",
+          "descripcion": "Cajamarca votó 66,76% para Sánchez al 99,27%. Alta base militante JP. Patrón regional consistente con movilizaciones de defensa del voto en zonas con mayoría Sánchez. Sin convocatoria pública verificada para 12-18 jun.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://elcomercio.pe/politica/elecciones/resultados-segunda-vuelta-de-elecciones-peru-2026-en-cajamarca-segun-conteo-oficial-onpe-keiko-fujimori-roberto-sanchez-ultimas-noticia/",
+          "origen_v355": true
+        },
+        {
+          "titulo": "Posible concentración Chiclayo post-escrutinio",
+          "fecha": "2026-06-13 (probable)TPor confirmar:00-05:00",
+          "ubicacion": "Plaza de Armas de Chiclayo, Lambayeque",
+          "convocante": "Organizaciones agrarias / gremios afines JP",
+          "bando": "pro-Sánchez",
+          "estado": "no verificado",
+          "descripcion": "Lambayeque fue zona de paro arrocero previo (25-may). Gremios del agro con postura crítica al gobierno y antecedente de movilización. Sin convocatoria verificada.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://www.instagram.com/p/DY_S6nUjPUE/",
+          "origen_v355": true
+        },
+        {
+          "titulo": "Paro agrario San Martín — carretera Fernando Belaúnde Terry",
+          "fecha": "2026-06-12 al 2026-06-18 (riesgo latente)TVariable:00-05:00",
+          "ubicacion": "Carretera Fernando Belaúnde Terry: Rioja (km 742), Nueva Cajamarca, Bellavista, Uchiza/Tocache (km 602)",
+          "convocante": "Agricultores arroceros San Martín / gremios agrarios regionales",
+          "bando": "mixto/cívico",
+          "estado": "probable (continuación de paro activo previo al 7-jun)",
+          "descripcion": "El paro agrario estaba activo al 3-jun con bloqueos en km 742 (Rioja) y km 602 (Uchiza). Epicentros: Tarapoto, Rioja, Nueva Cajamarca, Bellavista, Tocache.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
         }
       ],
       "actores": [
@@ -1313,6 +1586,30 @@
           ],
           "posicion": "institucional_electoral",
           "fuente": "https://andina.pe/agencia/noticia-elecciones-2026-ciudadanos-de-libertad-acuden-forma-masiva-a-emitir-su-voto-1078414.aspx"
+        },
+        {
+          "nombre": null,
+          "cargo": null,
+          "posicion": "Canal regional La Libertad/Trujillo con cobertura de movilizaciones JP locales",
+          "bando": "pro-Sánchez (cobertura afín)",
+          "region": null,
+          "plataforma": "Facebook",
+          "handle": "@n60noticias",
+          "perfil_url": null,
+          "fuente": null,
+          "origen_v355": true
+        },
+        {
+          "nombre": null,
+          "cargo": null,
+          "posicion": "Organizaciones de agricultores arroceros que convocaron paros con bloqueos viales previos al 7-jun",
+          "bando": "mixto/cívico",
+          "region": null,
+          "plataforma": "Facebook (cuentas locales no identificadas individualmente)",
+          "handle": "Gremios arroceros Piura/San Martín",
+          "perfil_url": null,
+          "fuente": null,
+          "origen_v355": true
         }
       ],
       "narrativas_locales": [
@@ -1320,7 +1617,10 @@
         "En el Norte costero (Piura, Lambayeque, La Libertad), donde Fujimori fue más votada en primera vuelta, la segunda vuelta mostró paridad: Trujillo urbano y Chiclayo resultaron disputados (47,6% vs 52,4%), generando tensión entre fujimoristas que esperaban resultados más amplios y el campo popular que respalda a Sánchez — según análisis de [Arde Troya / YouTube](https://www.youtube.com/watch?v=Y0bk48aLYzE) y [Pressenza](https://www.pressenza.com/es/2026/06/peru-dividido-tras-segunda-vuelta/).",
         "La crisis agraria (paro Conveagro de mayo) dejó una herida abierta en el Norte: los productores de arroz de Piura, Lambayeque y Tumbes que bloquearon carreteras siguen sin ver resueltos sus problemas estructurales; el decreto de urgencia de S/120 millones fue tildado de 'insuficiente' por gremios piuranos, creando una narrativa de abandono estatal que puede escalar postelectoral — según [El País](https://elpais.com/america/2026-06-04/la-rebelion-del-agro-el-campo-lanza-una-advertencia-a-quien-gane-la-segunda-vuelta-en-peru.html).",
         "En Trujillo, la denuncia de 38 cédulas marcadas en el colegio Benjamín Carson (Florencia de Mora) el 7-jun alimentó localmente la narrativa de fraude; aunque la ONPE descartó irregularidades sistémicas, el hallazgo fue amplificado por medios locales (Sol TV, La República La Libertad), tensando el clima post-electoral — según [La República La Libertad](https://larepublica.pe/sociedad/2026/06/07/tension-en-elecciones-2026-hombre-con-arma-de-fuego-es-detenido-en-los-exteriores-de-local-de-votacion-en-trujillo-397782).",
-        "Las rondas campesinas de Cajamarca, históricamente opuestas al Fujimorismo, se mantienen en estado de movilización activa latente: ante cualquier resultado final que beneficie a Keiko, la Federación Regional de Rondas ya tiene capacidad operativa para bloqueos en vías interandinas — según [RPP Cajamarca](https://rpp.pe/peru/cajamarca/cajamarca-por-que-las-rondas-campesinas-evaluan-retomar-su-paro-regional-indefinido-noticia-1659202) y [Canal B Cajamarca](https://www.canalb.pe/noticias/actualidad/rondas-campesinas-acatarian-paro-total-en-el-norte-para-el-19-de-julio)."
+        "Las rondas campesinas de Cajamarca, históricamente opuestas al Fujimorismo, se mantienen en estado de movilización activa latente: ante cualquier resultado final que beneficie a Keiko, la Federación Regional de Rondas ya tiene capacidad operativa para bloqueos en vías interandinas — según [RPP Cajamarca](https://rpp.pe/peru/cajamarca/cajamarca-por-que-las-rondas-campesinas-evaluan-retomar-su-paro-regional-indefinido-noticia-1659202) y [Canal B Cajamarca](https://www.canalb.pe/noticias/actualidad/rondas-campesinas-acatarian-paro-total-en-el-norte-para-el-19-de-julio).",
+        "«La democracia se defiende — La Libertad presente»",
+        "«Sin precio justo al arroz no hay paso: el campo no es el enemigo»",
+        "«Cajamarca votó por el cambio: exigimos que se respete» (no verificado, patrón inferido)"
       ],
       "puntos_riesgo": [
         {
@@ -1352,6 +1652,26 @@
           "ubicacion": "Trujillo, La Libertad",
           "tipo_riesgo": "medio",
           "justificacion": "Antecedente de hombre armado intervenido frente a local de votación el 7-jun y denuncia de cédulas marcadas amplifican sensación de inseguridad electoral local. La alta tasa de criminalidad en Trujillo (3.200+ denuncias en 2025) sube el riesgo de incidentes violentos en contexto de protesta. [La República](https://larepublica.pe/sociedad/2026/06/07/tension-en-elecciones-2026-hombre-con-arma-de-fuego-es-detenido-en-los-exteriores-de-local-de-votacion-en-trujillo-397782)"
+        },
+        {
+          "nombre": null,
+          "tipo": "Bloqueo agrario / riesgo logístico",
+          "nivel": "Medio (tregua activa, riesgo de reanudación)",
+          "descripcion": "Panamericana Norte km Óvalo El Trébol (Sullana, Piura): zona de bloqueo recurrente por arroceros",
+          "antecedente": null,
+          "ubicacion": null,
+          "fuente": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
+        },
+        {
+          "nombre": null,
+          "tipo": "Bloqueo agrario",
+          "nivel": "Medio-Alto",
+          "descripcion": "Fernando Belaúnde Terry km 742 (Rioja, San Martín): bloqueo agrario recurrente afecta corredor amazónico",
+          "antecedente": null,
+          "ubicacion": null,
+          "fuente": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
         }
       ],
       "executive_alert": "El Norte enfrenta un doble riesgo convergente: la tensión postelectoral (con Cajamarca votando 73% por Sánchez y rondas campesinas en alerta) se superpone con una crisis agraria estructural latente que tiene a Conveagro dispuesto a reactivar bloqueos en la Panamericana Norte si el resultado final decepciona a los gremios ([El País](https://elpais.com/america/2026-06-04/la-rebelion-del-agro-el-campo-lanza-una-advertencia-a-quien-gane-la-segunda-vuelta-en-peru.html)); el nodo El Trébol en Piura es el punto de mayor riesgo logístico inmediato, con capacidad de interrumpir el corredor Lima-Ecuador, mientras los contingentes del Norte se preparan para incorporarse a la 'Toma de Lima' del 13-jun ([Infobae Perú](https://www.infobae.com/peru/2026/06/11/convocan-a-nueva-marcha-la-toma-de-lima-para-este-viernes-en-apoyo-de-roberto-sanchez-hay-que-defender-el-voto-popular/)).",
@@ -2194,7 +2514,45 @@
           ]
         },
         "executive_alert": "El norte enfrenta al 11-jun-2026 una confluencia de riesgos: (1) La Federación Regional de Rondas Campesinas de Cajamarca está en máxima alerta con el 73% del voto cajamarquino para Sánchez y el resultado pendiente de actas observadas; su capacidad para bloquear vías interandinas es operativa e inmediata ([Canal B Cajamarca](https://www.canalb.pe/noticias/actualidad/rondas-campesinas-acatarian-paro-total-en-el-norte-para-el-19-de-julio)). (2) Los productores arroceros de Sechura ya tienen una nueva convocatoria para el 23-jun, y la tregua del paro agrario de mayo es precaria: el nodo El Trébol (Piura) puede bloquearse en 24 horas si el decreto de urgencia sigue sin respuesta ([El País – rebelión del agro](https://elpais.com/america/2026-06-04/la-rebelion-del-agro-el-campo-lanza-una-advertencia-a-quien-gane-la-segunda-vuelta-en-peru.html)). (3) En Trujillo, las narrativas de fraude y de defensa del voto coexisten en un espacio urbano con alta violencia estructural; Sol TV transmitió en vivo el plantón del 9-jun en el centro histórico ([Sol TV Perú](https://www.facebook.com/soltvperu/posts/envivo-trujillanos-protestan-tras-resultados-de-elecciones-desde-el-centro-hist/1444989731006093/)). (4) Lambayeque votó 58% por Keiko pero recibirá un gobierno de Sánchez: el desajuste entre elección regional y resultado nacional es el mayor detonante de agravio en la costa norte ([La República Lambayeque](https://larepublica.pe/politica/2026/06/07/resultados-en-lambayeque-entre-keiko-fujimori-y-roberto-sanchez-2026/)). Las delegaciones del norte se preparan para sumarse a la Toma de Lima el 13-jun ([Infobae Perú](https://www.infobae.com/peru/2026/06/11/convocan-a-nueva-marcha-la-toma-de-lima-para-este-viernes-en-apoyo-de-roberto-sanchez-hay-que-defender-el-voto-popular/))."
-      }
+      },
+      "routes": [
+        {
+          "descripcion": "Panamericana Norte — Óvalo El Trébol (Sullana) → Tambogrande → Catacaos → Sechura (Piura): eje de bloqueos arroceros",
+          "distritos": [
+            "Sullana",
+            "Tambogrande",
+            "Catacaos",
+            "Sechura"
+          ],
+          "puntos_clave": null,
+          "patron_historico": null,
+          "fuente": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
+        },
+        {
+          "descripcion": "Carretera Fernando Belaúnde Terry km 742 (Rioja) → km 602 (Uchiza-Tocache): eje de bloqueo arrocero norte San Martín",
+          "distritos": [
+            "Rioja",
+            "Nueva Cajamarca",
+            "Bellavista",
+            "Tocache"
+          ],
+          "puntos_clave": null,
+          "patron_historico": null,
+          "fuente": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
+        },
+        {
+          "descripcion": "Ruta de movilización urbana Trujillo: Plaza de Armas → JNE Trujillo → sede ONPE regional",
+          "distritos": [
+            "Trujillo"
+          ],
+          "puntos_clave": null,
+          "patron_historico": null,
+          "fuente": "https://www.facebook.com/n60noticias/posts/%EF%B8%8Fn60noticias-militantes-de-juntos-por-el-per%C3%BA-anuncian-movilizaci%C3%B3n-este-martes-/1611602120541790/",
+          "origen_v355": true
+        }
+      ]
     },
     "centro": {
       "region": "centro",
@@ -2293,6 +2651,66 @@
           "alcance": "Huancayo, Huamanga",
           "nivel_riesgo": "MEDIO",
           "fuente": "https://larepublica.pe/politica/2026/06/08/resultados-onpe-18-de-las-25-regiones-ya-contabilizaron-el-total-de-actas-y-quedan-las-observadas-roberto-sanchez-keiko-fujimori-hnews-699288"
+        },
+        {
+          "titulo": "Plantón JP — Plaza Constitución Huancayo (Junín)",
+          "fecha": "2026-06-10 (antecedente) / probable continuación 12-13 junioTVariable:00-05:00",
+          "ubicacion": "Plaza Constitución, Huancayo, Junín",
+          "convocante": "Militantes JP Junín / bases locales",
+          "bando": "pro-Sánchez",
+          "estado": "confirmado (10-jun); extensión probable",
+          "descripcion": "Live Facebook de hytimes.pe el 10-jun: militantes JP en Plaza Constitución Huancayo. 7dias.pe (medio local) cubre la actividad electoral en Junín.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://www.facebook.com/hytimes.pe/videos/envivo-juntos-por-el-per%C3%BA-hace-plant%C3%B3n-en-defensa-de-sus-votos/963103039883268/",
+          "origen_v355": true
+        },
+        {
+          "titulo": "Movilización comunidades Ayacucho — defensa del voto JP",
+          "fecha": "2026-06-12 al 2026-06-14TPor confirmar:00-05:00",
+          "ubicacion": "Plaza Mayor de Huamanga / espacios públicos Ayacucho",
+          "convocante": "Bases del partido Juntos por el Perú en Ayacucho",
+          "bando": "pro-Sánchez",
+          "estado": "confirmado (convocatoria documentada)",
+          "descripcion": "Infobae/Altavoz documentaron que 'bases del partido JP en Ayacucho difundieron convocatorias formales a movilizaciones hacia espacios públicos'. Audio de dirigente local circuló en redes: 'No hay que confiar en los grandes poderes, pasen este video a todos los contactos'.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://altavoz.pe/politica/juntos-por-el-peru-impulsa-movilizaciones-mientras-keiko-fujimori-sube-en-conteo-basta-de-fraude/",
+          "origen_v355": true
+        },
+        {
+          "titulo": "Riesgo bloqueo carretera Central — Junín (derivado de paro anterior)",
+          "fecha": "2026-06-12 al 2026-06-18 (latente)TVariable:00-05:00",
+          "ubicacion": "Carretera Central, provincia de Junín / accesos a Huancayo",
+          "convocante": "Organizaciones estudiantiles UNCP (antecedente) / gremios",
+          "bando": "mixto/cívico",
+          "estado": "no verificado — antecedente activo",
+          "descripcion": "Universidad del Centro del Perú (Huancayo) fue tomada el 18-may por estudiantes. Conflicto activo con tregua parcial. La Carretera Central es el único eje Lima-selva central.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
+        },
+        {
+          "titulo": "Potencial paro regional Huancavelica",
+          "fecha": "2026-06-14 al 2026-06-18 (no verificado)TPor confirmar:00-05:00",
+          "ubicacion": "Huancavelica ciudad / accesos regionales",
+          "convocante": "Frentes de defensa regionales Huancavelica (no identificados individualmente)",
+          "bando": "pro-Sánchez",
+          "estado": "no verificado",
+          "descripcion": "Huancavelica es región con mayor respaldo histórico a Sánchez. No se encontró convocatoria publicada específica para 12-18 jun.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://www.rcrperu.com/es-probable-que-roberto-sanchez-de-juntos-por-el-peru-gane-la-segunda-vuelta/",
+          "origen_v355": true
+        },
+        {
+          "titulo": "Vigilias comunidades VRAEM — seguimiento escrutinio actas observadas",
+          "fecha": "2026-06-12 al 2026-06-18 (probable)TVariable:00-05:00",
+          "ubicacion": "VRAEM — no georeferenciado específicamente",
+          "convocante": "Organizaciones comunales del VRAEM (no identificadas por nombre en fuentes)",
+          "bando": "pro-Sánchez (predominantemente)",
+          "estado": "no verificado",
+          "descripcion": "Patrón regional: el sur-centro andino (Ayacucho, Huancavelica) presenta mayoría Sánchez y antecedente de movilización. VRAEM específico no documentado con convocatoria verificada.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://altavoz.pe/politica/juntos-por-el-peru-impulsa-movilizaciones-mientras-keiko-fujimori-sube-en-conteo-basta-de-fraude/",
+          "origen_v355": true
         }
       ],
       "actores": [
@@ -2344,6 +2762,42 @@
           "posicion": "ALTA SENSIBILIDAD — El VRAEM es zona de alta conflictividad estructural. Las comunidades de esta área votaron mayoritariamente por Sánchez. En contexto de tensión poselectoral, la zona puede activarse como actor de presión contra una proclamación de Keiko.",
           "region": "Ayacucho, Junín, Cusco (área VRAEM)",
           "fuente": "https://elcomercio.pe/politica/elecciones/resultados-segunda-vuelta-elecciones-peru-2026-conteo-oficial-onpe-en-junin-y-flash-electoral-en-vivo-hoy-7-de-junio-keiko-fujimori-roberto-sanchez-noticia/"
+        },
+        {
+          "nombre": null,
+          "cargo": null,
+          "posicion": "Medio regional Huancayo que cubre movilizaciones electorales de Junín",
+          "bando": "neutral (cobertura)",
+          "region": null,
+          "plataforma": "Web/YouTube",
+          "handle": "@7diasHuancayo",
+          "perfil_url": null,
+          "fuente": null,
+          "origen_v355": true
+        },
+        {
+          "nombre": null,
+          "cargo": null,
+          "posicion": "Medio Huancayo — transmisión en vivo plantones JP en Plaza Constitución",
+          "bando": "pro-Sánchez (cobertura afín)",
+          "region": null,
+          "plataforma": "Facebook",
+          "handle": "WalacNoticias",
+          "perfil_url": null,
+          "fuente": null,
+          "origen_v355": true
+        },
+        {
+          "nombre": null,
+          "cargo": null,
+          "posicion": "Dirigentes locales JP Ayacucho que difundieron audios y convocatorias formales a movilizaciones (documentado por Infobae/Altavoz)",
+          "bando": "pro-Sánchez",
+          "region": null,
+          "plataforma": "WhatsApp/Facebook",
+          "handle": "Bases JP Ayacucho (sin cuenta identificada públicamente)",
+          "perfil_url": null,
+          "fuente": null,
+          "origen_v355": true
         }
       ],
       "narrativas_locales": [
@@ -2395,7 +2849,10 @@
           ],
           "intensidad": "MEDIA",
           "fuente": "https://elpais.com/america/2026-06-04/la-rebelion-del-agro-el-campo-lanza-una-advertencia-a-quien-gane-la-segunda-vuelta-en-peru.html"
-        }
+        },
+        "«No hay que confiar en los grandes poderes — pasen este video a todos los contactos»",
+        "«La sierra votó por el cambio: Huancavelica, Ayacucho, Junín no se rinden»",
+        "«Defensa del voto: vigilias hasta que se cuente la última acta»"
       ],
       "puntos_riesgo": [
         {
@@ -2424,6 +2881,26 @@
           "nivel": "BAJO-MEDIO",
           "antecedente": "Conflictos históricos con Volcan Compañía Minera",
           "fuente": "https://elcomercio.pe/politica/elecciones/resultados-segunda-vuelta-elecciones-peru-2026-conteo-oficial-onpe-en-pasco-y-flash-electoral-en-vivo-hoy-7-de-junio-keiko-fujimori-roberto-sanchez-noticia/"
+        },
+        {
+          "nombre": null,
+          "tipo": "zona_riesgo",
+          "nivel": "Medio-Alto",
+          "descripcion": "Carretera Central (km variable, La Oroya-Huancayo): zona histórica de bloqueo. Conflicto estudiantil UNCP activo.",
+          "antecedente": null,
+          "ubicacion": null,
+          "fuente": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
+        },
+        {
+          "nombre": null,
+          "tipo": "zona_riesgo",
+          "nivel": "Medio",
+          "descripcion": "Ayacucho ciudad: zona con alta movilización histórica pro-izquierda; bases JP activas con convocatoria documentada",
+          "antecedente": null,
+          "ubicacion": null,
+          "fuente": "https://altavoz.pe/politica/juntos-por-el-peru-impulsa-movilizaciones-mientras-keiko-fujimori-sube-en-conteo-basta-de-fraude/",
+          "origen_v355": true
         }
       ],
       "nota_densidad": "La región CENTRO presenta densidad informativa MEDIA-BAJA en comparación con el SUR. Las fuentes especializadas en Huancayo, Ayacucho y Huánuco (corresponsales Diario Correo regional, RPP regional) no registraron eventos locales específicos para el 10-11 de junio distintos de los resultados electorales. Se recomienda: (1) monitoreo directo de Radio La Voz de Huancayo y Diario Correo Ayacucho para el 12-13 de junio; (2) seguimiento de páginas de frentes de defensa provinciales en Facebook; (3) contacto con corresponsales de La República en Huancayo y Ayacucho.",
@@ -3148,7 +3625,41 @@
         "nota_densidad_global": "Densidad informativa MEDIA. El período de máxima actividad observable es 7-10 junio (jornada electoral y primeras 72 horas post-resultado). Las plataformas TikTok y Facebook presentaron baja recuperabilidad directa via búsqueda indexada (resultado de plataformas que restringen indexación profunda), por lo que los registros TikTok/Facebook se documentan a través de referencias cruzadas (prensa, YouTube, Instagram). El VRAEM tiene densidad informativa limitada en redes abiertas por razones de seguridad operacional de los actores. Huánuco/Tingo María e Ica presentan la menor densidad informativa dentro del alcance definido.",
         "fuente_primaria_wikipedia": "https://es.wikipedia.org/wiki/Crisis_postelectoral_de_Per%C3%BA_de_2026",
         "generado": "2026-06-11T17:23:56Z"
-      }
+      },
+      "routes": [
+        {
+          "descripcion": "Huancayo: Plaza de Armas → Plaza Constitución → sede JEE Junín (Jr. Real, Huancayo)",
+          "distritos": [
+            "Huancayo"
+          ],
+          "puntos_clave": null,
+          "patron_historico": null,
+          "fuente": "https://www.facebook.com/hytimes.pe/videos/envivo-juntos-por-el-per%C3%BA-hace-plant%C3%B3n-en-defensa-de-sus-votos/963103039883268/",
+          "origen_v355": true
+        },
+        {
+          "descripcion": "Carretera Central (Lima-La Oroya-Huancayo): principal corredor de riesgo logístico por conflictos en Junín",
+          "distritos": [
+            "La Oroya",
+            "Huancayo",
+            "Concepción"
+          ],
+          "puntos_clave": null,
+          "patron_historico": null,
+          "fuente": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
+        },
+        {
+          "descripcion": "Ayacucho: Plaza Mayor de Huamanga (Ayacucho) → Av. Independencia → sede JEE Ayacucho",
+          "distritos": [
+            "Huamanga"
+          ],
+          "puntos_clave": null,
+          "patron_historico": null,
+          "fuente": "https://altavoz.pe/politica/juntos-por-el-peru-impulsa-movilizaciones-mientras-keiko-fujimori-sube-en-conteo-basta-de-fraude/",
+          "origen_v355": true
+        }
+      ]
     },
     "sur": {
       "region": "sur",
@@ -3247,6 +3758,66 @@
           "alcance": "Corredor minero Las Bambas, eje Cusco-Arequipa",
           "nivel_riesgo": "ALTO",
           "fuente": "https://elpais.com/america/2026-06-04/la-rebelion-del-agro-el-campo-lanza-una-advertencia-a-quien-gane-la-segunda-vuelta-en-peru.html"
+        },
+        {
+          "titulo": "Protesta comunidades aymaras Puno — rechazo a eventual triunfo Fujimori",
+          "fecha": "2026-06-12 al 2026-06-18TVariable:00-05:00",
+          "ubicacion": "Puno ciudad (Plaza de Armas) y zonas rurales aymara (provincia de Chucuito, Yunguyo, El Collao)",
+          "convocante": "Representantes comunidades aymaras / organizaciones de base Puno",
+          "bando": "pro-Sánchez",
+          "estado": "confirmado (advertencia pública documentada)",
+          "descripcion": "Altavoz/Infobae: 'En Puno, representantes de la comunidad aymara han advertido que no reconocerían un eventual triunfo de Keiko Fujimori y han convocado a protestas si el resultado final la favorece'. Dado que Fujimori está en primer lugar al 98,22%, esta amenaza tiene alta probabilidad de materializarse.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://altavoz.pe/politica/juntos-por-el-peru-impulsa-movilizaciones-mientras-keiko-fujimori-sube-en-conteo-basta-de-fraude/",
+          "origen_v355": true
+        },
+        {
+          "titulo": "Movilización pro-Sánchez Cusco — Plaza de Armas / Cusco",
+          "fecha": "2026-06-12 al 2026-06-14 (probable)T15:00 (probable):00-05:00",
+          "ubicacion": "Plaza de Armas del Cusco",
+          "convocante": "Organizaciones sociales Cusco / bases JP / colectivos ciudadanos",
+          "bando": "pro-Sánchez",
+          "estado": "probable",
+          "descripcion": "Miles de simpatizantes de Sánchez se congregaron en Cusco durante cierre de campaña (martes previo al 7-jun). Cusco votó masivamente por Sánchez. Patrón de movilización post-escrutinio probable ante resultado ajustado. Sin convocatoria 12-18 jun verificada.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://www.instagram.com/reel/DZLOoTbvZC5/",
+          "origen_v355": true
+        },
+        {
+          "titulo": "Posible paro regional Sur Andino (Puno-Arequipa-Cusco)",
+          "fecha": "2026-06-15 al 2026-06-18 (no verificado / riesgo alto)TPor confirmar:00-05:00",
+          "ubicacion": "Multiple: Puno, Arequipa, Cusco",
+          "convocante": "Frentes regionales no identificados individualmente; Confederaciones aymaras Puno",
+          "bando": "pro-Sánchez / mixto",
+          "estado": "no verificado — riesgo alto dado patrón histórico (2022-2023)",
+          "descripcion": "Instagram reporta: 'Puno, Cusco, Ayacucho, Apurímac y Huancavelica fueron donde Sánchez obtuvo sus mejores resultados'. Antecedente de 2022-2023: corte de Panamericana Sur por comunidades aymaras. Alta energía de movilización si Fujimori es proclamada.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://www.instagram.com/p/DZTBlh7lhEC/",
+          "origen_v355": true
+        },
+        {
+          "titulo": "Posible movilización Arequipa Plaza de Armas",
+          "fecha": "2026-06-13 al 2026-06-14 (probable)TPor confirmar:00-05:00",
+          "ubicacion": "Plaza de Armas de Arequipa",
+          "convocante": "Organizaciones ciudadanas Arequipa / colectivos pro-Sánchez",
+          "bando": "pro-Sánchez",
+          "estado": "probable",
+          "descripcion": "Arequipa tiene antecedente de protestas masivas. Sin convocatoria 12-18 jun verificada.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://www.instagram.com/p/DZTBlh7lhEC/",
+          "origen_v355": true
+        },
+        {
+          "titulo": "Bloqueo carretera Longitudinal Sierra Sur km 1220 (Ayaviri, Puno)",
+          "fecha": "2026-06-12 al 2026-06-18 (riesgo latente post-resolución previa)TVariable:00-05:00",
+          "ubicacion": "Longitudinal de la Sierra Sur km 1220, distrito de Ayaviri, provincia Melgar, Puno",
+          "convocante": "Agricultores / gremios agrarios Puno (paro arrocero previo)",
+          "bando": "mixto/cívico",
+          "estado": "no verificado — antecedente documentado",
+          "descripcion": "Documentado en El Comercio (3-jun): bloqueo en km 1220, Ayaviri-Melgar. Flujo restablecido para el 7-jun pero riesgo de reanudación dado contexto electoral tenso.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
         }
       ],
       "actores": [
@@ -3298,6 +3869,30 @@
           "posicion": "LATENTE — El paro agrario de mayo 2026 dejó agenda inconclusa: Estado no cumplió acuerdos sobre excedentes de arroz ni contención de importaciones. Potencial reactivación si nuevo gobierno no responde.",
           "region": "Arequipa, Cusco, corredor agrícola sur",
           "fuente": "https://elpais.com/america/2026-06-04/la-rebelion-del-agro-el-campo-lanza-una-advertencia-a-quien-gane-la-segunda-vuelta-en-peru.html"
+        },
+        {
+          "nombre": null,
+          "cargo": null,
+          "posicion": "Representantes aymaras Puno que advirtieron públicamente no reconocer triunfo Fujimori (documentado por Infobae/Altavoz)",
+          "bando": "pro-Sánchez",
+          "region": null,
+          "plataforma": "Facebook/WhatsApp (no público indexado)",
+          "handle": "Confederación de Comunidades Aymaras Puno (sin cuenta verificada)",
+          "perfil_url": null,
+          "fuente": null,
+          "origen_v355": true
+        },
+        {
+          "nombre": null,
+          "cargo": null,
+          "posicion": "Frente de Defensa Social de Apurímac — actor histórico de bloqueos PE-3S. Sin convocatoria verificada para 12-18 jun.",
+          "bando": "mixto/cívico",
+          "region": null,
+          "plataforma": "Facebook (probable)",
+          "handle": "FREDESLA Apurímac (cuenta no verificada públicamente)",
+          "perfil_url": null,
+          "fuente": null,
+          "origen_v355": true
         }
       ],
       "narrativas_locales": [
@@ -3365,7 +3960,10 @@
           "intensidad": "MUY ALTA",
           "fuente": "https://es.wikipedia.org/wiki/Crisis_postelectoral_de_Per%C3%BA_de_2026",
           "fuente_secundaria": "https://ahora.com.pe/elecciones-2026/empate-tecnico-mantiene-en-suspenso-la-segunda-vuelta-presidencial"
-        }
+        },
+        "«Puno aymara no reconoce a Keiko Fujimori como presidenta — si gana, salimos a las calles»",
+        "«El sur votó mayoritariamente por Sánchez — el resultado debe respetarse»",
+        "«Cuatro suyos unidos: la sierra no se rinde ante Lima ni ante los poderes fácticos»"
       ],
       "puntos_riesgo": [
         {
@@ -3404,6 +4002,36 @@
           "nivel": "MEDIO-ALTO",
           "antecedente": "Arequipazo 2002; movilizaciones contra EGASA, movilizaciones 2021 segunda vuelta",
           "fuente": "https://larepublica.pe/politica/2026/06/07/resultados-en-arequipa-entre-keiko-fujimori-y-roberto-sanchez-conoce-aqui-el-conteo-de-votos-y-el-minuto-a-minuto-de-ipsos-hnews-196973"
+        },
+        {
+          "nombre": null,
+          "tipo": "zona_riesgo",
+          "nivel": "Alto",
+          "descripcion": "Puno (zonas rurales aymara — Chucuito, Yunguyo, El Collao): alta probabilidad de protesta si Fujimori es proclamada",
+          "antecedente": null,
+          "ubicacion": null,
+          "fuente": "https://altavoz.pe/politica/juntos-por-el-peru-impulsa-movilizaciones-mientras-keiko-fujimori-sube-en-conteo-basta-de-fraude/",
+          "origen_v355": true
+        },
+        {
+          "nombre": null,
+          "tipo": "zona_riesgo",
+          "nivel": "Medio (no verificado para 12-18 jun)",
+          "descripcion": "Carretera PE-3S Abancay (Apurímac): zona histórica de bloqueo por FREDESLA y organizaciones agrarias",
+          "antecedente": null,
+          "ubicacion": null,
+          "fuente": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
+        },
+        {
+          "nombre": null,
+          "tipo": "zona_riesgo",
+          "nivel": "Medio-Alto",
+          "descripcion": "Longitudinal Sierra Sur km 1220 Ayaviri (Puno): bloqueo previo documentado, riesgo de reanudación",
+          "antecedente": null,
+          "ubicacion": null,
+          "fuente": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
         }
       ],
       "executive_alert": "ALERTA ROJA — SUR. Puno es el epicentro de mayor volatilidad. Las comunidades aymaras declararon no reconocimiento a Keiko Fujimori el 10-11 de junio, convocando movilizaciones que invocan la memoria de los fallecidos de 2022-2023. Con el conteo nacional favorable a Fujimori por 651 votos (98,2% escrutado), y el sur habiendo votado masivamente por Sánchez (Puno 86%, Arequipa 63%), la brecha entre voluntad regional y resultado nacional es el combustible central del conflicto. La convocatoria 'Los cuatro suyos' para el 13 de junio suma a este riesgo. Los puntos críticos de bloqueo son: Puente Ilave/Juliaca (RIESGO MUY ALTO), Panamericana Sur (ALTO) y corredor minero Las Bambas (ALTO). Se requiere seguimiento horario del avance del conteo de actas observadas y pronunciamiento urgente de gobernadores regionales del sur.",
@@ -4384,7 +5012,55 @@
           "nivel_activacion_regional": "MUY ALTO",
           "fuente_contexto_general": "https://elpais.com/america/2026-06-06/la-fuerza-del-antifujimorismo-y-el-voto-del-sur-de-peru-resurge.html"
         }
-      }
+      },
+      "routes": [
+        {
+          "descripcion": "Panamericana Sur (Lima-Arequipa-Puno): eje de riesgo histórico. Comunidades aymaras cortaron en 2022-2023.",
+          "distritos": [
+            "Arequipa",
+            "Juliaca",
+            "Puno",
+            "Ilave"
+          ],
+          "puntos_clave": null,
+          "patron_historico": null,
+          "fuente": "https://altavoz.pe/politica/juntos-por-el-peru-impulsa-movilizaciones-mientras-keiko-fujimori-sube-en-conteo-basta-de-fraude/",
+          "origen_v355": true
+        },
+        {
+          "descripcion": "Longitudinal Sierra Sur km 1220 (Ayaviri-Melgar, Puno): punto crítico de bloqueo documentado",
+          "distritos": [
+            "Ayaviri",
+            "Melgar"
+          ],
+          "puntos_clave": null,
+          "patron_historico": null,
+          "fuente": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
+        },
+        {
+          "descripcion": "Cusco: Plaza de Armas → Av. El Sol → Av. Pardo → JEE Cusco",
+          "distritos": [
+            "Cusco"
+          ],
+          "puntos_clave": null,
+          "patron_historico": null,
+          "fuente": "https://www.instagram.com/reel/DZLOoTbvZC5/",
+          "origen_v355": true
+        },
+        {
+          "descripcion": "Apurímac: Carretera PE-3S (Abancay) — eje de riesgo por FREDESLA y organizaciones agrarias",
+          "distritos": [
+            "Abancay",
+            "Andahuaylasl",
+            "Chincheros"
+          ],
+          "puntos_clave": null,
+          "patron_historico": null,
+          "fuente": "https://www.infobae.com/peru/2026/05/27/dos-rutas-un-mismo-objetivo-asi-se-redefinen-las-campanas-de-keiko-fujimori-y-roberto-sanchez-antes-de-la-segunda-vuelta-del-7-de-junio/",
+          "origen_v355": true
+        }
+      ]
     },
     "oriente": {
       "region": "oriente",
@@ -4483,6 +5159,54 @@
           "alcance": "Tambopata, Inambari, Puerto Maldonado",
           "nivel_riesgo": "MEDIO-ALTO",
           "fuente": "https://www.desdeadentro.pe/2026/06/mineria-ilegal-gobierno-destruye-campamentos-e-incauta-bienes-por-mas-de-s-64-millones-en-madre-de-dios/"
+        },
+        {
+          "titulo": "Posible movilización Loreto — Iquitos post-escrutinio",
+          "fecha": "2026-06-12 al 2026-06-18 (probable)TPor confirmar:00-05:00",
+          "ubicacion": "Iquitos, Loreto (Plaza de Armas / Malecón Tarapacá)",
+          "convocante": "Organizaciones de base Loreto / afines JP",
+          "bando": "mixto/cívico",
+          "estado": "no verificado",
+          "descripcion": "La República publicó cobertura del voto Loreto (Keiko ganó en zona urbana Iquitos). Contexto: Loreto tiene Frente Patriótico activo históricamente. Sin convocatoria verificada.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://www.facebook.com/larepublicape/posts/-%EF%B8%8F-conoce-c%C3%B3mo-vot%C3%B3-la-regi%C3%B3n-de/",
+          "origen_v355": true
+        },
+        {
+          "titulo": "Riesgo de reanudación bloqueo carretera Federico Basadre — Ucayali",
+          "fecha": "2026-06-12 al 2026-06-18 (riesgo latente)TVariable:00-05:00",
+          "ubicacion": "Carretera Federico Basadre — accesos a Coronel Portillo, Pucallpa, Ucayali",
+          "convocante": "Agricultores arroceros / gremios Ucayali",
+          "bando": "mixto/cívico",
+          "estado": "no verificado — antecedente documentado",
+          "descripcion": "El Comercio (3-jun): 'Carretera Federico Basadre restringida de forma intermitente. Comités locales evalúan bloqueos totales'. Paro agrario arrocero con epicentro en Pucallpa.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
+        },
+        {
+          "titulo": "Paro agrario San Martín — carretera Fernando Belaúnde Terry (tramo Sur)",
+          "fecha": "2026-06-12 al 2026-06-18 (probable continuación)TVariable:00-05:00",
+          "ubicacion": "Carretera Fernando Belaúnde Terry: Tarapoto, Rioja, Bellavista, Tocache (San Martín); Aucayacu (Huánuco)",
+          "convocante": "Agricultores arroceros / gremios San Martín",
+          "bando": "mixto/cívico",
+          "estado": "probable (paro activo al 3-jun, tregua parcial)",
+          "descripcion": "Epicentros documentados: Tarapoto, Rioja, Nueva Cajamarca, Bellavista, Tocache (San Martín). También Aucayacu (Huánuco). Paro activo pre-elección con tregua parcial.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
+        },
+        {
+          "titulo": "Posible toma Universidad Nacional de Ucayali (continuación)",
+          "fecha": "2026-06-12 al 2026-06-18 (riesgo latente)TVariable:00-05:00",
+          "ubicacion": "Universidad Nacional de Ucayali, Pucallpa",
+          "convocante": "Federación de Estudiantes UNU (Álvaro Ríos, presidente)",
+          "bando": "mixto/cívico",
+          "estado": "probable (toma activa pre-elección, 21 reclamos sin resolver)",
+          "descripcion": "La toma comenzó días antes del 7-jun. Álvaro Ríos (presidente Federación UNU) declaró carácter indefinido. Los 21 reclamos incluyen residencia, infraestructura y comedor.",
+          "tipo": "convocatoria",
+          "fuente_url": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
         }
       ],
       "actores": [
@@ -4534,6 +5258,30 @@
           "posicion": "MONITOR — Mongabay documentó que la minería ilegal opera en 11 regiones amazónicas, incluyendo la Reserva Tambopata. Sus reportes tienen impacto en la agenda del nuevo gobierno y en la presión internacional sobre Perú. Relevante para seguimiento de riesgos en Madre de Dios.",
           "region": "Amazonia peruana",
           "fuente": "https://es.mongabay.com/2026/06/mineria-ilegal-crimen-organizado-violencia-agenda-ambiental-proximo-presidente-peru/"
+        },
+        {
+          "nombre": null,
+          "cargo": null,
+          "posicion": "Presidente Federación de Estudiantes Universidad Nacional de Ucayali — encabeza toma indefinida con 21 reclamos",
+          "bando": "mixto/cívico",
+          "region": null,
+          "plataforma": "Facebook/medios locales Ucayali",
+          "handle": "Álvaro Ríos / Federación Estudiantes UNU",
+          "perfil_url": null,
+          "fuente": null,
+          "origen_v355": true
+        },
+        {
+          "nombre": null,
+          "cargo": null,
+          "posicion": "Organizaciones agrarias que lideran paros con bloqueos en Federico Basadre y Belaúnde Terry",
+          "bando": "mixto/cívico",
+          "region": null,
+          "plataforma": "Facebook (cuentas locales no identificadas)",
+          "handle": "Gremios arroceros Ucayali/San Martín",
+          "perfil_url": null,
+          "fuente": null,
+          "origen_v355": true
         }
       ],
       "narrativas_locales": [
@@ -4581,7 +5329,10 @@
           ],
           "intensidad": "MEDIA (latente, escalable)",
           "fuente": "https://es.mongabay.com/2026/06/mineria-ilegal-crimen-organizado-violencia-agenda-ambiental-proximo-presidente-peru/"
-        }
+        },
+        "«Sin precio justo al arroz no hay paso — el campo amazónico también existe»",
+        "«La UNU necesita recursos: no somos comunistas, somos estudiantes»",
+        "«Loreto no se olvida: la Amazonía exige ser escuchada desde Lima»"
       ],
       "puntos_riesgo": [
         {
@@ -4619,6 +5370,36 @@
           "nivel": "MEDIO",
           "antecedente": "Crecimiento electoral anómalo documentado por RPP",
           "fuente": "https://rpp.pe/peru/actualidad/madre-de-dios-el-crecimiento-electoral-mas-alto-del-pais-ocurre-en-una-region-con-fuerte-mineria-ilegal-noticia-1679562"
+        },
+        {
+          "nombre": null,
+          "tipo": "zona_riesgo",
+          "nivel": "Medio-Alto",
+          "descripcion": "Carretera Federico Basadre — acceso Coronel Portillo (Ucayali): bloqueo intermitente documentado, riesgo de cierre total",
+          "antecedente": null,
+          "ubicacion": null,
+          "fuente": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
+        },
+        {
+          "nombre": null,
+          "tipo": "zona_riesgo",
+          "nivel": "Alto (paro activo previo)",
+          "descripcion": "Fernando Belaúnde Terry km 742 (Rioja) y km 602 (Uchiza): punto de bloqueo arrocero activo San Martín",
+          "antecedente": null,
+          "ubicacion": null,
+          "fuente": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
+        },
+        {
+          "nombre": null,
+          "tipo": "zona_riesgo",
+          "nivel": "Medio",
+          "descripcion": "Universidad Nacional de Ucayali (Pucallpa): toma estudiantil activa con impacto en locales de votación",
+          "antecedente": null,
+          "ubicacion": null,
+          "fuente": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
         }
       ],
       "nota_densidad": "La región ORIENTE presenta densidad informativa BAJA-MEDIA. La fuente Pro y Contra (Iquitos) no fue directamente accesible. RPP y El Comercio tienen cobertura de resultados electorales pero limitada en eventos post-electorales del 10-11 de junio. El seguimiento de AIDESEP y organizaciones indígenas es el canal informativo más relevante para detectar movilizaciones en la región.",
@@ -5539,7 +6320,33 @@
             "url": "https://www.facebook.com/LatinaNoticias.pe/videos/920975544147471/"
           }
         ]
-      }
+      },
+      "routes": [
+        {
+          "descripcion": "Carretera Federico Basadre (Lima-Pucallpa): zona de restricción intermitente por paro arrocero Ucayali",
+          "distritos": [
+            "Coronel Portillo",
+            "Pucallpa"
+          ],
+          "puntos_clave": null,
+          "patron_historico": null,
+          "fuente": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
+        },
+        {
+          "descripcion": "Fernando Belaúnde Terry — tramo Tarapoto-Bellavista-Tocache (San Martín): eje de bloqueo arrocero documentado",
+          "distritos": [
+            "Tarapoto",
+            "Rioja",
+            "Bellavista",
+            "Tocache"
+          ],
+          "puntos_clave": null,
+          "patron_historico": null,
+          "fuente": "https://elcomercio.pe/peru/bloqueo-de-carreteras-y-toma-de-universidades-los-conflictos-que-ponen-en-alerta-la-segunda-vuelta-electoral-noticia/",
+          "origen_v355": true
+        }
+      ]
     }
   },
   "post_electoral": {
@@ -6281,6 +7088,57 @@
       "title": "Conflicto minero en Madre de Dios post-operativo del 10 de junio: el operativo de interdicción que destruyó bienes por S/64 millones en Tambopata (10-jun) puede provocar represalias organizadas de mineros ilegales durante la transición de poder. La incertidumbre sobre qué gobierno aplicará las políticas de interdicción añade un vector de riesgo que se superpone con la inestabilidad postelectoral en una región con alta capacidad organizativa.",
       "level": "MEDIO",
       "evidence": "Conflicto minero en Madre de Dios post-operativo del 10 de junio: el operativo de interdicción que destruyó bienes por S/64 millones en Tambopata (10-jun) puede provocar represalias organizadas de mineros ilegales durante la transición de poder. La incertidumbre sobre qué gobierno aplicará las políticas de interdicción añade un vector de riesgo que se superpone con la inestabilidad postelectoral en una región con alta capacidad organizativa."
+    },
+    {
+      "id": "RM-15",
+      "title": "Escalada aymara post-proclamación (Puno)",
+      "category": "Conflicto regional con riesgo de víctimas",
+      "scenario": "Las comunidades aymaras del sur de Puno (Ilave, Juli, Yunguyo, Chucuito) anunciaron públicamente que no reconocerán un triunfo de Keiko Fujimori y convocaron a protestas si gana. Dado que al 98,22% Fujimori lidera por 651 votos, el escenario activador está próximo a materializarse. Antecedente directo: enero 2023 con 19 fallecidos en Juliaca tras vacancia de Castillo.",
+      "probability": "alta",
+      "level": "alto",
+      "impact": "alto",
+      "timeframe": "12-19 jun (post-proclamación ONPE/JNE)",
+      "triggers": [
+        "Proclamación oficial de Keiko Fujimori por JNE",
+        "Réplicas en corredor minero (Las Bambas)"
+      ],
+      "mitigations": [
+        "Diálogo temprano con dirigencia aymara",
+        "Despliegue gradual y proporcional de fuerza pública",
+        "Apertura de canales de verificación de actas observadas en Puno"
+      ],
+      "evidence": "Fuentes en redes sociales y prensa regional (10-11 jun 2026)",
+      "sources": [
+        {
+          "url": "https://larepublica.pe/politica/elecciones/2026/06/10/aymaras-de-puno-anuncian-protestas-si-keiko-fujimori-es-proclamada",
+          "name": "La República"
+        }
+      ]
+    },
+    {
+      "id": "RM-16",
+      "title": "Paro arrocero Oriente — bloqueos carreteras",
+      "category": "Bloqueo logístico activo",
+      "scenario": "Paro indefinido de productores arroceros en Ucayali (carretera Federico Basadre) y San Martín (Fernando Belaúnde Terry km 742) activo desde 9-jun. La toma indefinida de la Universidad Nacional de Ucayali por su Federación de Estudiantes converge con la coyuntura electoral. Sin convocatoria pro-Sánchez documentada en lives, pero la tensión post-elección puede convertir bloqueos económicos en políticos.",
+      "probability": "alta",
+      "level": "medio-alto",
+      "impact": "medio",
+      "timeframe": "11-19 jun (activo)",
+      "triggers": [
+        "Convergencia con marcha 13-jun en Lima",
+        "Llamado de gremios regionales a sumarse"
+      ],
+      "mitigations": [
+        "Mesa de diálogo con Conveagro / Junta Nacional de Riego",
+        "Compromiso de precios mínimos arroz"
+      ],
+      "evidence": "Reportes locales 9-11 jun 2026",
+      "sources": [
+        {
+          "url": "https://www.gob.pe/institucion/mtc/noticias",
+          "name": "MTC Perú"
+        }
+      ]
     }
   ],
   "early_warning_indicators": [
@@ -9639,6 +10497,69 @@
         "orientacion": "pro-derechos indígenas / consulta previa",
         "fuente": "https://www.youtube.com/watch?v=4ykNq8PJrGE",
         "region": "oriente"
+      },
+      {
+        "hashtag": "#TomaDeLima",
+        "plataforma": "X / Twitter, Facebook",
+        "volumen_estimado": "Alta — usado en convocatoria JP del 11-jun para marcha del viernes 13",
+        "bando": "pro-Sánchez",
+        "fuente_url": "https://www.infobae.com/peru/2026/06/11/convocan-a-nueva-marcha-la-toma-de-lima-para-este-viernes-en-apoyo-de-roberto-sanchez-hay-que-defender-el-voto-popular/",
+        "nota": null,
+        "origen_v355": true
+      },
+      {
+        "hashtag": "#LosCuatroSuyos",
+        "plataforma": "X / Facebook",
+        "volumen_estimado": "Alta — nombre oficial de la marcha 13-jun",
+        "bando": "pro-Sánchez",
+        "fuente_url": "https://www.infobae.com/peru/2026/06/11/convocan-a-nueva-marcha-la-toma-de-lima-para-este-viernes-en-apoyo-de-roberto-sanchez-hay-que-defender-el-voto-popular/",
+        "nota": null,
+        "origen_v355": true
+      },
+      {
+        "hashtag": "#DefendamosElVoto",
+        "plataforma": "X / Facebook / Instagram",
+        "volumen_estimado": "Alta — consigna transversal JP desde 9-jun",
+        "bando": "pro-Sánchez",
+        "fuente_url": "https://www.facebook.com/n60noticias/posts/%EF%B8%8Fn60noticias-militantes-de-juntos-por-el-per%C3%BA-anuncian-movilizaci%C3%B3n-este-martes-/1611602120541790/",
+        "nota": null,
+        "origen_v355": true
+      },
+      {
+        "hashtag": "#BastaDeFrage / #NoAlFraude",
+        "plataforma": "X / Facebook",
+        "volumen_estimado": "Media — usado por JP al acusar irregularidades en procesamiento ONPE",
+        "bando": "pro-Sánchez",
+        "fuente_url": "https://www.infobae.com/peru/2026/06/10/juntos-por-el-peru-impulsa-movilizaciones-mientras-keiko-fujimori-sube-en-conteo-de-la-onpe-basta-de-fraude/",
+        "nota": null,
+        "origen_v355": true
+      },
+      {
+        "hashtag": "#KeikoPresidenta",
+        "plataforma": "X / Facebook",
+        "volumen_estimado": "Alta — Fuerza Popular al subir Keiko en el conteo ONPE (8-11 jun)",
+        "bando": "pro-Fujimori",
+        "fuente_url": "https://www.youtube.com/watch?v=61ADBZfU2o4",
+        "nota": null,
+        "origen_v355": true
+      },
+      {
+        "hashtag": "#VotoRespetado",
+        "plataforma": "X / Facebook",
+        "volumen_estimado": "Media — usado por ambos bandos con sentidos opuestos",
+        "bando": "mixto",
+        "fuente_url": "https://larepublica.pe/politica/2026/06/10/hay-336-mil-60-votos-en-actas-observadas-en-peru-y-el-exterior-que-/",
+        "nota": null,
+        "origen_v355": true
+      },
+      {
+        "hashtag": "#Elecciones2026 / #Elecciones Peru2026",
+        "plataforma": "X / Instagram / TikTok",
+        "volumen_estimado": "Muy alta — hashtag paraguas de toda la cobertura",
+        "bando": "mixto",
+        "fuente_url": "https://www.instagram.com/reel/DZTFUudSXuZ/",
+        "nota": null,
+        "origen_v355": true
       }
     ],
     "narratives": [
@@ -10558,6 +11479,156 @@
         "bando_aparente": "",
         "contenido_reciente": "",
         "url_contenido": ""
+      },
+      {
+        "nombre": null,
+        "handle": "@radiollata92.3fm",
+        "plataforma": "Facebook",
+        "perfil_url": null,
+        "rol": "Radio local Llata (Huamalíes, Huánuco) — publicó Convocatoria N°006-2026 del Frente de Defensa de los Intereses y Desarrollo de Llata para reunión multisectorial (4-jun-2026)",
+        "region": null,
+        "bando_aparente": "mixto/cívico (Frente de Defensa provincial)",
+        "contenido_reciente": "Radio local Llata (Huamalíes, Huánuco) — publicó Convocatoria N°006-2026 del Frente de Defensa de los Intereses y Desarrollo de Llata para reunión multisectorial (4-jun-2026)",
+        "fuente_url": "https://www.facebook.com/radiollata92.3fm/posts/convocatoria-n006-2026el-frente-de-defensa-de-los-intereses-y-desarrollo/",
+        "origen_v355": true
+      },
+      {
+        "nombre": null,
+        "handle": "@elmacheteperu",
+        "plataforma": "Web / Twitter",
+        "perfil_url": null,
+        "rol": "Medio digital peruano de línea izquierda — cubre bloqueos, conflictos y movilizaciones post-electorales",
+        "region": null,
+        "bando_aparente": "pro-Sánchez (línea editorial)",
+        "contenido_reciente": "Medio digital peruano de línea izquierda — cubre bloqueos, conflictos y movilizaciones post-electorales",
+        "fuente_url": "https://elmacheteperu.com/2026/06/02/segunda-vuelta-policia-advierte-uso-de-la-fuerza-si-bloqueos-impiden-traslado-material-electoral/",
+        "origen_v355": true
+      },
+      {
+        "nombre": null,
+        "handle": "@ILLARYtelevision",
+        "plataforma": "Facebook",
+        "perfil_url": null,
+        "rol": "Televisión local (región Sur/Cusco) — publicó postura del SUTEP y cubre movilizaciones regionales",
+        "region": null,
+        "bando_aparente": "neutral (cobertura)",
+        "contenido_reciente": "Televisión local (región Sur/Cusco) — publicó postura del SUTEP y cubre movilizaciones regionales",
+        "fuente_url": "https://www.facebook.com/ILLARYtelevision/posts/politica-sutep/",
+        "origen_v355": true
+      },
+      {
+        "nombre": null,
+        "handle": "@WalacNoticias",
+        "plataforma": "Facebook",
+        "perfil_url": null,
+        "rol": "Medio regional Huancayo — transmisiones en vivo de concentraciones JP en Huancayo y Lima",
+        "region": null,
+        "bando_aparente": "pro-Sánchez (cobertura afín)",
+        "contenido_reciente": "Medio regional Huancayo — transmisiones en vivo de concentraciones JP en Huancayo y Lima",
+        "fuente_url": "https://www.facebook.com/WalacNoticias/posts/segunda-vueltasimpatizantes-de-juntos-por-el-per%C3%BA-se-reunen-en-la-plazuela-merin/1445477584292587/",
+        "origen_v355": true
+      },
+      {
+        "nombre": null,
+        "handle": "@hytimes.pe",
+        "plataforma": "Facebook",
+        "perfil_url": null,
+        "rol": "Medio digital peruano con lives de plantones JP frente a ONPE y en Huancayo",
+        "region": null,
+        "bando_aparente": "pro-Sánchez (cobertura afín)",
+        "contenido_reciente": "Medio digital peruano con lives de plantones JP frente a ONPE y en Huancayo",
+        "fuente_url": "https://www.facebook.com/hytimes.pe/videos/envivo-juntos-por-el-per%C3%BA-hace-plant%C3%B3n-en-defensa-de-sus-votos/963103039883268/",
+        "origen_v355": true
+      },
+      {
+        "nombre": null,
+        "handle": "@n60noticias",
+        "plataforma": "Facebook",
+        "perfil_url": null,
+        "rol": "Canal regional La Libertad/Trujillo — documentó convocatoria movilización JP ante JNE Trujillo (9-jun)",
+        "region": null,
+        "bando_aparente": "pro-Sánchez (cobertura afín)",
+        "contenido_reciente": "Canal regional La Libertad/Trujillo — documentó convocatoria movilización JP ante JNE Trujillo (9-jun)",
+        "fuente_url": "https://www.facebook.com/n60noticias/posts/%EF%B8%8Fn60noticias-militantes-de-juntos-por-el-per%C3%BA-anuncian-movilizaci%C3%B3n-este-martes-/1611602120541790/",
+        "origen_v355": true
+      },
+      {
+        "nombre": null,
+        "handle": "@altavoz.pe",
+        "plataforma": "Web",
+        "perfil_url": null,
+        "rol": "Medio digital pro-izquierda que cubre convocatorias JP regionales con detalle (Ayacucho, Puno, etc.)",
+        "region": null,
+        "bando_aparente": "pro-Sánchez (línea editorial)",
+        "contenido_reciente": "Medio digital pro-izquierda que cubre convocatorias JP regionales con detalle (Ayacucho, Puno, etc.)",
+        "fuente_url": "https://altavoz.pe/politica/juntos-por-el-peru-impulsa-movilizaciones-mientras-keiko-fujimori-sube-en-conteo-basta-de-fraude/",
+        "origen_v355": true
+      },
+      {
+        "nombre": null,
+        "handle": "@willaxtvpe",
+        "plataforma": "Facebook",
+        "perfil_url": null,
+        "rol": "Canal de TV pro-derecha que publica análisis de actas observadas y cubre perspectiva Fuerza Popular",
+        "region": null,
+        "bando_aparente": "pro-Fujimori (línea editorial)",
+        "contenido_reciente": "Canal de TV pro-derecha que publica análisis de actas observadas y cubre perspectiva Fuerza Popular",
+        "fuente_url": "https://www.facebook.com/willaxtv/posts/noticia-conoce-las-regiones-con-m%C3%A1s-actas-observadas-en-la-segunda-vuelta-2026/",
+        "origen_v355": true
+      },
+      {
+        "nombre": null,
+        "handle": "Frente de Defensa de Llata y Huamalíes (Huánuco)",
+        "plataforma": "Facebook (a través de radio local)",
+        "perfil_url": null,
+        "rol": "Frente de defensa provincial que convocó reunión multisectorial el 4-jun-2026. Potencial actor de movilización semana 12-18 jun.",
+        "region": null,
+        "bando_aparente": "mixto/cívico",
+        "contenido_reciente": "Frente de defensa provincial que convocó reunión multisectorial el 4-jun-2026. Potencial actor de movilización semana 12-18 jun.",
+        "fuente_url": null,
+        "origen_v355": true
+      }
+    ],
+    "transmisiones": [
+      {
+        "plataforma": "Facebook (hytimes.pe, WalacNoticias) / YouTube (La República LR+, RPP)",
+        "canal": null,
+        "tema": null,
+        "fecha_inicio": null,
+        "bando": "pro-Sánchez (cobertura afín)",
+        "url": null,
+        "estado": "anunciado",
+        "origen_v355": true
+      },
+      {
+        "plataforma": "Instagram (JP oficial) / Facebook",
+        "canal": null,
+        "tema": null,
+        "fecha_inicio": null,
+        "bando": "pro-Sánchez",
+        "url": null,
+        "estado": "anunciado",
+        "origen_v355": true
+      },
+      {
+        "plataforma": "YouTube (TVPerú Noticias, RPP, Latina, Canal N)",
+        "canal": null,
+        "tema": null,
+        "fecha_inicio": null,
+        "bando": "neutral",
+        "url": null,
+        "estado": "anunciado",
+        "origen_v355": true
+      },
+      {
+        "plataforma": "Facebook (cuentas locales regionales)",
+        "canal": null,
+        "tema": null,
+        "fecha_inicio": null,
+        "bando": "pro-Sánchez",
+        "url": null,
+        "estado": "anunciado",
+        "origen_v355": true
       }
     ]
   },

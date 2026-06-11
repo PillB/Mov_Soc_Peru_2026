@@ -479,6 +479,25 @@ function section(title) {
   });
   ok('platform cards: no hardcoded "dossier OSINT (vX.Y)" string', platformsTextCheck.withHardcoded === 0, `bad=${platformsTextCheck.withHardcoded}/${platformsTextCheck.total}`);
 
+  section('N8. v3.5.5 — Event card titles: descriptive (not bare "plantón"/"marcha")');
+  const evTitleCheck = await page.evaluate(() => {
+    // gather all event card h3 titles in any region
+    const titles = Array.from(document.querySelectorAll('#regions article h3, #regions .card h3'))
+      .map(h => (h.textContent || '').trim()).filter(Boolean);
+    const rawTypeTitles = ['plantón', 'planton', 'marcha', 'bloqueo', 'declaración', 'declaracion', 'convocatoria', 'paro', 'mitin'];
+    const bare = titles.filter(t => rawTypeTitles.includes(t.toLowerCase()));
+    return { total: titles.length, bare: bare.length, bareSamples: bare.slice(0, 5) };
+  });
+  ok('no event card title is a bare type token', evTitleCheck.bare === 0, `bare=${evTitleCheck.bare}/${evTitleCheck.total} samples=${evTitleCheck.bareSamples.join(',')}`);
+
+  section('N9. v3.5.5 — Risk matrix has ≥16 rows (v3.5.5 additions)');
+  const rmRows = await page.evaluate(() => {
+    const tbody = document.querySelector('#risk-matrix tbody, .risk-matrix tbody, table.matrix tbody');
+    if (!tbody) return -1;
+    return tbody.querySelectorAll('tr').length;
+  });
+  ok('risk matrix has ≥16 rows', rmRows >= 16, `rows=${rmRows}`);
+
   section('N. Global — no dash-only badge anywhere in regions/social/EW');
   const allDashBadges = await page.evaluate(() => {
     const scope = Array.from(document.querySelectorAll(
