@@ -367,6 +367,79 @@ function section(title) {
   ok('majority of EW cards link to a source', ew.hasSources >= Math.ceil(ew.total * 0.5),
      `sources=${ew.hasSources}/${ew.total}`);
 
+  section('N1. v3.5.3 — Event cards: ISO dates humanized (centro/sur/oriente)');
+  // Cycle through regions to render their panels first
+  for (const id of ['centro', 'sur', 'oriente']) {
+    await page.evaluate(rid => {
+      const t = document.querySelector(`.tab-btn[data-region="${rid}"]`);
+      if (t) t.click();
+    }, id);
+    await page.waitForTimeout(200);
+  }
+  const eventCheck = await page.evaluate(() => {
+    const out = { totalEv: 0, rawIso: 0, withSource: 0 };
+    // events sub-grid is the region card grid for events; just scan all cards inside region panels
+    const evCards = Array.from(document.querySelectorAll('#panel-centro .card, #panel-sur .card, #panel-oriente .card'));
+    evCards.forEach(c => {
+      const txt = (c.textContent || '');
+      out.totalEv++;
+      if (/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(txt)) out.rawIso++;
+      if (c.querySelector('a[href^="http"]')) out.withSource++;
+    });
+    return out;
+  });
+  ok('event cards: zero raw ISO datetime leaks', eventCheck.rawIso === 0, `raw=${eventCheck.rawIso}/${eventCheck.totalEv}`);
+
+  section('N2. v3.5.3 — Actor cards: long posicion not used as tiny side chip');
+  const actorCheck = await page.evaluate(() => {
+    const out = { totalActors: 0, longInChip: 0 };
+    const cards = Array.from(document.querySelectorAll('#panel-centro .actor, #panel-sur .actor, #panel-oriente .actor, #panel-centro .actor-card, #panel-sur .actor-card, #panel-oriente .actor-card'));
+    cards.forEach(c => {
+      out.totalActors++;
+      const sideEl = c.querySelector('.side, .actor-side, .chip.side');
+      if (sideEl && (sideEl.textContent || '').trim().length > 60) out.longInChip++;
+    });
+    return out;
+  });
+  ok('no actor card uses long descriptive text as side chip', actorCheck.longInChip === 0, `long=${actorCheck.longInChip}/${actorCheck.totalActors}`);
+
+  section('N3. v3.5.3 — Zone cards: centro/sur/oriente have descripcion rendered');
+  const zoneCheck = await page.evaluate(() => {
+    const out = { totalZones: 0, withDesc: 0 };
+    const cards = Array.from(document.querySelectorAll('#panel-centro .zone, #panel-sur .zone, #panel-oriente .zone, #panel-centro .zone-card, #panel-sur .zone-card, #panel-oriente .zone-card'));
+    cards.forEach(c => {
+      out.totalZones++;
+      // any descriptive text > 20 chars in card body (excluding name h3/h4)
+      const allText = (c.textContent || '').trim();
+      const nameEl = c.querySelector('h3, h4, .zone-name');
+      const nameText = nameEl ? (nameEl.textContent || '').trim() : '';
+      const bodyText = allText.replace(nameText, '').trim();
+      if (bodyText.length > 30) out.withDesc++;
+    });
+    return out;
+  });
+  ok('zone cards rendered for centro/sur/oriente', zoneCheck.totalZones >= 1, `n=${zoneCheck.totalZones}`);
+  ok('majority of zone cards have body text >30 chars', zoneCheck.withDesc >= Math.ceil(zoneCheck.totalZones * 0.5), `withDesc=${zoneCheck.withDesc}/${zoneCheck.totalZones}`);
+
+  section('N4. v3.5.3 — Disinfo/Alt-media: no raw underscore-token chips');
+  const labelCheck = await page.evaluate(() => {
+    // only raw underscore tokens (definitely unmapped) — 'centro'/'izq'/'der' can be legit labels in some contexts
+    const rawTokens = ['fuera_contexto', 'pro_fp', 'pro_sanchez'];
+    const chips = Array.from(document.querySelectorAll('#social .chip, #social .pill, #social .type, #social .h-tag, #social .g-tag'));
+    let raw = 0;
+    const samples = [];
+    chips.forEach(ch => {
+      const t = (ch.textContent || '').trim().toLowerCase();
+      // only flag exact-match raw tokens (not when they're part of a longer label)
+      if (rawTokens.includes(t)) {
+        raw++;
+        if (samples.length < 5) samples.push(t);
+      }
+    });
+    return { raw, samples };
+  });
+  ok('no raw type tokens in social chips', labelCheck.raw === 0, `raw=${labelCheck.raw} samples=${labelCheck.samples.join(',')}`);
+
   section('N. Global — no dash-only badge anywhere in regions/social/EW');
   const allDashBadges = await page.evaluate(() => {
     const scope = Array.from(document.querySelectorAll(

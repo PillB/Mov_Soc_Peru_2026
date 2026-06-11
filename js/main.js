@@ -891,11 +891,15 @@
         magnitude: cleanStr(raw.magnitude) || cleanStr(raw.participantes_est) || cleanStr(raw.participantes_est_proyectado) || cleanStr(raw.magnitud),
         id: cleanStr(raw.id)
       };
+      // v3.5.3: handle string `fuente` (URL) + `fuente_secundaria` + nested {fuente:{url}}
       let sources = [];
       if (Array.isArray(raw.sources)) sources = raw.sources.filter(s => s && s.url);
       else if (raw.source && raw.source.url) sources = [raw.source];
       else if (raw.fuente_url) sources = [{ url: raw.fuente_url, name: raw.fuente_nombre || raw.fuente_url }];
       else if (Array.isArray(raw.fuentes)) sources = raw.fuentes.map(s => typeof s === 'string' ? { url: s } : s).filter(s => s && s.url);
+      else if (typeof raw.fuente === 'string' && /^https?:\/\//.test(raw.fuente)) sources.push({ url: raw.fuente });
+      else if (raw.fuente && typeof raw.fuente === 'object' && raw.fuente.url) sources.push(raw.fuente);
+      if (typeof raw.fuente_secundaria === 'string' && /^https?:\/\//.test(raw.fuente_secundaria)) sources.push({ url: raw.fuente_secundaria });
 
       const card = el('article', { class: 'card', role: 'listitem' });
       const headerRow = el('div', { style: 'display:flex;gap:var(--s-3);justify-content:space-between;align-items:flex-start;flex-wrap:wrap;margin-bottom:var(--s-2)' });
@@ -925,8 +929,12 @@
       if (e.summary) card.appendChild(el('p', { style: 'font-size:var(--text-sm);color:var(--c-ink-2)', html: parseInlineMd(e.summary) }));
 
       const meta = el('dl', { class: 'card-meta' });
+      // v3.5.3: humanize ISO date for display (keep raw if not parseable)
+      const displayDate = e.date && /^\d{4}-\d{2}-\d{2}/.test(e.date)
+        ? (function () { try { return formatDate(e.date); } catch (_) { return e.date; } })()
+        : e.date;
       const rows = [
-        ['Fecha / hora', e.date],
+        ['Fecha / hora', displayDate],
         ['Lugar', e.location],
         ['Convocante', e.convener],
         ['Magnitud', e.magnitude ? String(e.magnitude) : ''],
@@ -955,21 +963,33 @@
   function buildZones(zones) {
     const grid = el('div', { class: 'zones' });
     zones.forEach(raw => {
-      // v3.5.1: bridge Spanish zone keys (puntos_riesgo)
+      // v3.5.3: bridge richer puntos_riesgo shape (centro/sur/oriente):
+      //   {nombre, tipo (bloqueo_vial / ...), nivel (MEDIO-ALTO), descripcion, antecedente, fuente}
+      // lima/norte:
+      //   {nombre, tipo_riesgo (alto/medio), ubicacion, justificacion, puntos_calientes?}
       const z = {
         name: cleanStr(raw.name) || cleanStr(raw.nombre),
-        risk: cleanStr(raw.risk) || cleanStr(raw.tipo_riesgo) || cleanStr(raw.nivel_riesgo),
+        risk: cleanStr(raw.risk) || cleanStr(raw.tipo_riesgo) || cleanStr(raw.nivel_riesgo) || cleanStr(raw.nivel),
         polygon: cleanStr(raw.polygon) || cleanStr(raw.ubicacion),
+        zoneType: cleanStr(raw.tipo) && !/^(alto|medio|bajo|moderado|max|máximo)/i.test(cleanStr(raw.tipo)) ? cleanStr(raw.tipo) : '',
         hotspots: raw.hotspots || raw.key_points || raw.puntos_calientes,
-        alternatives: raw.alternatives || raw.advice || raw.recomendacion || raw.justificacion
+        description: cleanStr(raw.descripcion) || cleanStr(raw.description),
+        antecedent: cleanStr(raw.antecedente) || cleanStr(raw.antecedent),
+        alternatives: raw.alternatives || raw.advice || raw.recomendacion || raw.justificacion,
+        sourceUrl: cleanUrl(raw.fuente) || cleanUrl(raw.fuente_url) || cleanUrl(raw.source_url)
       };
-      if (!z.name && !z.polygon && !z.hotspots && !z.alternatives) return;
+      if (!z.name && !z.polygon && !z.hotspots && !z.alternatives && !z.description) return;
       const lvl = riskCls(z.risk);
       const zoneCls = lvl === 'risk-alto' || lvl === 'risk-maximo' ? 'zone-alto' : lvl === 'risk-bajo' ? 'zone-bajo' : 'zone-moderado';
       const card = el('div', { class: `zone ${zoneCls}` });
       if (z.name) card.appendChild(el('h3', null, z.name));
-      if (z.risk) card.appendChild(el('span', { class: `risk ${lvl}` }, riskLabel(z.risk)));
+      // v3.5.3: risk + zone-type chips row
+      const chips = el('div', { style: 'display:flex;gap:var(--s-2);flex-wrap:wrap;margin:var(--s-1) 0' });
+      if (z.risk) chips.appendChild(el('span', { class: `risk ${lvl}` }, riskLabel(z.risk)));
+      if (z.zoneType) chips.appendChild(el('span', { class: 'badge badge-latente', style: 'font-size:var(--text-xs)' }, titleCase(z.zoneType.replace(/[_-]/g,' '))));
+      if (chips.children.length) card.appendChild(chips);
       if (z.polygon) card.appendChild(el('div', { class: 'zone-poly' }, z.polygon));
+      if (z.description) card.appendChild(el('p', { style: 'font-size:var(--text-sm);color:var(--c-ink-1);margin:var(--s-2) 0', html: parseInlineMd(z.description) }));
 
       const hotspots = z.hotspots;
       if (hotspots) {
@@ -1011,6 +1031,18 @@
         }
         card.appendChild(b);
       }
+      // v3.5.3: antecedente + fuente
+      if (z.antecedent) {
+        const b = el('div', { class: 'zone-block' });
+        b.appendChild(el('h4', null, 'Antecedente'));
+        b.appendChild(el('p', { style: 'font-size:var(--text-sm);color:var(--c-ink-2);margin:var(--s-2) 0 0', html: parseInlineMd(String(z.antecedent)) }));
+        card.appendChild(b);
+      }
+      if (z.sourceUrl) {
+        const src = el('div', { class: 'card-sources', style: 'margin-top:var(--s-2)' });
+        src.appendChild(el('a', { href: z.sourceUrl, target: '_blank', rel: 'noopener noreferrer' }, 'Fuente ↗'));
+        card.appendChild(src);
+      }
       grid.appendChild(card);
     });
     return grid;
@@ -1050,19 +1082,39 @@
   function buildActors(actors) {
     const grid = el('div', { class: 'actors' });
     actors.forEach(raw => {
-      // v3.5.1: bridge Spanish actor keys
+      // v3.5.3: actors use heterogeneous shapes.
+      //   lima/norte:   {nombre, rol, posicion (side key), redes[], fuente}
+      //   centro/sur/oriente: {nombre, cargo, posicion (long descriptive text), region, fuente}
       const name = cleanStr(raw.name) || cleanStr(raw.nombre);
-      const type = cleanStr(raw.type) || cleanStr(raw.side) || cleanStr(raw.posicion) || cleanStr(raw.bando);
+      const rawSide = cleanStr(raw.type) || cleanStr(raw.side) || cleanStr(raw.bando);
+      const posicionStr = cleanStr(raw.posicion);
+      // Treat posicion as a side ONLY when it's a short token (no spaces, snake_case)
+      const posicionIsSide = posicionStr && posicionStr.length < 40 && !/\s/.test(posicionStr);
+      const sideTok = rawSide || (posicionIsSide ? posicionStr : '');
+      const nb = sideTok ? normalizeBando(sideTok) : { side: '', label: '' };
+      const role = cleanStr(raw.role) || cleanStr(raw.rol) || cleanStr(raw.cargo);
       const leader = cleanStr(raw.leader) || cleanStr(raw.lider);
-      const interest = cleanStr(raw.interest) || cleanStr(raw.capacity) || cleanStr(raw.status) || cleanStr(raw.rol) || cleanStr(raw.descripcion);
-      const sourceUrl = cleanUrl(raw.fuente) || cleanUrl(raw.source_url) || (raw.source && cleanUrl(raw.source.url));
+      // Interest text: long posicion takes priority over generic descripcion/rol
+      const longPosicion = posicionStr && !posicionIsSide ? posicionStr : '';
+      const interest = longPosicion ||
+                       cleanStr(raw.interest) || cleanStr(raw.capacity) || cleanStr(raw.status) ||
+                       cleanStr(raw.descripcion);
+      const region = cleanStr(raw.region);
+      const sourceUrl = cleanUrl(raw.fuente) || cleanUrl(raw.fuente_url) || cleanUrl(raw.source_url) || (raw.source && cleanUrl(raw.source.url));
       const redes = Array.isArray(raw.redes) ? raw.redes : [];
-      if (!name && !type && !interest && !redes.length) return;
-      const card = el('div', { class: 'actor' });
-      if (type) card.appendChild(el('div', { class: 'actor-type' }, type));
+      if (!name && !nb.label && !interest && !role && !redes.length) return;
+      const card = el('div', { class: 'actor side-' + (nb.side || 'neutro') });
+      // Header chips row: side label + region
+      if (nb.label || region) {
+        const hdr = el('div', { class: 'actor-meta', style: 'display:flex;gap:var(--s-2);flex-wrap:wrap;margin-bottom:var(--s-1)' });
+        if (nb.label) hdr.appendChild(el('span', { class: 'badge side-' + nb.side, style: 'font-size:var(--text-xs)' }, nb.label));
+        if (region) hdr.appendChild(el('span', { class: 'badge badge-latente', style: 'font-size:var(--text-xs)' }, '📍 ' + region));
+        card.appendChild(hdr);
+      }
       if (name) card.appendChild(el('div', { class: 'actor-name' }, name));
+      if (role) card.appendChild(el('div', { class: 'actor-role', style: 'font-size:var(--text-xs);color:var(--c-muted);margin-bottom:var(--s-1)' }, role));
       if (leader) card.appendChild(el('div', { class: 'actor-interest', style: 'margin-bottom:var(--s-1);font-size:var(--text-xs);color:var(--c-muted)' }, 'Líder: ' + leader));
-      if (interest) card.appendChild(el('div', { class: 'actor-interest' }, interest));
+      if (interest) card.appendChild(el('div', { class: 'actor-interest', html: parseInlineMd(interest) }));
       if (redes.length) {
         const linksWrap = el('div', { class: 'actor-interest', style: 'margin-top:var(--s-1);font-size:var(--text-xs)' });
         redes.forEach((r, i) => {
@@ -1285,9 +1337,18 @@
     x: 'X', tiktok: 'TT', facebook: 'fb', youtube: 'YT', instagram: 'IG'
   };
   const ALT_TYPE_LABEL = {
+    // v3.5.3: alt_media `type` field encodes editorial line, not coverage scope
+    izq: 'Izquierda', der: 'Derecha', centro: 'Centro', anti: 'Antifujimorista',
+    pro_fp: 'Pro-Fujimorismo', pro_sanchez: 'Pro-Sánchez',
     nacional: 'Nacional', regional: 'Regional', comunitario: 'Comunitario', indigena: 'Indígena'
   };
   const DISINFO_TYPE_LABEL = {
+    // v3.5.3: add the actual types found in data (bulo / engano / manipulado / fuera_contexto)
+    bulo: 'Bulo',
+    engano: 'Engaño',
+    engaño: 'Engaño',
+    manipulado: 'Contenido manipulado',
+    fuera_contexto: 'Fuera de contexto',
     comunicado_falso: 'Comunicado falso',
     acta_falsa: 'Acta falsa',
     deepfake: 'Deepfake / IA',
