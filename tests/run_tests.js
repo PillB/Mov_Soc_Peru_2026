@@ -643,9 +643,9 @@ function section(title) {
   }
   ok('no quedan fechas malformadas tipo YYYY-MM-DDT<garbage>', weirdDates === 0, `n=${weirdDates} samples=${JSON.stringify(weirdSamples)}`);
 
-  section('N21. v3.5.10 — meta.version = 3.5.10');
+  section('N21. v3.5.11 — meta.version = 3.5.11');
   const metaVersion = data_v357.meta && data_v357.meta.version;
-  ok('meta.version es 3.5.10', metaVersion === '3.5.10', `got=${metaVersion}`);
+  ok('meta.version es 3.5.11', metaVersion === '3.5.11', `got=${metaVersion}`);
 
   section('N22. v3.5.8 — gazetteer expone CORRIDORS con polylines de avenidas reales');
   const corridorsInfo = await page.evaluate(() => {
@@ -764,6 +764,47 @@ function section(title) {
     return maxV;
   });
   ok('polyline en #map-lima tiene >=20 vertices (real road geometry)', limaPolyMax >= 20, `maxV=${limaPolyMax}`);
+
+  section('N31. v3.5.11 — sección Top 6 países fue reemplazada por actas');
+  const actasCheck = await page.evaluate(() => {
+    const oldGrid = document.querySelector('#rev-paises-grid');
+    const newSection = document.querySelector('.rev-actas');
+    const oldH3 = Array.from(document.querySelectorAll('.rev-paises h3, .rev-actas h3')).map(h => h.textContent || '');
+    const hasTop6 = oldH3.some(t => /Top 6 países/i.test(t));
+    return {
+      oldGridExistsAndPopulated: !!(oldGrid && oldGrid.children && oldGrid.children.length > 0),
+      newSectionExists: !!newSection,
+      hasTop6Heading: hasTop6
+    };
+  });
+  ok('NO hay Top 6 países renderizado', !actasCheck.oldGridExistsAndPopulated && !actasCheck.hasTop6Heading, JSON.stringify(actasCheck));
+  ok('sección .rev-actas existe', actasCheck.newSectionExists, JSON.stringify(actasCheck));
+
+  section('N32. v3.5.11 — tabla de actas pendientes renderizada con filas');
+  const pendCheck = await page.evaluate(() => {
+    const tbl = document.querySelector('#rev-pendientes-table table');
+    const rows = tbl ? tbl.querySelectorAll('tbody tr').length : 0;
+    const sum = (document.querySelector('#rev-pendientes-sum') || {}).textContent || '';
+    return { rows, sum };
+  });
+  ok('al menos 3 filas en actas pendientes', pendCheck.rows >= 3, JSON.stringify(pendCheck));
+  ok('sum de actas pendientes no está vacío', /\d/.test(pendCheck.sum), JSON.stringify(pendCheck));
+
+  section('N33. v3.5.11 — tabla de actas impugnadas renderizada con regiones + escenarios');
+  const impCheck = await page.evaluate(() => {
+    const tbl = document.querySelector('#rev-impugnadas-table table');
+    const rows = tbl ? tbl.querySelectorAll('tbody tr').length : 0;
+    const sum = (document.querySelector('#rev-impugnadas-sum') || {}).textContent || '';
+    const pf = (document.querySelector('#rev-impact-pf') || {}).textContent || '';
+    const ps = (document.querySelector('#rev-impact-ps') || {}).textContent || '';
+    const critico = (document.querySelector('#rev-impact-critico') || {}).textContent || '';
+    const fuentes = document.querySelectorAll('#rev-actas-fuentes a').length;
+    return { rows, sum, pfLen: pf.length, psLen: ps.length, criticoLen: critico.length, fuentes };
+  });
+  ok('al menos 4 filas en actas impugnadas', impCheck.rows >= 4, JSON.stringify(impCheck));
+  ok('escenario pro-Fujimori y pro-Sánchez tienen texto', impCheck.pfLen > 30 && impCheck.psLen > 30, JSON.stringify(impCheck));
+  ok('factor crítico renderizado', impCheck.criticoLen > 30, JSON.stringify(impCheck));
+  ok('al menos 3 fuentes linkeadas', impCheck.fuentes >= 3, JSON.stringify(impCheck));
 
   section('N. Global — no dash-only badge anywhere in regions/social/EW');
   const allDashBadges = await page.evaluate(() => {

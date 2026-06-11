@@ -177,7 +177,7 @@
         </div>
 
         <details class="foldable" data-fold="reversion-detail" open>
-          <summary><span class="fold-label">Ver distribución, países y sensibilidad</span><span class="fold-meta">3 visualizaciones</span></summary>
+          <summary><span class="fold-label">Ver distribución, actas pendientes y sensibilidad</span><span class="fold-meta">3 visualizaciones</span></summary>
           <div class="foldable-body">
             <!-- Distribución del margen final (histograma SVG) -->
             <div class="rev-dist">
@@ -191,11 +191,59 @@
               </div>
             </div>
 
-            <!-- Breakdown por país (TOP 6 + resto) -->
-            <div class="rev-paises">
-              <h3>Voto exterior pendiente — Top 6 países por electores hábiles</h3>
-              <p class="rev-paises-desc">Aporte esperado al margen pro-Fujimori, ordenado por mayor contribución absoluta. Barras horizontales muestran el rango simulado (p5 – p95).</p>
-              <div id="rev-paises-grid" class="rev-paises-grid"></div>
+            <!-- v3.5.11: Actas pendientes + impugnadas (reemplaza Top 6 países) -->
+            <div class="rev-actas">
+              <h3>Actas pendientes e impugnadas — estado ONPE/JNE</h3>
+              <p class="rev-actas-desc">Foco en las actas que faltan procesar y las observadas remitidas a los Jurados Electorales Especiales. Margen actual: <strong id="rev-actas-margen">—</strong> votos. Avance nacional: <strong id="rev-actas-avance">—</strong>. Resolución oficial estimada: <strong id="rev-actas-fecha-oficial">—</strong>.</p>
+
+              <div class="rev-actas-grid">
+                <article class="rev-actas-card">
+                  <header class="rev-actas-head">
+                    <h4>Actas pendientes por origen</h4>
+                    <span class="rev-actas-sum" id="rev-pendientes-sum">—</span>
+                  </header>
+                  <div class="rev-actas-table" id="rev-pendientes-table"></div>
+                </article>
+
+                <article class="rev-actas-card">
+                  <header class="rev-actas-head">
+                    <h4>Actas observadas en JEE</h4>
+                    <span class="rev-actas-sum" id="rev-impugnadas-sum">—</span>
+                  </header>
+                  <div class="rev-actas-table" id="rev-impugnadas-table"></div>
+                  <div class="rev-actas-motivos" id="rev-impugnadas-motivos"></div>
+                </article>
+              </div>
+
+              <article class="rev-actas-impact">
+                <h4>Impacto esperado en el resultado</h4>
+                <div class="rev-impact-grid">
+                  <div class="rev-impact-stat">
+                    <span class="rev-impact-lbl">Votos en juego (estimado)</span>
+                    <span class="rev-impact-val" id="rev-impact-votos">—</span>
+                  </div>
+                  <div class="rev-impact-stat">
+                    <span class="rev-impact-lbl">Margen actual / votos en juego</span>
+                    <span class="rev-impact-val" id="rev-impact-ratio">—</span>
+                  </div>
+                  <div class="rev-impact-stat">
+                    <span class="rev-impact-lbl">Recuentos físicos programados</span>
+                    <span class="rev-impact-val" id="rev-impact-recuento">—</span>
+                  </div>
+                </div>
+                <div class="rev-impact-scenarios">
+                  <div class="rev-impact-sc rev-impact-sc-f">
+                    <span class="rev-impact-sc-tag">Escenario pro-Fujimori</span>
+                    <p id="rev-impact-pf">—</p>
+                  </div>
+                  <div class="rev-impact-sc rev-impact-sc-s">
+                    <span class="rev-impact-sc-tag">Escenario pro-Sánchez</span>
+                    <p id="rev-impact-ps">—</p>
+                  </div>
+                </div>
+                <p class="rev-impact-critico" id="rev-impact-critico">—</p>
+                <div class="rev-actas-fuentes" id="rev-actas-fuentes"></div>
+              </article>
             </div>
 
             <!-- Sensibilidad -->
@@ -220,7 +268,7 @@
             </ul>
             <h4>Supuestos clave</h4>
             <ul>
-              <li>Independencia entre países (no se modela correlación de sesgo ideológico transcontinental).</li>
+              <li>Independencia entre orígenes de actas (no se modela correlación de sesgo regional cruzado).</li>
               <li>30 % del voto exterior ya contabilizado al cierre del 9-jun 13:00 (ONPE).</li>
               <li>Actas observadas tienen mezcla 60 % Lima / 40 % resto; el sesgo Fujimori esperado es 55,5 %.</li>
               <li>Semilla fija (42) para reproducibilidad.</li>

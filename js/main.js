@@ -2520,6 +2520,7 @@
     const m = mc.montecarlo || {};
     const hist = mc.histograma_margen || {};
     const paises = mc.breakdown_paises || [];
+    const actasStatus = mc.actas_status || null;
     const sens = mc.sensibilidad || [];
     const interp = mc.interpretacion || {};
     const meta = mc.metadata || {};
@@ -2543,7 +2544,12 @@
     }
 
     renderHistogram(hist);
-    renderPaises(paises);
+    // v3.5.11: actas pendientes + impugnadas reemplaza el Top 6 países
+    if (actasStatus) {
+      renderActas(actasStatus);
+    } else {
+      renderPaises(paises);
+    }
     renderSensibilidad(sens);
     renderValidacion(mc);
 
@@ -2678,6 +2684,107 @@
     svg.appendChild(xTitle);
 
     root.appendChild(svg);
+  }
+
+  // v3.5.11: render del estado de actas ONPE/JNE (reemplaza Top 6 países)
+  function renderActas(st) {
+    const fmt = (n) => Number(n).toLocaleString('es-PE', { maximumFractionDigits: 0 });
+    const pct = (n, dec) => (Number(n) * 100).toFixed(dec != null ? dec : 1).replace('.', ',') + ' %';
+
+    // Header KPIs
+    text('#rev-actas-margen', (st.margen_actual_votos >= 0 ? '+' : '') + fmt(st.margen_actual_votos || 0));
+    text('#rev-actas-avance', pct(st.avance_nacional_pct || 0, 3));
+    text('#rev-actas-fecha-oficial', (st.impacto && st.impacto.fecha_oficial_estimada) || '—');
+
+    // Pendientes
+    const pendTable = $('#rev-pendientes-table');
+    const pendSum = $('#rev-pendientes-sum');
+    if (pendTable) {
+      pendTable.innerHTML = '';
+      const pendientes = st.pendientes || [];
+      const totPend = pendientes.reduce((s, p) => s + (p.count || 0), 0);
+      if (pendSum) pendSum.textContent = fmt(totPend) + ' actas';
+      const tbl = el('table', { class: 'rev-actas-tbl' });
+      const thead = el('thead');
+      const trh = el('tr');
+      ['Origen', 'Actas', 'Detalle', 'Voto esperado'].forEach(h => trh.appendChild(el('th', null, h)));
+      thead.appendChild(trh);
+      tbl.appendChild(thead);
+      const tbody = el('tbody');
+      pendientes.forEach(p => {
+        const tr = el('tr');
+        tr.appendChild(el('td', { class: 'rev-actas-origen' }, p.origen || '—'));
+        tr.appendChild(el('td', { class: 'num rev-actas-count' }, fmt(p.count || 0)));
+        tr.appendChild(el('td', { class: 'rev-actas-detalle' }, p.detalle || ''));
+        tr.appendChild(el('td', { class: 'rev-actas-voto' }, p.voto_esperado || '—'));
+        tbody.appendChild(tr);
+      });
+      tbl.appendChild(tbody);
+      pendTable.appendChild(tbl);
+    }
+
+    // Impugnadas
+    const imp = st.impugnadas || {};
+    const impTable = $('#rev-impugnadas-table');
+    const impSum = $('#rev-impugnadas-sum');
+    if (impTable) {
+      impTable.innerHTML = '';
+      if (impSum) impSum.textContent = fmt(imp.total || 0) + ' actas · ' + pct(imp.en_tramite_pct || 0, 0) + ' en trámite';
+      const tbl = el('table', { class: 'rev-actas-tbl' });
+      const thead = el('thead');
+      const trh = el('tr');
+      ['Región', 'Actas', 'Líder', '% líder'].forEach(h => trh.appendChild(el('th', null, h)));
+      thead.appendChild(trh);
+      tbl.appendChild(thead);
+      const tbody = el('tbody');
+      (imp.por_region || []).forEach(r => {
+        const tr = el('tr');
+        tr.appendChild(el('td', { class: 'rev-actas-region' }, r.region || '—'));
+        tr.appendChild(el('td', { class: 'num rev-actas-count' }, fmt(r.count || 0)));
+        const liderCls = r.lider === 'Fujimori' ? 'rev-actas-lider rev-actas-lider-f'
+                      : r.lider === 'Sánchez' ? 'rev-actas-lider rev-actas-lider-s'
+                      : 'rev-actas-lider rev-actas-lider-m';
+        tr.appendChild(el('td', null, el('span', { class: liderCls }, r.lider || '—')));
+        tr.appendChild(el('td', { class: 'num' }, r.lider_pct != null ? pct(r.lider_pct, 1) : '—'));
+        tbody.appendChild(tr);
+      });
+      tbl.appendChild(tbody);
+      impTable.appendChild(tbl);
+    }
+
+    // Motivos
+    const motivos = $('#rev-impugnadas-motivos');
+    if (motivos) {
+      motivos.innerHTML = '';
+      const lbl = el('span', { class: 'rev-actas-motivos-lbl' }, 'Motivos principales:');
+      motivos.appendChild(lbl);
+      const ul = el('ul', { class: 'rev-actas-motivos-list' });
+      (imp.motivos_principales || []).forEach(m => ul.appendChild(el('li', null, m)));
+      motivos.appendChild(ul);
+    }
+
+    // Impacto
+    const impacto = st.impacto || {};
+    text('#rev-impact-votos', fmt(impacto.votos_en_juego_estimado || 0));
+    const ratio = impacto.margen_vs_votos_en_juego_ratio || 0;
+    text('#rev-impact-ratio', pct(ratio, 3));
+    text('#rev-impact-recuento', (imp.recuento_programadas || 0) + ' de ' + (imp.recuento_total || 0));
+    text('#rev-impact-pf', impacto.escenario_pro_fujimori || '—');
+    text('#rev-impact-ps', impacto.escenario_pro_sanchez || '—');
+    text('#rev-impact-critico', impacto.factor_critico || '');
+
+    // Fuentes
+    const fts = $('#rev-actas-fuentes');
+    if (fts) {
+      fts.innerHTML = '';
+      const lbl = el('span', { class: 'rev-actas-fuentes-lbl' }, 'Fuentes:');
+      fts.appendChild(lbl);
+      (st.fuentes || []).forEach((f, i) => {
+        const a = el('a', { href: f.url, target: '_blank', rel: 'noopener noreferrer', class: 'rev-actas-fuente-link' }, f.nombre || f.url);
+        fts.appendChild(a);
+        if (i < (st.fuentes.length - 1)) fts.appendChild(document.createTextNode(' · '));
+      });
+    }
   }
 
   function renderPaises(paises) {

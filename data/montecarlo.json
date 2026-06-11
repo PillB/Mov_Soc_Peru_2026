@@ -8,7 +8,8 @@
     "n_total_simulaciones": 400000,
     "semilla_reproducibilidad": 42,
     "version_anterior": "v3.3 (corte 9-jun 95,84% escrutado, modelaba REVERSIÓN)",
-    "cambio_paradigma": "De '¿Fuj revertirá?' (Sánchez +25.500) a '¿Fuj mantendrá?' (Fuj +651)"
+    "cambio_paradigma": "De '¿Fuj revertirá?' (Sánchez +25.500) a '¿Fuj mantendrá?' (Fuj +651)",
+    "version": "3.5.11"
   },
   "estado_actual_actualizado": {
     "pct_escrutado": 0.98215,
@@ -621,6 +622,126 @@
     "margen_ic90": [
       42994.39555943811,
       48955.071349497266
+    ]
+  },
+  "actas_status": {
+    "corte": "2026-06-11T14:00-05:00",
+    "avance_nacional_pct": 0.98216,
+    "avance_extranjero_pct": 0.835,
+    "total_actas": 92766,
+    "contabilizadas": 91141,
+    "margen_actual_votos": 561,
+    "pendientes": [
+      {
+        "origen": "Extranjero",
+        "count": 836,
+        "detalle": "Última remesa consular llegó a Lima la noche del 10-jun; 63,5 % ya contabilizado",
+        "voto_esperado": "pro-Fujimori (~63 % exterior)"
+      },
+      {
+        "origen": "Loreto",
+        "count": 130,
+        "detalle": "Mesas amazónicas remotas; traslado fluvial pendiente",
+        "voto_esperado": "Fujimori 53,0 % vs Sánchez 47,0 % (regional)"
+      },
+      {
+        "origen": "Junín",
+        "count": 41,
+        "detalle": "Repliegue cerrado al 100 % el 9-jun; últimas actas de Santo Domingo de Acobamba",
+        "voto_esperado": "Sánchez 54,9 % vs Fujimori 45,1 %"
+      },
+      {
+        "origen": "Otras regiones",
+        "count": 70,
+        "detalle": "Reparto residual en sierra sur y nororiente",
+        "voto_esperado": "mixto (mayoría regiones pro-Sánchez)"
+      }
+    ],
+    "impugnadas": {
+      "total": 1635,
+      "en_tramite_pct": 0.62,
+      "atendidas_pct": 0.37,
+      "recuento_programadas": 4,
+      "recuento_total": 55,
+      "por_region": [
+        {
+          "region": "Lima Metropolitana",
+          "count": 800,
+          "lider": "Fujimori",
+          "lider_pct": 0.635
+        },
+        {
+          "region": "Lima Provincias",
+          "count": 30,
+          "lider": "Fujimori",
+          "lider_pct": 0.635
+        },
+        {
+          "region": "Otras regiones (interior)",
+          "count": 580,
+          "lider": "Mixto",
+          "lider_pct": null
+        },
+        {
+          "region": "Callao",
+          "count": 85,
+          "lider": "Fujimori",
+          "lider_pct": 0.656
+        },
+        {
+          "region": "Piura",
+          "count": 55,
+          "lider": "Fujimori",
+          "lider_pct": 0.57
+        },
+        {
+          "region": "Extranjero",
+          "count": 85,
+          "lider": "Fujimori",
+          "lider_pct": 0.634
+        }
+      ],
+      "motivos_principales": [
+        "Errores aritméticos en sumas de votos",
+        "Omisión de firmas de miembros de mesa",
+        "Datos incompletos o ilegibles",
+        "Votos impugnados por personeros de partidos"
+      ]
+    },
+    "impacto": {
+      "votos_en_juego_estimado": 522000,
+      "votos_por_acta_promedio": 200,
+      "margen_vs_votos_en_juego_ratio": 0.00107,
+      "escenario_pro_fujimori": "Si 55 % de actas observadas se levantan a favor de Fujimori (consistente con concentración en Lima/Callao/Piura/extranjero donde lidera 56-66 %), incrementa ventaja ~45.000 votos.",
+      "escenario_pro_sanchez": "Si JEE anula >40 % de actas Lima por irregularidades, ~80.000 votos pro-Fujimori salen del cómputo, revirtiendo el margen actual.",
+      "fecha_oficial_estimada": "2026-07-15",
+      "factor_critico": "El margen de 561 votos es 0,003 % de los votos válidos — cualquier resolución JEE puede invertir el resultado. 55 actas en recuento físico tomarán semanas adicionales."
+    },
+    "fuentes": [
+      {
+        "nombre": "ONPE — resultados oficiales 2da vuelta",
+        "url": "https://resultadosegundavuelta.onpe.gob.pe/"
+      },
+      {
+        "nombre": "JNE — dashboard actas observadas",
+        "url": "https://portal.jne.gob.pe/portal/Pagina/Nota/20259"
+      },
+      {
+        "nombre": "El País — escrutinio 98,216 %",
+        "url": "https://elpais.com/america/2026-06-11/resultados-de-las-elecciones-en-peru-en-vivo.html"
+      },
+      {
+        "nombre": "Ojo Público — 1.525 actas observadas",
+        "url": "https://ojo-publico.com/ultimas-noticias/6355/segunda-vuelta-mas-1500-actas-votacion-fueron-observadas"
+      },
+      {
+        "nombre": "Infobae — desglose por región",
+        "url": "https://www.infobae.com/peru/2026/06/10/actas-observadas-de-la-segunda-vuelta-2026-en-peru-cuantas-hay-de-donde-provienen-y-a-que-candidato-beneficiaran/"
+      },
+      {
+        "nombre": "CNN Español — actas pendientes por categoría",
+        "url": "https://cnnespanol.cnn.com/2026/06/08/latinoamerica/peru-resultados-actas-pendientes-onpe-orix"
+      }
     ]
   }
 }

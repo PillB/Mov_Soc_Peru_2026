@@ -1,7 +1,7 @@
 # AGENT.md — Dossier OSINT Perú 2026
 
 > Documento de mantenimiento para futuras sesiones. Lee esto **antes** de modificar el dossier.
-> Última actualización: v3.5.10 (popups de ruta con detalle histórico + eventos relacionados clickables + link a fuente).
+> Última actualización: v3.5.11 (sección elecciones reemplazada: actas pendientes por origen + impugnadas por región + impacto esperado, datos ONPE/JNE corte 11-jun).
 
 ---
 
@@ -245,4 +245,5 @@ share_file(
 | 3.5.7   | e250f5d   | validación de fechas (`fecha_nota`/`fecha_fin`), interactividad mapa↔lista, AGENT.md |
 | 3.5.8   | 9e2f833   | rutas siguen avenidas reales: `CORRIDORS` (17 polylines OSM-aligned) + `resolveCorridor()` con bbox filter; traza corredor (sólida) vs estimada (dashed) |
 | 3.5.9   | d1f9b71   | **geometría real de calles**: `CORRIDORS_REAL` precomputado vía OSRM demo (17 corredores → 113k vertices → Douglas-Peucker → 6.5k vertices, 136 KB); **fix tarjetas .route** que mostraban solo "—" (nuevo buildRoutes lee `descripcion`/`distritos`/`puntos_clave`/`patron_historico`/`fuente`) |
-| 3.5.10  | (este)    | **popups de ruta enriquecidos**: título derivado (cascada), patrón histórico en callout, lista de eventos relacionados clickables (`findRelatedEvents()` por overlap de tokens distritos∩ubicacion + puntos_clave∩ubicacion → `focusEvent(evtid)`), link a fuente externa; eliminado "Ruta · —" vacío en mp-tag (también en popup de zona y evento); `__regionMaps[id].map` ahora expuesto para QA |
+| 3.5.10  | bd1db7c   | **popups de ruta enriquecidos**: título derivado (cascada), patrón histórico en callout, lista de eventos relacionados clickables (`findRelatedEvents()` por overlap de tokens distritos∩ubicacion + puntos_clave∩ubicacion → `focusEvent(evtid)`), link a fuente externa; eliminado "Ruta · —" vacío en mp-tag (también en popup de zona y evento); `__regionMaps[id].map` ahora expuesto para QA |
+| 3.5.11  | (este)    | **sección elecciones rehecha**: reemplaza "Top 6 países" por dos tablas (`actas pendientes por origen` — 836 extranjero + 130 Loreto + 41 Junín + 70 otras, total 1.077; `actas observadas en JEE` por región con chip de líder — Lima Metro 800, Lima Prov 30, otras 580, Callao 85, Piura 55, extranjero 85, total 1.635), motivos JEE, card de impacto con votos en juego (~522k), ratio margen/votos, escenarios pro-F y pro-S, factor crítico, recuentos físicos (4 de 55 programados), fecha oficial 15-jul, 6 fuentes linkeadas. Nuevo bloque `actas_status` en montecarlo.json. Tests N31-N33 |
