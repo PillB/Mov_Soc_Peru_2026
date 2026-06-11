@@ -2359,14 +2359,14 @@ tr:hover td { background: var(--c-bg-soft); }
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">Sección 2b · Análisis cuantitativo</p>
-          <h2>Escenario de reversión: ¿puede Fujimori superar a Sánchez con los votos pendientes?</h2>
+          <h2>Escenario actualizado: ¿puede Fujimori mantener la ventaja con los votos pendientes?</h2>
           <p>Modelo de Montecarlo (100 000 iteraciones) sobre los <strong id="rev-total-pend">—</strong> votos pendientes (voto exterior + actas observadas + zonas rurales), con priors calibrados a la primera vuelta 2026 y la segunda vuelta 2021.</p>
         </div>
 
         <!-- KPI principal -->
         <div class="reversion-kpis">
           <article class="rev-kpi rev-kpi-primary">
-            <span class="rev-kpi-label">Probabilidad de reversión</span>
+            <span class="rev-kpi-label">Probabilidad de mantener la ventaja</span>
             <span class="rev-kpi-value" id="rev-prob">—</span>
             <span class="rev-kpi-sub" id="rev-prob-sub">Fujimori supera a Sánchez al cierre del cómputo</span>
           </article>
@@ -2376,12 +2376,12 @@ tr:hover td { background: var(--c-bg-soft); }
             <span class="rev-kpi-sub" id="rev-margen-banda">Banda 90 %: —</span>
           </article>
           <article class="rev-kpi">
-            <span class="rev-kpi-label">Votos pro-Fujimori requeridos</span>
+            <span class="rev-kpi-label">Votos pro-Fujimori aún necesarios</span>
             <span class="rev-kpi-value" id="rev-breakeven">—</span>
             <span class="rev-kpi-sub" id="rev-breakeven-pct">% del pendiente que debe capturar</span>
           </article>
           <article class="rev-kpi">
-            <span class="rev-kpi-label">Ventaja actual Sánchez</span>
+            <span class="rev-kpi-label">Ventaja actual Fujimori</span>
             <span class="rev-kpi-value" id="rev-ventaja">—</span>
             <span class="rev-kpi-sub" id="rev-ventaja-sub">al 95,84 % escrutado (ONPE)</span>
           </article>
@@ -4122,7 +4122,9 @@ window.__EMBEDDED_DATA = {"meta":{"version":"3.4","generated_at":"2026-06-11T16:
     text('#rev-margen-banda', 'Banda 90 %: [' + sgn(Math.round(m.margen_final_p5 || 0)) + ' ; ' + sgn(Math.round(m.margen_final_p95 || 0)) + ']');
     text('#rev-breakeven', fmt(br.votos_fujimori_necesarios || 0) + ' votos');
     text('#rev-breakeven-pct', '≥' + String(br.pct_pendiente_necesario || 0).replace('.', ',') + ' % del pendiente debe ir a Fujimori');
-    text('#rev-ventaja', fmt(est.ventaja_sanchez_votos || br.ventaja_actual_sanchez || 0) + ' votos');
+    // v3.4: si Fuj ya lleva la ventaja, mostrar valor absoluto con signo +
+    const ventajaRaw = est.ventaja_fujimori_votos != null ? est.ventaja_fujimori_votos : (est.ventaja_sanchez_votos || br.ventaja_actual_sanchez || 0);
+    text('#rev-ventaja', (ventajaRaw >= 0 ? '+' : '−') + fmt(Math.abs(ventajaRaw)) + ' votos');
     if (est.pct_escrutado != null) {
       const pe = (est.pct_escrutado * 100).toFixed(2).replace('.', ',') + ' % escrutado (ONPE)';
       text('#rev-ventaja-sub', 'al ' + pe);

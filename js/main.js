@@ -1320,7 +1320,9 @@
     text('#rev-margen-banda', 'Banda 90 %: [' + sgn(Math.round(m.margen_final_p5 || 0)) + ' ; ' + sgn(Math.round(m.margen_final_p95 || 0)) + ']');
     text('#rev-breakeven', fmt(br.votos_fujimori_necesarios || 0) + ' votos');
     text('#rev-breakeven-pct', '≥' + String(br.pct_pendiente_necesario || 0).replace('.', ',') + ' % del pendiente debe ir a Fujimori');
-    text('#rev-ventaja', fmt(est.ventaja_sanchez_votos || br.ventaja_actual_sanchez || 0) + ' votos');
+    // v3.4: si Fuj ya lleva la ventaja, mostrar valor absoluto con signo +
+    const ventajaRaw = est.ventaja_fujimori_votos != null ? est.ventaja_fujimori_votos : (est.ventaja_sanchez_votos || br.ventaja_actual_sanchez || 0);
+    text('#rev-ventaja', (ventajaRaw >= 0 ? '+' : '−') + fmt(Math.abs(ventajaRaw)) + ' votos');
     if (est.pct_escrutado != null) {
       const pe = (est.pct_escrutado * 100).toFixed(2).replace('.', ',') + ' % escrutado (ONPE)';
       text('#rev-ventaja-sub', 'al ' + pe);
