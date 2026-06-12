@@ -396,7 +396,10 @@
   function formatSignedInt(n) {
     if (n == null || isNaN(n)) return '—';
     const sign = n > 0 ? '+' : (n < 0 ? '−' : '');
-    return sign + Math.abs(Math.round(n)).toLocaleString('es-PE');
+    // Manual es-PE thousands separator (period). toLocaleString('es-PE') unreliable in some runtimes.
+    const abs = Math.abs(Math.round(n));
+    const formatted = String(abs).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return sign + formatted;
   }
   function guessTone(s) {
     const txt = ((s.nombre||'') + ' ' + (s.descripcion||'')).toLowerCase();

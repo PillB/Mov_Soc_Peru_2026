@@ -894,6 +894,26 @@ function section(title) {
   ok('al menos 7 detalles foldable existen', foldDefaultCheck.filter(s => s.exists).length >= 7, JSON.stringify(foldDefaultCheck));
   ok('todos los foldables del landing están cerrados por defecto', allClosed === true, JSON.stringify(foldDefaultCheck));
 
+  section('N39. v3.6.1 — Brand title bump + ML KPI block layout + es-PE number formatting');
+  const v361Check = await page.evaluate(() => {
+    const title = document.title;
+    const brandTitle = document.querySelector('.brand-title')?.textContent.trim();
+    const fmlValues = [...document.querySelectorAll('#fml-kpis .fml-kpi-value')].map(v => v.textContent.trim());
+    const fmlValueDisplay = document.querySelector('#fml-kpis .fml-kpi-value');
+    const valueDisplay = fmlValueDisplay ? getComputedStyle(fmlValueDisplay).display : null;
+    const icBounds = [...document.querySelectorAll('.fml-ic-bounds')].map(b => b.textContent.trim());
+    const navOrder = [...document.querySelectorAll('#primaryNav a')].map(a => a.getAttribute('href'));
+    return { title, brandTitle, fmlValues, valueDisplay, icBounds, navOrder };
+  });
+  ok('brand title actualizado a v3.6', /v3\.6/.test(v361Check.brandTitle || ''), v361Check.brandTitle);
+  ok('document.title actualizado a v3.6', /v3\.6/.test(v361Check.title), v361Check.title);
+  ok('fml-kpi-value renderiza como block', v361Check.valueDisplay === 'block', `display=${v361Check.valueDisplay}`);
+  const hasEsThousands = (v361Check.fmlValues.find(v => /\d{1,3}\.\d{3}/.test(v)) || '');
+  ok('formato es-PE con punto en miles (ej: +1.886)', /\d{1,3}\.\d{3}/.test(hasEsThousands), hasEsThousands || JSON.stringify(v361Check.fmlValues));
+  ok('IC bounds usan formato es-PE con punto', v361Check.icBounds.some(b => /\d{1,3}\.\d{3}/.test(b)), JSON.stringify(v361Check.icBounds));
+  ok('nav order: BLUF primero', v361Check.navOrder[0] === '#bluf', JSON.stringify(v361Check.navOrder));
+  ok('nav order: Forecast después de Reversión (DOM-aligned)', v361Check.navOrder.indexOf('#forecast-ml') > v361Check.navOrder.indexOf('#reversion'), JSON.stringify(v361Check.navOrder));
+
   section('N. Global — no dash-only badge anywhere in regions/social/EW');
   const allDashBadges = await page.evaluate(() => {
     const scope = Array.from(document.querySelectorAll(
