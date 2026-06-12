@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "3.5.13",
+    "version": "3.5.14",
     "generated_at": "2026-06-12T09:00:00-05:00",
     "scope": "Manifestaciones, marchas y eventos de acumulación de personas — Perú + Capa de inteligencia social y medios alternativos",
     "window": "12–19 junio 2026 (post-2da vuelta · corte 98,26% escrutado · margen 1.303 votos)",
@@ -28,7 +28,7 @@
         "url": "https://defensoria.gob.pe"
       }
     ],
-    "last_update": "2026-06-12T09:00:00-05:00",
+    "last_update": "2026-06-12T13:00:00-05:00",
     "expansion": "v3.1 — Capa grassroots por región: 89 cuentas individuales (autoridades locales, dirigentes, activistas), 67 colectivos/frentes, 87 lives identificados, 60 hashtags verificados, 55 rutas/bloqueos documentados, 17 comunicados oficiales nacionales. Investigación paralela en 6 frentes (Lima/Norte/Centro/Sur/Oriente/Nacional).",
     "grassroots_stats": {
       "accounts": 89,
@@ -38,20 +38,22 @@
       "routes": 55,
       "comunicados": 17
     },
-    "last_refresh_summary": "Refresh v3.5.13 · Investigación paralela 4 frentes (escrutinio ONPE/JNE, convocatorias 12-19 jun, grassroots 5 macroregiones, social intelligence + disinformación). Corte 12-jun 09:00 PET: ONPE 98,258 % actas, Fujimori +1.303 votos (50,004 % vs 49,996 %), voto exterior con 100 % material recibido por Cancillería, JEE atendió 71 % de 1.611 actas observadas, 138 actas formalmente en recuento físico, 9 audiencias ya realizadas, 126 pendientes. Defensoría: 'No hubo fraude.' Misión UE/OEA validan proceso. JP presentó 4 recursos de nulidad por ~2.400 mesas. Marcha 'Toma de Lima / Los Cuatro Suyos' confirmada 13-jun 15:00 Plaza San Martín. Bloqueos activos: Ilave (Puno), Federico Basadre (Ucayali), F. Belaúnde Terry (San Martín). 35 convocatorias documentadas (28 pro-Sánchez, 4 pro-Fuj, 2 gremial, 1 indígena). Caso 'Karamba' (OjoPúblico): 214 anuncios YouTube con IA generativa pro-Fuj. 18 casos disinfo verificados.",
+    "last_refresh_summary": "Refresh v3.5.14 — Validación OSINT cruzada por reliability engineer. 4 investigaciones paralelas independientes verificaron cifras ONPE/JNE, convocatorias 13-19 jun, social intelligence (hashtags/cuentas/lives) y declaraciones de actores. CORRECCIONES APLICADAS: (1) Concentración pro-Fujimori 14-jun Javier Prado marcada DUDOSA — sin confirmación independiente; FP priorizó defensa legal en BTH y Estadio Monumental, no movilización callejera. (2) Marcha Arequipa pro-Fujimori Gen Z parte de Plaza España (no calle Ayacucho), vocero David Calisaya. (3) Recursos de nulidad JP: 2 confirmados públicamente (no 4); 1.751 nacionales + 647 EE.UU. (no 649) = 2.398 mesas (~2.400). (4) Actas observadas JNE: 1.579 efectivamente recibidas vs 1.611 enviadas por ONPE; 1.136 atendidas (71 %) y 443 en trámite confirmados. (5) Margen oscila intra-día 859-1.303 votos según corte (EFE 12:00 GMT: 1.207). (6) Fecha proclamación: 'mediados-julio' (Grecia Rentería JNE); 15-jul es inferencia plausible no documentada como fecha oficial. (7) Defensor Josué Gutiérrez declaró 'No hubo fraude, ni siquiera se puede mencionar' el 11-jun 18:57 (Infobae). NUEVOS ACTORES verificados y agregados: José María Balcázar (presidente interino desde feb 2026, reemplazo Boluarte destituida 2025), Óscar Arriola (comandante general PNP, anunció 'uso gradual de la fuerza' ante protestas 11-jun), Oswaldo Calle (comandante general Ejército desde dic 2025), Jorge Zapata Ríos (presidente CONFIEP, descartó fuga capitales 9-jun), Carlos Adeval Zafra Flores (personero legal JP que firmó nulidad), Luis Dyer (jefe personeros FP). VLADIMIR CERRÓN aclarado: PRÓFUGO con orden de captura vigente desde 2023, publica desde clandestinidad con VPN. KARAMBA ACTUALIZADO: los 6 canales fantasma (@EnfocatePeru @RadarPeruano @CheverePe @SoyIndependiente @Sancochau @ElMachetePeru) fueron eliminados definitivamente de YouTube tras publicación OjoPúblico 5-jun; sin acción judicial confirmada al 12-jun. REFUTACIÓN clave: SUTEP se declaró neutral públicamente (no respalda huelga defensa del voto). NOVEDADES 6h: JEE rechazó un recurso JP por falta de pago tasa electoral; audiencias recuento Lambayeque 12-jun (3), Chanchamayo 13-jun, Tambopata 15-jun; Canciller Pareja se reunió con OEA/UE (ambas misiones validaron jornada); JNE desmintió proclamación viral falsa que circuló 11-jun mostrando a Fujimori como presidenta electa. Tests 182/182. Cero errores JS.",
     "fecha_corte": "2026-06-12T09:00:00-05:00"
   },
   "executive_alert": {
     "level": "ALTO",
-    "headline": "Fujimori sostiene ventaja de +1.303 votos (50,004 %) al 98,26 % escrutado; JNE confirma 'no hay resultados oficiales' y JP presenta recurso de nulidad por 2.400 mesas",
-    "key_finding": "Al 12-jun 09:00 Lima, ONPE 98,258 % (91.150 de 92.766 actas). Keiko Fujimori supera a Roberto Sánchez por 1.303 votos (9.036.046 / 50,004 % vs 9.034.743 / 49,996 %). Quedan 9 actas pendientes de cómputo (Yaquerana, Loreto, bloqueadas por mal clima) y 1.611 actas observadas en JEE: 1.136 atendidas (71 %), 443 en trámite, 138 derivadas a recuento físico (9 audiencias realizadas, 126 pendientes). Voto exterior con 100 % de material físico recibido por Cancillería (último vuelo 233 actas desde Buenos Aires la noche del 11-jun). Juntos por el Perú presentó 4 recursos formales ante JEE Lima Centro 1 y 2 pidiendo nulidad de 1.751 mesas nacionales + 649 EE. UU. (~2.400 totales) alegando 'patrones matemáticos repetidos'; Fuerza Popular responde que 'no existe causal legal'. JNE emitió comunicado: 'No existen resultados oficiales, no se ha emitido acta de proclamación'. Defensoría (Josué Gutiérrez): 'No hubo fraude'. Misiones UE y OEA validan proceso aunque la UE detectó sesgo de prensa privada contra Sánchez. Marcha 'La Toma de Lima / Los Cuatro Suyos' confirmada para mañana 13-jun 15:00 Plaza San Martín. PNP y FF. AA. en alerta máxima.",
+    "headline": "Fujimori sostiene ventaja oscilante 859-1.303 votos (50,002-50,004 %) al 98,26 % escrutado; JNE confirma '1.579 actas observadas' y JP presenta 2 recursos de nulidad por ~2.398 mesas (1.751 nacionales + 647 EE.UU.)",
+    "key_finding": "Resultado ajustadísimo: Fujimori +859 a +1.303 votos (oscilación intra-día) sobre 18.070.789 válidos al 98,258 % escrutado. Defensor del Pueblo Josué Gutiérrez declaró el 11-jun 18:57 'No hubo fraude, ni siquiera se puede mencionar'. Misiones OEA/UE confirmaron jornada 'tranquila y ordenada'. JP presentó 2 recursos formales de nulidad por ~2.398 mesas (1.751 nacionales + 647 EE.UU.); el JEE rechazó uno por falta de pago de tasa. Proclamación: 'mediados de julio' (JNE Grecia Rentería) — el 15-jul no es fecha oficial documentada.",
     "catalysts": [
       "Margen ínfimo de 1.303 votos (0,007 % de los válidos) — cualquier resolución JEE puede revertir el resultado.",
       "Bloqueo activo del Puente Internacional de Ilave (Puno) por CNUL/Fenatep en huelga indefinida.",
       "Marcha 'Toma de Lima / Cuatro Suyos' convocada mañana 13-jun 15:00 desde Plaza San Martín — 17 municipalidades en alerta conjunta.",
       "Recurso de nulidad por 2.400 mesas presentado por JP — decisión JEE pendiente.",
-      "Concentración pro-Fujimori convocada 14-jun 11:00 Av. Javier Prado Este — primer evento masivo del bando oficialista.",
-      "Comunidades aymaras Puno (CNUL): declararon 'no reconoceremos resultado' si Fujimori es proclamada."
+      "Bando pro-Fujimori prioriza defensa legal (sede BTH, Estadio Monumental) sobre movilización callejera; supuesta concentración 14-jun Av. Javier Prado SIN CONFIRMACIÓN INDEPENDIENTE al 12-jun.",
+      "Comunidades aymaras Puno (CNUL): declararon 'no reconoceremos resultado' si Fujimori es proclamada.",
+      "Audiencias de recuento físico en curso: Lambayeque 12-jun (3 actas), Chanchamayo 13-jun, Tambopata 15-jun ([JNE](https://resultados.jne.gob.pe)).",
+      "JEE rechazó un recurso JP por falta de pago de tasa electoral (12-jun) — sin indicios de fraude documentados."
     ],
     "top_risks_24_72h": [
       "Choques entre marchantes y PNP en el centro de Lima 13-14 jun (Prob: MEDIA-ALTA | Impacto: ALTO)",
@@ -295,11 +297,12 @@
             "Keiko Fujimori",
             "colectivos pro-FP"
           ],
-          "estado": "probable",
+          "estado": "DUDOSA — sin confirmación independiente",
           "fuente_url": "https://www.infobae.com/peru/2026/06/04/cierre-de-campana-de-keiko-fujimori-en-vivo-minuto-a-minuto-del-ultimo-mitin-de-fuerza-popular-en-lima-previo-a-las-elecciones-del-7-de-junio/",
           "fuente_nombre": "Infobae Perú",
           "fuente_secundaria": null,
-          "notas": "Contrapeso a marcha 13-jun pro-Sánchez. Fuerza Popular rechaza acusaciones de impugnación masiva de actas. Evento aún no oficializado públicamente al 12 jun 09:00. · Simpatizantes de Fuerza Popular y colectivos pro-Keiko Fujimori convocan concentración en Lima para el domingo 14 de junio, en la Av. Javier Prado Este (zona San Borja/La Molina), exigiendo respeto a los resultados preliminares que otorgan ventaja a Fujimori."
+          "notas": "[DUDOSA] Contrapeso a marcha 13-jun pro-Sánchez. Fuerza Popular rechaza acusaciones de impugnación masiva de actas. Evento aún no oficializado públicamente al 12 jun 09:00. · Simpatizantes de Fuerza Popular y colectivos pro-Keiko Fujimori convocan concentración en Lima para el domingo 14 de junio, en la Av. Javier Prado Este (zona San Borja/La Molina), exigiendo respeto a los resultados preliminares que otorgan ventaja a Fujimori.",
+          "validacion_osint": "Audit OSINT 12-jun 13:00: NO existe confirmación independiente. Sede oficial FP es Av. 9 de Diciembre 422 (Cercado), NO Javier Prado. Concentraciones FP documentadas en jun-2026 fueron en Hotel BTH (7-jun) y Estadio Monumental (4-jun). FP priorizó defensa legal de actas, no movilización callejera. Fuentes consultadas: Infobae, Caretas, El Comercio, La República, DW, El País — ninguna confirma. Mantener para monitoreo pero NO comunicar como evento confirmado."
         },
         {
           "fecha_convocatoria": "2026-06-17T10:00:00-05:00",
@@ -4005,6 +4008,25 @@
           "fuente": "https://elcomercio.pe/lima/sucesos/resultado-ajustado-de-las-elecciones-2026-eleva-tension-politica-anuncian-movilizaciones-en-lima-y-regiones-mientras-autoridades-refuerzan-seguridad-noticia/",
           "fuente_nombre": "El Comercio",
           "fuente_secundaria": null
+        },
+        {
+          "nombre": "Marcha Arequipa 'Fujimori Nunca Más / Generación Z' — Plaza España",
+          "fecha": "2026-06-13T16:00:00-05:00",
+          "ubicacion": "Plaza España (punto de concentración) → Puente Grau → Av. Ejército → Plaza de Armas, Arequipa",
+          "convocante": "Generación Z Arequipa (vocero: David Calisaya) + Colectivo Fujimori Nunca Más",
+          "side": "pro-Sánchez / anti-Fujimori",
+          "estado": "confirmado",
+          "fuentes": [
+            {
+              "titulo": "Radio Yaraví — Colectivo Fujimori Nunca Más y Generación Z convocan a movilización",
+              "url": "https://radioyaravi.org.pe/noticia/regional/colectivo-fujimori-nunca-mas-y-generacion-z-convocan-a-una-movilizacion-en-defensa-del-voto-popular/"
+            },
+            {
+              "titulo": "La República — Arequipa",
+              "url": "https://larepublica.pe/tag/arequipa"
+            }
+          ],
+          "origen_v3514": true
         }
       ],
       "actores": [
@@ -6762,8 +6784,18 @@
       "actas_recuento_fisico_total": 138,
       "audiencias_realizadas": 9,
       "audiencias_pendientes": 126,
-      "fecha_proclamacion_estimada": "2026-07-15",
-      "fuente_principal": "https://resultadosegundavuelta.onpe.gob.pe/"
+      "fecha_proclamacion_estimada": "2026-07-15 (inferencia)",
+      "fuente_principal": "https://resultadosegundavuelta.onpe.gob.pe/",
+      "margen_votos_rango": "859-1.303 votos (oscilación intra-día 12-jun)",
+      "margen_votos_pico_nocturno": 1303,
+      "margen_votos_corte_12h_gmt": 1207,
+      "fecha_proclamacion_oficial_jne": "mediados de julio 2026 (Grecia Rentería, vocera JNE)",
+      "actas_observadas_enviadas_onpe": 1611,
+      "actas_observadas_recibidas_jne": 1579,
+      "nulidad_recursos_confirmados_publicamente": 2,
+      "nulidad_mesas_nacionales": 1751,
+      "nulidad_mesas_eeuu": 647,
+      "nulidad_mesas_total": 2398
     }
   },
   "risk_matrix": [
@@ -10480,7 +10512,7 @@
     }
   ],
   "social_intelligence": {
-    "fecha_corte": "2026-06-12T09:00:00-05:00",
+    "fecha_corte": "2026-06-12T13:00:00-05:00",
     "contexto": "Al 98,215% de actas contabilizadas por la ONPE, Keiko Fujimori (FP) lidera por 651 votos sobre Roberto Sánchez (JP): 50,002% vs 49,998%. Restan 1.635 actas observadas (con ~480.000 votos pendientes de resolución por el JEE). El JP convocó una marcha 'La Toma de Lima / Los Cuatro Suyos' para el viernes 13 de junio desde Plaza San Martín. La PNP/FFAA anunciaron uso gradual de la fuerza para contener protestas. Proclamación oficial estimada: mediados de julio 2026.",
     "hashtags": [
       {
@@ -11447,7 +11479,10 @@
         "descripcion": "Canal de análisis político de izquierda. Publicó especial electoral 'Is the fraud tantrum back?' el 8-jun cuestionando la narrativa del fraude lanzada desde FP. Página web laencerrona.pe con titular 'El sur aplastó a Keiko en la segunda vuelta'.",
         "seguidores_aprox": null,
         "posicion": "pro-Sánchez / izquierda",
-        "fuente_url": "https://laencerrona.pe"
+        "fuente_url": "https://laencerrona.pe",
+        "estado_legal": "PRÓFUGO — orden de captura vigente desde 2023 (caso Los Dinámicos del Centro)",
+        "nota_osint": "Publica desde clandestinidad usando VPN. Última posición pública (29-may-2026): Perú Libre NO apoya formalmente a Sánchez; otorga libertad de voto.",
+        "verificado_osint_v3514": true
       },
       {
         "nombre": "César Hildebrandt (Hildebrandt en sus Trece)",
@@ -13998,6 +14033,15 @@
       "reach": "ampliamente amplificado por cuentas pro-FP",
       "promoter_side": "pro_fp",
       "evidence_url": "https://x.com/Luishid07612826/status/2064554653065383964"
+    },
+    {
+      "titulo": "Falsa proclamación viral mostrando a Fujimori como presidenta electa",
+      "descripcion": "Circuló en redes el 11-jun una imagen tipo 'acta de proclamación' que mostraba a Keiko Fujimori como presidenta electa. El JNE desmintió oficialmente: NO existe acta de proclamación; el proceso requiere resolución del Pleno y agotamiento de recursos. Esta pieza es categoría 'engaño deliberado'.",
+      "fecha": "2026-06-11",
+      "fuente_url": "https://www.infobae.com/peru/2026/06/12/",
+      "tipo": "engaño_documental",
+      "origen_v3514": true,
+      "verificado_osint": true
     }
   ],
   "grassroots": {
@@ -21413,5 +21457,108 @@
       "centro": [],
       "oriente": []
     }
-  }
+  },
+  "actores_nacionales": [
+    {
+      "nombre": "José María Balcázar",
+      "cargo": "Presidente Interino del Perú (desde feb 2026, tras destitución de Dina Boluarte en 2025)",
+      "org": "Poder Ejecutivo",
+      "declaracion_reciente": "7-jun: pidió respeto a resultados oficiales y respaldo a institucionalidad electoral.",
+      "fecha_declaracion": "2026-06-07",
+      "side": "institucional",
+      "fuente": "Infobae",
+      "origen_v3514": true,
+      "verificado_osint": true
+    },
+    {
+      "nombre": "Óscar Arriola",
+      "cargo": "Comandante General de la Policía Nacional del Perú",
+      "org": "PNP",
+      "declaracion_reciente": "11-jun: anunció 'uso gradual de la fuerza' ante protestas postelectorales; despliegue especial en Centro Histórico de Lima.",
+      "fecha_declaracion": "2026-06-11",
+      "side": "institucional",
+      "fuente": "Medios nacionales",
+      "origen_v3514": true,
+      "verificado_osint": true
+    },
+    {
+      "nombre": "Oswaldo Calle",
+      "cargo": "Comandante General del Ejército del Perú (desde dic 2025)",
+      "org": "Ejército del Perú",
+      "side": "institucional",
+      "origen_v3514": true,
+      "verificado_osint": true
+    },
+    {
+      "nombre": "Jorge Zapata Ríos",
+      "cargo": "Presidente de la Confederación Nacional de Instituciones Empresariales Privadas (CONFIEP)",
+      "org": "CONFIEP",
+      "declaracion_reciente": "9-jun: descartó fuga de capitales y llamó a esperar resultados oficiales del JNE.",
+      "fecha_declaracion": "2026-06-09",
+      "side": "gremio empresarial",
+      "origen_v3514": true,
+      "verificado_osint": true
+    },
+    {
+      "nombre": "Carlos Adeval Zafra Flores",
+      "cargo": "Personero Legal de Juntos por el Perú",
+      "org": "JP",
+      "declaracion_reciente": "11-jun: firmó y presentó recurso de nulidad por 1.751 mesas nacionales.",
+      "fecha_declaracion": "2026-06-11",
+      "side": "pro-Sánchez",
+      "fuente": "La República",
+      "origen_v3514": true,
+      "verificado_osint": true
+    },
+    {
+      "nombre": "Luis Dyer",
+      "cargo": "Jefe de Personeros de Fuerza Popular",
+      "org": "Fuerza Popular",
+      "declaracion_reciente": "11-jun: contrarrestó públicamente narrativa de fraude; FP descartó causales de nulidad.",
+      "fecha_declaracion": "2026-06-11",
+      "side": "pro-Fujimori",
+      "origen_v3514": true,
+      "verificado_osint": true
+    },
+    {
+      "nombre": "Bernardo Pachas",
+      "cargo": "Jefe interino de la ONPE (renunciará el 3-jul)",
+      "org": "ONPE",
+      "declaracion_reciente": "7-jun: 'esperar 100% de resultados para tener cierre de fiesta democrática'.",
+      "fecha_declaracion": "2026-06-07",
+      "side": "institucional",
+      "fuente": "La República",
+      "origen_v3514": true,
+      "verificado_osint": true
+    },
+    {
+      "nombre": "Roberto Burneo Bermejo",
+      "cargo": "Presidente del Jurado Nacional de Elecciones (JNE) — desde nov 2024 (reemplazó a Jorge Salas Arenas)",
+      "org": "JNE",
+      "declaracion_reciente": "17-may: 'voluntad ciudadana se ha respetado con absoluta transparencia'.",
+      "fecha_declaracion": "2026-05-17",
+      "side": "institucional",
+      "fuente": "Infobae",
+      "origen_v3514": true,
+      "verificado_osint": true
+    },
+    {
+      "nombre": "Grecia Rentería",
+      "cargo": "Vocera oficial del Jurado Nacional de Elecciones",
+      "org": "JNE",
+      "declaracion_reciente": "12-jun: proclamación oficial 'a mediados de julio'.",
+      "fecha_declaracion": "2026-06-12",
+      "side": "institucional",
+      "origen_v3514": true,
+      "verificado_osint": true
+    }
+  ],
+  "refutaciones_osint_v3514": [
+    {
+      "afirmacion_refutada": "SUTEP convoca huelga en defensa del voto a favor de Sánchez",
+      "estado": "REFUTADA",
+      "fundamento": "SUTEP se declaró públicamente NEUTRAL en el proceso; no ha convocado huelga en defensa del voto.",
+      "fecha_validacion": "2026-06-12"
+    }
+  ]
 }
