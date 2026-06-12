@@ -49,17 +49,19 @@
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h10M3 8h10M3 11h10"/></svg>
       </button>
       <nav class="nav" id="primaryNav" aria-label="Navegación principal">
-        <a href="#alert">Alerta</a>
+        <a href="#bluf">BLUF</a>
+        <a href="#forecast-ml">Forecast</a>
         <a href="#post-electoral">Post-electoral</a>
-        <a href="#reversion">Escenario de reversión</a>
+        <a href="#reversion">Reversión</a>
         <a href="#regions">Regiones</a>
-        <a href="#grassroots-nacional">Grassroots</a>
         <a href="#social">Social</a>
-        <a href="#alt-media">Medios alt.</a>
-        <a href="#disinfo">Desinfo</a>
         <a href="#risk-matrix">Matriz</a>
         <a href="#sources">Fuentes</a>
       </nav>
+      <label class="hide-past-toggle" id="hidePastWrap" title="Oculta eventos cuya fecha ya pasó">
+        <input type="checkbox" id="hidePastToggle" checked />
+        <span>Ocultar eventos pasados</span>
+      </label>
     </div>
   </header>
 
@@ -75,6 +77,32 @@
           <span>Cobertura <strong id="meta-focus">5 macroregiones</strong></span>
           <span>Versión <strong id="meta-version">—</strong></span>
           <span>Fuentes <strong id="meta-sources-count">—</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BLUF — Bottom Line Up Front (v3.6.0) ===== -->
+    <section id="bluf" class="bluf-section" aria-labelledby="bluf-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Lectura rápida · 30 segundos</p>
+          <h2 id="bluf-title">Lo esencial primero</h2>
+          <p id="bluf-deck">Indicadores cuantitativos clave, manifestaciones críticas activas y tres señales prioritarias. Cada tarjeta de manifestación enlaza a la región correspondiente.</p>
+        </div>
+        <div class="bluf-kpis" id="bluf-kpis" role="list" aria-label="Indicadores clave"></div>
+        <div class="bluf-grid">
+          <article class="bluf-critical" aria-labelledby="bluf-crit-title">
+            <header class="bluf-crit-head">
+              <h3 id="bluf-crit-title">Manifestaciones críticas <span class="count-badge" id="bluf-crit-count"></span></h3>
+              <p class="muted">Eventos con riesgo alto y convocatoria confirmada en la ventana actual.</p>
+            </header>
+            <div class="bluf-crit-list" id="bluf-crit-list"></div>
+          </article>
+          <aside class="bluf-watch" aria-labelledby="bluf-watch-title">
+            <h3 id="bluf-watch-title">Tres cosas que vigilar</h3>
+            <ol id="bluf-watch-list"></ol>
+            <p class="bluf-forecast-line" id="bluf-forecast-line">—</p>
+          </aside>
         </div>
       </div>
     </section>
@@ -176,7 +204,7 @@
           </article>
         </div>
 
-        <details class="foldable" data-fold="reversion-detail" open>
+        <details class="foldable" data-fold="reversion-detail">
           <summary><span class="fold-label">Ver distribución, actas pendientes y sensibilidad</span><span class="fold-meta">3 visualizaciones</span></summary>
           <div class="foldable-body">
             <!-- Distribución del margen final (histograma SVG) -->
@@ -281,6 +309,44 @@
       </div>
     </section>
 
+    <!-- ===== FORECAST ML · Sección 2bbis (v3.6.0) ===== -->
+    <section id="forecast-ml" aria-labelledby="fml-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Sección 2b·ML · Proyección bayesiana del margen final</p>
+          <h2 id="fml-title">Estimación puntual con intervalos de confianza y escenarios</h2>
+          <p id="fml-deck">Modelo bayesiano condicional al 98,26 % escrutado. Combina cómputo observado, 443 actas JEE pendientes y dos recursos de nulidad como perturbaciones discretas. <strong>Punto central: +1.886 votos Fujimori (50,0052 %).</strong></p>
+        </div>
+
+        <div class="fml-kpis" id="fml-kpis" role="list" aria-label="Proyección ML"></div>
+
+        <details class="foldable" data-fold="fml-detail">
+          <summary><span class="fold-label">Ver intervalos, escenarios, drivers y validación</span><span class="fold-meta" id="fml-fold-meta">5 escenarios · 5 drivers</span></summary>
+          <div class="foldable-body">
+            <div class="fml-block">
+              <h3>Intervalos de confianza del margen final</h3>
+              <p class="muted">Distribución Normal asumida (TCL, &gt;300 actas observadas). Margen positivo = Fujimori gana, negativo = Sánchez gana.</p>
+              <div id="fml-ic-bars" class="fml-ic-bars" role="img" aria-label="Intervalos de confianza"></div>
+              <p class="fml-ic-note" id="fml-ic-note"></p>
+            </div>
+            <div class="fml-block">
+              <h3>Escenarios cuantificados</h3>
+              <div id="fml-escenarios" class="fml-escenarios"></div>
+            </div>
+            <div class="fml-block">
+              <h3>Drivers cuantificados de varianza</h3>
+              <div id="fml-drivers" class="fml-drivers"></div>
+            </div>
+            <div class="fml-block">
+              <h3>Supuestos y limitaciones</h3>
+              <ul id="fml-assumptions" class="fml-assumptions"></ul>
+              <p class="fml-fuentes" id="fml-fuentes"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
     <!-- ===== VALIDACIÓN CRUZADA · Sección 2c ===== -->
     <section id="validacion">
       <div class="container">
@@ -334,7 +400,7 @@
           </div>
         </div>
 
-        <details class="foldable" data-fold="validacion-detail" open>
+        <details class="foldable" data-fold="validacion-detail">
           <summary><span class="fold-label">Ver actualización bayesiana, escenarios adversariales y benchmarks</span><span class="fold-meta">3 bloques</span></summary>
           <div class="foldable-body">
         <!-- Actualización bayesiana -->
@@ -544,7 +610,7 @@
             <button class="filter-btn" data-value="nacional">Nacional</button>
           </div>
         </div>
-        <details class="foldable" data-fold="alt-media" open>
+        <details class="foldable" data-fold="alt-media">
           <summary><span class="fold-label">Ver listado de medios alternativos</span><span class="fold-meta" id="alt-media-count">—</span></summary>
           <div class="foldable-body">
             <div class="alt-media-grid" id="alt-media-grid" aria-live="polite"></div>
@@ -561,7 +627,7 @@
           <h2>Casos verificados de desinformación, deepfakes y manipulación</h2>
           <p>Inventario de bulos detectados por verificadores independientes (OjoPúblico, Convoca, Verificador La República, Transparencia, IDL-Reporteros). Cada caso indica plataformas de propagación y verificador.</p>
         </div>
-        <details class="foldable" data-fold="disinfo" open>
+        <details class="foldable" data-fold="disinfo">
           <summary><span class="fold-label">Ver casos verificados</span><span class="fold-meta" id="disinfo-count">—</span></summary>
           <div class="foldable-body">
             <div class="disinfo-grid" id="disinfo-grid"></div>
@@ -578,7 +644,7 @@
           <h2>Matriz nacional de riesgo por escenario y región</h2>
           <p>Probabilidad cruzada con severidad esperada — clasificación cualitativa basada en señales OSINT verificadas.</p>
         </div>
-        <details class="foldable" data-fold="risk-matrix" open>
+        <details class="foldable" data-fold="risk-matrix">
           <summary><span class="fold-label">Ver matriz cruzada</span><span class="fold-meta" id="risk-matrix-count">—</span></summary>
           <div class="foldable-body">
             <div class="table-wrap">
@@ -609,7 +675,7 @@
           <h2>Indicadores de escalamiento que monitorear</h2>
           <p>Señales públicas que, de aparecer, elevarían el nivel de alerta global o regional. Acompañan al ciudadano y al analista en la actualización del dossier.</p>
         </div>
-        <details class="foldable" data-fold="early-warning" open>
+        <details class="foldable" data-fold="early-warning">
           <summary><span class="fold-label">Ver indicadores</span><span class="fold-meta" id="ew-count">—</span></summary>
           <div class="foldable-body">
             <div class="ew-grid" id="ew-grid"></div>

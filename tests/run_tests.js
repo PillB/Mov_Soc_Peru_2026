@@ -643,9 +643,9 @@ function section(title) {
   }
   ok('no quedan fechas malformadas tipo YYYY-MM-DDT<garbage>', weirdDates === 0, `n=${weirdDates} samples=${JSON.stringify(weirdSamples)}`);
 
-  section('N21. v3.5.14 — meta.version = 3.5.14');
+  section('N21. v3.6.0 — meta.version = 3.6.0');
   const metaVersion = data_v357.meta && data_v357.meta.version;
-  ok('meta.version es 3.5.14', metaVersion === '3.5.14', `got=${metaVersion}`);
+  ok('meta.version es 3.6.0', metaVersion === '3.6.0', `got=${metaVersion}`);
 
   section('N22. v3.5.8 — gazetteer expone CORRIDORS con polylines de avenidas reales');
   const corridorsInfo = await page.evaluate(() => {
@@ -831,6 +831,68 @@ function section(title) {
   ok('al menos 70 países listados', foldCheck.countryRows >= 70, JSON.stringify(foldCheck));
   ok('al menos 5 grupos de continente', foldCheck.contRows >= 5, JSON.stringify(foldCheck));
   ok('fuente directa ONPE etiquetada', foldCheck.hasONPE === true, JSON.stringify(foldCheck));
+
+  section('N35. v3.6.0 — BLUF section renders with KPIs and manifestaciones críticas');
+  const blufCheck = await page.evaluate(() => {
+    const sec = document.getElementById('bluf');
+    const kpis = document.querySelectorAll('#bluf-kpis .bluf-kpi');
+    const crits = document.querySelectorAll('#bluf-crit-list .bluf-crit-card');
+    const watch = document.querySelectorAll('#bluf-watch-list li');
+    return { hasSec: !!sec, kpis: kpis.length, crits: crits.length, watch: watch.length };
+  });
+  ok('sección #bluf existe', blufCheck.hasSec === true, JSON.stringify(blufCheck));
+  ok('BLUF tiene ≥6 KPIs', blufCheck.kpis >= 6, JSON.stringify(blufCheck));
+  ok('BLUF tiene ≥3 manifestaciones críticas', blufCheck.crits >= 3, JSON.stringify(blufCheck));
+  ok('BLUF tiene 3 things-to-watch', blufCheck.watch >= 3, JSON.stringify(blufCheck));
+
+  section('N36. v3.6.0 — Forecast ML section con punto central, IC, escenarios y drivers');
+  const fmlCheck = await page.evaluate(() => {
+    const sec = document.getElementById('forecast-ml');
+    const kpis = document.querySelectorAll('#fml-kpis .fml-kpi');
+    const icRows = document.querySelectorAll('#fml-ic-bars .fml-ic-row');
+    const escs = document.querySelectorAll('#fml-escenarios .fml-esc');
+    const drvs = document.querySelectorAll('#fml-drivers .fml-driver');
+    const hasPoint = !!document.querySelector('#fml-kpis .fml-kpi[data-kind="point"] .fml-kpi-value');
+    return { hasSec: !!sec, kpis: kpis.length, icRows: icRows.length, escs: escs.length, drvs: drvs.length, hasPoint };
+  });
+  ok('sección #forecast-ml existe', fmlCheck.hasSec === true, JSON.stringify(fmlCheck));
+  ok('Forecast ML tiene ≥4 KPIs', fmlCheck.kpis >= 4, JSON.stringify(fmlCheck));
+  ok('Forecast ML tiene punto central renderizado', fmlCheck.hasPoint === true, JSON.stringify(fmlCheck));
+  ok('Forecast ML tiene 3 IC bars (50/80/95)', fmlCheck.icRows === 3, JSON.stringify(fmlCheck));
+  ok('Forecast ML tiene ≥5 escenarios', fmlCheck.escs >= 5, JSON.stringify(fmlCheck));
+  ok('Forecast ML tiene ≥5 drivers cuantificados', fmlCheck.drvs >= 5, JSON.stringify(fmlCheck));
+
+  section('N37. v3.6.0 — Toggle ocultar-eventos-pasados activo por defecto y persistente');
+  const hidePastCheck = await page.evaluate(() => {
+    const chk = document.getElementById('hidePastToggle');
+    const initiallyChecked = !!(chk && chk.checked);
+    const bodyHasClass = document.body.classList.contains('hide-past');
+    // Count past events visible vs hidden
+    const pastEls = Array.from(document.querySelectorAll('[data-es-pasado="true"]'));
+    const pastTotal = pastEls.length;
+    const pastHidden = pastEls.filter(e => {
+      const cs = window.getComputedStyle(e);
+      return cs.display === 'none';
+    }).length;
+    return { initiallyChecked, bodyHasClass, pastTotal, pastHidden };
+  });
+  ok('checkbox #hidePastToggle existe y está marcado por defecto', hidePastCheck.initiallyChecked === true, JSON.stringify(hidePastCheck));
+  ok('body.hide-past activo al cargar', hidePastCheck.bodyHasClass === true, JSON.stringify(hidePastCheck));
+  ok('hay ≥5 eventos marcados como pasados', hidePastCheck.pastTotal >= 5, JSON.stringify(hidePastCheck));
+  ok('todos los eventos pasados ocultos visualmente', hidePastCheck.pastHidden === hidePastCheck.pastTotal && hidePastCheck.pastTotal > 0, JSON.stringify(hidePastCheck));
+
+  section('N38. v3.6.0 — Foldable detail sections cerradas por defecto (pirámide BCG)');
+  const foldDefaultCheck = await page.evaluate(() => {
+    const targets = ['reversion-detail', 'validacion-detail', 'alt-media', 'disinfo', 'risk-matrix', 'early-warning', 'fml-detail'];
+    const states = targets.map(t => {
+      const d = document.querySelector(`details.foldable[data-fold="${t}"]`);
+      return { name: t, exists: !!d, open: d ? d.hasAttribute('open') : null };
+    });
+    return states;
+  });
+  const allClosed = foldDefaultCheck.every(s => s.exists && s.open === false);
+  ok('al menos 7 detalles foldable existen', foldDefaultCheck.filter(s => s.exists).length >= 7, JSON.stringify(foldDefaultCheck));
+  ok('todos los foldables del landing están cerrados por defecto', allClosed === true, JSON.stringify(foldDefaultCheck));
 
   section('N. Global — no dash-only badge anywhere in regions/social/EW');
   const allDashBadges = await page.evaluate(() => {

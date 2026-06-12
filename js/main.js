@@ -177,6 +177,8 @@
     text('#window-label', 'Ventana de monitoreo · ' + (meta.window || 'próximos 7-10 días'));
     text('#footer-meta', `Dossier OSINT · v${meta.version || '2.0'} · ${meta.scope ? 'Perú' : ''}`);
 
+    renderBluf(d.bluf || {});
+    renderForecastML(d.forecast_ml || {});
     renderExecutiveAlert(d.executive_alert || {});
     renderContext(d.context || {});
     renderPostElectoral(d.post_electoral || {});
@@ -194,6 +196,249 @@
     renderEarlyWarning(d.early_warning_indicators || []);
     renderMethod(d.methodology || {});
     renderSources(d.sources_index || []);
+    initHidePastToggle();
+    flagPastRiskMatrix();
+  }
+
+  // ---------- v3.6.0: BLUF renderer ----------
+  function renderBluf(b) {
+    const kpisRoot = $('#bluf-kpis');
+    if (kpisRoot) {
+      kpisRoot.innerHTML = '';
+      (b.kpis || []).forEach(k => {
+        const card = el('article', { class: 'bluf-kpi', role: 'listitem', 'data-tone': k.tone || 'blue' }, [
+          el('span', { class: 'bluf-kpi-label' }, k.label || ''),
+          el('span', { class: 'bluf-kpi-value' }, k.value || '—'),
+          k.sub ? el('span', { class: 'bluf-kpi-sub' }, k.sub) : null
+        ].filter(Boolean));
+        kpisRoot.appendChild(card);
+      });
+    }
+    const list = $('#bluf-crit-list');
+    const critArr = b.manifestaciones_criticas_top || [];
+    text('#bluf-crit-count', String(critArr.length));
+    if (list) {
+      list.innerHTML = '';
+      critArr.forEach(m => {
+        const card = el('article', { class: 'bluf-crit-card', 'data-side': m.side || '', 'data-es-pasado': isPastDate(m.fecha) ? 'true' : 'false' });
+        card.appendChild(el('div', { class: 'bluf-crit-name' }, m.nombre || '—'));
+        const meta = el('div', { class: 'bluf-crit-meta' });
+        if (m.region) meta.appendChild(el('span', { class: 'bluf-crit-chip region' }, m.region));
+        if (m.fecha) meta.appendChild(el('span', { class: 'bluf-crit-chip' }, formatDate(m.fecha)));
+        if (m.estado) meta.appendChild(el('span', { class: 'bluf-crit-chip estado-' + String(m.estado).toLowerCase().replace(/[^a-z]/g,'') }, m.estado));
+        if (m.riesgo) meta.appendChild(el('span', { class: 'bluf-crit-chip risk-' + String(m.riesgo).toLowerCase() }, 'riesgo ' + m.riesgo));
+        if (m.ubicacion) meta.appendChild(el('span', null, m.ubicacion));
+        if (m.region) {
+          const a = el('a', { class: 'bluf-crit-link', href: '#regions', 'data-jump-region': m.region }, '→ ver región');
+          a.addEventListener('click', (ev) => {
+            const rid = a.getAttribute('data-jump-region');
+            const btn = document.querySelector(`.tab-btn[data-region="${rid}"]`);
+            if (btn) { ev.preventDefault(); btn.click(); document.getElementById('regions').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+          });
+          meta.appendChild(a);
+        }
+        card.appendChild(meta);
+        if (m.cross_ref) card.appendChild(el('div', { class: 'bluf-crit-xref' }, 'Cross-ref: ' + m.cross_ref));
+        list.appendChild(card);
+      });
+    }
+    const watch = $('#bluf-watch-list');
+    if (watch) {
+      watch.innerHTML = '';
+      (b.three_things_to_watch || []).forEach(t => watch.appendChild(el('li', null, typeof t === 'string' ? t : (t.text || t.titulo || JSON.stringify(t)))));
+    }
+    if (b.forecast_one_liner) text('#bluf-forecast-line', b.forecast_one_liner);
+  }
+
+  // ---------- v3.6.0: Forecast ML renderer ----------
+  function renderForecastML(f) {
+    if (!f || !f.punto_central) return;
+    const pc = f.punto_central || {};
+    const prob = f.probabilidad_victoria || {};
+    const ic = f.intervalos_confianza || {};
+    const kpisRoot = $('#fml-kpis');
+    if (kpisRoot) {
+      kpisRoot.innerHTML = '';
+      const margenTxt = (pc.margen_final_votos != null) ? formatSignedInt(pc.margen_final_votos) + ' votos' : '—';
+      const pctF = pc.pct_fujimori_final != null ? pc.pct_fujimori_final.toFixed(4).replace('.', ',') + ' %' : '';
+      const ganador = pc.ganador_modelo_base || '';
+      const kpis = [
+        { kind: 'point', label: 'Margen final proyectado', value: margenTxt, sub: pctF ? `${ganador} · ${pctF}` : ganador },
+        { kind: 'prob-f', label: 'P(gana Fujimori)', value: pct1(prob.fujimori), sub: 'modelo base' },
+        { kind: 'prob-s', label: 'P(gana Sánchez)', value: pct1(prob.sanchez), sub: 'modelo base' },
+        { kind: 'prob-tie', label: 'P(empate técnico)', value: pct1(prob.empate_tecnico_reconteo), sub: 'margen final |Δ| < 500 votos' }
+      ];
+      kpis.forEach(k => {
+        const card = el('article', { class: 'fml-kpi', 'data-kind': k.kind, role: 'listitem' }, [
+          el('span', { class: 'fml-kpi-label' }, k.label),
+          el('span', { class: 'fml-kpi-value' }, k.value || '—'),
+          k.sub ? el('span', { class: 'fml-kpi-sub' }, k.sub) : null
+        ].filter(Boolean));
+        kpisRoot.appendChild(card);
+      });
+    }
+    // IC bars
+    const icRoot = $('#fml-ic-bars');
+    if (icRoot) {
+      icRoot.innerHTML = '';
+      const rows = [
+        { name: 'IC 50 %', range: ic.ic_50 },
+        { name: 'IC 80 %', range: ic.ic_80 },
+        { name: 'IC 95 %', range: ic.ic_95 }
+      ].filter(r => Array.isArray(r.range) && r.range.length === 2);
+      // Determine global scale
+      const allVals = rows.flatMap(r => r.range).concat([pc.margen_final_votos || 0]);
+      const maxAbs = Math.max.apply(null, allVals.map(v => Math.abs(v))) || 1;
+      const scale = Math.ceil(maxAbs * 1.05);
+      rows.forEach(r => {
+        const row = el('div', { class: 'fml-ic-row' });
+        row.appendChild(el('span', { class: 'fml-ic-name' }, r.name));
+        const track = el('div', { class: 'fml-ic-track' });
+        const lo = r.range[0], hi = r.range[1];
+        const leftPct = ((lo + scale) / (2 * scale)) * 100;
+        const widthPct = ((hi - lo) / (2 * scale)) * 100;
+        const fill = el('div', { class: 'fml-ic-fill', style: `left:${leftPct.toFixed(2)}%;width:${widthPct.toFixed(2)}%` });
+        track.appendChild(fill);
+        const pointPct = ((pc.margen_final_votos + scale) / (2 * scale)) * 100;
+        const point = el('div', { class: 'fml-ic-point', style: `left:${pointPct.toFixed(2)}%` });
+        track.appendChild(point);
+        row.appendChild(track);
+        row.appendChild(el('span', { class: 'fml-ic-bounds' }, `${formatSignedInt(lo)} → ${formatSignedInt(hi)}`));
+        icRoot.appendChild(row);
+      });
+    }
+    if (ic.nota_metodologica) text('#fml-ic-note', ic.nota_metodologica);
+    // Escenarios
+    const escRoot = $('#fml-escenarios');
+    if (escRoot) {
+      escRoot.innerHTML = '';
+      const escList = Array.isArray(f.escenarios) ? f.escenarios : Object.entries(f.escenarios || {}).map(([k,v]) => Object.assign({ nombre: v.nombre || k }, v));
+      escList.forEach(s => {
+        const probability = s.probabilidad != null ? pct1(s.probabilidad) : (s.prob != null ? pct1(s.prob) : '');
+        const tone = s.tono || s.tone || guessTone(s);
+        const card = el('article', { class: 'fml-esc', 'data-tone': tone });
+        const head = el('div', { class: 'fml-esc-head' });
+        head.appendChild(el('span', { class: 'fml-esc-name' }, s.nombre || s.titulo || '—'));
+        if (probability) head.appendChild(el('span', { class: 'fml-esc-prob' }, probability));
+        card.appendChild(head);
+        const desc = s.descripcion || s.desc || s.drivers || '';
+        if (desc) card.appendChild(el('p', { class: 'fml-esc-desc' }, desc));
+        let margenVal = s.margen_proyectado != null ? s.margen_proyectado : (s.margen_estimado != null ? s.margen_estimado : null);
+        if (margenVal != null) {
+          let rngTxt = '';
+          if (Array.isArray(s.rango_margen) && s.rango_margen.length === 2) {
+            rngTxt = ' · rango [' + formatSignedInt(s.rango_margen[0]) + ' → ' + formatSignedInt(s.rango_margen[1]) + ']';
+          }
+          card.appendChild(el('div', { class: 'fml-esc-margin' }, 'Margen: ' + formatSignedInt(margenVal) + ' votos' + rngTxt));
+        } else if (s.margen) {
+          card.appendChild(el('div', { class: 'fml-esc-margin' }, 'Margen: ' + s.margen));
+        }
+        escRoot.appendChild(card);
+      });
+    }
+    // Drivers
+    const drvRoot = $('#fml-drivers');
+    if (drvRoot) {
+      drvRoot.innerHTML = '';
+      const drvList = Array.isArray(f.drivers_cuantificados)
+        ? f.drivers_cuantificados
+        : Object.entries(f.drivers_cuantificados || {}).map(([k, v]) => {
+            const name = v.nombre || titleCase(String(k).replace(/_/g, ' '));
+            const sub = v.descripcion || v.desc || v.detalle || v.base_estimacion || v.nota_patron || '';
+            const sigma = v.sigma_votos != null ? v.sigma_votos
+              : (v.std_impacto != null ? v.std_impacto
+              : (v.std != null ? v.std : null));
+            const impacto = v.impacto_margen_fuj != null ? v.impacto_margen_fuj
+              : (v.impacto_margen_fuj_esperado != null ? v.impacto_margen_fuj_esperado : null);
+            return { nombre: name, descripcion: sub, sigma_votos: sigma, impacto: impacto };
+          });
+      drvList.forEach(d => {
+        const row = el('div', { class: 'fml-driver' });
+        const left = el('div');
+        left.appendChild(el('div', { class: 'fml-driver-name' }, d.nombre || d.driver || '—'));
+        const sub = d.descripcion || d.desc || d.detalle || '';
+        if (sub) left.appendChild(el('div', { class: 'fml-driver-sub' }, String(sub).slice(0, 280) + (String(sub).length > 280 ? '…' : '')));
+        row.appendChild(left);
+        const right = el('div', { class: 'fml-driver-var' });
+        if (d.sigma_votos != null && !isNaN(d.sigma_votos)) right.textContent = 'σ ±' + Number(d.sigma_votos).toLocaleString('es-PE');
+        else if (d.impacto != null) right.textContent = (d.impacto > 0 ? '+' : (d.impacto < 0 ? '−' : '')) + Math.abs(d.impacto).toLocaleString('es-PE');
+        else right.textContent = d.contribucion || d.impacto || '';
+        row.appendChild(right);
+        drvRoot.appendChild(row);
+      });
+    }
+    // Assumptions
+    const asRoot = $('#fml-assumptions');
+    if (asRoot) {
+      asRoot.innerHTML = '';
+      (f.assumptions || []).forEach(a => asRoot.appendChild(el('li', null, typeof a === 'string' ? a : (a.text || a.descripcion || JSON.stringify(a)))));
+    }
+    // Fuentes
+    const fuRoot = $('#fml-fuentes');
+    if (fuRoot && Array.isArray(f.fuentes)) {
+      fuRoot.innerHTML = 'Fuentes: ';
+      f.fuentes.forEach((s, i) => {
+        if (i > 0) fuRoot.appendChild(document.createTextNode(' · '));
+        const a = el('a', { href: s.url || '#', target: '_blank', rel: 'noopener' }, s.titulo || s.nombre || (s.url || '').replace(/^https?:\/\//, '').split('/')[0]);
+        fuRoot.appendChild(a);
+      });
+    }
+    const fm = $('#fml-fold-meta');
+    const escCount = Array.isArray(f.escenarios) ? f.escenarios.length : Object.keys(f.escenarios || {}).length;
+    const drvCount = Array.isArray(f.drivers_cuantificados) ? f.drivers_cuantificados.length : Object.keys(f.drivers_cuantificados || {}).length;
+    if (fm) fm.textContent = `${escCount} escenarios · ${drvCount} drivers`;
+  }
+
+  function pct1(v) {
+    if (v == null || isNaN(v)) return '—';
+    return (v * 100).toFixed(1).replace('.', ',') + ' %';
+  }
+  function formatSignedInt(n) {
+    if (n == null || isNaN(n)) return '—';
+    const sign = n > 0 ? '+' : (n < 0 ? '−' : '');
+    return sign + Math.abs(Math.round(n)).toLocaleString('es-PE');
+  }
+  function guessTone(s) {
+    const txt = ((s.nombre||'') + ' ' + (s.descripcion||'')).toLowerCase();
+    if (/(victoria fuj|fuj.*sobre|favorable.*fuj|base|central)/.test(txt)) return 'green';
+    if (/(sánchez gana|sanchez gana|reversión.*sanchez|empate|recuento)/.test(txt)) return 'amber';
+    if (/(nulidad|cisne|crisis|impugnación)/.test(txt)) return 'red';
+    return '';
+  }
+  function isPastDate(iso) {
+    if (!iso) return false;
+    const s = String(iso).slice(0, 10);
+    return /^\d{4}-\d{2}-\d{2}$/.test(s) && s < '2026-06-12';
+  }
+
+  // ---------- v3.6.0: Hide-past toggle ----------
+  function initHidePastToggle() {
+    const chk = $('#hidePastToggle');
+    if (!chk) return;
+    const STORAGE_KEY = 'dossier_hidePast_v360';
+    let stored = null;
+    try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) { /* noop */ }
+    if (stored !== null) chk.checked = (stored === '1');
+    apply(chk.checked);
+    chk.addEventListener('change', () => {
+      apply(chk.checked);
+      try { localStorage.setItem(STORAGE_KEY, chk.checked ? '1' : '0'); } catch (e) { /* noop */ }
+    });
+    function apply(hide) {
+      document.body.classList.toggle('hide-past', !!hide);
+    }
+  }
+
+  // ---------- v3.6.0: Mark risk-matrix rows whose timeframe is past ----------
+  function flagPastRiskMatrix() {
+    const tbody = document.getElementById('risk-tbody');
+    if (!tbody) return;
+    Array.from(tbody.querySelectorAll('tr')).forEach(tr => {
+      const text = (tr.textContent || '').toLowerCase();
+      // very conservative: only flag rows whose date string is strictly earlier than today
+      const m = text.match(/(\d{4})-(\d{2})-(\d{2})/);
+      if (m && (m[0] < '2026-06-12')) tr.setAttribute('data-es-pasado', 'true');
+    });
   }
 
   // v3.5.7: robust date formatter — anti-"Invalid Date"
@@ -975,6 +1220,9 @@
       const cardAttrs = { class: 'card event-card', role: 'listitem', tabindex: '0' };
       if (evtid) cardAttrs['data-evtid'] = evtid;
       if (regionId) cardAttrs['data-region-id'] = regionId;
+      // v3.6.0: data-es-pasado for hide-past toggle
+      const pastFlag = (raw.es_pasado === true) || (raw.es_pasado === 'true') || isPastDate(raw.fecha || raw.fecha_inicio || raw.date);
+      if (pastFlag) cardAttrs['data-es-pasado'] = 'true';
       const card = el('article', cardAttrs);
       const headerRow = el('div', { style: 'display:flex;gap:var(--s-3);justify-content:space-between;align-items:flex-start;flex-wrap:wrap;margin-bottom:var(--s-2)' });
 
