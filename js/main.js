@@ -2294,7 +2294,8 @@
       const peak = cleanStr(raw.pico_observado) || cleanStr(raw.peak);
       // v3.5.4: bridge additional Spanish source-url keys (fuente / fuente_secundaria / fuente2 / ejemplo_url)
       const srcUrl = cleanUrl(raw.evidence_url) || cleanUrl(raw.fuente_url) || cleanUrl(raw.source_url) ||
-                     cleanUrl(raw.fuente) || cleanUrl(raw.ejemplo_url) || cleanUrl(raw.fuente_secundaria) || cleanUrl(raw.fuente2);
+                     cleanUrl(raw.fuente) || cleanUrl(raw.ejemplo_url) || cleanUrl(raw.fuente_secundaria) || cleanUrl(raw.fuente2) ||
+                     cleanUrl(raw.example_url) || cleanUrl(raw.source_metricas);
 
       const card = el('article', { class: 'hashtag-card side-' + (nb.side || 'neutro') });
       card.appendChild(el('div', { class: 'ht-tag' }, tag.startsWith('#') ? tag : '#' + tag));

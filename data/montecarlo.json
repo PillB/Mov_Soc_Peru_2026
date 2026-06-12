@@ -625,18 +625,19 @@
     ]
   },
   "actas_status": {
-    "corte": "2026-06-11T15:20-05:00",
-    "avance_nacional_pct": 0.9824299999999999,
-    "avance_extranjero_pct": 0.9449500000000001,
+    "corte": "2026-06-12T09:00:00-05:00",
+    "avance_nacional_pct": 0.98258,
+    "avance_extranjero_pct": 1.0,
     "total_actas": 92766,
-    "contabilizadas": 91136,
-    "margen_actual_votos": 756,
+    "contabilizadas": 91150,
+    "margen_actual_votos": 1303,
     "pendientes": [
       {
         "origen": "Extranjero",
         "count": 140,
-        "detalle": "Todas las 2.543 mesas del exterior ya contabilizadas (94,5%); 140 actas están en JEE para resolución",
-        "voto_esperado": "pro-Fujimori 63,4 % (184.435 vs 106.338 votos contabilizados)",
+        "detalle": "Cancillería confirmó recepción física del 100% del material (último vuelo Buenos Aires 11-jun noche, 233 actas / ~32.000 votos). ONPE pendiente de contabilizar 5,5 % residual.",
+        "voto_esperado": "Pro-Fujimori (63,4 % en cómputo previo)",
+        "fuente_directa": "https://resultadosegundavuelta.onpe.gob.pe/",
         "detalle_paises": [
           {
             "continente": "ÁFRICA",
@@ -1717,34 +1718,33 @@
             "lider_pct": 0.6706
           }
         ],
-        "detalle_paises_total": 77,
-        "fuente_directa": "ONPE — resultadosegundavuelta.onpe.gob.pe (corte 11-jun 15:20 PET)"
+        "detalle_paises_total": 77
       },
       {
-        "origen": "Loreto",
-        "count": 130,
-        "detalle": "Mesas amazónicas remotas; traslado fluvial pendiente",
-        "voto_esperado": "Fujimori 53,0 % vs Sánchez 47,0 % (regional)"
+        "origen": "Yaquerana (Loreto)",
+        "count": 9,
+        "detalle": "Mesas amazónicas remotas bloqueadas por mal clima — único bolsón pendiente nacional al 12-jun 09:00.",
+        "voto_esperado": "Pro-Sánchez (Loreto rural votó histórico izquierda)",
+        "fuente_directa": "https://gestion.pe/peru/elecciones/elecciones-2026-onpe-noticia/"
       },
       {
-        "origen": "Junín",
-        "count": 41,
-        "detalle": "Repliegue cerrado al 100 % el 9-jun; últimas actas de Santo Domingo de Acobamba",
-        "voto_esperado": "Sánchez 54,9 % vs Fujimori 45,1 %"
-      },
-      {
-        "origen": "Otras regiones",
-        "count": 70,
-        "detalle": "Reparto residual en sierra sur y nororiente",
-        "voto_esperado": "mixto (mayoría regiones pro-Sánchez)"
+        "origen": "Otras (ajuste residual)",
+        "count": 1467,
+        "detalle": "Actas en validación administrativa final antes de subir al cómputo.",
+        "voto_esperado": "Distribución mixta",
+        "fuente_directa": "https://portal.jne.gob.pe"
       }
     ],
     "impugnadas": {
-      "total": 1635,
-      "en_tramite_pct": 0.62,
-      "atendidas_pct": 0.37,
-      "recuento_programadas": 4,
-      "recuento_total": 55,
+      "total": 1611,
+      "atendidas": 1136,
+      "atendidas_pct": 0.71,
+      "en_tramite": 443,
+      "en_tramite_pct": 0.28,
+      "recuento_total": 138,
+      "audiencias_realizadas": 9,
+      "audiencias_pendientes": 126,
+      "recuento_programadas": 138,
       "por_region": [
         {
           "region": "Lima Metropolitana",
@@ -1787,43 +1787,72 @@
         "Errores aritméticos en sumas de votos",
         "Omisión de firmas de miembros de mesa",
         "Datos incompletos o ilegibles",
-        "Votos impugnados por personeros de partidos"
-      ]
+        "Votos impugnados por personeros",
+        "Recurso de nulidad JP — patrones matemáticos repetidos (~2.400 mesas)"
+      ],
+      "nulidad_jp": {
+        "total_mesas_pedidas": 2400,
+        "nacionales": 1751,
+        "extranjero_eeuu": 649,
+        "estado": "En evaluación JEE Lima Centro 1 y 2",
+        "argumento": "Patrones matemáticos repetidos; fraude sistemático",
+        "respuesta_fp": "No existe causal legal",
+        "evaluacion_expertos": "Baja probabilidad de éxito (Luis Nunes, José Manuel Villalobos)",
+        "fuente": "https://elcomercio.pe/lima/sucesos/resultado-ajustado-de-las-elecciones-2026-eleva-tension-politica-anuncian-movilizaciones-en-lima-y-regiones-mientras-autoridades-refuerzan-seguridad-noticia/"
+      }
     },
     "impacto": {
-      "votos_en_juego_estimado": 403200,
+      "votos_en_juego_estimado": 27600,
       "votos_por_acta_promedio": 200,
-      "margen_vs_votos_en_juego_ratio": 0.00187,
-      "escenario_pro_fujimori": "Voto exterior ya cerrado al 100 % de mesas con +78.097 votos pro-Fujimori (ONPE 11-jun). Si JEE confirma 55 % de las 1.635 actas observadas (concentradas en Lima, Callao, Piura donde lidera 56-66 %), suma ~45.000 votos adicionales.",
-      "escenario_pro_sanchez": "Si JEE anula >40 % de actas Lima por irregularidades, ~80.000 votos pro-Fujimori salen del cómputo, revirtiendo el margen actual y devolviendo a Sánchez al primer lugar como antes del conteo exterior.",
+      "margen_vs_votos_en_juego_ratio": 0.04721014492753623,
+      "escenario_pro_fujimori": "Voto exterior con 100 % de material físico recibido y 94,5 % computado (+78.097 votos pro-Fujimori). Si JEE valida la mayoría de las 1.611 actas observadas (1.136 ya atendidas, mayoría favorables a Fuj en Lima 63,5 %, Callao 65,6 %, Piura 57 %), el margen se amplía. Recursos JP por nulidad de 2.400 mesas evaluados con 'baja probabilidad de éxito' por expertos electorales.",
+      "escenario_pro_sanchez": "Si JEE acepta parcialmente nulidad JP (incluso 20 % de las 2.400 mesas pedidas serían ~480 mesas × ~200 votos = ~96.000 votos retirados, mayoría pro-Fuj), el resultado se revierte. Recuento físico de 138 actas puede mover el resultado: 9 audiencias ya hechas, 126 pendientes. Sentencias JEE apelables ante el Pleno del JNE — proceso puede demorar semanas.",
       "fecha_oficial_estimada": "2026-07-15",
-      "factor_critico": "El margen de 756 votos es 0,004 % de los votos válidos — cualquier resolución JEE puede invertir el resultado. 55 actas en recuento físico tomarán semanas adicionales. Voto exterior cerrado al 100 % de mesas con 184.435 vs 106.338 votos (ONPE 11-jun 15:20)."
+      "factor_critico": "Margen de 1.303 votos es 0,007 % de los válidos. Recurso de nulidad JP por 2.400 mesas es el factor más decisivo: aunque expertos le dan baja probabilidad de éxito, el JEE tiene plazos hasta el 15-jul. Las 126 audiencias de recuento físico pendientes pueden mover el resultado en cualquier dirección. Defensoría del Pueblo (Josué Gutiérrez): 'No hubo fraude, ni siquiera se puede mencionar.' Misión UE/OEA validan proceso técnico.",
+      "recuento_programadas": 138
     },
     "fuentes": [
       {
-        "nombre": "ONPE — portal oficial 2da vuelta (corte 11-jun 15:20)",
+        "nombre": "ONPE — Portal Segunda Vuelta (corte 12-jun 09:00)",
         "url": "https://resultadosegundavuelta.onpe.gob.pe/"
       },
       {
-        "nombre": "JNE — dashboard actas observadas",
+        "nombre": "JNE — Dashboard actas observadas",
         "url": "https://portal.jne.gob.pe/portal/Pagina/Nota/20259"
       },
       {
-        "nombre": "El País — escrutinio 98,216 %",
-        "url": "https://elpais.com/america/2026-06-11/resultados-de-las-elecciones-en-peru-en-vivo.html"
+        "nombre": "Infobae Perú — Conteo en vivo",
+        "url": "https://www.infobae.com/peru/2026/06/12/"
       },
       {
-        "nombre": "Ojo Público — 1.525 actas observadas",
-        "url": "https://ojo-publico.com/ultimas-noticias/6355/segunda-vuelta-mas-1500-actas-votacion-fueron-observadas"
+        "nombre": "El País — Resultados en vivo 12-jun",
+        "url": "https://elpais.com/america/2026-06-12/resultados-de-las-elecciones-en-peru-en-vivo.html"
       },
       {
-        "nombre": "Infobae — desglose por región",
-        "url": "https://www.infobae.com/peru/2026/06/10/actas-observadas-de-la-segunda-vuelta-2026-en-peru-cuantas-hay-de-donde-provienen-y-a-que-candidato-beneficiaran/"
+        "nombre": "El Comercio — Resultado ajustado eleva tensión",
+        "url": "https://elcomercio.pe/lima/sucesos/resultado-ajustado-de-las-elecciones-2026-eleva-tension-politica-anuncian-movilizaciones-en-lima-y-regiones-mientras-autoridades-refuerzan-seguridad-noticia/"
       },
       {
-        "nombre": "CNN Español — actas pendientes por categoría",
-        "url": "https://cnnespanol.cnn.com/2026/06/08/latinoamerica/peru-resultados-actas-pendientes-onpe-orix"
+        "nombre": "Gestión — ONPE 98,36 % al 07:00",
+        "url": "https://gestion.pe/peru/elecciones/"
+      },
+      {
+        "nombre": "La República — Conteo en vivo",
+        "url": "https://larepublica.pe/politica/2026/06/12/resultados-oficiales-onpe-en-vivo-conteo-de-votos-de-la-segunda-vuelta-de-elecciones-peru-2026-hnews-622951"
+      },
+      {
+        "nombre": "Defensoría del Pueblo — Pronunciamiento",
+        "url": "https://defensoria.gob.pe"
+      },
+      {
+        "nombre": "MOE UE — Declaración preliminar",
+        "url": "https://www.eeas.europa.eu/eom-peru-2026/preliminary-statement-eu-eom-peru-2026-0_en?s=410530"
       }
-    ]
+    ],
+    "avance_extranjero_pct_computado": 0.94495,
+    "votos_fujimori": 9036046,
+    "votos_sanchez": 9034743,
+    "fujimori_pct": 0.50004,
+    "sanchez_pct": 0.49996
   }
 }
