@@ -1854,5 +1854,16 @@
     "votos_sanchez": 9034743,
     "fujimori_pct": 0.50004,
     "sanchez_pct": 0.49996
+  },
+  "forecast_ml_resumen": {
+    "margen_proyectado": 18485,
+    "ic95": [
+      13662,
+      23308
+    ],
+    "prob_fujimori": 0.985,
+    "prob_sanchez": 0.015,
+    "prob_empate": 0.0001,
+    "fecha_calculo": "2026-06-14T19:30:00-05:00"
   }
 }

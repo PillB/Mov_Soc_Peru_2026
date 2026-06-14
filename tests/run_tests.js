@@ -643,9 +643,9 @@ function section(title) {
   }
   ok('no quedan fechas malformadas tipo YYYY-MM-DDT<garbage>', weirdDates === 0, `n=${weirdDates} samples=${JSON.stringify(weirdSamples)}`);
 
-  section('N21. v3.6.0 — meta.version = 3.6.0');
+  section('N21. v3.7.0 — meta.version = 3.7.0');
   const metaVersion = data_v357.meta && data_v357.meta.version;
-  ok('meta.version es 3.6.0', metaVersion === '3.6.0', `got=${metaVersion}`);
+  ok('meta.version es 3.7.0', metaVersion === '3.7.0', `got=${metaVersion}`);
 
   section('N22. v3.5.8 — gazetteer expone CORRIDORS con polylines de avenidas reales');
   const corridorsInfo = await page.evaluate(() => {
@@ -913,6 +913,41 @@ function section(title) {
   ok('IC bounds usan formato es-PE con punto', v361Check.icBounds.some(b => /\d{1,3}\.\d{3}/.test(b)), JSON.stringify(v361Check.icBounds));
   ok('nav order: BLUF primero', v361Check.navOrder[0] === '#bluf', JSON.stringify(v361Check.navOrder));
   ok('nav order: Forecast después de Reversión (DOM-aligned)', v361Check.navOrder.indexOf('#forecast-ml') > v361Check.navOrder.indexOf('#reversion'), JSON.stringify(v361Check.navOrder));
+
+  section('N40. v3.7.0 — forecast_ml margen central ≥ 18.000 votos');
+  const fmlData = data_v357.forecast_ml || {};
+  const margenCentral = (fmlData.punto_central || {}).margen_final_votos;
+  ok('forecast_ml.punto_central.margen_final_votos ≥ 18000', typeof margenCentral === 'number' && margenCentral >= 18000, `got=${margenCentral}`);
+
+  section('N41. v3.7.0 — P(Fujimori) ≥ 0,95 e IC95 lower bound > 0');
+  const probF = (fmlData.probabilidad_victoria || {}).fujimori;
+  ok('P(Fujimori) ≥ 0.95', typeof probF === 'number' && probF >= 0.95, `got=${probF}`);
+  const ic95 = (fmlData.intervalos_confianza || {}).ic_95;
+  ok('IC95 es array de 2 elementos', Array.isArray(ic95) && ic95.length === 2, JSON.stringify(ic95));
+  ok('IC95 lower bound > 0 (ya no cruza cero)', Array.isArray(ic95) && ic95[0] > 0, `lower=${ic95 && ic95[0]}`);
+
+  section('N42. v3.7.0 — bloque escrutinio_realtime con cifras_actuales');
+  const er = data_v357.escrutinio_realtime || {};
+  ok('escrutinio_realtime existe', Object.keys(er).length > 0, `keys=${Object.keys(er).length}`);
+  ok('escrutinio_realtime.cifras_actuales presente', !!er.cifras_actuales, JSON.stringify(Object.keys(er)));
+  ok('cifras_actuales.margen_actual numérico', typeof (er.cifras_actuales || {}).margen_actual === 'number', `got=${(er.cifras_actuales || {}).margen_actual}`);
+
+  section('N43. v3.7.0 — bloque prediccion_7dias con 5 regiones');
+  const p7 = data_v357.prediccion_7dias || {};
+  const p7Regions = ['lima','norte','centro','sur','oriente'].filter(k => k in p7);
+  ok('prediccion_7dias cubre lima+norte+centro+sur+oriente', p7Regions.length === 5, `found=${JSON.stringify(p7Regions)}`);
+
+  section('N44. v3.7.0 — ≥ 150 convocatorias_futuras agregadas en regions');
+  let totalConv = 0;
+  for (const rid of Object.keys(data_v357.regions || {})) {
+    const r = data_v357.regions[rid];
+    totalConv += (r.convocatorias_futuras || r.events_future || []).length;
+  }
+  ok('total convocatorias_futuras ≥ 150', totalConv >= 150, `total=${totalConv}`);
+
+  section('N45. v3.7.0 — risk_matrix y early_warning_indicators ampliados');
+  ok('risk_matrix ≥ 19 entradas', (data_v357.risk_matrix || []).length >= 19, `len=${(data_v357.risk_matrix || []).length}`);
+  ok('early_warning_indicators ≥ 19 entradas', (data_v357.early_warning_indicators || []).length >= 19, `len=${(data_v357.early_warning_indicators || []).length}`);
 
   section('N. Global — no dash-only badge anywhere in regions/social/EW');
   const allDashBadges = await page.evaluate(() => {

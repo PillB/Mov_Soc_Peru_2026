@@ -260,7 +260,7 @@
     if (kpisRoot) {
       kpisRoot.innerHTML = '';
       const margenTxt = (pc.margen_final_votos != null) ? formatSignedInt(pc.margen_final_votos) + ' votos' : '—';
-      const pctF = pc.pct_fujimori_final != null ? pc.pct_fujimori_final.toFixed(4).replace('.', ',') + ' %' : '';
+      const pctF = pc.pct_fujimori_final != null ? pc.pct_fujimori_final.toFixed(3).replace('.', ',') + ' %' : '';
       const ganador = pc.ganador_modelo_base || '';
       const kpis = [
         { kind: 'point', label: 'Margen final proyectado', value: margenTxt, sub: pctF ? `${ganador} · ${pctF}` : ganador },
@@ -2763,7 +2763,11 @@
     if (!root) return;
     if (!mc) { root.style.display = 'none'; return; }
 
-    const fmt = (n) => Number(n).toLocaleString('es-PE', { maximumFractionDigits: 0 });
+    // v3.7.0: manual es-PE thousands separator (period). toLocaleString('es-PE') retorna coma en Chromium.
+    const fmt = (n) => {
+      if (n == null || isNaN(n)) return '—';
+      return String(Math.abs(Math.round(n))).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    };
     const sgn = (n) => (n >= 0 ? '+' : '−') + fmt(Math.abs(n));
     const pct = (n, dec = 2) => (Number(n) * 100).toFixed(dec).replace('.', ',') + ' %';
 
@@ -2940,7 +2944,7 @@
 
   // v3.5.11: render del estado de actas ONPE/JNE (reemplaza Top 6 países)
   function renderActas(st) {
-    const fmt = (n) => Number(n).toLocaleString('es-PE', { maximumFractionDigits: 0 });
+    const fmt = (n) => (n == null || isNaN(n)) ? '—' : String(Math.abs(Math.round(n))).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
     const pct = (n, dec) => (Number(n) * 100).toFixed(dec != null ? dec : 1).replace('.', ',') + ' %';
 
     // Header KPIs
@@ -3149,7 +3153,7 @@
     if (!paises.length) return;
     const sorted = paises.slice().sort((a, b) => (b.margen_fujimori_media || 0) - (a.margen_fujimori_media || 0));
     const maxAbs = Math.max.apply(null, sorted.map(p => Math.abs(p.margen_fujimori_p95 || p.margen_fujimori_media || 0)));
-    const fmt = (n) => Number(n).toLocaleString('es-PE', { maximumFractionDigits: 0 });
+    const fmt = (n) => (n == null || isNaN(n)) ? '—' : String(Math.abs(Math.round(n))).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
     const sgn = (n) => (n >= 0 ? '+' : '−') + fmt(Math.abs(n));
 
     sorted.forEach((p, idx) => {
@@ -3240,7 +3244,7 @@
     if (!root) return;
     if (!mc || !mc.modelos || !mc.prediccion_final_v33) { root.style.display = 'none'; return; }
 
-    const fmt = (n) => Number(n).toLocaleString('es-PE', { maximumFractionDigits: 0 });
+    const fmt = (n) => (n == null || isNaN(n)) ? '—' : String(Math.abs(Math.round(n))).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
     const sgn = (n) => (n >= 0 ? '+' : '−') + fmt(Math.abs(Math.round(n)));
     const pct = (n, dec) => (Number(n) * 100).toFixed(dec != null ? dec : 1).replace('.', ',') + ' %';
 
