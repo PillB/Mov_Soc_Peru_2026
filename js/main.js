@@ -201,8 +201,35 @@
     renderMethod(d.methodology || {});
     renderValidacionLectura(d.validacion || {}, d.montecarlo || null, d.escrutinio_realtime || null);
     renderSources(d.sources_index || []);
+    updateElectionSectionFoldMeta(d);
     initHidePastToggle();
     flagPastRiskMatrix();
+  }
+
+  function updateElectionSectionFoldMeta(d) {
+    const er = (d.escrutinio_realtime || {}).cifras_actuales || {};
+    const fml = d.forecast_ml || {};
+    const prob = fml.probabilidad_victoria || {};
+    const pc = fml.punto_central || {};
+    const revProb = document.getElementById('rev-prob');
+    const revVentaja = document.getElementById('rev-ventaja');
+    const revMeta = $('#rev-section-fold-meta');
+    if (revMeta) {
+      const parts = [];
+      if (revProb && revProb.textContent.trim() !== '—') parts.push('P ' + revProb.textContent.trim());
+      if (er.margen_actual != null) parts.push(formatSignedInt(er.margen_actual) + ' votos');
+      else if (revVentaja && revVentaja.textContent.trim() !== '—') parts.push(revVentaja.textContent.trim());
+      revMeta.textContent = parts.length ? parts.join(' · ') : 'resultado consolidado';
+    }
+    const fmlMeta = $('#fml-section-fold-meta');
+    if (fmlMeta && pc.margen_final_votos != null) {
+      fmlMeta.textContent = formatSignedInt(pc.margen_final_votos) + ' votos · P(F) ' + pct1(prob.fujimori);
+    }
+    const valMeta = $('#val-section-fold-meta');
+    const valProb = document.getElementById('val-prob-ajustada');
+    if (valMeta && valProb && valProb.textContent.trim() !== '—') {
+      valMeta.textContent = valProb.textContent.trim() + ' ajustada';
+    }
   }
 
   function countConvocatorias(regions) {

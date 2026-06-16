@@ -883,7 +883,7 @@ function section(title) {
 
   section('N38. v3.6.0 — Foldable detail sections cerradas por defecto (pirámide BCG)');
   const foldDefaultCheck = await page.evaluate(() => {
-    const targets = ['reversion-detail', 'validacion-detail', 'alt-media', 'disinfo', 'risk-matrix', 'early-warning', 'fml-detail'];
+    const targets = ['reversion-section', 'forecast-ml-section', 'validacion-section', 'reversion-detail', 'validacion-detail', 'alt-media', 'disinfo', 'risk-matrix', 'early-warning', 'fml-detail'];
     const states = targets.map(t => {
       const d = document.querySelector(`details.foldable[data-fold="${t}"]`);
       return { name: t, exists: !!d, open: d ? d.hasAttribute('open') : null };
@@ -891,8 +891,27 @@ function section(title) {
     return states;
   });
   const allClosed = foldDefaultCheck.every(s => s.exists && s.open === false);
-  ok('al menos 7 detalles foldable existen', foldDefaultCheck.filter(s => s.exists).length >= 7, JSON.stringify(foldDefaultCheck));
+  ok('al menos 10 detalles foldable existen', foldDefaultCheck.filter(s => s.exists).length >= 10, JSON.stringify(foldDefaultCheck));
   ok('todos los foldables del landing están cerrados por defecto', allClosed === true, JSON.stringify(foldDefaultCheck));
+
+  section('N52. v3.8.1 — Secciones electorales 2b/2b·ML/2c plegadas por defecto');
+  const electionFoldCheck = await page.evaluate(() => {
+    const inClosedSection = (el) => !!(el && el.closest('details.section-foldable:not([open])'));
+    const ids = ['reversion-section', 'forecast-ml-section', 'validacion-section'];
+    const targets = [
+      document.querySelector('#reversion .reversion-kpis'),
+      document.getElementById('fml-kpis'),
+      document.querySelector('#validacion .val-headline')
+    ];
+    return ids.map((id, i) => {
+      const d = document.querySelector(`details.foldable[data-fold="${id}"]`);
+      return { id, exists: !!d, open: d ? d.hasAttribute('open') : null, contentInClosed: inClosedSection(targets[i]) };
+    });
+  });
+  ok('reversion-section existe y cerrada', electionFoldCheck[0].exists && electionFoldCheck[0].open === false, JSON.stringify(electionFoldCheck[0]));
+  ok('forecast-ml-section existe y cerrada', electionFoldCheck[1].exists && electionFoldCheck[1].open === false, JSON.stringify(electionFoldCheck[1]));
+  ok('validacion-section existe y cerrada', electionFoldCheck[2].exists && electionFoldCheck[2].open === false, JSON.stringify(electionFoldCheck[2]));
+  ok('contenido electoral dentro de sección plegada', electionFoldCheck.every(s => s.contentInClosed === true), JSON.stringify(electionFoldCheck));
 
   section('N39. v3.6.1 — Brand title bump + ML KPI block layout + es-PE number formatting');
   const v361Check = await page.evaluate(() => {

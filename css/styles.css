@@ -2243,6 +2243,13 @@ tr:hover td { background: var(--c-bg-soft); }
 }
 
 /* Foldable sections */
+details.foldable.section-foldable {
+  margin-top: 0;
+}
+details.foldable.section-foldable > summary {
+  font-size: var(--text-base, 1rem);
+  padding: 1rem 1.15rem;
+}
 details.foldable {
   margin-top: 1.2rem;
   border: 1px solid var(--c-line);
