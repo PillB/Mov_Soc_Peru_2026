@@ -11,7 +11,7 @@ const { chromium } = require('playwright');
 
 const REPO_ROOT = path.resolve(__dirname, '..');
 const HTML_PATH = path.join(REPO_ROOT, 'dossier_osint_v3.2.html');
-const DATA_PATH = path.join(REPO_ROOT, 'web', 'data', 'events.json');
+const DATA_PATH = path.join(REPO_ROOT, 'data', 'events.json');
 
 const REGIONS = ['lima', 'norte', 'centro', 'sur', 'oriente'];
 
@@ -643,9 +643,9 @@ function section(title) {
   }
   ok('no quedan fechas malformadas tipo YYYY-MM-DDT<garbage>', weirdDates === 0, `n=${weirdDates} samples=${JSON.stringify(weirdSamples)}`);
 
-  section('N21. v3.7.0 — meta.version = 3.7.0');
+  section('N21. v3.8.0 — meta.version = 3.8.0');
   const metaVersion = data_v357.meta && data_v357.meta.version;
-  ok('meta.version es 3.7.0', metaVersion === '3.7.0', `got=${metaVersion}`);
+  ok('meta.version es 3.8.0', metaVersion === '3.8.0', `got=${metaVersion}`);
 
   section('N22. v3.5.8 — gazetteer expone CORRIDORS con polylines de avenidas reales');
   const corridorsInfo = await page.evaluate(() => {
@@ -905,8 +905,8 @@ function section(title) {
     const navOrder = [...document.querySelectorAll('#primaryNav a')].map(a => a.getAttribute('href'));
     return { title, brandTitle, fmlValues, valueDisplay, icBounds, navOrder };
   });
-  ok('brand title actualizado a v3.6', /v3\.6/.test(v361Check.brandTitle || ''), v361Check.brandTitle);
-  ok('document.title actualizado a v3.6', /v3\.6/.test(v361Check.title), v361Check.title);
+  ok('brand title actualizado a v3.8', /v3\.8/.test(v361Check.brandTitle || ''), v361Check.brandTitle);
+  ok('document.title actualizado a v3.8', /v3\.8/.test(v361Check.title), v361Check.title);
   ok('fml-kpi-value renderiza como block', v361Check.valueDisplay === 'block', `display=${v361Check.valueDisplay}`);
   const hasEsThousands = (v361Check.fmlValues.find(v => /\d{1,3}\.\d{3}/.test(v)) || '');
   ok('formato es-PE con punto en miles (ej: +1.886)', /\d{1,3}\.\d{3}/.test(hasEsThousands), hasEsThousands || JSON.stringify(v361Check.fmlValues));
@@ -948,6 +948,22 @@ function section(title) {
   section('N45. v3.7.0 — risk_matrix y early_warning_indicators ampliados');
   ok('risk_matrix ≥ 19 entradas', (data_v357.risk_matrix || []).length >= 19, `len=${(data_v357.risk_matrix || []).length}`);
   ok('early_warning_indicators ≥ 19 entradas', (data_v357.early_warning_indicators || []).length >= 19, `len=${(data_v357.early_warning_indicators || []).length}`);
+
+  section('N46. v3.8.0 — escrutinio margen ≥ 33.000 votos');
+  const er38 = data_v357.escrutinio_realtime || {};
+  const margen38 = (er38.cifras_actuales || {}).margen_actual;
+  ok('escrutinio_realtime margen ≥ 33000', typeof margen38 === 'number' && margen38 >= 33000, `got=${margen38}`);
+
+  section('N47. v3.8.0 — forecast_ml margen central ≥ 40.000');
+  const fml38 = data_v357.forecast_ml || {};
+  const margenCentral38 = (fml38.punto_central || {}).margen_final_votos;
+  ok('forecast_ml margen central ≥ 40000', typeof margenCentral38 === 'number' && margenCentral38 >= 40000, `got=${margenCentral38}`);
+
+  section('N48. v3.8.0 — risk_matrix ≥ 26 y BLUF sin CGTP 17-jun');
+  ok('risk_matrix ≥ 26 entradas', (data_v357.risk_matrix || []).length >= 26, `len=${(data_v357.risk_matrix || []).length}`);
+  const blufCrit = (data_v357.bluf || {}).manifestaciones_criticas_top || [];
+  const hasCgtp17 = blufCrit.some(c => /CGTP/i.test(c.nombre || '') && /17/.test(c.fecha || ''));
+  ok('BLUF críticas no incluye CGTP 17-jun erróneo', hasCgtp17 === false, `criticas=${blufCrit.length}`);
 
   section('N. Global — no dash-only badge anywhere in regions/social/EW');
   const allDashBadges = await page.evaluate(() => {

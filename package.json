@@ -1,0 +1,28 @@
+{
+  "name": "mov_soc_peru_2026",
+  "version": "1.0.0",
+  "description": "Reporte OSINT de manifestaciones y movilizaciones sociales en Perú (ventana 9–19 jun 2026, post-2da vuelta).",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "node tests/run_tests.js",
+    "build": "python3 scripts/update_v380.py && python3 build_standalone.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PillB/Mov_Soc_Peru_2026.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/PillB/Mov_Soc_Peru_2026/issues"
+  },
+  "homepage": "https://github.com/PillB/Mov_Soc_Peru_2026#readme",
+  "devDependencies": {
+    "playwright": "^1.61.0"
+  }
+}

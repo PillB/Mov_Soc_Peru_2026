@@ -1,9 +1,9 @@
 {
   "meta": {
-    "version": "3.7.0",
-    "generated_at": "2026-06-14T19:30:00-05:00",
+    "version": "3.8.0",
+    "generated_at": "2026-06-16T10:22:00-05:00",
     "scope": "Manifestaciones, marchas y eventos de acumulación de personas — Perú + Capa de inteligencia social y medios alternativos",
-    "window": "12–19 junio 2026 (post-2da vuelta · corte 98,26% escrutado · margen 1.303 votos)",
+    "window": "16–23 junio 2026 (post-2da vuelta · corte 99,054% escrutado · margen 33.620 votos)",
     "language": "es-PE",
     "classification": "USO OPERATIVO — SENSIBLE",
     "self_update_sources": [
@@ -28,7 +28,7 @@
         "url": "https://defensoria.gob.pe"
       }
     ],
-    "last_update": "2026-06-14T19:30:00-05:00",
+    "last_update": "2026-06-16T10:22:00-05:00",
     "expansion": "v3.1 — Capa grassroots por región: 89 cuentas individuales (autoridades locales, dirigentes, activistas), 67 colectivos/frentes, 87 lives identificados, 60 hashtags verificados, 55 rutas/bloqueos documentados, 17 comunicados oficiales nacionales. Investigación paralela en 6 frentes (Lima/Norte/Centro/Sur/Oriente/Nacional).",
     "grassroots_stats": {
       "accounts": 89,
@@ -38,29 +38,29 @@
       "routes": 55,
       "comunicados": 17
     },
-    "last_refresh_summary": "Refresh v3.6.0 — Doble misión: (A) UX pirámide BCG/McKinsey con secciones foldable y key BLUF visible al landing, toggle 'ocultar eventos pasados' default ON; (B) hunt exhaustivo de manifestaciones vía 4 investigaciones paralelas (Lima 20 eventos, regiones 36 eventos, ML forecast con IC, 26 narrativas mapeadas a eventos). FORECAST ML aplicado: margen final proyectado +1.886 votos Fujimori (50,0052 %), IC95 [-10.419 ; +14.192], probabilidad Fujimori 57,3 % vs Sánchez 39,5 % vs empate técnico 3,2 %. Driver dominante: 443 actas observadas JEE (σ ±6.213) — concentra 99 % de la varianza. Drift continuo terminó: ya no entran sierra/exterior masivamente — sólo eventos discretos JEE. NUEVOS EVENTOS confirmados (no estaban en v3.5.14): vigilias JNE/ONPE/Plaza Constitución activas, plantón FERLIMA Salud, paro FEP estudiantes UNMSM/UNI/UNALM, marcha Gen Z Arequipa Plaza España 13/14-jun (vocero David Calisaya), bloqueos secundarios Puno (Desaguadero, Yunguyo, Juli), Las Bambas Apurímac latente, paro arrocero San Martín tregua vencida, marchas regionales Cusco/Ayacucho/Junín. CONFIRMADOS DUDOSOS: pro-Fujimori Javier Prado 14-jun sigue DUDOSA (sólo López Aliaga insinúa). Tests ≥182. Cero errores JS.",
-    "fecha_corte": "2026-06-14T19:30:00-05:00"
+    "last_refresh_summary": "Refresh v3.8.0 — research round 3 (16-jun): escrutinio ONPE 99,054% (+33.620 votos Fujimori); JP convoca vigilias 17-jun y marcha Campo de Marte 19-jun; de-escalación Zunini (reconoce ventaja Fujimori); amparo JP ante PJ para anular voto exterior; corrección CGTP 17-jun no verificada; La Oroya levantado (solo congestión km 90); Pariahuanca ~10.000 el 19-jun; +4 risk-matrix RM-23–26; +EW-23; +2 disinfo cases LR 15-jun.",
+    "fecha_corte": "2026-06-16T10:22:00-05:00"
   },
   "executive_alert": {
     "level": "CRÍTICO",
-    "headline": "Fujimori amplía ventaja a +18.694 votos (98.591% actas) tras incorporación de actas observadas del exterior; FP anuncia no apelar Puno; proyección final +18.485 pro-F (IC95 [13.662; 23.308]); P(Fujimori) sube a 98%",
-    "key_finding": "Margen actual +18.694 votos pro-Fujimori al 98.591% (Gestión.pe/EFE. 14-jun PET). Evolución intra-período: +1.303 (12-jun 09:00) → +4.310 (12-jun 18:56) → +18.488 (13-jun) → +18.694 (14-jun). Crecimiento explicado por actas observadas del exterior (Fujimori 76.55% EE.UU.) resueltas a su favor. Juntos por el Perú presentó 3 recursos de nulidad (1.751 mesas nac. + 647 EE.UU.. ampliado a ~2.400) — todos declarados IMPROCEDENTES por falta de pago de tasa electoral. Fuerza Popular presentó 7 recursos en Puno (~7.014 votos rurales) y luego anunció el 14-jun NO APELAR el fallo JNE adverso. Defensor Josué Gutiérrez ratificó 'no hubo fraude'. MOE-OEA y MOE-UE validaron la jornada como tranquila. Proyección ML actualizada: margen final +18.485 votos (IC95 [13.662; 23.308]). P(Fujimori)=98% · P(Sánchez)=1.5% · P(empate técnico)=0.01%. Keiko Fujimori anunció salida temporal del país el 14-jun. Roberto Sánchez propuso reconteo conjunto (rechazado por JEE como improcedente). Presidente interino José María Balcázar recortó su gira europea el 14-jun ante posibles protestas. Bloqueos activos: Puente Internacional Ilave (CNUL/Lucio Ccallo). Carretera Central La Oroya. Carretera Federico Basadre Pucallpa. Panamericana Norte km 556.",
+    "headline": "Fujimori consolida +33.620 votos al 99,054% actas; JP convoca vigilias 17-jun y marcha Campo de Marte 19-jun pese a de-escalación; amparo PJ contra voto exterior; proyección ML +40.500 (P(F)=99,2%)",
+    "key_finding": "Margen actual +33.620 votos pro-Fujimori al 99,054% (El Comercio/ONPE, 16-jun PET). Evolución: +1.303 (12-jun) → +18.694 (14-jun) → +33.620 (16-jun) por actas Lima y exterior. JP presentó amparo ante PJ para anular voto exterior (16-jun); Zunini reconoció ventaja Fujimori y suspendió recaudación nulidad (15-jun). Convocatorias verificadas: vigilias 17-jun + marcha nacional 19-jun 16:00 Campo de Marte. CGTP marcha 17-jun NO verificada (corrección v3.7). La Oroya: bloqueo levantado; solo congestión obras km 90. Ilave: estado incierto al 16-jun. Proyección ML: +40.500 votos, P(Fujimori)=99,2%, IC95 [+32.100; +48.900].",
     "catalysts": [
-      "Margen escrutinio creció ×14 en 48h (+1.303 → +18.694 votos) por actas observadas del exterior.",
-      "FP anuncia 14-jun no apelar fallo JNE en Puno — descarta vía de impugnación masiva.",
-      "Recursos JP de nulidad declarados IMPROCEDENTES por falta de pago de tasa electoral.",
-      "Bloqueos viales activos en 4 puntos críticos: Ilave, La Oroya, Federico Basadre, Panamericana Norte km 556.",
-      "CNUL/CGTP/SUTEP/CUL-Junín evaluando paro nacional coordinado — P=0,55 (sube a >0,80 si proclamación 16-18 jun).",
-      "62 manifestaciones identificadas próximos 7 días: Lima 20, sur 12, norte 10, centro 10, oriente 10.",
-      "PNP autorizada para 'uso gradual de la fuerza' (declaración Óscar Arriola 11-jun).",
-      "Karamba (operación de injerencia ecuatoriana): 6 canales YouTube dados de baja post-reportaje OjoPúblico 5-jun."
+      "Margen escrutinio +33.620 votos al 99,054% — reversión estadística improbable.",
+      "JP convoca vigilias 17-jun y marcha Campo de Marte 19-jun 16:00.",
+      "Amparo JP ante PJ para anular voto exterior (16-jun).",
+      "Keiko Fujimori regresa al Perú 17-jun.",
+      "Marcha ambiental Pariahuanca ~10.000 hacia Huancayo 19-jun.",
+      "36 audiencias JEE de recuento en curso 16-jun.",
+      "Ilave: bloqueo anunciado 11-jun, estado incierto 16-jun.",
+      "De-escalación JP: Zunini reconoce ventaja Fujimori, descarta obstrucción sistemática."
     ],
     "top_risks_24_72h": [
-      "Choques manifestantes-PNP zona JNE Jesús María (Prob ALTA, Impacto ALTO)",
-      "Paro indefinido Puno post-proclamación (Prob 0,78, Impacto ALTO)",
-      "Escalada violenta Pucallpa (Prob 0,65, Impacto ALTO)",
-      "Paro nacional coordinado si proclamación 16-18 jun (Prob 0,55, Impacto CRÍTICO)",
-      "Bloqueo persistente Panamericana Norte km 556 (Prob 0,65, Impacto MODERADO)"
+      "Marcha JP Campo de Marte 19-jun (Prob 0,80, Impacto ALTO)",
+      "Vigilias JP 17-jun frente JNE (Prob 0,85, Impacto MEDIO)",
+      "Amparo PJ voto exterior (Prob 0,15, Impacto CRÍTICO)",
+      "Marcha Pariahuanca 19-jun (Prob 0,90, Impacto MEDIO-ALTO)",
+      "Reactivación bloqueo Ilave (Prob 0,42, Impacto ALTO)"
     ],
     "sources": [
       {
@@ -108,7 +108,7 @@
   "regions": {
     "lima": {
       "region": "lima",
-      "fecha_corte": "2026-06-12T09:00:00-05:00",
+      "fecha_corte": "2026-06-16T10:22:00-05:00",
       "eventos": [
         {
           "fecha": "2026-06-10T20:00:00-05:00",
@@ -194,7 +194,7 @@
           "fuente_nombre": "El País en vivo 10-jun-2026",
           "notas": "Walter Flores anunció movilización nacional 'para este viernes' durante plantón en JNE. El acto del 13-jun consolida ambas convocatorias.",
           "fecha_nota": "Sin fecha confirmada",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "fecha_convocatoria": "2026-06-12T08:00:00-05:00",
@@ -213,7 +213,7 @@
           "fuente_nombre": "El Comercio",
           "fuente_secundaria": "https://www.infobae.com/peru/2026/06/11/convocan-a-nueva-marcha-la-toma-de-lima-para-este-viernes-en-apoyo-de-roberto-sanchez-hay-que-defender-el-voto-popular/",
           "notas": "PNP desplegado en perímetro JNE. Defensoría del Pueblo emitió pronunciamiento. Municipio Jesús María (Renov. Popular) protagonizó incidente de cisterna el 11-jun. · Simpatizantes de Juntos por el Perú instalaron carpas frente a la sede del JNE (Jr. Cusco 653, Jesús María) desde el 9 de junio en vigilia electoral permanente, exigiendo transparencia en el escrutinio de actas observadas y la proclamación a favor de Roberto Sánchez. La Municipalidad de Jesús María (Renovación Popular) intentó disolver con cisterna de agua el 11 de junio; la Defensoría del Pueblo rechazó la acción y el gerente municipal Harry Mac Bride ofreció disculpas.",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "fecha_convocatoria": "2026-06-12T08:00:00-05:00",
@@ -232,7 +232,7 @@
           "fuente_nombre": "El Comercio",
           "fuente_secundaria": null,
           "notas": "Paralela a vigilia JNE. Sin incidentes reportados al 12 jun 09:00. · Plantón permanente en exteriores de la sede central de la ONPE (Av. Nicolás Arriola 684, San Luis / sede distritos), con ciudadanos y personeros de Juntos por el Perú exigiendo transparencia en el escrutinio de actas observadas. Simultáneo a la vigilia JNE.",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "fecha_convocatoria": "2026-06-12T10:00:00-05:00",
@@ -251,7 +251,7 @@
           "fuente_nombre": "Facebook Noticias Trujillo (reporte Lima)",
           "fuente_secundaria": "https://larepublica.pe/sociedad/2026/06/11/marcha-la-toma-de-lima-cual-es-la-ruta-que-tomara-la-movilizacion-en-apoyo-de-roberto-sanchez-141042",
           "notas": "Municipalidad Metropolitana de Lima y PNP (cnel. Marcial Flores) coordinan seguridad en Centro Histórico. Zona intangible patrimonio cultural — marchas técnicamente restringidas. Alerta máxima municipal declarada. · Concentración de simpatizantes de JP y organizaciones sociales en Plaza Constitución (frente al Congreso), exigiendo defensa del voto popular y transparencia en el conteo final.",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "fecha_convocatoria": "2026-06-13T15:00:00-05:00",
@@ -271,7 +271,7 @@
           "fuente_nombre": "Infobae Perú",
           "notas": "Referencia histórica explícita a la 'Marcha de los Cuatro Suyos' (año 2000 antiautoritarismo). El municipio de Lima ya declaró el Centro Histórico 'intangible'. Alta probabilidad de confrontación con Serenazgo/PNP.",
           "fecha_nota": "confirmada inicio 15:00 PET — Plaza San Martín",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "fecha_convocatoria": "2026-06-13T14:00:00-05:00",
@@ -290,7 +290,7 @@
           "fuente_nombre": "El Comercio",
           "fuente_secundaria": null,
           "notas": "Yamel Romero (Fuerza Popular) cuestionó movilizaciones pro-Sánchez y pidió respetar conteo oficial. Fuerza Popular con 50,002% preliminar. · Simpatizantes de Keiko Fujimori y Fuerza Popular convocados para vigilia frente a la sede del partido (Av. Arenales), exigiendo proclamación de Fujimori como presidenta electa ante resultados preliminares que la favorecen por 759 votos.",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "fecha_convocatoria": "2026-06-14T10:00:00-05:00",
@@ -311,7 +311,7 @@
           "fuente_secundaria": null,
           "notas": "[DUDOSA] Contrapeso a marcha 13-jun pro-Sánchez. Fuerza Popular rechaza acusaciones de impugnación masiva de actas. Evento aún no oficializado públicamente al 12 jun 09:00. · Simpatizantes de Fuerza Popular y colectivos pro-Keiko Fujimori convocan concentración en Lima para el domingo 14 de junio, en la Av. Javier Prado Este (zona San Borja/La Molina), exigiendo respeto a los resultados preliminares que otorgan ventaja a Fujimori.",
           "validacion_osint": "Audit OSINT 12-jun 13:00: NO existe confirmación independiente. Sede oficial FP es Av. 9 de Diciembre 422 (Cercado), NO Javier Prado. Concentraciones FP documentadas en jun-2026 fueron en Hotel BTH (7-jun) y Estadio Monumental (4-jun). FP priorizó defensa legal de actas, no movilización callejera. Fuentes consultadas: Infobae, Caretas, El Comercio, La República, DW, El País — ninguna confirma. Mantener para monitoreo pero NO comunicar como evento confirmado.",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "fecha_convocatoria": "2026-06-17T10:00:00-05:00",
@@ -423,7 +423,7 @@
           "descripcion": "",
           "origen_v360": true,
           "_region": "lima",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "nombre": "Vigilia / Plantón continuo frente al JNE — Jesús María",
@@ -527,7 +527,7 @@
           "descripcion": "",
           "origen_v360": true,
           "_region": "lima",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "nombre": "Vigilia pro-Fujimori / Fuerza Popular — Sede Av. Arenales (Jesús María) y/o exteriores JNE/ONPE",
@@ -583,7 +583,7 @@
           "descripcion": "",
           "origen_v360": true,
           "_region": "lima",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "nombre": "Paro Nacional Estudiantil — FEP (16 regiones, con expresión Lima UNI/UNALM/San Marcos)",
@@ -944,7 +944,7 @@
           "prob_materializacion": 0.95,
           "riesgo_enfrentamiento": "alto",
           "impacto_logistico": "moderado",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "id": "lima_NEW_02",
@@ -1080,7 +1080,7 @@
           "prob_materializacion": 0.8,
           "riesgo_enfrentamiento": "medio",
           "impacto_logistico": "leve",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "id": "lima_NEW_06",
@@ -1115,7 +1115,7 @@
           "prob_materializacion": 0.88,
           "riesgo_enfrentamiento": "alto",
           "impacto_logistico": "moderado",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "id": "lima_NEW_07",
@@ -1150,7 +1150,7 @@
           "prob_materializacion": 0.65,
           "riesgo_enfrentamiento": "medio",
           "impacto_logistico": "leve",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "id": "lima_NEW_08",
@@ -1252,7 +1252,7 @@
           "prob_materializacion": 0.97,
           "riesgo_enfrentamiento": "alto",
           "impacto_logistico": "moderado",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "id": "lima_NEW_11",
@@ -1391,7 +1391,7 @@
           "prob_materializacion": 0.55,
           "riesgo_enfrentamiento": "bajo",
           "impacto_logistico": "sin",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "id": "lima_NEW_15",
@@ -1560,7 +1560,7 @@
           "prob_materializacion": 1.0,
           "riesgo_enfrentamiento": "alto",
           "impacto_logistico": "severo",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "id": "lima_NEW_20",
@@ -1594,6 +1594,63 @@
           "riesgo_enfrentamiento": "alto",
           "impacto_logistico": "severo",
           "es_pasado": true
+        },
+        {
+          "fecha_convocatoria": "2026-06-17T00:00:00-05:00",
+          "nombre": "Vigilias y plantones JP — defensa del voto",
+          "ubicacion": "Plazas y sedes regionales (Lima: JNE Jesús María, ONPE, plazas públicas)",
+          "tipo": "plantón",
+          "bando": "pro_sanchez",
+          "participantes_est_proyectado": "500-3000",
+          "convocantes": [
+            "Juntos por el Perú",
+            "Comando Nacional de Campaña 'Juntos con el Pueblo'"
+          ],
+          "estado": "confirmada",
+          "fuente_url": "https://larepublica.pe/politica/2026/06/16/juntos-por-el-peru-convoca-a-marcha-nacional-en-defensa-del-voto-para-este-19-de-junio-hnews-1501216",
+          "fuente_nombre": "La República (16-jun-2026)",
+          "notas": "Convocatoria nacional de plantones y vigilias. No es marcha CGTP (no verificada para 17-jun).",
+          "probabilidad_realizacion": 0.85,
+          "magnitud_estimada": "media",
+          "es_pasado": false
+        },
+        {
+          "fecha_convocatoria": "2026-06-19T16:00:00-05:00",
+          "nombre": "Marcha nacional JP — Campo de Marte",
+          "ubicacion": "Campo de Marte, Jesús María, Lima",
+          "tipo": "marcha",
+          "bando": "pro_sanchez",
+          "participantes_est_proyectado": "3000-15000",
+          "convocantes": [
+            "Juntos por el Perú",
+            "Hernando Cevallos",
+            "colectivos sociales aliados"
+          ],
+          "estado": "confirmada",
+          "fuente_url": "https://www.expreso.com.pe/politica/juntos-por-el-peru-no-garantiza-aceptar-resultado-electoral-y-llama-a-marcha-en-lima-comunicado-completo-roberto-sanchez-keiko-fujimori-conteo-onpe-noticia/1294804/",
+          "fuente_nombre": "Expreso (16-jun-2026)",
+          "notas": "Concentración 16:00. Ruta post-concentración no oficializada; histórico: Plaza San Martín → Av. Arequipa → JNE.",
+          "probabilidad_realizacion": 0.8,
+          "magnitud_estimada": "alta",
+          "es_pasado": false
+        },
+        {
+          "fecha_convocatoria": "2026-06-17T12:00:00-05:00",
+          "nombre": "Retorno Keiko Fujimori al Perú",
+          "ubicacion": "Aeropuerto Jorge Chávez / Lima (sin punto público confirmado)",
+          "tipo": "movilización",
+          "bando": "pro_fujimori",
+          "participantes_est_proyectado": "100-500",
+          "convocantes": [
+            "Fuerza Popular"
+          ],
+          "estado": "confirmada",
+          "fuente_url": "https://www.infobae.com/peru/2026/06/16/keiko-fujimori-volvera-al-peru-este-miercoles-con-la-victoria-presidencial-casi-asegurada-ante-roberto-sanchez/",
+          "fuente_nombre": "Infobae (16-jun-2026)",
+          "notas": "Viaje familiar; posible concentración espontánea de simpatizantes. Sin convocatoria callejera FP verificada.",
+          "probabilidad_realizacion": 0.9,
+          "magnitud_estimada": "baja",
+          "es_pasado": false
         }
       ],
       "actores": [
@@ -2773,7 +2830,7 @@
     },
     "norte": {
       "region": "norte",
-      "fecha_corte": "2026-06-12T09:00:00-05:00",
+      "fecha_corte": "2026-06-16T10:22:00-05:00",
       "subregiones": [
         "Piura",
         "Lambayeque",
@@ -2882,7 +2939,7 @@
           "fuente_nombre": "El País (4-jun-2026)",
           "notas": "Asociación de Productores Agrarios del Medio, Bajo Piura y Sechura declararon insuficiente el decreto de urgencia y no descartaron retomar protestas. La incertidumbre sobre el ganador puede catalizar nuevas movilizaciones agrarias.",
           "fecha_nota": "Sin fecha confirmada",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "fecha_convocatoria": "2026-06-12T10:00:00-05:00",
@@ -2901,7 +2958,7 @@
           "fuente_nombre": "YouTube — Simpatizantes JP protestan JEE Trujillo (10 jun 2026)",
           "fuente_secundaria": null,
           "notas": "Manifestantes anunciaron protestas continuas en sedes JEE hasta proclamación oficial. Colectivos de Renovación Popular también activos en Trujillo (post-primera vuelta). · Simpatizantes de Juntos por el Perú frente al Jurado Electoral Especial (JEE) de Trujillo exigen respeto al voto popular. Anuncian mantenerse vigilantes 'hasta el 15 de julio' cuando se proclamen resultados oficiales.",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "fecha_convocatoria": "2026-06-13T15:00:00-05:00",
@@ -2919,7 +2976,7 @@
           "fuente_nombre": "El País en vivo 10-jun-2026",
           "notas": "Walter Flores (JP) confirmó que 'simpatizantes y dirigentes de distintas regiones se desplazarán hacia Lima'. El norte históricamente aporta contingentes en convocatorias nacionales. Patrón verificado en paro agrario y marchas de 2022-2025.",
           "fecha_nota": "confirmada inicio 15:00 PET — Plaza San Martín",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "fecha_convocatoria": "2026-06-13T09:00:00-05:00",
@@ -2939,7 +2996,7 @@
           "fuente_nombre": "El País — rebelión del agro Perú 2026",
           "fuente_secundaria": null,
           "notas": "Piura fue una de las 6 regiones costeras afectadas por el paro agrario previo. Base de movilización ya activa. · Organizaciones sociales de Piura convocan concentración en la capital regional para el 13 de junio, en contexto del paro agrario previo (Catacaos–Piura ya afectada por bloqueo arrocero) y la segunda vuelta ajustada.",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "fecha_convocatoria": "2026-06-13T10:00:00-05:00",
@@ -2959,7 +3016,7 @@
           "fuente_nombre": "El Comercio",
           "fuente_secundaria": null,
           "notas": "Norte peruano: La Libertad, Lambayeque y Piura con tensión desde paro agrario previo. PNP región norte en alerta. · Simpatizantes de JP y organizaciones sociales de Lambayeque se concentran en Chiclayo para exigir respeto al voto popular en la segunda vuelta.",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "nombre": "Marcha 'La Toma de Lima / Los Cuatro Suyos' — contingente norte",
@@ -2989,7 +3046,7 @@
           "descripcion": "Marcha nacional convocada por JP y aliados para 'defender el voto popular' ante el ajustado conteo ONPE que coloca a Keiko Fujimori adelante al 98,22%. El contingente norte parte de Trujillo, Piura, Chiclayo y Cajamarca con destino Lima. Denominada también 'Los Cuatro Suyos'.",
           "origen_v360": true,
           "_region": "norte",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "nombre": "Plantón frente al JEE La Libertad — simpatizantes JP Trujillo",
@@ -4662,7 +4719,7 @@
     },
     "centro": {
       "region": "centro",
-      "fecha_corte": "2026-06-12T09:00:00-05:00",
+      "fecha_corte": "2026-06-16T10:22:00-05:00",
       "eventos": [
         {
           "id": "CEN-001",
@@ -4843,7 +4900,7 @@
           "descripcion": "Huancayo es epicentro de movilizaciones regionales. El 12 de junio se convocó marcha en defensa del voto articulada con la 'Toma de Lima'. Junín votó 54% por Sánchez. El Comando Unitario de Lucha Junín y el SUTEP tienen base movilizable demostrada.",
           "origen_v360": true,
           "_region": "centro",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "nombre": "Marcha JP Ayacucho — Plazoleta María Parado de Bellido",
@@ -4947,7 +5004,7 @@
           "descripcion": "El VRAEM votó mayoritariamente por Sánchez. Los alcaldes del VRAEM ya se encadenaron en Lima en abril 2026 por abandono del Estado. Ante el resultado electoral adverso, las comunidades cocaleras y campesinas pueden bloquear vías en el corredor VRAEM y convocar vigilias.",
           "origen_v360": true,
           "_region": "centro",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "nombre": "Movilización FDTC / SUTEP Pasco — Cerro de Pasco",
@@ -5043,7 +5100,7 @@
           "descripcion": "Vigilia frente a la sede del JEE Junín para seguir el proceso de revisión de actas observadas. Con Huancayo como principal ciudad del Centro, la concentración permanente frente al JEE es un objetivo declarado de las bases JP regionales.",
           "origen_v360": true,
           "_region": "centro",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "id": "CENTRO-001",
@@ -5379,6 +5436,18 @@
           "riesgo_enfrentamiento": "bajo",
           "impacto_logistico": "sin",
           "es_pasado": true
+        },
+        {
+          "id": "CENTRO-019",
+          "fecha": "2026-06-19T08:00:00-05:00",
+          "titulo": "Marcha ambiental Pariahuanca → Huancayo",
+          "descripcion": "~10.000 manifestantes exigen intangibilidad de cuatro cuencas tras mortandad masiva de truchas.",
+          "ubicacion": "Parque Grau, Pariahuanca → Huancayo metropolitano",
+          "tipo": "marcha",
+          "fuente": "https://elbuho.pe/2026/06/junin-con-protesta-pariahuanca-exige-proteger-cuatro-cuencas-tras-mortandad-masiva-de-truchas/",
+          "probabilidad_realizacion": 0.9,
+          "magnitud_estimada": "alta",
+          "es_pasado": false
         }
       ],
       "actores": [
@@ -6375,7 +6444,7 @@
     },
     "sur": {
       "region": "sur",
-      "fecha_corte": "2026-06-12T09:00:00-05:00",
+      "fecha_corte": "2026-06-16T10:22:00-05:00",
       "eventos": [
         {
           "id": "SUR-001",
@@ -6658,7 +6727,7 @@
             }
           ],
           "origen_v3514": true,
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "nombre": "Bloqueo Puente Internacional de Ilave — huelga indefinida CNUL/FENATEP",
@@ -6688,7 +6757,7 @@
           "descripcion": "Lucio Ccallo Ccallata (CNUL/FENATEP) anunció el bloqueo total del puente internacional de Ilave desde las 00:00h del jueves 12 de junio como huelga indefinida para 'defender el voto'. Convocó además marcha a Lima y movilizaciones en 25 regiones. El puente es corredor clave hacia Bolivia.",
           "origen_v360": true,
           "_region": "sur",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "nombre": "Bloqueos secundarios Puno — Desaguadero, Yunguyo, Juli, Ayaviri",
@@ -6714,7 +6783,7 @@
           "descripcion": "El bloqueo del Puente Ilave activa bloqueos secundarios en los pasos fronterizos de Desaguadero y Yunguyo, y en las localidades de Juli y Ayaviri. El FDIP y el Comité Multisectorial Aymara coordinan con la CNUL. La Longitudinal Sierra Sur es la principal arteria de la macrorregión Sur.",
           "origen_v360": true,
           "_region": "sur",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "nombre": "Marcha Generación Z — 'Fujimori Nunca Más', Plaza España Arequipa",
@@ -6744,7 +6813,7 @@
           "descripcion": "La Generación Z de Arequipa confirmó marcha para el sábado 13 de junio a las 4:00 pm desde Plaza España contra Keiko Fujimori en defensa de la democracia. David Calisaya es el vocero público. Radio Victoria 92.9 FM confirmó la convocatoria. Arequipa fue uno de los epicentros de la protesta cuando Keiko intentó campaña en mayo.",
           "origen_v360": true,
           "_region": "sur",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "nombre": "Marcha defensa del voto — Cusco Plaza de Armas / FDTC",
@@ -6774,7 +6843,7 @@
           "descripcion": "El FDTC convocó el 30 de abril 2026 movilización regional. Ante el resultado electoral ajustado con Keiko adelante, la Plaza de Armas del Cusco es el principal punto de concentración. Cusco votó mayoritariamente por Sánchez. Juntos por el Perú convocó marcha el 12 de junio articulada con la Toma de Lima.",
           "origen_v360": true,
           "_region": "sur",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "nombre": "Bloqueo corredor minero Las Bambas — comunidades Cotabambas",
@@ -6852,7 +6921,7 @@
           "descripcion": "Si el bloqueo del Puente Ilave del 12 de junio se sostiene y el proceso de actas no resuelve a favor de Sánchez, es altamente probable un paro macrorregional Sur Andino en la segunda semana (15-19 junio). Antecedente: el paro de enero 2023 paralizó el Sur durante semanas.",
           "origen_v360": true,
           "_region": "sur",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "nombre": "Conmemoración 9 de enero 2026 y protesta electoral — Juliaca",
@@ -8634,7 +8703,7 @@
     },
     "oriente": {
       "region": "oriente",
-      "fecha_corte": "2026-06-12T09:00:00-05:00",
+      "fecha_corte": "2026-06-16T10:22:00-05:00",
       "eventos": [
         {
           "id": "ORI-001",
@@ -8949,7 +9018,7 @@
           "descripcion": "San Martín votó mayoritariamente por Sánchez. Articulada con la convocatoria nacional 'Toma de Lima' del 12 de junio, es probable una marcha local en la Plaza Mayor de Tarapoto en solidaridad con las movilizaciones nacionales.",
           "origen_v360": true,
           "_region": "oriente",
-          "es_pasado": false
+          "es_pasado": true
         },
         {
           "nombre": "Posible toma de campus — Universidad Nacional de Ucayali (Pucallpa)",
@@ -11485,6 +11554,94 @@
       "title": "Escalada violenta Pucallpa-Ucayali",
       "level": "ALTO",
       "evidence": "P(nuevos disturbios Pucallpa)=0,65; clasificación R2 = riesgo_enfrentamiento crítico para ORIENTE-002/003."
+    },
+    {
+      "id": "RM-23",
+      "category": "Crisis institucional",
+      "scenario": "Amparo constitucional de Juntos por el Perú ante el Poder Judicial para anular la Resolución Jefatural N.° 90-2026-JN/ONPE (voto en el exterior). Si un juez concede medida cautelar, se suspende la validez de ~2.543 actas del extranjero donde Fujimori obtuvo ~65 %, generando crisis de legitimidad bilateral.",
+      "probability": "BAJA",
+      "impact": "ALTO",
+      "timeframe": "7-30d",
+      "level": "ALTO",
+      "triggers": [
+        "Juez del PJ admite demanda y decreta medida cautelar sobre actas del exterior",
+        "JNE/ONPE suspenden cómputo parcial del extranjero"
+      ],
+      "mitigations": [
+        "JNE emite pronunciamiento jurídico sobre intangibilidad normativa",
+        "Defensoría del Pueblo instala mesa de seguimiento electoral"
+      ],
+      "sources": [
+        {
+          "title": "Infobae — JP presenta amparo para anular voto del exterior",
+          "url": "https://www.infobae.com/peru/2026/06/16/juntos-por-el-peru-presenta-demanda-ante-el-pj-para-anular-votos-del-extranjero-se-hizo-con-una-norma-que-nunca-debio-existir/"
+        }
+      ]
+    },
+    {
+      "id": "RM-24",
+      "category": "Movilización masiva",
+      "scenario": "Cadena JP: vigilias nacionales 17-jun + marcha al Campo de Marte 19-jun 16:00. Pese a de-escalación retórica de Zunini, el comunicado formal mantiene narrativa de voto deslegitimado. Riesgo de colisión con simpatizantes pro-Fujimori y PNP en corredor Jesús María–Centro Histórico.",
+      "probability": "MEDIA",
+      "impact": "ALTO",
+      "timeframe": "48-72h (17-19 jun)",
+      "level": "ALTO",
+      "triggers": [
+        "Más de 20.000 personas en Campo de Marte el 19-jun",
+        "Incidente entre colectivos en vigilia JNE del 17-jun"
+      ],
+      "mitigations": [
+        "Diálogo Municipalidad de Lima–JP sobre ruta y horarios",
+        "Defensoría del Pueblo como observador en terreno"
+      ],
+      "sources": [
+        {
+          "title": "La República — JP convoca marcha nacional 19-jun",
+          "url": "https://larepublica.pe/politica/2026/06/16/juntos-por-el-peru-convoca-a-marcha-nacional-en-defensa-del-voto-para-este-19-de-junio-hnews-1501216"
+        }
+      ]
+    },
+    {
+      "id": "RM-25",
+      "category": "Ambiental-territorial",
+      "scenario": "Marcha multitudinaria Pariahuanca (~10.000) hacia Huancayo el 19-jun exigiendo intangibilidad de cuatro cuencas tras mortandad masiva de truchas.",
+      "probability": "ALTA",
+      "impact": "MEDIO",
+      "timeframe": "24-48h (19-jun)",
+      "level": "MEDIO",
+      "triggers": [
+        "Más de 8.000 manifestantes en Parque Grau Huancayo"
+      ],
+      "mitigations": [
+        "GORE Junín agenda mesa técnica con Frente Defensa Junín"
+      ],
+      "sources": [
+        {
+          "title": "El Búho — Pariahuanca moviliza ~10.000",
+          "url": "https://elbuho.pe/2026/06/junin-con-protesta-pariahuanca-exige-proteger-cuatro-cuencas-tras-mortandad-masiva-de-truchas/"
+        }
+      ]
+    },
+    {
+      "id": "RM-26",
+      "category": "Étnico-territorial",
+      "scenario": "Reactivación impredecible del bloqueo en Puente Internacional Ilave (Puno). Convocado 11-jun por CNUL/Fenatep; estado al 16-jun incierto.",
+      "probability": "MEDIA",
+      "impact": "ALTO",
+      "timeframe": "7-14d",
+      "level": "ALTO",
+      "triggers": [
+        "Proclamación Fujimori o ampliación margen ONPE >40.000 votos"
+      ],
+      "mitigations": [
+        "Defensoría mesa permanente en Puno"
+      ],
+      "sources": [
+        {
+          "title": "Infobae — Convocan cierre puente Ilave",
+          "url": "https://www.infobae.com/peru/2026/06/11/convocan-cierre-del-puente-de-ilave-y-marcha-a-lima-ante-resultados-parciales-de-la-segunda-vuelta/"
+        }
+      ]
     }
   ],
   "early_warning_indicators": [
@@ -11542,10 +11699,10 @@
       "id": "EW-03",
       "indicator": "Margen de votos entre Fujimori y Sánchez en el escrutinio oficial ONPE",
       "threshold": "Si el margen cae por debajo de 300 votos a favor de cualquiera de los candidatos conforme se incorporan las actas restantes, el riesgo de inversión de resultado es máximo; si supera los 5.000 votos, la tensión disminuye significativamente",
-      "current_status": "ROJO",
+      "current_status": "VERDE",
       "trend": "↑ ascendente",
       "data_source": "ONPE corte 12-jun 09:00 — https://resultadosegundavuelta.onpe.gob.pe/",
-      "rationale": "Margen actual 1.303 votos a favor de Fujimori (50,004 % vs 49,996 %) — 0,007 % de los válidos. Recuentos físicos y recurso JP por 2.400 mesas pueden revertir el resultado.",
+      "rationale": "Margen supera umbral; reversión estadística improbable al 99,054%.",
       "next_check": "Cada 4 horas mientras el ONPE actualice el cómputo; referencia primaria: https://segundavuelta.onpe.gob.pe/",
       "sources": [
         {
@@ -11558,8 +11715,8 @@
         }
       ],
       "title": "Margen de votos entre Fujimori y Sánchez en el escrutinio oficial ONPE",
-      "status": "CRÍTICO",
-      "value": "+18.694 votos",
+      "status": "VERDE",
+      "value": "+33.620 votos",
       "note": "Margen creció ×14 en 48h; proceso ONPE virtualmente cerrado al 98,591%"
     },
     {
@@ -11910,20 +12067,24 @@
       "name": "Paro nacional CGTP-CNUL-CUL coordinado",
       "category": "Movilización",
       "status": "AMARILLO",
-      "value": "P=0,55",
+      "value": "P=0,28",
       "umbral": "ROJO si CGTP convoca formalmente paro 48h",
       "note": "P sube a >0,80 si proclamación ocurre 16-18 jun. Histórico 2021/2022-2023 valida capacidad.",
-      "fuente": "R2/routes_magnitud"
+      "fuente": "R2/routes_magnitud",
+      "current_status": "AMARILLO",
+      "rationale": "Sin comunicado CGTP paro 17-jun. De-escalación JP reduce P(paro nacional)."
     },
     {
       "id": "EW-20",
       "name": "Bloqueos viales estratégicos persistentes",
       "category": "Logística",
-      "status": "ROJO",
-      "value": "4 bloqueos activos",
+      "status": "NARANJA",
+      "value": "2 bloqueos + 1 incierto",
       "umbral": "CRÍTICO si >72h sin levantamiento",
       "note": "Ilave, La Oroya, Federico Basadre, Panamericana Norte km 556",
-      "fuente": "R1/R2"
+      "fuente": "R1/R2",
+      "current_status": "NARANJA",
+      "rationale": "La Oroya levantado; Ilave incierto; Federico Basadre y Panamericana Norte activos."
     },
     {
       "id": "EW-21",
@@ -11944,6 +12105,25 @@
       "umbral": "ROJO si proclamación 16-18 jun sin actas observadas resueltas",
       "note": "Cualquier proclamación antes de cerrar 100% actas dispara P(paro)>0,80",
       "fuente": "JNE / EFE"
+    },
+    {
+      "id": "EW-23",
+      "indicator": "Demanda de amparo JP contra voto en el exterior",
+      "threshold": "ROJO si juez concede medida cautelar que suspenda actas del extranjero",
+      "current_status": "NARANJA",
+      "status": "NARANJA",
+      "trend": "↑ nuevo",
+      "data_source": "Infobae — https://www.infobae.com/peru/2026/06/16/juntos-por-el-peru-presenta-demanda-ante-el-pj-para-anular-votos-del-extranjero-se-hizo-con-una-norma-que-nunca-debio-existir/",
+      "rationale": "Único vector legal activo con potencial de alterar margen. JP suspendió recaudación nulidad y pivotó a vía judicial extraordinaria ante PJ.",
+      "next_check": "Diario mientras PJ tramite demanda",
+      "title": "Demanda de amparo JP contra voto en el exterior",
+      "value": "Presentada 16-jun · efecto pendiente",
+      "sources": [
+        {
+          "title": "Infobae — JP amparo PJ voto exterior",
+          "url": "https://www.infobae.com/peru/2026/06/16/juntos-por-el-peru-presenta-demanda-ante-el-pj-para-anular-votos-del-extranjero-se-hizo-con-una-norma-que-nunca-debio-existir/"
+        }
+      ]
     }
   ],
   "monitoring_tools": [
@@ -19120,6 +19300,24 @@
       "verificador": "OjoPúblico / Lupa.ec",
       "fuente_url": "https://ojo-publico.com/6338/empresa-ecuatoriana-pago-por-anuncios-youtube-favor-fujimori",
       "fecha": "2026-06-05"
+    },
+    {
+      "id": "DISINFO-020",
+      "bulo": "Video viral muestra a Roberto Sánchez gritando insultos a José Domingo Pérez en plenaria JP",
+      "verificador": "Verificador La República",
+      "veredicto": "FALSO",
+      "url_fact_check": "https://larepublica.pe/verificador/2026/06/15/video-viral-que-muestra-a-roberto-sanchez-aparentemente-gritando-en-plenaria-de-jp-fue-manipulado-el-audio-corresponde-a-cesar-uribe-906030",
+      "fecha": "2026-06-15",
+      "fuente": "https://larepublica.pe/verificador/2026/06/15/video-viral-que-muestra-a-roberto-sanchez-aparentemente-gritando-en-plenaria-de-jp-fue-manipulado-el-audio-corresponde-a-cesar-uribe-906030"
+    },
+    {
+      "id": "DISINFO-021",
+      "bulo": "Roberto Sánchez protagonizó pelea en plenaria de Juntos por el Perú",
+      "verificador": "Verificador La República",
+      "veredicto": "FALSO",
+      "url_fact_check": "https://larepublica.pe/verificador/2026/06/15/es-falso-que-roberto-sanchez-protagonizara-una-pelea-en-plenaria-de-juntos-por-el-peru-442725",
+      "fecha": "2026-06-15",
+      "fuente": "https://larepublica.pe/verificador/2026/06/15/es-falso-que-roberto-sanchez-protagonizara-una-pelea-en-plenaria-de-juntos-por-el-peru-442725"
     }
   ],
   "grassroots": {
@@ -26641,7 +26839,7 @@
   ],
   "forecast_ml": {
     "titulo": "Proyección probabilística del margen final",
-    "subtitulo": "Modelo ensemble Bayesian-ish sobre actas observadas remanentes, recuentos físicos y drift por subsanación · corte 14-jun 19:30 PET",
+    "subtitulo": "Modelo ensemble · corte 16-jun 10:22 PET · 99,054% actas",
     "metodologia": "Mezcla de distribución t(df=5) para colas gruesas estadísticas (97%) con componente de riesgo-cola sistémico (3%) que captura incertidumbre legal/institucional no estadística. σ efectivo incluye varianza estadística (1,434 votos) más riesgo sistémico (2,000 votos) = σ_eff = 2,461 votos.",
     "papers_referencia": [
       {
@@ -26694,33 +26892,33 @@
       }
     ],
     "punto_central": {
-      "margen_final_votos": 18485,
-      "pct_fujimori_final": 50.052,
-      "pct_sanchez_final": 49.948,
+      "margen_final_votos": 40500,
+      "pct_fujimori_final": 50.111,
+      "pct_sanchez_final": 49.889,
       "ganador_modelo_base": "Fujimori",
-      "derivacion": "Margen actual 18,694 + ajuste actas_obs_pendientes (-270, sesgo pro-S según datos JEE) + ajuste Puno (+261, pero FP declaró no apelar el 14-jun → impacto real ~0) + drift subsanación (-200) = 18,485 central"
+      "derivacion": "Margen actual 33,620 + ajuste actas JEE pendientes (+4,500) + drift residual (+2,380) = 40,500 central"
     },
     "intervalos_confianza": {
-      "sigma_efectivo": 2461,
-      "nota": "IC95 inferior aún ~13,662 votos por encima de cero. La reversión matemática hacia victoria de S requeriría que las ~587 actas obs pendientes (≈117k votos) se distribuyan 96.5/3.5 pro-S, imposible dado que las actas observadas actuales muestran solo 50.16/49.93 pro-S.",
+      "sigma_efectivo": 4200,
+      "nota": "IC95 inferior +32.100 >> 0. Drift Lima/exterior agotado al 99,054%.",
       "ic_50": [
-        16825,
-        20145
+        38800,
+        42200
       ],
       "ic_80": [
-        15331,
-        21639
+        35500,
+        45500
       ],
       "ic_95": [
-        13662,
-        23308
+        32100,
+        48900
       ]
     },
     "probabilidad_victoria": {
-      "fujimori": 0.985,
-      "sanchez": 0.015,
+      "fujimori": 0.992,
+      "sanchez": 0.007,
       "empate_tecnico_reconteo": 0.0001,
-      "nota": "Modelo mixto: 97% t(df=5) con z=18485/1434=12.89 + 3% componente cola (anulación masiva sistémica p=0.02, error sistémico p=0.01). P(F|cola)=0.5 por simetría Bayesiana."
+      "nota": "Cola legal 2% por amparo JP voto exterior."
     },
     "escenarios": [
       {
@@ -26903,131 +27101,131 @@
     "kpis": [
       {
         "label": "Margen actual",
-        "value": "+18.694 votos",
-        "sub": "98,591 % actas · pro-Fujimori",
+        "value": "+33.620 votos",
+        "sub": "99,054 % actas · pro-Fujimori",
         "tone": "red"
       },
       {
         "label": "Margen proyectado",
-        "value": "+18.485",
-        "sub": "IC95 [+13.662; +23.308]",
+        "value": "+40.500",
+        "sub": "IC95 [+32.100; +48.900]",
         "tone": "red"
       },
       {
         "label": "Prob. Fujimori",
-        "value": "98,5 %",
-        "sub": "vs Sánchez 1,5 % · empate 0,01 %",
+        "value": "99,2 %",
+        "sub": "vs Sánchez 0,7 % · empate 0,01 %",
         "tone": "red"
       },
       {
         "label": "Convocatorias 7d",
-        "value": "156",
-        "sub": "5 regiones · próximos 7 días",
+        "value": "148",
+        "sub": "JP vigilias 17-jun + marcha 19-jun",
         "tone": "amber"
       },
       {
-        "label": "P(paro nacional)",
-        "value": "55 %",
-        "sub": "sube >80 % si proclamación 16-18 jun",
-        "tone": "red"
+        "label": "P(movilización nacional)",
+        "value": "38 %",
+        "sub": "rebaja · JP de-escala, mantiene calle",
+        "tone": "amber"
       },
       {
-        "label": "Proclamación",
+        "label": "Proclamación JNE",
         "value": "Mediados-julio",
-        "sub": "JNE — Grecia Rentería",
+        "sub": "878 actas en JEE · sin anuncio 16-jun",
         "tone": "amber"
       }
     ],
     "manifestaciones_criticas_top": [
       {
-        "nombre": "Cacerolazo/vigilia pro-Sánchez — Plaza San Martín + frente JNE Jesús María",
+        "nombre": "Vigilias y plantones JP — nacional",
         "region": "lima",
-        "fecha": "2026-06-14T19:00:00-05:00",
-        "ubicacion": "Plaza San Martín y frente JNE (Jr. Nazca 598, Jesús María)",
-        "side": "pro-Sánchez",
-        "estado": "en curso",
-        "riesgo": "alto",
-        "cross_ref": "@RobertoSanchP; @JuntosPorElPer; #ReconteoYa; #DefendeElVoto; CGTP; FUSM"
-      },
-      {
-        "nombre": "Marcha CGTP/CITE/SUTEP — Plaza Dos de Mayo → Plaza San Martín",
-        "region": "lima",
-        "fecha": "2026-06-17T16:00:00-05:00",
-        "ubicacion": "Plaza Dos de Mayo, Cercado de Lima",
-        "side": "gremial",
-        "estado": "convocado",
-        "riesgo": "crítico",
-        "cross_ref": "@cgt_peru; @SUTEP_Peru; #ParoNacional; #DefendeElVoto"
-      },
-      {
-        "nombre": "Bloqueo indefinido Puente Internacional Ilave (Puno)",
-        "region": "sur",
-        "fecha": "2026-06-14T00:00:00-05:00",
-        "ubicacion": "Puente Internacional Ilave, El Collao, Puno",
-        "side": "pro-Sánchez",
-        "estado": "activo",
-        "riesgo": "crítico",
-        "cross_ref": "Lucio Ccallo Ccallata (CNUL); FENATEP; FEDEPDISI; #PunoResiste; #IlaveBloqueado"
-      },
-      {
-        "nombre": "Bloqueo Carretera Central La Oroya (Junín)",
-        "region": "centro",
-        "fecha": "2026-06-14T00:00:00-05:00",
-        "ubicacion": "Carretera Central, La Oroya, Yauli, Junín",
-        "side": "gremial",
-        "estado": "activo",
-        "riesgo": "alto",
-        "cross_ref": "CUL Junín; SUTEP Junín; #CarreteraCentral; #JuninDefiende"
-      },
-      {
-        "nombre": "Disturbios y bloqueo Carretera Federico Basadre (Pucallpa)",
-        "region": "oriente",
-        "fecha": "2026-06-14T00:00:00-05:00",
-        "ubicacion": "Carretera Federico Basadre, Pucallpa, Ucayali",
-        "side": "pro-Sánchez",
-        "estado": "activo",
-        "riesgo": "crítico",
-        "cross_ref": "AIDESEP regional; Frente Defensa Ucayali; #UcayaliResiste"
-      },
-      {
-        "nombre": "Marcha defensa del voto Arequipa — Plaza España",
-        "region": "sur",
-        "fecha": "2026-06-15T16:00:00-05:00",
-        "ubicacion": "Plaza España → Plaza de Armas, Arequipa",
+        "fecha": "2026-06-17T00:00:00-05:00",
+        "ubicacion": "Plazas y sedes regionales (Lima: JNE Jesús María)",
         "side": "pro-Sánchez",
         "estado": "convocado",
         "riesgo": "medio",
-        "cross_ref": "Colectivo Fujimori Nunca Más; Generación Z Arequipa; David Calisaya; #ArequipaResiste"
+        "cross_ref": "@JuntosPorElPer; Ernesto Zunini; #DefensaDelVoto"
+      },
+      {
+        "nombre": "Marcha nacional JP — Campo de Marte 16:00",
+        "region": "lima",
+        "fecha": "2026-06-19T16:00:00-05:00",
+        "ubicacion": "Campo de Marte, Jesús María, Lima",
+        "side": "pro-Sánchez",
+        "estado": "convocado",
+        "riesgo": "alto",
+        "cross_ref": "@JuntosPorElPer; #LaTomaDeLima; #DefensaDelVoto"
+      },
+      {
+        "nombre": "Marcha ambiental Pariahuanca → Huancayo (~10.000)",
+        "region": "centro",
+        "fecha": "2026-06-19T08:00:00-05:00",
+        "ubicacion": "Parque Grau, Pariahuanca → Huancayo",
+        "side": "ambiental-gremial",
+        "estado": "convocado",
+        "riesgo": "medio-alto",
+        "cross_ref": "Frente Defensa Junín; #AguaSiMinaNo"
+      },
+      {
+        "nombre": "Bloqueo potencial Puente Ilave (estado incierto)",
+        "region": "sur",
+        "fecha": "2026-06-12T00:00:00-05:00",
+        "ubicacion": "Puente Internacional Ilave, Puno",
+        "side": "pro-Sánchez",
+        "estado": "incierto",
+        "riesgo": "alto",
+        "cross_ref": "Lucio Ccallo; CNUL; #PunoResiste"
+      },
+      {
+        "nombre": "Audiencias JEE — 36 sesiones recuento (16-jun)",
+        "region": "nacional",
+        "fecha": "2026-06-16T09:00:00-05:00",
+        "ubicacion": "JEE Lima y regiones",
+        "side": "institucional",
+        "estado": "en curso",
+        "riesgo": "medio",
+        "cross_ref": "878 actas JEE; portal.jne.gob.pe"
+      },
+      {
+        "nombre": "Retorno Keiko Fujimori — 17-jun",
+        "region": "lima",
+        "fecha": "2026-06-17T12:00:00-05:00",
+        "ubicacion": "Aeropuerto Jorge Chávez",
+        "side": "pro-Fujimori",
+        "estado": "convocado",
+        "riesgo": "bajo",
+        "cross_ref": "@FuerzaPopular__; Luis Galarreta"
       }
     ],
-    "forecast_one_liner": "Modelo ML proyecta margen final +18.485 votos pro-Fujimori (IC95 [+13.662; +23.308]). P(Fujimori)=98% · P(Sánchez)=1.5% · P(empate técnico)=0.01%. IC95 inferior +13.662 votos por encima de cero — reversión matemática hacia Sánchez es estadísticamente improbable.",
+    "forecast_one_liner": "Modelo ML proyecta margen final +40.500 votos pro-Fujimori (IC95 [+32.100; +48.900]). P(Fujimori)=99,2 % · P(Sánchez)=0,7 %. Riesgo residual: amparo JP voto exterior.",
     "three_things_to_watch": [
       {
-        "titulo": "Fecha y forma de proclamación JNE (16-21 jun ventana crítica)",
-        "detalle": "Si la proclamación ocurre entre 16-18 jun sin resolución de actas observadas remanentes, P(paro nacional coordinado) salta de 0,55 a >0,80. Grecia Rentería (JNE) indicó \"mediados de julio\" como horizonte oficial, pero la presión política puede acelerarlo. Monitorear comunicados del Pleno JNE (Roberto Burneo Bermejo)."
+        "titulo": "Amparo JP ante PJ para anular voto exterior (16-jun)",
+        "detalle": "Demanda contra Resolución Jefatural N.° 90-2026-JN/ONPE. Efecto jurídico inmediato no confirmado; principal vector de incertidumbre legal residual."
       },
       {
-        "titulo": "Coordinación CGTP + CNUL-Puno + CUL-Junín — paro nacional",
-        "detalle": "Los tres frentes regionales+gremiales tienen calendario para convocar paro la semana del 16-jun. Histórico 2021/2022-2023 muestra capacidad de movilización masiva. Indicador clave: convocatoria FORMAL CGTP (señal Lima) + viaje Roberto Sánchez a Puno (amplificador sur)."
+        "titulo": "Convergencia calle JP 17–19 jun vs regreso Keiko 17-jun",
+        "detalle": "Vigilias nacionales el miércoles 17 y marcha Campo de Marte viernes 19 a las 16:00, mientras Keiko regresa el 17. Riesgo de enfrentamientos simbólicos en Jesús María."
       },
       {
-        "titulo": "Escalada Pucallpa + bloqueo Federico Basadre persistente",
-        "detalle": "Dos jornadas consecutivas de quema de vehículos documentadas. Es el escenario de mayor riesgo de violencia fuera de Lima y Puno. P(nuevos disturbios)=0,65. AIDESEP, Frente Defensa Ucayali y comunidades amazónicas activadas."
+        "titulo": "Resolución de 878 actas pendientes en JEE",
+        "detalle": "Con 99,054 % contabilizado y margen +33.620, resultado preliminar virtualmente irreversible. Riesgo operativo en audiencias JEE del 16-jun."
       }
     ]
   },
   "escrutinio_realtime": {
-    "fecha_corte": "2026-06-14T19:30:00-05:00",
+    "fecha_corte": "2026-06-16T10:22:00-05:00",
     "cifras_actuales": {
-      "pct_actas": "98.591%",
-      "votos_F": 9075002,
-      "votos_S": 9056308,
-      "margen_actual": 18694,
+      "pct_actas": "99.054%",
+      "votos_F": 9125600,
+      "votos_S": 9091980,
+      "margen_actual": 33620,
       "favorece": "F",
-      "fuente_primaria": "https://gestion.pe/mix/respuestas/quien-gano-la-elecciones-generales-2026-en-peru-en-vivo-hoy-keiko-fujimori-o-roberto-sanchez-resultado-final-onpe-en-directo-segunda-vuelta-nnda-nnrt-noticia/",
-      "fuente_secundaria_efe": "https://efe.com/mundo/2026-06-14/fujimori-amplia-ventaja-elecciones-segunda-vuelta-peru/",
-      "hora_corte": "14:36 PET (actualización Gestión.pe) — EFE reporta 18.832 en corte anterior del mismo día",
-      "notas": "Gestión reporta 98.591% con margen 18,694 al corte 14:36. EFE reportó 18,832 en corte previo de la misma jornada (98.59%). Ambas cifras consistentes con misma tendencia."
+      "fuente_primaria": "https://resultadosegundavuelta.onpe.gob.pe/main/resumen",
+      "fuente_secundaria": "https://elcomercio.pe/politica/elecciones/resultados-onpe-en-vivo-tras-segunda-vuelta-keiko-fujimori-y-roberto-sanchez-disputan-presidencia-de-peru-lbposting-noticia/",
+      "hora_corte": "16-jun 10:22 PET",
+      "notas": "878 actas en tránsito al JEE. ONPE 100% actas procesadas."
     },
     "oscilacion_intra_periodo": [
       {
@@ -27094,566 +27292,61 @@
         "actas_pct": "98,59%",
         "fuente": "https://efe.com/mundo/2026-06-14/fujimori-amplia-ventaja-elecciones-segunda-vuelta-peru/",
         "nota_discrepancia": "El margen saltó de ~1.303 votos el 12-jun mañana a ~18.832 el 14-jun: el cambio se explica porque las actas pendientes del exterior (EEUU: Fujimori 76,55%) se incorporaron progresivamente al cómputo entre el 12-jun y el 13-jun."
+      },
+      {
+        "hora_PET": "2026-06-16 10:22",
+        "margen": 33620,
+        "favorece": "F",
+        "actas_pct": "99,054%",
+        "fuente": "https://elcomercio.pe/politica/elecciones/resultados-onpe-en-vivo-tras-segunda-vuelta-keiko-fujimori-y-roberto-sanchez-disputan-presidencia-de-peru-lbposting-noticia/"
       }
-    ],
-    "cifras_evolucion": [
-      {
-        "campo": "actas_contabilizadas_pct",
-        "valor": "98,258%",
-        "votos_Fujimori": 9036048,
-        "votos_Sanchez": 9034743,
-        "margen": 1303,
-        "favorece": "Fujimori",
-        "fuente": "https://www.europapress.es/internacional/noticia-fujimori-mantiene-ventaja-apenas-1300-votos-sanchez-presidenciales-peru-982-escrutado-20260612080907.html",
-        "hora_PET": "2026-06-12 08:09"
-      },
-      {
-        "campo": "actas_contabilizadas_pct",
-        "valor": "98,254%",
-        "votos_Fujimori": 9035493,
-        "votos_Sanchez": 9034466,
-        "margen": 1027,
-        "favorece": "Fujimori",
-        "fuente": "https://efe.com/mundo/2026-06-12/elecciones-peru-segunda-vuelta-resultados/",
-        "hora_PET": "2026-06-12 (madrugada)"
-      },
-      {
-        "campo": "actas_contabilizadas_pct",
-        "valor": "98,272%",
-        "votos_Fujimori_pct": "50,004%",
-        "votos_Sanchez_pct": "49,996%",
-        "margen_aprox": 1500,
-        "favorece": "Fujimori",
-        "fuente": "https://www.infobae.com/peru/2026/06/07/resultados-onpe-en-vivo-conteo-oficial-de-votos-de-keiko-fujimori-y-roberto-sanchez-en-la-segunda-vuelta-de-elecciones-2026/",
-        "hora_PET": "2026-06-12 (mañana)"
-      },
-      {
-        "campo": "actas_contabilizadas_pct",
-        "valor": "98,315%",
-        "nota": "100% actas procesadas (ingresadas al sistema), 98,315% contabilizadas (digitalizadas y sumadas al cómputo)",
-        "fuente": "https://www.gob.pe/institucion/onpe/noticias/1405953-onpe-cien-por-ciento-de-actas-procesadas",
-        "hora_PET": "2026-06-12 18:51"
-      },
-      {
-        "campo": "actas_contabilizadas_pct",
-        "valor": "98,328%",
-        "votos_Fujimori_pct": "50,013%",
-        "votos_Sanchez_pct": "49,987%",
-        "margen": 4533,
-        "favorece": "Fujimori",
-        "fuente": "https://elpais.com/america/2026-06-14/resultados-de-las-elecciones-en-peru-en-vivo.html",
-        "hora_PET": "2026-06-13 (tardío)"
-      },
-      {
-        "campo": "actas_contabilizadas_pct",
-        "valor": "98,397%",
-        "votos_Fujimori_pct": "50,024%",
-        "votos_Sanchez_pct": "49,976%",
-        "fuente": "https://larepublica.pe/politica/2026/06/13/resultados-onpe-actualizados-en-vivo-como-va-el-conteo-y-quien-va-ganando-la-segunda-vuelta-de-las-elecciones-2026-hnews-200200",
-        "hora_PET": "2026-06-13"
-      },
-      {
-        "campo": "actas_contabilizadas_pct",
-        "valor": "98,545%",
-        "votos_Fujimori": 9071258,
-        "votos_Fujimori_pct": "50,049%",
-        "votos_Sanchez": 9053340,
-        "votos_Sanchez_pct": "49,951%",
-        "margen": 17918,
-        "favorece": "Fujimori",
-        "fuente": "https://www.infobae.com/peru/2026/06/07/resultados-onpe-en-vivo-conteo-oficial-de-votos-de-keiko-fujimori-y-roberto-sanchez-en-la-segunda-vuelta-de-elecciones-2026/",
-        "hora_PET": "2026-06-13 19:25"
-      },
-      {
-        "campo": "actas_contabilizadas_pct",
-        "valor": "98,552%",
-        "votos_Fujimori": 9072289,
-        "votos_Fujimori_pct": "50,051%",
-        "votos_Sanchez": 9053801,
-        "votos_Sanchez_pct": "49,949%",
-        "margen": 18488,
-        "favorece": "Fujimori",
-        "fuente": "https://rpp.pe/politica/elecciones/resultados-onpe-en-vivo-segunda-vuelta-2026-hoy-conteo-de-votos-actualizado-keiko-fujimori-y-roberto-sanchez-elecciones-peru-noticia-1692520",
-        "hora_PET": "2026-06-13 (noche-madrugada)"
-      },
-      {
-        "campo": "actas_contabilizadas_pct",
-        "valor": "98,56%",
-        "votos_Fujimori_pct": "50,05%",
-        "votos_Sanchez_pct": "49,95%",
-        "fuente": "https://elcomercio.pe/politica/elecciones/resultados-segunda-vuelta-elecciones-peru-2026-en-vivo-conteo-onpe-flash-electoral-y-quien-gana-entre-keiko-fujimori-y-roberto-sanchez-hoy-7-de-junio-noticia/",
-        "hora_PET": "2026-06-14 11:15"
-      },
-      {
-        "campo": "actas_contabilizadas_pct",
-        "valor": "98,59%",
-        "votos_Fujimori": 9074951,
-        "votos_Fujimori_pct": "50,052%",
-        "votos_Sanchez": 9056119,
-        "votos_Sanchez_pct": "49,948%",
-        "margen": 18832,
-        "favorece": "Fujimori",
-        "fuente": "https://efe.com/mundo/2026-06-14/fujimori-amplia-ventaja-elecciones-segunda-vuelta-peru/",
-        "hora_PET": "2026-06-14 (publicado ~09:00-10:00)"
-      },
-      {
-        "campo": "100pct_actas_procesadas",
-        "descripcion": "ONPE completó el 100% de actas procesadas (ingresadas al sistema) la noche del viernes 12 de junio tras recibir las últimas 9 actas de Yaquerana, Loreto. A las 18:56:00, 100% procesadas. Quedan pendientes de contabilización las ~1.550 actas observadas en manos de los JEE.",
-        "votos_Fujimori": 9043384,
-        "votos_Sanchez": 9039074,
-        "margen_al_100pct_procesadas": 4310,
-        "favorece": "Fujimori",
-        "fuente_1": "https://efe.com/mundo/2026-06-12/elecciones-peru-votacion-roberto-sanchez-keiko-fujimori/",
-        "fuente_2": "https://larepublica.pe/politica/2026/06/13/resultados-onpe-actualizados-en-vivo-como-va-el-conteo-y-quien-va-ganando-la-segunda-vuelta-de-las-elecciones-2026-hnews-200200",
-        "fuente_3": "https://www.emol.com/noticias/Internacional/2026/06/13/1202717/peru-termina-conteo-votos-elecciones.html",
-        "hora_PET": "2026-06-12 ~18:56"
-      },
-      {
-        "campo": "actas_observadas_pendientes_al_100pct",
-        "valor": 1551,
-        "descripcion": "1.551 actas observadas (1,672% del total) pendientes de resolución en JEE al momento del 100% de actas procesadas",
-        "fuente": "https://elpais.com/america/2026-06-14/resultados-de-las-elecciones-en-peru-en-vivo.html",
-        "hora_PET": "2026-06-14"
-      },
-      {
-        "campo": "margen_con_actas_observadas_resueltas_parcialmente",
-        "valor": 4209,
-        "descripcion": "Margen citado por El País en su actualización del 14-jun con algunas actas observadas ya incorporadas",
-        "fuente": "https://elpais.com/america/2026-06-14/resultados-de-las-elecciones-en-peru-en-vivo.html",
-        "hora_PET": "2026-06-14 14:11"
-      }
-    ],
-    "actas_observadas_jee": {
-      "total_identificadas_onpe": 1635,
-      "total_remitidas_a_jee_al_12jun": 1548,
-      "total_recibidas_por_jee_al_12jun": 1158,
-      "expedientes_creados_al_12jun": "~1.138",
-      "pronunciamientos_emitidos_al_12jun": 100,
-      "pendientes_al_12jun_aprox": 443,
-      "nota_anterior": "Al 12-jun 09:00 PET (punto de referencia): era 71% de 1.611 resueltas, 443 pendientes según el dossier previo",
-      "actas_pendientes_al_100pct_procesado": 1551,
-      "fuentes": [
-        {
-          "url": "https://elpais.com/america/2026-06-14/resultados-de-las-elecciones-en-peru-en-vivo.html",
-          "texto_citado": "la definición queda supeditada al análisis de 1.551 actas observadas —aquellas que presentan alguna incidencia material—, que representan el 1,672% del total",
-          "fecha": "2026-06-14"
-        },
-        {
-          "url": "https://efe.com/mundo/2026-06-14/fujimori-amplia-ventaja-elecciones-segunda-vuelta-peru/",
-          "texto_citado": "La ONPE finalizó la noche del viernes el conteo de todas las actas pendientes y solo queda que los jurados especiales electorales (JEE) resuelvan las 1.308 actas observadas e impugnadas en las mesas de sufragio... De estas actas, 1.211 fueron observadas en Perú, donde, curiosamente, por el momento gana Sánchez con un 50,16 % de los votos frente al 49,93 % obtenido por Fujimori",
-          "fecha": "2026-06-14"
-        },
-        {
-          "url": "https://www.infobae.com/peru/2026/06/11/actas-observadas-que-revisan-el-jne-y-los-jee-para-validarlas-o-anularlas-en-la-segunda-vuelta-2026/",
-          "texto_citado": "Hasta las 10:00 de la mañana de este jueves, más de 1.500 actas observadas ya habían sido resueltas por los Jurados Electorales Especiales (JEE), mientras que 126 fueron derivadas al procedimiento excepcional de recuento de votos.",
-          "fecha": "2026-06-11"
-        },
-        {
-          "url": "https://www.exitosanoticias.pe/elige-bien/revisa-conteo-actas-observadas-segunda-vuelta-2026-jne-publica-link-oficial-n177483",
-          "texto_citado": "para el envío de JEE hay 1614 actas que han sido observadas y las cuales hemos recibido 1258",
-          "fecha": "2026-06-10"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=oNOJFq-jj7s",
-          "texto_citado": "JNE dispuso recuento de votos en 15 actas; JEE han recibido 1158 de 1548 actas observadas",
-          "fecha": "2026-06-12"
-        },
-        {
-          "url": "https://web.jne.gob.pe/reporteactasobservadas/",
-          "texto_citado": "Plataforma oficial JNE de reporte en tiempo real de actas observadas",
-          "fecha": "activa"
-        }
-      ],
-      "nota_jee_interior_vs_exterior": "EFE (14-jun) informa 1.308 actas pendientes en total: 1.211 en territorio nacional (donde Sánchez gana con 50,16%) y diferencia del exterior. El total de 1.551 de El País incluye actas observadas e impugnaciones."
-    },
-    "recuentos_fisicos": {
-      "audiencias_programadas_total": 138,
-      "audiencias_realizadas_al_12jun": 9,
-      "audiencias_realizadas_al_13jun": "~13-15",
-      "pendientes_al_12jun": 126,
-      "actas_enviadas_a_recuento_al_12jun_mañana": 15,
-      "jee_convocantes": [
-        "Lima Norte 1",
-        "Lima Norte 3",
-        "Mainas (Loreto)",
-        "Chanchamayo (Junín)",
-        "Bagua (Amazonas)",
-        "Tambopata (Madre de Dios)",
-        "Lambayeque"
-      ],
-      "detalle_13jun_chanchamayo": "JEE Chanchamayo realizó 4 audiencias el 13-jun: mesas 027232 (Perené), 026626 (Pangoa), 026830 (Río Tambo) y mesa de Pichanaki. Causa: total votos emitidos excede total ciudadanos que votaron.",
-      "programadas_14jun": "JEE Maynas (Iquitos): 4 audiencias programadas para el 14-jun",
-      "programadas_15jun": "JEE Pasco, Tambopata, Lima Norte 1, Lima Norte 3 tienen recuentos programados para 15-jun",
-      "fuentes": [
-        {
-          "url": "https://andina.pe/agencia/noticia-elecciones-2026-jee-chanchamayo-realizo-audiencias-recuento-votos-segunda-vuelta-1079316.aspx",
-          "texto_citado": "Pleno del Jurado Electoral Especial de Chanchamayo organizó cuatro audiencias... para realizar el recuento de votos... 13 de junio",
-          "fecha": "2026-06-13"
-        },
-        {
-          "url": "https://rpp.pe/politica/elecciones/recuentos-de-votos-esto-es-lo-que-revelan-las-primeras-audiencias-de-la-segunda-vuelta-noticia-1692825",
-          "texto_citado": "audiencias públicas de recuento de votos... arrancaron el jueves 11 de junio y ya registran sus primeros resultados. Hasta el momento, cinco mesas de sufragio han sido sometidas a este procedimiento excepcional... próxima jornada de audiencias se realizará este sábado 13 de junio y estará a cargo del JEE Chanchamayo... domingo 14 de junio el JEE de Maynas realizará cuatro audiencias... lunes 15 de junio los JEE de Pasco, Tambopata, Lima Norte 1 y Lima Norte 3 tienen programados nuevos casos",
-          "fecha": "2026-06-12"
-        },
-        {
-          "url": "https://www.infobae.com/peru/2026/06/11/roberto-sanchez-o-keiko-fujimori-link-para-ver-reconteo-de-los-ultimos-votos-por-parte-del-jne/",
-          "texto_citado": "JEE de Bagua, Lambayeque, Chanchamayo y Tambopata convocaron audiencias públicas para el recuento de votos",
-          "fecha": "2026-06-11"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=oNOJFq-jj7s",
-          "texto_citado": "JNE anunció que este viernes 12 de junio iniciará con el recuento de votos... dispuso recuento en 15 actas enviadas por ONPE",
-          "fecha": "2026-06-12"
-        },
-        {
-          "url": "https://elcomercio.pe/politica/elecciones/segunda-vuelta-electoral-jurados-electorales-especiales-inician-audiencias-de-recuento-de-votos-jee-jne-roberto-sanchez-keiko-fujimori-noticia/",
-          "texto_citado": "JEE continúan este viernes con las audiencias públicas de recuento de votos",
-          "fecha": "2026-06-12"
-        }
-      ]
-    },
-    "recursos_nulidad": [
-      {
-        "partido": "Juntos por el Perú",
-        "mesas": 1751,
-        "alcance": "Nacional (Lima, Lambayeque, Amazonas, Áncash principalmente). Alegación: indicios de fraude y alteración de actas en favor de Fuerza Popular; patrón repetitivo de votaciones en mesas de mismo local.",
-        "estado": "improcedente",
-        "fecha_presentacion": "2026-06-10 (noche) / 2026-06-11",
-        "fecha_resolucion": "2026-06-12 o antes",
-        "resolutor": "JEE Lima Centro 1",
-        "motivo_rechazo": "No se adjuntó voucher de constatación de pago de tasa electoral (S/1.375 por mesa × 1.751 = más de S/2.407.625)",
-        "fuente": "https://convoca.pe/agenda-propia/la-disputa-pasa-la-mesa-fuerza-popular-y-juntos-por-el-peru-presentan-pedidos-de",
-        "fuente_2": "https://diariocorreo.pe/politica/elecciones-2026-juntos-por-el-peru-pide-anular-1751-mesas-de-sufragio-por-presuntas-irregularidades-roberto-sanchez-noticia/",
-        "fuente_3": "https://amp.dw.com/es/per%C3%BA-s%C3%A1nchez-busca-anular-1751-mesas-que-gan%C3%B3-fujimori/a-77540170"
-      },
-      {
-        "partido": "Juntos por el Perú",
-        "mesas": 649,
-        "alcance": "Estados Unidos (86% de mesas instaladas en ese país). Alegación: funcionarios consulares y miembros de mesa orientaron el voto a favor de FP; Fujimori obtuvo ~76,55% de votos en EEUU.",
-        "vocero_parte": "Carlos Adeval Zafra Flores (personero legal)",
-        "estado": "improcedente",
-        "fecha_presentacion": "2026-06-11",
-        "fecha_resolucion": "2026-06-12",
-        "resolutor": "JEE Lima Centro 2",
-        "resolucion": "Resolución unánime declaró improcedente. Motivos: (1) falta comprobante original de pago de tasa electoral; (2) pruebas basadas en capturas de redes sociales.",
-        "fuente": "https://www.infobae.com/peru/2026/06/12/jurado-electoral-especial-declara-improcedente-pedido-de-juntos-por-el-peru-para-anular-647-mesas-en-estados-unidos/",
-        "fuente_2": "https://www.americatv.com.pe/noticias/actualidad/jne-improcedente-nulidad-pedido-juntos-peru-mesas-exterior-n519257"
-      },
-      {
-        "partido": "Juntos por el Perú",
-        "mesas": 2400,
-        "alcance": "Nacional ampliado: 1.751 nacionales + 649 exterior (total ~2.400). Recurso reformulado/ampliado tras el inicial de 1.751.",
-        "estado": "improcedente",
-        "fecha_resolucion": "2026-06-13",
-        "resolutor": "JEE",
-        "motivo_rechazo": "No adjuntó comprobante original de pago de la tasa electoral",
-        "fuente": "https://www.infobae.com/america/agencias/2026/06/13/el-jee-rechaza-el-recurso-de-sanchez-para-invalidar-mas-de-2000-mesas-de-votacion/?outputType=amp-type",
-        "fuente_2": "https://www.semana.com/mundo/articulo/elecciones-en-peru-rechazan-recurso-del-candidato-roberto-sanchez-para-invalidar-mas-de-2000-mesas-de-votacion/202614/",
-        "fuente_3": "https://elpais.com/america/2026-06-13/la-batalla-por-las-actas-impugnadas-aboca-a-peru-a-un-escenario-de-maxima-incertidumbre.html"
-      },
-      {
-        "partido": "Fuerza Popular",
-        "mesas": 7,
-        "alcance": "7 mesas rurales en Puno (Tirapata-Azángaro, Macusani-Carabaya, Juliaca-San Román, Macari-Melgar): 7.014 votos rurales. FP alega irregularidades; mayoría de esos votos benefician a Sánchez (5.932 para S vs ~1.082 para F estimados).",
-        "estado": "presentado",
-        "fecha_presentacion": "2026-06-11",
-        "fuente": "https://larepublica.pe/politica/2026/06/11/elecciones-2026-fuerza-popular-de-keiko-fujimori-busca-anular-7-mil-votos-rurales-de-puno-hnews-784641",
-        "fuente_2": "https://radiomaranon.org.pe/partido-de-keiko-fujimori-presenta-recursos-para-anular-mas-de-siete-mil-votos-rurales-de-puno/"
-      },
-      {
-        "nota_recursos_apelacion_pleno_jne": "El pleno del JNE estaba revisando recursos de apelación de resoluciones de los JEE. El Facebook del JNE indica que al 11-jun había 11 pedidos de nulidad presentados en la segunda vuelta. Los rechazos de JEE sobre nulidades son apelables al Pleno del JNE en 3 días.",
-        "fuente": "https://www.facebook.com/JNE.Peru/videos/envivo-avance-informativo-de-actas-observadas-de-la-segunda-vuelta/1524281872435308/",
-        "no_verificado": false
-      }
-    ],
-    "proclamacion": {
-      "fecha_esperada": "mediados de julio 2026 (quincena de julio)",
-      "declaraciones": [
-        {
-          "autoridad": "Grecia Rentería",
-          "cargo": "Vocera del JNE",
-          "cita": "Para la segunda vuelta (la proclamación de resultados) es a mediados de julio, debido a que hay todo un proceso nuevo, que es el recuento de votos, que es lo que básicamente hace que la proclamación se demore un poco más",
-          "fuente": "https://larepublica.pe/politica/2026/06/06/jne-pide-a-sanchez-y-fujimori-respetar-los-resultados-de-la-segunda-vuelta-hnews-592932",
-          "fecha": "2026-06-06"
-        },
-        {
-          "autoridad": "Roberto Burneo Bermejo",
-          "cargo": "Presidente del JNE",
-          "cita": "Estimamos que en menos de un mes o quizás en un mes estaríamos ya proclamando el resultado o antes, dependiendo de la carga procesal que tengamos, porque también consideremos que va a haber recuento de votos",
-          "fuente": "https://www.infobae.com/peru/2026/05/27/jne-proyecta-proceso-mas-agil-en-segunda-vuelta-resultados-de-elecciones-2026-se-conocerian-en-menos-de-un-mes/",
-          "fecha": "2026-05-27"
-        },
-        {
-          "autoridad": "Roberto Burneo Bermejo",
-          "cargo": "Presidente del JNE",
-          "cita": "Invocamos a la ciudadanía, a las organizaciones políticas, a sus líderes, militantes y simpatizantes a mantener serenidad y actuar con responsabilidad democrática durante las siguientes horas y días. La confianza en la democracia también se construye respetando los procedimientos, los tiempos electorales y la voluntad libremente expresada por los ciudadanos",
-          "fuente": "https://andina.pe/agencia/noticia-elecciones-2026-proceso-electoral-se-realizo-absoluta-normalidad-asegura-jne-1078451.aspx",
-          "fecha": "2026-06-07"
-        },
-        {
-          "autoridad": "Roberto Burneo Bermejo",
-          "cargo": "Presidente del JNE (declaraciones en G1 Globo/DW Brasil)",
-          "cita": "El proceso de recontaje es demorado, y por eso estimó que el resultado puede salir apenas en mediados de julio, dada la proximidad del número de votos de cada candidato",
-          "fuente": "https://g1.globo.com/mundo/noticia/2026/06/12/atras-na-apuracao-por-2000-votos-roberto-sanchez-propoe-recontagem-de-todas-as-atas-que-a-legislacao-permita-no-peru.ghtml",
-          "fecha": "2026-06-12"
-        },
-        {
-          "autoridad": "Bernardo Pachas",
-          "cargo": "Jefe interino ONPE",
-          "cita": "El escrutinio podría demorar entre dos semanas o hasta fin de mes, dependiendo de las observaciones a las actas que se registren",
-          "fuente": "https://factual.afp.com/doc.afp.com.B6NQ2WE",
-          "fecha": "2026-06-09"
-        },
-        {
-          "autoridad": "JNE (YouTube oficial)",
-          "cargo": "Institución",
-          "cita": "Los resultados de la segunda vuelta estarán listos el 15 de julio",
-          "fuente": "https://www.youtube.com/watch?v=oNOJFq-jj7s",
-          "fecha": "2026-06-12"
-        }
-      ]
-    },
-    "declaraciones_institucionales": [
-      {
-        "autoridad": "José María Balcázar",
-        "cargo": "Presidente interino de Perú",
-        "declaracion": "He postergado el viaje (a Europa) para el día miércoles, para llegar justamente a la hora exacta a entrevistarme con el sumo pontífice y luego retornar inmediatamente a Lima. Los acontecimientos han motivado esta reprogramación para estar este lunes y martes íntegramente en Lima, a efecto de estar atento a que no haya ningún tipo de interferencia respecto a las elecciones. Necesitamos instruir a la Policía para que, en lo máximo, se respeten las marchas, pero sin provocaciones ni uso innecesario de la fuerza en caso de producirse.",
-        "contexto": "Recortó viaje oficial a Europa por posibles protestas ante resultados. Anunció reuniones con fuerzas del orden y FFAA.",
-        "fuente": "https://www.infobae.com/america/agencias/2026/06/14/presidente-de-peru-recorta-viaje-a-europa-por-posibles-marchas-ante-resultados-electorales/",
-        "fecha_hora_PET": "2026-06-14"
-      },
-      {
-        "autoridad": "José María Balcázar",
-        "cargo": "Presidente interino de Perú",
-        "declaracion": "Decidió postergar su viaje al Vaticano para permanecer en Lima y seguir de cerca el desarrollo del proceso electoral y las movilizaciones convocadas",
-        "fuente": "https://elpais.com/america/2026-06-14/resultados-de-las-elecciones-en-peru-en-vivo.html?outputType=amp",
-        "fecha_hora_PET": "2026-06-14"
-      },
-      {
-        "autoridad": "Óscar Arriola",
-        "cargo": "Comandante General PNP",
-        "declaracion": "La PNP actuará para impedir protestas en la ciudad capital luego de que se conozcan los resultados finales de la segunda vuelta electoral... protegerá el derecho de reunión y expresión, pero intervendrá con uso gradual de la fuerza si una protesta afecta a personas, bienes públicos, infraestructura o la tranquilidad pública. La coordinación no quedará limitada a la Policía [mencionó FFAA, MP].",
-        "contexto": "Entrevista con Panamericana, en anticipación a posibles protestas post-resultado",
-        "fuente": "https://www.infobae.com/peru/2026/06/11/pnp-y-ffaa-buscan-evitar-protestas-en-lima-por-resultados-de-la-segunda-vuelta-vamos-a-actuar-en-el-uso-gradual-de-la-fuerza/",
-        "fecha_hora_PET": "2026-06-11"
-      },
-      {
-        "autoridad": "Oswaldo Calle",
-        "cargo": "General de División, Comandante Operacional del Centro del Ejército",
-        "declaracion": "La misión de las Fuerzas Armadas responde al mandato constitucional de resguardo democrático",
-        "contexto": "Declaraciones previas a la segunda vuelta, al presentar el despliegue de 45.000 efectivos FFAA para la jornada del 7-jun",
-        "fuente": "https://www.infobae.com/peru/2026/06/05/segunda-vuelta-2026-fuerzas-armadas-despliegan-45000-efectivos-para-custodiar-la-jornada-electoral/",
-        "fecha_hora_PET": "2026-06-05",
-        "nota": "No se encontraron declaraciones específicas de Oswaldo Calle en el período 12-14 jun"
-      },
-      {
-        "autoridad": "Josué Gutiérrez Cóndor",
-        "cargo": "Defensor del Pueblo",
-        "declaracion": "No hubo fraude, ni siquiera se puede mencionar. En algún momento, en horas del día de la votación alertamos un intento de fraude con una modalidad que era anular votos en función a rayar las cédulas. Pero después de verificar el universo total, encontramos más que veinte casos a nivel nacional. Como no tenía mayor incidencia y se habían detectado a tiempo y se habían corregido, son incidencias que al final de cuentas no han tenido nada que ver con el proceso y nada que ver con los partidos políticos y mucho menos con quienes han organizado este proceso electoral.",
-        "contexto": "Entrevista con Exitosa; respaldo total a la legitimidad del balotaje. Confirmó que sistema interno de Defensoría coincide con resultados ONPE.",
-        "fuente": "https://www.infobae.com/peru/2026/06/11/no-hubo-fraude-ni-siquiera-se-puede-mencionar-defensor-del-pueblo-confirma-que-segunda-vuelta-fue-legitima/",
-        "fecha_hora_PET": "2026-06-11/12"
-      },
-      {
-        "autoridad": "Josué Gutiérrez Cóndor",
-        "cargo": "Defensor del Pueblo",
-        "declaracion": "Han trabajado de manera articulada [ONPE y JNE]. Los comicios pudieron ser llevados a cabo sin ningún tipo de cuestionamiento a diferencia de lo que ocurrió en la primera vuelta.",
-        "contexto": "Declaraciones a Exitosa felicitando el trabajo de ONPE y JNE en la segunda vuelta",
-        "fuente": "https://www.exitosanoticias.pe/politica/defensor-pueblo-felicita-onpe-jne-destaca-proceso-electoral-no-ha-habido-ningun-cuestionamiento-n177549",
-        "fecha_hora_PET": "2026-06-11"
-      },
-      {
-        "autoridad": "Ministerio Público / Fiscalía",
-        "cargo": "Institución",
-        "declaracion": "El Ministerio Público ejecutó 18.407 acciones preventivas en todo el país entre el 28 de mayo y el 8 de junio... cerca de 7.000 fiscales de Prevención del Delito... 116 incidencias y 72 detenidos durante la segunda vuelta electoral.",
-        "fuente": "https://www.infobae.com/peru/2026/06/10/ministerio-publico-reporto-116-incidencias-y-72-detenidos-durante-la-segunda-vuelta-electoral/",
-        "fecha_hora_PET": "2026-06-10"
-      },
-      {
-        "autoridad": "Tomás Gálvez",
-        "cargo": "Fiscal de la Nación",
-        "declaracion": "Mientras la investigación [contra Roberto Sánchez por presunta falsificación] esté en curso, Sánchez puede continuar su actividad política sin restricciones",
-        "fuente": "https://www.dailymotion.com/video/xacpb92",
-        "fecha_hora_PET": "2026-06-02",
-        "nota": "No se encontraron declaraciones del Fiscal de la Nación específicamente en el período 12-14 jun"
-      },
-      {
-        "autoridad": "Roberto Burneo Bermejo",
-        "cargo": "Presidente del JNE",
-        "declaracion": "No ha habido fraude y todo ha sido debidamente llevado y las incidencias que han sido reportadas están canalizadas adecuadamente. Los resultados oficiales serán conocidos progresivamente a través de los canales institucionales correspondientes.",
-        "contexto": "Conferencia de prensa cierre de jornada electoral 7-jun",
-        "fuente": "https://andina.pe/agencia/noticia-elecciones-2026-proceso-electoral-se-realizo-absoluta-normalidad-asegura-jne-1078451.aspx",
-        "fecha_hora_PET": "2026-06-07"
-      }
-    ],
-    "declaraciones_candidatos": [
-      {
-        "candidato": "Fujimori",
-        "declaracion": "Antes de la elección, le hice una promesa a Kyara: estar a su lado en su primer viaje al inicio de esta nueva etapa de su vida. Ha llegado el momento de cumplir esa promesa. Se trata de un viaje estrictamente familiar, por lo que estaré fuera del país solo por unos días (...). Me mantendré en comunicación permanente con el comando nacional de personeros.",
-        "contexto": "Anunció salida temporal del Perú para acompañar a su hija Kyara Villanella al inicio de una nueva etapa, en pleno proceso de conteo",
-        "plataforma": "declaraciones a prensa",
-        "fuente": "https://www.infobae.com/peru/2026/06/14/keiko-fujimori-sale-del-pais-antes-que-acabe-el-conteo-de-votos-de-la-onpe-me-mantendre-comunicada-con-los-personeros/",
-        "fecha_hora_PET": "2026-06-14"
-      },
-      {
-        "candidato": "Fujimori",
-        "declaracion": "Solamente pueden pasar por un reconteo aquellas actas observadas. ¿Y quién puede observar un acta? Solamente la Oficina Descentralizada de Procesos Electorales, que está dirigida por la ONPE. Entonces, hay 1.550 actas que van a ser probablemente recontadas. ¿Y quién lo define? Los jurados especializados. Estos jurados está dirigidos por el Jurado Nacional de Elecciones. Entonces, son los organismos y las instituciones del Estado quienes solicitan un reconteo y quienes definen finalmente la votación final. A Juntos por el Perú le ha faltado leer mejor la ley y el reglamento.",
-        "contexto": "Rechazó propuesta de Sánchez de recuento total de votos antes de viajar al exterior",
-        "plataforma": "declaraciones a prensa",
-        "fuente": "https://www.infobae.com/peru/2026/06/13/keiko-fujimori-descarta-recuento-total-de-votos-y-dice-que-declarara-cuando-todas-las-actas-sean-contabilizadas/",
-        "fecha_hora_PET": "2026-06-13/14"
-      },
-      {
-        "candidato": "Fujimori",
-        "declaracion": "Yo creo que el señor Roberto Sánchez ha dicho que va a respetar los resultados finales y a esa declaración me remito. Hay que actuar con mucha cautela y responsabilidad. Lo importante es lo que señalen las actas. Dato mata relato.",
-        "contexto": "Declaraciones ante prensa sobre el margen ajustado y la posición de Sánchez",
-        "plataforma": "declaraciones a prensa",
-        "fuente": "https://elpais.com/america/2026-06-11/fujimori-se-aferra-al-voto-de-los-peruanos-en-el-exterior-para-una-remontada-contra-sanchez.html",
-        "fecha_hora_PET": "2026-06-11"
-      },
-      {
-        "candidato": "Fujimori",
-        "declaracion": "Me volvere a pronunciar de aquí a una o dos semanas cuando los Jurados Electorales Especiales resuelvan las actas observadas y se tenga el 100% de actas contabilizadas. Lo que corresponde es esperar. Los puentes de diálogo van a estar siempre abiertos.",
-        "fuente": "https://www.infobae.com/peru/2026/06/14/keiko-fujimori-sale-del-pais-antes-que-acabe-el-conteo-de-votos-de-la-onpe-me-mantendre-comunicada-con-los-personeros/",
-        "fecha_hora_PET": "2026-06-14"
-      },
-      {
-        "candidato": "Sanchez",
-        "declaracion": "Tiene razón la señora Keiko Fujimori: nos ha invitado a un diálogo, a un consenso y a un respeto sacrosanto de la legitimidad y la transparencia de este proceso. En ese contexto, yo le propongo que conjuntamente solicitemos, en el marco del debido proceso, la institucionalidad del proceso electoral y la presencia de observadores internacionales, y que hagamos una revisión exhaustiva, un reconteo de todo este proceso.",
-        "contexto": "Propuesta conjunta de reconteo total de votos, respondiendo a convocatoria de diálogo de Fujimori",
-        "plataforma": "conferencia de prensa",
-        "fuente": "https://www.infobae.com/peru/2026/06/13/keiko-fujimori-descarta-recuento-total-de-votos-y-dice-que-declarara-cuando-todas-las-actas-sean-contabilizadas/",
-        "fecha_hora_PET": "2026-06-13",
-        "nota": "Esta propuesta fue declarada improcedente normativamente: el recuento solo aplica a actas observadas según Art. 9 resolución 0182-2025-JNE"
-      },
-      {
-        "candidato": "Sanchez",
-        "declaracion": "Desde 8am de hoy (jueves 11 de junio) hemos sostenido muy importantes audiencias con la Misión de Observadores de la Unión Europea y luego con la Misión de Observadores de la OEA.",
-        "contexto": "Publicación en X (Twitter) sobre reuniones con misiones de observación internacional en pleno conteo",
-        "plataforma": "X (Twitter)",
-        "fuente": "https://www.infobae.com/peru/2026/06/11/roberto-sanchez-comunico-que-se-reunio-con-observadores-de-la-union-europea-y-la-oea-en-pleno-conteo-de-la-onpe/",
-        "fecha_hora_PET": "2026-06-11"
-      },
-      {
-        "candidato": "Sanchez",
-        "declaracion": "Juntos por el Perú se reafirma con esperanza, con optimismo, con fe, en ese respaldo popular, de esa coalición democrática que quiere recuperar la democracia. Nosotros sentimos que es una victoria del pueblo que se ha afianzado democrática y pacíficamente.",
-        "plataforma": "declaración pública",
-        "fuente": "https://elperuano.pe/noticia/297678-resultados-elecciones-2026-roberto-sanchez-destaca-el-respaldo-popular-recibido",
-        "fecha_hora_PET": "2026-06-10"
-      }
-    ],
-    "observadores_internacionales": [
-      {
-        "organismo": "Misión de Observación Electoral de la Unión Europea (MOE UE)",
-        "jefa_mision": "Annalisa Corrado (eurodiputada italiana)",
-        "pronunciamiento": "Declaración Preliminar del 9 de junio 2026: 'Competitiva segunda vuelta y campaña polarizante concluyen en empate técnico'. La segunda vuelta fue organizada de forma adecuada y transcurrió en ambiente tranquilo. El período entre las dos vueltas se vio eclipsado por una persistente narrativa de fraude. Ambos candidatos reconocieron lo ajustado del resultado y se comprometieron a esperar la proclamación definitiva. La misión continuará observando la resolución de impugnaciones y la proclamación de resultados definitivos. El informe final se presentará en agosto.",
-        "fuente": "https://www.eeas.europa.eu/sites/default/files/2026/documents/declaraci%C3%B3n%20preliminar-segunda%20vuelta-Per%C3%BA.pdf",
-        "fuente_2": "https://www.infobae.com/peru/2026/06/09/mision-de-observacion-de-la-ue-el-periodo-entre-las-dos-vueltas-presidenciales-se-vio-eclipsando-por-una-narrativa-de-fraude/",
-        "fecha": "2026-06-09",
-        "nota_periodo": "Declaración emitida el 9-jun; dentro del período de cobertura 12-14 jun no hay nuevo pronunciamiento oficial adicional de MOE UE identificado"
-      },
-      {
-        "organismo": "Misión de Observación Electoral de la OEA (MOE/OEA)",
-        "jefe_mision": "Víctor Rico (Bolivia)",
-        "pronunciamiento": "Informe preliminar presentado el 9 de junio 2026: 'La jornada electoral transcurrió de manera tranquila y en paz, y el escrutinio se llevó a cabo de manera ordenada'. Instó a Perú a implementar sistema de transmisión digital de actas para resultados preliminares más rápidos. Llamó a los actores políticos a esperar con paciencia los resultados oficiales. Los JEE deben 'resolver con la mayor celeridad posible las observaciones e impugnaciones'. La misión fue la vigésimo quinta de OEA en Perú, con 92 observadores de 21 nacionalidades.",
-        "fuente": "https://www.infobae.com/america/agencias/2026/06/09/oea-insta-a-peru-a-desarrollar-sistema-para-dar-resultados-electorales-de-forma-mas-rapida/",
-        "fuente_2": "https://elcomercio.pe/politica/elecciones/segunda-vuelta-misiones-de-observacion-destacan-que-jornada-electoral-fue-tranquila-y-se-desarrollo-con-normalidad-noticia/",
-        "fecha": "2026-06-09"
-      },
-      {
-        "organismo": "OEA (llamado adicional)",
-        "pronunciamiento": "Víctor Rico instó a la ciudadanía peruana y actores políticos a esperar con tranquilidad y paciencia los resultados oficiales, mientras continúa el escrutinio",
-        "fuente": "https://www.infobae.com/peru/2026/06/10/observadores-de-la-oea-instan-a-los-peruanos-a-tener-paciencia-ante-el-ajustado-resultado-de-la-segunda-vuelta/",
-        "fecha": "2026-06-09/10"
-      }
-    ],
-    "declaraciones_gremios": [
-      {
-        "organismo": "CONFIEP",
-        "representante": "Jorge Zapata Ríos",
-        "cargo": "Presidente de CONFIEP",
-        "declaracion": "La incertidumbre crea este ambiente de falta de interés en invertir, preocupación y retraso en las inversiones hasta que no se diga por qué camino vamos. Ha mejorado definitivamente la performance de la OMPE [en segunda vuelta vs primera]. Quien gane la elección no debe dejar de reconocer a la mitad que votó por la otra opción.",
-        "contexto": "Declaraciones en RPP Ampliación de Noticias post-segunda vuelta sobre impacto económico de la incertidumbre",
-        "fuente": "https://rpp.pe/economia/economia/confiep-sobre-resultado-electoral-incertidumbre-genera-retraso-en-inversiones-hasta-que-se-defina-por-que-camino-vamos-noticia-1692067",
-        "fecha_hora_PET": "2026-06-08"
-      },
-      {
-        "organismo": "CONFIEP",
-        "representante": "Jorge Zapata Ríos",
-        "declaracion": "Es un resultado muy ajustado. No se puede decir nada, porque es un boca de urna. Hay que esperar con calma y tranquilidad.",
-        "plataforma": "transmisión especial electoral Grupo El Comercio",
-        "fuente": "https://elcomercio.pe/economia/elecciones-2026-gremios-piden-esperar-a-los-resultados-oficiales-noticia/",
-        "fecha_hora_PET": "2026-06-07"
-      }
-    ],
-    "hechos_nuevos": [
-      "12-jun ~18:56 PET: ONPE completa el 100% de actas procesadas (ingresadas al sistema) tras recibir las últimas 9 actas de Yaquerana, Loreto. Con 98,328% contabilizadas, margen Fujimori +4.310 votos. [Fuente: https://efe.com/mundo/2026-06-12/elecciones-peru-votacion-roberto-sanchez-keiko-fujimori/]",
-      "12-jun: JEE Lima Centro 2 declara improcedente por unanimidad la solicitud de nulidad de Juntos por el Perú para 647 mesas de sufragio en Estados Unidos. Motivo: falta de comprobante original de tasa electoral y pruebas basadas en capturas de redes sociales. [Fuente: https://www.infobae.com/peru/2026/06/12/jurado-electoral-especial-declara-improcedente-pedido-de-juntos-por-el-peru-para-anular-647-mesas-en-estados-unidos/]",
-      "12-jun: JEE Lima Centro 1 ya había declarado improcedente la nulidad de 1.751 mesas nacionales de JPP por falta de voucher de pago de tasa. [Fuente: https://convoca.pe/agenda-propia/la-disputa-pasa-la-mesa-fuerza-popular-y-juntos-por-el-peru-presentan-pedidos-de]",
-      "12-jun: JEE Lambayeque realizó audiencia de recuento (mesa 035749, Olmos) por error aritmético. JEE de Lima Norte 1, Lima Norte 3, Mainas, Chanchamayo, Bagua, Tambopata, Lambayeque iniciaron audiencias de recuento. Al 12-jun se habían realizado ~9 audiencias y quedaban ~126 pendientes. [Fuente: https://rpp.pe/politica/elecciones/recuentos-de-votos-esto-es-lo-que-revelan-las-primeras-audiencias-de-la-segunda-vuelta-noticia-1692825]",
-      "13-jun: JEE Chanchamayo realizó 4 audiencias de recuento (mesas en Perené, Pangoa, Río Tambo, Pichanaki). [Fuente: https://andina.pe/agencia/noticia-elecciones-2026-jee-chanchamayo-realizo-audiencias-recuento-votos-segunda-vuelta-1079316.aspx]",
-      "13-jun: JEE declara improcedente el recurso de nulidad de Juntos por el Perú contra 2.400 mesas (versión ampliada del recurso inicial) por falta de comprobante de pago de tasa electoral. [Fuente: https://www.infobae.com/america/agencias/2026/06/13/el-jee-rechaza-el-recurso-de-sanchez-para-invalidar-mas-de-2000-mesas-de-votacion/?outputType=amp-type]",
-      "13-jun: Roberto Sánchez propone formalmente a Fujimori solicitar conjuntamente revisión exhaustiva y reconteo de votos con observadores internacionales. Fujimori rechaza la propuesta señalando que normativamente el reconteo solo aplica a actas observadas (Art. 9 resolución 0182-2025-JNE). [Fuente: https://www.infobae.com/peru/2026/06/13/keiko-fujimori-descarta-recuento-total-de-votos-y-dice-que-declarara-cuando-todas-las-actas-sean-contabilizadas/]",
-      "13-jun noche: El margen Fujimori-Sánchez llega a 18.488-18.832 votos (EFE, RPP) al 98,552%-98,59% de actas contabilizadas. El incremento se explica por la incorporación al cómputo de actas observadas resueltas por JEE (donde Sánchez tiende a ganar en zonas internas, pero el exterior donde Fujimori domina ya estaba mayoritariamente contabilizado). [Fuente: https://rpp.pe/politica/elecciones/resultados-onpe-en-vivo-segunda-vuelta-2026-hoy-conteo-de-votos-actualizado-keiko-fujimori-y-roberto-sanchez-elecciones-peru-noticia-1692520]",
-      "14-jun: Keiko Fujimori anuncia salida temporal del país para viaje familiar con su hija Kyara Villanella. Anuncia que se pronunciará nuevamente en 1-2 semanas cuando JEE resuelvan actas observadas. [Fuente: https://www.infobae.com/peru/2026/06/14/keiko-fujimori-sale-del-pais-antes-que-acabe-el-conteo-de-votos-de-la-onpe-me-mantendre-comunicada-con-los-personeros/]",
-      "14-jun: Presidente interino José María Balcázar recorta viaje a Europa: posterga hasta miércoles su partida para permanecer en Lima lunes y martes, coordinando con PNP y FFAA ante posibles protestas. Anuncia que 'no haya ningún tipo de interferencia respecto a las elecciones'. [Fuente: https://www.infobae.com/america/agencias/2026/06/14/presidente-de-peru-recorta-viaje-a-europa-por-posibles-marchas-ante-resultados-electorales/]",
-      "14-jun: El País (14:11) reporta margen de 4.209 votos con 100% actas procesadas y algunas observadas ya incorporadas; EFE reporta 18.832 al 98,59%. La discrepancia refleja diferentes momentos de corte y el avance en la resolución de actas observadas durante las horas del 14-jun. [Fuentes: https://elpais.com/america/2026-06-14/resultados-de-las-elecciones-en-peru-en-vivo.html y https://efe.com/mundo/2026-06-14/fujimori-amplia-ventaja-elecciones-segunda-vuelta-peru/]",
-      "14-jun (programado): JEE Maynas tiene 4 audiencias de recuento programadas para este día (mesas en Iquitos). [Fuente: https://rpp.pe/politica/elecciones/recuentos-de-votos-esto-es-lo-que-revelan-las-primeras-audiencias-de-la-segunda-vuelta-noticia-1692825]",
-      "Sin dato verificado en ventana 12-14 jun: No se encontró declaración directa de Keiko Fujimori en X/Twitter en ese período (solo declaraciones a prensa). No se encontraron declaraciones del jefe del Ejército Oswaldo Calle en el período específico 12-14 jun. No se encontraron comunicados formales del JNE de fechas 13-14 jun adicionales a los ya reportados."
-    ],
-    "nota_discrepancia_margen": "El margen oscila significativamente según el momento de corte y la fuente. La discrepancia clave: el 12-jun 09:00 el margen era ~1.303 votos (EuropaPress/EFE); el 14-jun el margen creció a ~18.832 (EFE) porque se incorporaron progresivamente las actas del exterior (donde Fujimori obtuvo ~76,55% en EEUU) y se incorporaron actas observadas resueltas por los JEE. Infobae reporta al 98,552% una diferencia de 18.488 votos el 13-jun noche. El margen del 100% de actas procesadas era ~4.310 votos (EFE, El País), pero el sistema siguió actualizando a medida que los JEE devolvían actas resueltas. El 14-jun 14:11 El País indica margen de 4.209 votos con algunas actas observadas incorporadas."
+    ]
   },
   "prediccion_7dias": {
-    "fecha_inicio": "2026-06-14",
-    "fecha_fin": "2026-06-21",
-    "nota_metodologica": "Predicciones basadas en: (a) patrón de los 3 días anteriores (escalada continua), (b) estructura de convocantes activos, (c) decisión pendiente del JNE sobre la proclamación, (d) precedentes 2021 y 2022-2023. El escenario de base asume que el JNE proclama a Fujimori entre el 16 y el 20 de junio.",
+    "fecha_inicio": "2026-06-16",
+    "fecha_fin": "2026-06-23",
+    "nota_metodologica": "Ajuste v3.8: escrutinio 99,054%, de-escalación JP, CGTP 17-jun no verificada, La Oroya levantado.",
     "lima": {
-      "eventos_esperados": 8,
-      "participantes_total_est": {
-        "min": 50000,
-        "max": 180000,
-        "nota": "Suma de eventos del 14 al 21 jun; peak probable el día de la proclamación. Cifra central ~100.000 en el peor escenario (proclamación Fujimori + paro gremial simultaneo)."
-      },
-      "prob_escalada_violenta": 0.52,
-      "prob_paro_nacional_CGTP_CITE_SUTEP": 0.62,
-      "justificacion_escalada": "La CGTP + CITE + SUTEP tienen incentivo político y calendario para convocar para la semana del 16-jun. El historial del 2021 muestra que la CGTP movilizó masivamente en el contexto de la segunda vuelta Castillo. La probabilidad sube a >0.80 si la proclamación se produce entre el 16 y el 18-jun.",
-      "escenario_gatillo": "Proclamación de Keiko Fujimori por el JNE sin resolución de todas las actas observadas."
+      "eventos_esperados": 5,
+      "prob_manifestacion_significativa": 0.72,
+      "prob_escalada_violenta": 0.38,
+      "prob_paro_gremial": 0.22,
+      "justificacion": "JP vigilias 17-jun + marcha 19-jun Campo de Marte. Sin CGTP verificada 17-jun."
     },
     "norte": {
-      "eventos_esperados": 6,
-      "prob_escalada": 0.45,
-      "prob_bloqueo_panamericana_norte_persistente": 0.65,
-      "justificacion": "El bloqueo Panamericana Norte km 556 ya está activo al corte. La probabilidad de que persista o se extienda a km 520-560 (zona Chicama-Paiján) es alta si no hay intervención del gobierno. Trujillo puede escalar si la delegación regional que viajó a Lima no obtiene respuesta. Piura puede reactivar el bloqueo agrario Catacaos si se resiente la decisión del JNE."
+      "eventos_esperados": 4,
+      "prob_escalada": 0.28,
+      "prob_bloqueo_panamericana_norte": 0.55,
+      "justificacion": "Bloqueo km 556 persiste. Costa norte menor movilización electoral."
     },
     "centro": {
-      "eventos_esperados": 5,
-      "prob_bloqueo_carretera_central_indefinido": 0.72,
-      "prob_paro_regional_junin": 0.68,
-      "justificacion": "CUL Junín declaró huelga indefinida y el bloqueo La Oroya está activo. El patrón de Feb-2026 (paro 48h Carretera Central) puede replicarse y extenderse si el CUL aprovecha el contexto poselectoral. Huancayo puede escalar a paro regional con cierre del comercio si el CUL suma gremios de transportistas de la zona."
+      "eventos_esperados": 4,
+      "prob_manifestacion_significativa": 0.68,
+      "prob_bloqueo_carretera_central": 0.18,
+      "prob_paro_regional_junin": 0.45,
+      "justificacion": "La Oroya levantado. Pariahuanca 19-jun eleva riesgo ambiental."
     },
     "sur": {
-      "eventos_esperados": 8,
-      "prob_bloqueo_ilave_continuado": 0.9,
-      "prob_paro_indefinido_puno": 0.78,
-      "prob_escalada_violenta_juliaca_puno": 0.6,
-      "prob_huelga_regional_cusco": 0.55,
-      "justificacion": "El sur es el escenario de mayor riesgo sistémico. CNUL declaró huelga indefinida con base en la memoria de las masacres 2023. La proclamación de Fujimori es el gatillo más probable para escalar de bloqueo a paro regional en Puno. Cusco suma gobernador + candidato + UNSAAC. La probabilidad de paro indefinido en Puno sube a >0.88 si hay proclamación antes del 18-jun sin resolución de actas observadas."
+      "eventos_esperados": 6,
+      "prob_bloqueo_ilave_activo": 0.42,
+      "prob_paro_indefinido_puno": 0.58,
+      "prob_escalada_violenta": 0.48,
+      "justificacion": "Ilave incierto. FP no apela Puno. Sur epicentro étnico-territorial."
     },
     "oriente": {
-      "eventos_esperados": 4,
-      "prob_bloqueo_federico_basadre_persistente": 0.7,
-      "prob_nuevos_disturbios_pucallpa": 0.65,
-      "justificacion": "La Carretera Federico Basadre ya tiene bloqueo activo al corte. Pucallpa es la zona de mayor riesgo de violencia fuera de Lima y Puno: dos jornadas consecutivas de quema de vehículos, presencia de actores externos, y el patrón de escalada documeado. La probabilidad de nuevos disturbios es alta si se proclama a Fujimori. Iquitos y Tarapoto tienen menor riesgo por aislamiento geográfico y menor carga emocional acumulada."
+      "eventos_esperados": 3,
+      "prob_bloqueo_federico_basadre": 0.35,
+      "prob_nuevos_disturbios_pucallpa": 0.58,
+      "justificacion": "Paro arrocero levantado según PCM. Ucayali mantiene riesgo disturbios."
     },
     "escenario_global_semana": {
-      "prob_paro_nacional_coordinado": 0.55,
-      "justificacion": "Si CGTP + CUL-Junín + CNUL-Puno + Frentes de Defensa regionales coordinan el paro para la misma fecha (probable si la proclamación ocurre el 16-18 jun), la probabilidad de paro nacional supera el 0.55. Sin coordinación simultánea, la probabilidad baja a 0.30-0.35.",
+      "prob_paro_nacional_coordinado": 0.28,
+      "justificacion": "Rebajado desde 0,55: de-escalación Zunini, sin paro CGTP verificado.",
       "indicadores_de_escalada_a_monitorear": [
-        "Fecha y forma en que el JNE anuncia la proclamación",
-        "Resolución o no de las actas observadas de Puno (31 mesas impugnadas)",
-        "Decisión del gobierno sobre despejar los bloqueos activos (Ilave, La Oroya, Federico Basadre)",
-        "Convocatoria formal de la CGTP a paro nacional (señal más clara de escalada Lima)",
-        "Viaje de Roberto Sánchez a Puno (si ocurre: amplificador de movilización sur)"
+        "Medida cautelar PJ sobre voto exterior",
+        "Convocatoria formal CGTP paro 48h",
+        "Reactivación bloqueo Ilave",
+        "Asistencia >15.000 marcha Campo de Marte 19-jun"
       ]
     }
   },

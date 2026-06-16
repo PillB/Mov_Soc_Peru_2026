@@ -150,10 +150,13 @@
   }
 
   // ---------- Load ----------
-  Promise.all([
-    fetch('data/events.json', { cache: 'no-cache' }).then(r => { if (!r.ok) throw new Error('No se pudo cargar events.json (HTTP ' + r.status + ')'); return r.json(); }),
-    fetch('data/montecarlo.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).catch(() => null)
-  ])
+  const loadEvents = window.__EMBEDDED_EVENTS__
+    ? Promise.resolve(window.__EMBEDDED_EVENTS__)
+    : fetch('data/events.json', { cache: 'no-cache' }).then(r => { if (!r.ok) throw new Error('No se pudo cargar events.json (HTTP ' + r.status + ')'); return r.json(); });
+  const loadMc = window.__EMBEDDED_MC__
+    ? Promise.resolve(window.__EMBEDDED_MC__)
+    : fetch('data/montecarlo.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).catch(() => null);
+  Promise.all([loadEvents, loadMc])
     .then(([events, mc]) => { if (mc) events.montecarlo = mc; return events; })
     .then(render)
     .catch(err => {
