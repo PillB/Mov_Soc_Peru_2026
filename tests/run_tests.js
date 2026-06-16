@@ -643,9 +643,9 @@ function section(title) {
   }
   ok('no quedan fechas malformadas tipo YYYY-MM-DDT<garbage>', weirdDates === 0, `n=${weirdDates} samples=${JSON.stringify(weirdSamples)}`);
 
-  section('N21. v3.8.0 — meta.version = 3.8.0');
+  section('N21. v3.8.1 — meta.version = 3.8.1');
   const metaVersion = data_v357.meta && data_v357.meta.version;
-  ok('meta.version es 3.8.0', metaVersion === '3.8.0', `got=${metaVersion}`);
+  ok('meta.version es 3.8.1', metaVersion === '3.8.1', `got=${metaVersion}`);
 
   section('N22. v3.5.8 — gazetteer expone CORRIDORS con polylines de avenidas reales');
   const corridorsInfo = await page.evaluate(() => {
@@ -905,8 +905,8 @@ function section(title) {
     const navOrder = [...document.querySelectorAll('#primaryNav a')].map(a => a.getAttribute('href'));
     return { title, brandTitle, fmlValues, valueDisplay, icBounds, navOrder };
   });
-  ok('brand title actualizado a v3.8', /v3\.8/.test(v361Check.brandTitle || ''), v361Check.brandTitle);
-  ok('document.title actualizado a v3.8', /v3\.8/.test(v361Check.title), v361Check.title);
+  ok('brand title actualizado a v3.8.1', /v3\.8\.1/.test(v361Check.brandTitle || ''), v361Check.brandTitle);
+  ok('document.title actualizado a v3.8.1', /v3\.8\.1/.test(v361Check.title), v361Check.title);
   ok('fml-kpi-value renderiza como block', v361Check.valueDisplay === 'block', `display=${v361Check.valueDisplay}`);
   const hasEsThousands = (v361Check.fmlValues.find(v => /\d{1,3}\.\d{3}/.test(v)) || '');
   ok('formato es-PE con punto en miles (ej: +1.886)', /\d{1,3}\.\d{3}/.test(hasEsThousands), hasEsThousands || JSON.stringify(v361Check.fmlValues));
@@ -964,6 +964,20 @@ function section(title) {
   const blufCrit = (data_v357.bluf || {}).manifestaciones_criticas_top || [];
   const hasCgtp17 = blufCrit.some(c => /CGTP/i.test(c.nombre || '') && /17/.test(c.fecha || ''));
   ok('BLUF críticas no incluye CGTP 17-jun erróneo', hasCgtp17 === false, `criticas=${blufCrit.length}`);
+
+  section('N49. v3.8.1 — escrutinio ≥ 34.900 y Ilave marcado incierto en BLUF');
+  const er391 = data_v357.escrutinio_realtime || {};
+  const m391 = (er391.cifras_actuales || {}).margen_actual;
+  ok('escrutinio margen ≥ 34900', typeof m391 === 'number' && m391 >= 34900, `got=${m391}`);
+  const ilaveCrit = blufCrit.find(c => /Ilave/i.test(c.nombre || ''));
+  ok('BLUF Ilave marcado incierto/no verificado', ilaveCrit && /incierto|NO verificado/i.test((ilaveCrit.estado || '') + (ilaveCrit.nombre || '')), JSON.stringify(ilaveCrit));
+
+  section('N50. v3.8.1 — convocatoria Piura 23-jun en norte');
+  const norteConv = (data_v357.regions || {}).norte || {};
+  const hasPiura23 = (norteConv.convocatorias_futuras || []).some(c =>
+    /23/.test(String(c.fecha || c.fecha_convocatoria || '')) && /piura|arrocer/i.test(JSON.stringify(c).toLowerCase())
+  );
+  ok('norte tiene convocatoria Piura/arrocera 23-jun', hasPiura23 === true, `found=${hasPiura23}`);
 
   section('N. Global — no dash-only badge anywhere in regions/social/EW');
   const allDashBadges = await page.evaluate(() => {

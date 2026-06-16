@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "node tests/run_tests.js",
-    "build": "python3 scripts/update_v380.py && python3 build_standalone.py"
+    "build": "python3 scripts/update_v381.py && python3 build_standalone.py"
   },
   "repository": {
     "type": "git",
