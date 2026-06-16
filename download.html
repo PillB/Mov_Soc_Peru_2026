@@ -3937,7 +3937,7 @@ window.__EMBEDDED_MC__ = {"metadata": {"modelo": "Análisis post-reversión elec
         </svg>
         <span class="brand-text">
           <span class="brand-title">Dossier OSINT · v3.8.1</span>
-          <span class="brand-sub">BLUF + ML forecast · 99,07% escrutado</span>
+          <span class="brand-sub">—</span>
         </span>
       </a>
       <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="primaryNav">
@@ -4078,8 +4078,8 @@ window.__EMBEDDED_MC__ = {"metadata": {"modelo": "Análisis post-reversión elec
           <div class="foldable-body">
         <div class="section-head">
           <p class="eyebrow">Sección 2b · Análisis cuantitativo</p>
-          <h2>Escenario actualizado: ¿puede Fujimori mantener la ventaja con los votos pendientes?</h2>
-          <p>Modelo de Montecarlo (100 000 iteraciones) sobre los <strong id="rev-total-pend">—</strong> votos pendientes (voto exterior + actas observadas + zonas rurales), con priors calibrados a la primera vuelta 2026 y la segunda vuelta 2021.</p>
+          <h2 id="rev-section-h2">—</h2>
+          <p id="rev-section-deck">Modelo de Montecarlo (100 000 iteraciones) sobre los <strong id="rev-total-pend">—</strong> votos pendientes en JEE y riesgo legal residual.</p>
         </div>
 
         <!-- KPI principal -->
@@ -4270,8 +4270,8 @@ window.__EMBEDDED_MC__ = {"metadata": {"modelo": "Análisis post-reversión elec
           <div class="foldable-body">
         <div class="section-head">
           <p class="eyebrow">Sección 2c · Validación cruzada y predicción ajustada</p>
-          <h2>Cuatro modelos, un mercado, una predicción robusta</h2>
-          <p>El modelo único de la Sección 2b funciona pero asume <em>independencia</em> entre países y no incorpora el voto exterior ya observado. Para evitar sobreajuste, replicamos el cálculo con cuatro especificaciones distintas, contrastamos con los mercados de predicción y ejecutamos siete escenarios adversariales. La probabilidad publicada arriba ya está calibrada con esta evidencia.</p>
+          <h2>Cuatro modelos, mercados de predicción y escenarios adversariales</h2>
+          <p id="validacion-deck">—</p>
         </div>
 
         <!-- KPI de predicción ajustada -->
@@ -4303,7 +4303,7 @@ window.__EMBEDDED_MC__ = {"metadata": {"modelo": "Análisis post-reversión elec
                 <tr>
                   <th scope="col">Modelo</th>
                   <th scope="col">Supuesto clave</th>
-                  <th scope="col" class="num">P(Fuj revierte)</th>
+                  <th scope="col" class="num" id="val-th-prob-fuj">P(Fuj mantiene)</th>
                   <th scope="col" class="num">Margen mediano</th>
                   <th scope="col" class="num">IC 90 %</th>
                 </tr>
@@ -4323,7 +4323,7 @@ window.__EMBEDDED_MC__ = {"metadata": {"modelo": "Análisis post-reversión elec
           <div id="val-bayes-canvas" class="val-bayes-canvas" role="img" aria-label="Distribución prior y posterior del voto exterior"></div>
           <div class="val-bayes-legend">
             <span><span class="bayes-sw bayes-sw-prior"></span> Prior · calibrado a 2021 (μ&nbsp;=&nbsp;66,2&nbsp;%)</span>
-            <span><span class="bayes-sw bayes-sw-likeli"></span> Likelihood · 64,0&nbsp;% observado al 26&nbsp;% escrutado</span>
+            <span id="val-bayes-legend-likeli"><span class="bayes-sw bayes-sw-likeli"></span> Likelihood · —</span>
             <span><span class="bayes-sw bayes-sw-post"></span> Posterior · actualizado</span>
           </div>
         </div>
@@ -4339,7 +4339,7 @@ window.__EMBEDDED_MC__ = {"metadata": {"modelo": "Análisis post-reversión elec
         <div class="val-block val-twocol">
           <div>
             <h3>Benchmarks externos de mercado</h3>
-            <p class="val-block-desc">Cuatro fuentes independientes proyectan probabilidades entre 78 % y 95 %. Promedio: 86 %. Usamos este valor como ancla para corregir la sobreconfianza del modelo crudo.</p>
+            <p class="val-block-desc" id="val-mercados-desc">—</p>
             <div id="val-mercados" class="val-mercados"></div>
           </div>
           <aside class="val-historico">
@@ -5659,6 +5659,22 @@ window.__EMBEDDED_MC__ = {"metadata": {"modelo": "Análisis post-reversión elec
     if (footerAbout) {
       const genDate = meta.generated_at ? formatDate(meta.generated_at) : '16 jun 2026';
       footerAbout.textContent = `Producto OSINT v${meta.version || '3.8.1'} preparado el ${genDate} para residentes y profesionales en las cinco macroregiones del Perú. Integra terreno, redes sociales y medios alternativos. Su propósito es informar, no movilizar. La información se contrasta exclusivamente con fuentes públicas verificadas.`;
+    }
+
+    text('#rev-section-h2', `Resultado consolidado: Fujimori ${margen} votos al ${pctActas} escrutado`);
+    text('#rev-section-deck', `Monte Carlo sobre ~878 actas JEE pendientes y riesgo legal residual (amparo JP). Con ${pctActas} contabilizado, la reversión estadística es improbable; el foco operativo está en movilizaciones y resolución JNE.`);
+
+    text('#validacion-deck', `Escrutinio al ${pctActas} con margen ${margen} pro-Fujimori. Cuatro especificaciones de modelo, mercados de predicción y siete escenarios adversariales confirman robustez de la señal post-reversión.`);
+
+    const polyPct = (d.validacion || {}).mercados?.polymarket?.fujimori_pct;
+    const mercDesc = polyPct != null
+      ? `Polymarket ~${String(polyPct).replace('.', ',')} % Fujimori al corte 16-jun; converge con modelos internos (P(F) ${pF} %) y margen observado ${margen}.`
+      : `Mercados de predicción y modelos internos convergen en victoria Fujimori con margen observado ${margen}.`;
+    text('#val-mercados-desc', mercDesc);
+
+    const likeli = $('#val-bayes-legend-likeli');
+    if (likeli) {
+      likeli.innerHTML = '<span class="bayes-sw bayes-sw-likeli"></span> Likelihood · ~63,4 % Fujimori (exterior 100 % cerrado 12-jun)';
     }
   }
 

@@ -1008,7 +1008,11 @@ function section(title) {
       /95,84\s*%/,
       /v3\.1 preparado/,
       /1\s*514 actas observadas mantienen el margen incierto/,
-      /P\s*>\s*93\s*%/
+      /P\s*>\s*93\s*%/,
+      /26\s*% escrutado/,
+      /¿puede Fujimori mantener la ventaja/,
+      /358\.060 votos pendientes/,
+      /P\(Fuj revierte\)/
     ].map(rx => rx.test(body));
     return {
       postMargin: document.getElementById('post-margin')?.textContent.trim() || '',
@@ -1027,6 +1031,51 @@ function section(title) {
   ok('#footer-about actualizado a v3.8.1', /v3\.8\.1/.test(editorialCheck.footerAbout) && !/v3\.1/.test(editorialCheck.footerAbout), editorialCheck.footerAbout.slice(0, 80));
   ok('#val-lectura tiene 4 bullets dinámicos', editorialCheck.valLectura === 4, `n=${editorialCheck.valLectura}`);
   ok('meta description incluye margen actualizado', /34\.967|34\.9/.test(editorialCheck.metaDesc), editorialCheck.metaDesc.slice(0, 100));
+  const revH2Live = await page.evaluate(() => document.getElementById('rev-section-h2')?.textContent.trim() || '');
+  ok('#rev-section-h2 refleja margen consolidado', /34\.9|Resultado consolidado/i.test(revH2Live), revH2Live);
+
+  section('N53. v3.8.1 — Playwright editorial QA multi-viewport');
+  const viewports = [
+    { name: 'mobile-375', width: 375, height: 812 },
+    { name: 'tablet-768', width: 768, height: 1024 },
+    { name: 'desktop-1440', width: 1440, height: 900 }
+  ];
+  for (const vp of viewports) {
+    await page.setViewportSize({ width: vp.width, height: vp.height });
+    await page.waitForTimeout(350);
+    const vpCheck = await page.evaluate(() => {
+      const bodyW = document.body.scrollWidth;
+      const viewW = document.documentElement.clientWidth;
+      const slot = (id) => {
+        const n = document.getElementById(id);
+        const t = (n && n.textContent || '').trim();
+        return { ok: t && t !== '—' && t.length > 8, text: t.slice(0, 70) };
+      };
+      return {
+        overflow: bodyW > viewW + 4,
+        bodyW, viewW,
+        brandSub: (document.querySelector('.brand-sub')?.textContent || '').trim(),
+        revH2: slot('rev-section-h2'),
+        valDeck: slot('validacion-deck'),
+        mercDesc: slot('val-mercados-desc'),
+        alertHead: (document.getElementById('alert-headline')?.textContent || '').trim(),
+        metaVer: (document.getElementById('meta-version')?.textContent || '').trim(),
+        thProb: (document.getElementById('val-th-prob-fuj')?.textContent || '').trim(),
+        blufKpis: document.querySelectorAll('#bluf-kpis .bluf-kpi').length,
+        renderErrors: [/Invalid Date/, /\[object Object\]/].filter(rx => rx.test(document.body.innerText)).length
+      };
+    });
+    ok(`${vp.name}: sin overflow horizontal`, vpCheck.overflow === false, `body=${vpCheck.bodyW} view=${vpCheck.viewW}`);
+    ok(`${vp.name}: brand-sub con 99,07 %`, /99,07/.test(vpCheck.brandSub), vpCheck.brandSub);
+    ok(`${vp.name}: rev-section-h2 poblado`, vpCheck.revH2.ok === true, vpCheck.revH2.text);
+    ok(`${vp.name}: validacion-deck poblado`, vpCheck.valDeck.ok === true, vpCheck.valDeck.text);
+    ok(`${vp.name}: val-mercados-desc poblado`, vpCheck.mercDesc.ok === true, vpCheck.mercDesc.text);
+    ok(`${vp.name}: alert-headline poblado`, vpCheck.alertHead.length > 20, vpCheck.alertHead.slice(0, 50));
+    ok(`${vp.name}: meta-version 3.8.1`, vpCheck.metaVer === '3.8.1', vpCheck.metaVer);
+    ok(`${vp.name}: P(Fuj mantiene) en tabla`, /mantiene/i.test(vpCheck.thProb), vpCheck.thProb);
+    ok(`${vp.name}: BLUF ≥6 KPIs`, vpCheck.blufKpis >= 6, `n=${vpCheck.blufKpis}`);
+    ok(`${vp.name}: sin Invalid Date / [object Object]`, vpCheck.renderErrors === 0, `hits=${vpCheck.renderErrors}`);
+  }
 
   section('N. Global — no dash-only badge anywhere in regions/social/EW');
   const allDashBadges = await page.evaluate(() => {

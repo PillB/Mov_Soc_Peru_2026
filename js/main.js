@@ -280,6 +280,22 @@
       const genDate = meta.generated_at ? formatDate(meta.generated_at) : '16 jun 2026';
       footerAbout.textContent = `Producto OSINT v${meta.version || '3.8.1'} preparado el ${genDate} para residentes y profesionales en las cinco macroregiones del Perú. Integra terreno, redes sociales y medios alternativos. Su propósito es informar, no movilizar. La información se contrasta exclusivamente con fuentes públicas verificadas.`;
     }
+
+    text('#rev-section-h2', `Resultado consolidado: Fujimori ${margen} votos al ${pctActas} escrutado`);
+    text('#rev-section-deck', `Monte Carlo sobre ~878 actas JEE pendientes y riesgo legal residual (amparo JP). Con ${pctActas} contabilizado, la reversión estadística es improbable; el foco operativo está en movilizaciones y resolución JNE.`);
+
+    text('#validacion-deck', `Escrutinio al ${pctActas} con margen ${margen} pro-Fujimori. Cuatro especificaciones de modelo, mercados de predicción y siete escenarios adversariales confirman robustez de la señal post-reversión.`);
+
+    const polyPct = (d.validacion || {}).mercados?.polymarket?.fujimori_pct;
+    const mercDesc = polyPct != null
+      ? `Polymarket ~${String(polyPct).replace('.', ',')} % Fujimori al corte 16-jun; converge con modelos internos (P(F) ${pF} %) y margen observado ${margen}.`
+      : `Mercados de predicción y modelos internos convergen en victoria Fujimori con margen observado ${margen}.`;
+    text('#val-mercados-desc', mercDesc);
+
+    const likeli = $('#val-bayes-legend-likeli');
+    if (likeli) {
+      likeli.innerHTML = '<span class="bayes-sw bayes-sw-likeli"></span> Likelihood · ~63,4 % Fujimori (exterior 100 % cerrado 12-jun)';
+    }
   }
 
   // ---------- v3.6.0: BLUF renderer ----------
