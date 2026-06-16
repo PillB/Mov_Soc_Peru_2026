@@ -180,11 +180,12 @@
     text('#window-label', 'Ventana de monitoreo · ' + (meta.window || 'próximos 7-10 días'));
     text('#footer-meta', `Dossier OSINT · v${meta.version || '2.0'} · ${meta.scope ? 'Perú' : ''}`);
 
+    renderEditorialCopy(d);
     renderBluf(d.bluf || {});
-    renderForecastML(d.forecast_ml || {});
+    renderForecastML(d.forecast_ml || {}, d.escrutinio_realtime || {});
     renderExecutiveAlert(d.executive_alert || {});
     renderContext(d.context || {});
-    renderPostElectoral(d.post_electoral || {});
+    renderPostElectoral(d.post_electoral || {}, d.escrutinio_realtime || {}, d.context || {});
     // v3.1: stash grassroots data for buildRegionContent to consume
     window.__grassroots = d.grassroots || {};
     renderRegions(d.regions || {});
@@ -195,12 +196,63 @@
     renderAltMedia(d.alt_media || []);
     renderDisinfo(d.disinformation_cases || []);
     renderRiskMatrix(d.risk_matrix || []);
-    renderReversion(d.montecarlo || null);
+    renderReversion(d.montecarlo || null, d.escrutinio_realtime || null);
     renderEarlyWarning(d.early_warning_indicators || []);
     renderMethod(d.methodology || {});
+    renderValidacionLectura(d.validacion || {}, d.montecarlo || null, d.escrutinio_realtime || null);
     renderSources(d.sources_index || []);
     initHidePastToggle();
     flagPastRiskMatrix();
+  }
+
+  function countConvocatorias(regions) {
+    let n = 0;
+    Object.values(regions || {}).forEach(r => { n += (r.convocatorias_futuras || []).length; });
+    return n;
+  }
+  function setMetaContent(sel, content) {
+    if (!content) return;
+    const node = document.querySelector(sel);
+    if (node) node.setAttribute('content', content);
+  }
+  function pctFromVotes(vF, vS) {
+    const total = (vF || 0) + (vS || 0);
+    if (!total) return { f: '', s: '' };
+    return {
+      f: (vF / total * 100).toFixed(3).replace('.', ',') + ' %',
+      s: (vS / total * 100).toFixed(3).replace('.', ',') + ' %'
+    };
+  }
+
+  // ---------- v3.8.1: Editorial copy — static HTML slots from live data ----------
+  function renderEditorialCopy(d) {
+    const meta = d.meta || {};
+    const er = (d.escrutinio_realtime || {}).cifras_actuales || {};
+    const fml = d.forecast_ml || {};
+    const pc = fml.punto_central || {};
+    const ic = (fml.intervalos_confianza || {}).ic_95 || [];
+    const prob = fml.probabilidad_victoria || {};
+    const convN = countConvocatorias(d.regions) || (d.bluf || {}).kpis?.find(k => /convocatoria/i.test(k.label || ''))?.value || '—';
+    const pctActas = (er.pct_actas || '99,07 %').replace('.', ',').replace('%', ' %').replace(/ % %/, ' %').trim();
+    const margen = er.margen_actual != null ? formatSignedInt(er.margen_actual) : '+34.967';
+    const margenMl = pc.margen_final_votos != null ? formatSignedInt(pc.margen_final_votos) : '+41.200';
+    const icLo = ic[0] != null ? formatSignedInt(ic[0]) : '+32.800';
+    const icHi = ic[1] != null ? formatSignedInt(ic[1]) : '+49.600';
+    const pF = prob.fujimori != null ? (prob.fujimori * 100).toFixed(1).replace('.', ',') : '99,2';
+
+    const metaDesc = `Dossier OSINT v${meta.version || '3.8.1'} — BLUF + ML forecast. ${convN} convocatorias activas en 5 macroregiones. Margen ONPE ${margen} votos al ${pctActas}, proyección ML ${margenMl} votos Fujimori (IC95 [${icLo}, ${icHi}]), P(F)=${pF} %.`;
+    setMetaContent('meta[name="description"]', metaDesc);
+    setMetaContent('meta[property="og:title"]', `Dossier OSINT — Manifestaciones Perú · v${meta.version || '3.8.1'} BLUF + ML`);
+    setMetaContent('meta[property="og:description"]', metaDesc);
+
+    const brandSub = document.querySelector('.brand-sub');
+    if (brandSub) brandSub.textContent = `BLUF + ML forecast · ${pctActas} escrutado`;
+
+    const footerAbout = $('#footer-about');
+    if (footerAbout) {
+      const genDate = meta.generated_at ? formatDate(meta.generated_at) : '16 jun 2026';
+      footerAbout.textContent = `Producto OSINT v${meta.version || '3.8.1'} preparado el ${genDate} para residentes y profesionales en las cinco macroregiones del Perú. Integra terreno, redes sociales y medios alternativos. Su propósito es informar, no movilizar. La información se contrasta exclusivamente con fuentes públicas verificadas.`;
+    }
   }
 
   // ---------- v3.6.0: BLUF renderer ----------
@@ -248,15 +300,38 @@
     const watch = $('#bluf-watch-list');
     if (watch) {
       watch.innerHTML = '';
-      (b.three_things_to_watch || []).forEach(t => watch.appendChild(el('li', null, typeof t === 'string' ? t : (t.text || t.titulo || JSON.stringify(t)))));
+      (b.three_things_to_watch || []).forEach(t => {
+        const li = el('li');
+        if (typeof t === 'string') {
+          li.textContent = t;
+        } else {
+          const titulo = cleanStr(t.titulo || t.title);
+          const detalle = cleanStr(t.detalle || t.text || t.descripcion);
+          if (titulo) {
+            li.appendChild(el('strong', null, titulo));
+            if (detalle) li.appendChild(document.createTextNode(' — ' + detalle));
+          } else {
+            li.textContent = detalle || JSON.stringify(t);
+          }
+        }
+        watch.appendChild(li);
+      });
     }
     if (b.forecast_one_liner) text('#bluf-forecast-line', b.forecast_one_liner);
   }
 
   // ---------- v3.6.0: Forecast ML renderer ----------
-  function renderForecastML(f) {
+  function renderForecastML(f, er) {
     if (!f || !f.punto_central) return;
     const pc = f.punto_central || {};
+    const ca = (er || {}).cifras_actuales || {};
+    const pctEsc = (f.subtitulo || ca.pct_actas || '99,07 %').replace(/corte[^·]*·\s*/i, '').trim();
+    const margenTxt = pc.margen_final_votos != null ? formatSignedInt(pc.margen_final_votos) : '—';
+    const pctFDeck = pc.pct_fujimori_final != null ? pc.pct_fujimori_final.toFixed(3).replace('.', ',') + ' %' : '';
+    const deckEl = $('#fml-deck');
+    if (deckEl) {
+      deckEl.innerHTML = `Modelo bayesiano condicional al <strong>${escapeHtml(pctEsc)}</strong> escrutado. Combina cómputo observado, actas JEE pendientes (~878) y riesgo legal residual (amparo JP). <strong>Punto central: ${escapeHtml(margenTxt)} votos Fujimori${pctFDeck ? ' (' + escapeHtml(pctFDeck) + ')' : ''}.</strong>`;
+    }
     const prob = f.probabilidad_victoria || {};
     const ic = f.intervalos_confianza || {};
     const kpisRoot = $('#fml-kpis');
@@ -587,11 +662,26 @@
   }
 
   // ---------- Post-electoral ----------
-  function renderPostElectoral(p) {
-    // Banner margen
+  function renderPostElectoral(p, er, ctx) {
     const dv = p.defensa_del_voto || {};
     const cf = p.contramarchas_fujimoristas || {};
-    text('#post-margin', 'Sánchez 50,07% vs Fujimori 49,93% · diferencia ~20 426 votos · voto exterior Fujimori 65,44% pendiente');
+    const ca = (er || {}).cifras_actuales || {};
+    const es = (ctx || {}).election_state || {};
+    let marginLine = '';
+    if (ca.votos_F != null && ca.votos_S != null) {
+      const pcts = pctFromVotes(ca.votos_F, ca.votos_S);
+      marginLine = `Fujimori ${pcts.f} vs Sánchez ${pcts.s} · margen ${formatSignedInt(ca.margen_actual)} votos`;
+      if (ca.pct_actas) marginLine += ` · ${ca.pct_actas.replace('.', ',')} actas`;
+    } else if (es.fujimori_pct && es.sanchez_pct) {
+      marginLine = `Fujimori ${es.fujimori_pct} vs Sánchez ${es.sanchez_pct} · ${es.difference_votes || ''}`;
+    }
+    text('#post-margin', marginLine || '—');
+    const tail = $('#post-intro-tail');
+    if (tail) {
+      const pct = ca.pct_actas ? ca.pct_actas.replace('.', ',') : (es.scrutinized_pct || '99,07 %');
+      const m = ca.margen_actual != null ? formatSignedInt(ca.margen_actual) : (es.difference_votes || '+34.967 votos');
+      tail.textContent = `Con ${pct} escrutado y margen ${m} pro-Fujimori, la reversión estadística es improbable. ~878 actas en JEE y amparo PJ pendiente condicionan el riesgo operativo. Dos bloques movilizados en paralelo.`;
+    }
 
     // Bloque A — defensa del voto
     const jpp = $('#post-jpp-body');
@@ -2238,6 +2328,12 @@
   function renderMethod(m) {
     const grid = $('#method-grid');
     if (!grid) return;
+    const phaseMatch = String(m.phases || '').match(/(\d+)/);
+    const phaseN = phaseMatch ? phaseMatch[1] : '18';
+    text('#methodology-title', `${phaseN} fases de análisis OSINT`);
+    text('#methodology-deck', m.phases || 'Doce fases base + seis de expansión social. Cada fase con preámbulo y retrospección. Síntesis verificada contra fuentes originales.');
+    const foldLbl = document.querySelector('#methodology .fold-label');
+    if (foldLbl) foldLbl.textContent = `Ver las ${phaseN} fases`;
     grid.innerHTML = '';
     // m puede ser array (esperado) o objeto con phases/anti_hallucination/limits
     if (Array.isArray(m)) {
@@ -2760,8 +2856,31 @@
     });
   }
 
+  function renderValidacionLectura(val, mc, er) {
+    const ul = $('#val-lectura');
+    if (!ul) return;
+    const bullets = (val || {}).lectura_ejecutiva;
+    if (!Array.isArray(bullets) || !bullets.length) return;
+    ul.innerHTML = '';
+    bullets.forEach(b => {
+      const li = el('li');
+      if (b.titulo) li.appendChild(el('strong', null, b.titulo + ': '));
+      li.appendChild(document.createTextNode(b.texto || b.text || ''));
+      ul.appendChild(li);
+    });
+    const histLead = $('#val-historico-lead');
+    if (histLead && er && er.cifras_actuales) {
+      const m = formatSignedInt(er.cifras_actuales.margen_actual);
+      histLead.innerHTML = `Fujimori obtuvo <strong>66,2&nbsp;%</strong> del voto exterior en 2021 y aun así perdió por <strong>44&thinsp;263</strong> votos. En 2026 el exterior ya está contabilizado al 100&nbsp;% y Fujimori lidera por <strong>${escapeHtml(m)}</strong> votos al ${escapeHtml((er.cifras_actuales.pct_actas || '99,07%').replace('.', ','))} — la magnitud del margen actual supera ampliamente el umbral de empate técnico.`;
+    }
+    const bayesDesc = $('#val-bayes-desc');
+    if (bayesDesc) {
+      bayesDesc.textContent = 'El voto exterior cerró al 100 % el 12-jun con ~63,4 % pro-Fujimori. El posterior bayesiano confirma sesgo pro-F favorable, ya materializado en el margen observado (+34.967 votos al 16-jun).';
+    }
+  }
+
   // ---------- Reversion / Montecarlo ----------
-  function renderReversion(mc) {
+  function renderReversion(mc, er) {
     const root = $('#reversion');
     if (!root) return;
     if (!mc) { root.style.display = 'none'; return; }
@@ -2801,11 +2920,26 @@
       const pe = (est.pct_escrutado * 100).toFixed(2).replace('.', ',') + ' % escrutado (ONPE)';
       text('#rev-ventaja-sub', 'al ' + pe);
     }
+    if (er && er.cifras_actuales) {
+      const ca = er.cifras_actuales;
+      if (ca.margen_actual != null) text('#rev-ventaja', formatSignedInt(ca.margen_actual) + ' votos');
+      if (ca.pct_actas) {
+        const pe = ca.pct_actas.replace('.', ',').replace('%', ' %').replace(/ % %/, ' %').trim();
+        text('#rev-ventaja-sub', 'al ' + pe + ' escrutado (ONPE)');
+      }
+    }
 
     renderHistogram(hist);
     // v3.5.11: actas pendientes + impugnadas reemplaza el Top 6 países
     if (actasStatus) {
-      renderActas(actasStatus);
+      const stOverlay = Object.assign({}, actasStatus);
+      if (er && er.cifras_actuales) {
+        const ca = er.cifras_actuales;
+        if (ca.margen_actual != null) stOverlay.margen_actual_votos = ca.margen_actual;
+        const pctNum = parseFloat(String(ca.pct_actas || '').replace('%', '').replace(',', '.'));
+        if (!isNaN(pctNum)) stOverlay.avance_nacional_pct = pctNum / 100;
+      }
+      renderActas(stOverlay);
     } else {
       renderPaises(paises);
     }

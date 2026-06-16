@@ -979,6 +979,36 @@ function section(title) {
   );
   ok('norte tiene convocatoria Piura/arrocera 23-jun', hasPiura23 === true, `found=${hasPiura23}`);
 
+  section('N51. v3.8.1 — editorial pass: sin copy obsoleto y slots data-driven');
+  const editorialCheck = await page.evaluate(() => {
+    const body = document.body.innerText;
+    const stale = [
+      /98,26\s*%/,
+      /\+1\.886/,
+      /50,07\s*%/,
+      /95,84\s*%/,
+      /v3\.1 preparado/,
+      /1\s*514 actas observadas mantienen el margen incierto/,
+      /P\s*>\s*93\s*%/
+    ].map(rx => rx.test(body));
+    return {
+      postMargin: document.getElementById('post-margin')?.textContent.trim() || '',
+      fmlDeck: document.getElementById('fml-deck')?.textContent.trim() || '',
+      revVentajaSub: document.getElementById('rev-ventaja-sub')?.textContent.trim() || '',
+      footerAbout: document.getElementById('footer-about')?.textContent.trim() || '',
+      valLectura: document.querySelectorAll('#val-lectura li').length,
+      metaDesc: document.querySelector('meta[name="description"]')?.getAttribute('content') || '',
+      staleHits: stale.filter(Boolean).length
+    };
+  });
+  ok('sin strings obsoletos en body (98,26 / 1.886 / 50,07 / 95,84 / v3.1 / 1514 / P>93)', editorialCheck.staleHits === 0, `hits=${editorialCheck.staleHits}`);
+  ok('#post-margin refleja margen ≥34.900', /34\.9\d{2}|34\.967/.test(editorialCheck.postMargin), editorialCheck.postMargin);
+  ok('#fml-deck refleja proyección ≥41.000', /41\.2\d{2}|41\.200/.test(editorialCheck.fmlDeck), editorialCheck.fmlDeck);
+  ok('#rev-ventaja-sub refleja 99,07 % escrutado', /99,07/.test(editorialCheck.revVentajaSub), editorialCheck.revVentajaSub);
+  ok('#footer-about actualizado a v3.8.1', /v3\.8\.1/.test(editorialCheck.footerAbout) && !/v3\.1/.test(editorialCheck.footerAbout), editorialCheck.footerAbout.slice(0, 80));
+  ok('#val-lectura tiene 4 bullets dinámicos', editorialCheck.valLectura === 4, `n=${editorialCheck.valLectura}`);
+  ok('meta description incluye margen actualizado', /34\.967|34\.9/.test(editorialCheck.metaDesc), editorialCheck.metaDesc.slice(0, 100));
+
   section('N. Global — no dash-only badge anywhere in regions/social/EW');
   const allDashBadges = await page.evaluate(() => {
     const scope = Array.from(document.querySelectorAll(

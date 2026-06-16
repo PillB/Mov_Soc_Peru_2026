@@ -3,7 +3,7 @@
     "version": "3.8.1",
     "generated_at": "2026-06-16T10:50:00-05:00",
     "scope": "Manifestaciones, marchas y eventos de acumulación de personas — Perú + Capa de inteligencia social y medios alternativos",
-    "window": "16–23 junio 2026 (post-2da vuelta · corte 99,054% escrutado · margen 33.620 votos)",
+    "window": "16–23 junio 2026 (post-2da vuelta · corte 99,07% escrutado · margen 34.967 votos)",
     "language": "es-PE",
     "classification": "USO OPERATIVO — SENSIBLE",
     "self_update_sources": [
@@ -46,7 +46,7 @@
     "headline": "Fujimori +34.967 votos al 99,07% actas; JP vigilias 17-jun y marcha Campo de Marte 19-jun; Ilave y km 556 sin bloqueo verificado; amparo PJ pendiente",
     "key_finding": "Margen +34.967 votos al 99,07% (El Comercio 10:50 PET, 16-jun). Hilos cerrados round 2: Puente Ilave y Panamericana km 556 **sin bloqueo activo verificado** al 16-jun (convocatoria Ilave desde 11-jun sin confirmación SUTRAN). Amparo JP voto exterior **presentado**, sin admisión/rechazo PJ. Marcha 19-jun: solo Campo de Marte 16:00 confirmado; ruta probable vía Arequipa→JNE (precedente 13-jun). Piura: paro NO reactivado; movilización arrocera **23-jun** confirmada. Acampamento ~80 carpas frente JNE (RPP 16-jun).",
     "catalysts": [
-      "Margen escrutinio +33.620 votos al 99,054% — reversión estadística improbable.",
+      "Margen escrutinio +34.967 votos al 99,07% — reversión estadística improbable.",
       "JP convoca vigilias 17-jun y marcha Campo de Marte 19-jun 16:00.",
       "Amparo JP ante PJ para anular voto exterior (16-jun).",
       "Keiko Fujimori regresa al Perú 17-jun.",
@@ -92,11 +92,11 @@
   "context": {
     "election_state": {
       "second_round": "domingo 7 junio 2026",
-      "scrutinized_pct": "95,98 %",
-      "sanchez_pct": "50,07 %",
-      "fujimori_pct": "49,93 %",
-      "difference_votes": "~20 426 votos",
-      "exterior_vote": "Fujimori 65,44 % vs Sánchez 34,56 %",
+      "scrutinized_pct": "99,07 %",
+      "sanchez_pct": "49,889 %",
+      "fujimori_pct": "50,111 %",
+      "difference_votes": "+34.967 votos (pro-Fujimori)",
+      "exterior_vote": "100 % contabilizado (12-jun) · ~63,4 % Fujimori en exterior",
       "proclamation_expected": "mediados de julio 2026 (JNE)"
     },
     "emergency_decrees": [
@@ -12200,7 +12200,7 @@
   "methodology": {
     "phases": "18 fases con preámbulo + retrospección (8 base + 4 expansión regional + 6 social media / medios alt.)",
     "anti_hallucination": "Cada evento marcado: CONFIRMADO (URL verificable), PROBABLE (patrón inferencial), LATENTE (organización activa sin convocatoria explícita), INCIERTO (no se pudo verificar)",
-    "sources_total": "~190 URLs verificables · 5 dossiers regionales (190 KB) · 4 dossiers sociales (2 180 líneas)",
+    "sources_total": "~220 URLs verificables · 5 macroregiones · capa social + disinfo + forecast ML v3.8",
     "limits": [
       "Handles RRSS de algunos frentes regionales (FDTP, FDTC, ANAMEBI) no verificados directamente",
       "Magnitudes son estimaciones basadas en patrones 2021-2026, no aforos confirmados",
@@ -12210,9 +12210,9 @@
       "TikTok Lives son efímeros: solo se documenta la cuenta y patrón horario, no URLs de transmisiones específicas pasadas",
       "Handles marcados [NO VERIFICADO] en dossiers fuente se excluyen de URLs activas en este dataset"
     ],
-    "version": "3.4",
-    "ultima_actualizacion": "2026-06-11T11:55:00-05:00",
-    "cambios_v34": "Refresh integral post-reversión: integración de voto exterior 94,5% procesado, 1.635 actas observadas, mercados de predicción Polymarket/Kalshi, simulación Monte Carlo ensemble de 4 modelos (P=95,6% Fuj mantiene), inteligencia regional 5 macrozonas, panorama social con 9 hashtags + 13 lives + 8 narrativas, 14 casos de desinformación fact-checkeados, 14 riesgos en matriz y 16 indicadores de alerta temprana."
+    "version": "3.8.1",
+    "ultima_actualizacion": "2026-06-16T10:50:00-05:00",
+    "cambios_v381": "Refresh v3.8.1: escrutinio 99,07%/+34.967; editorial pass data-driven; JP vigilias 17-jun y marcha Campo de Marte 19-jun; Ilave/km 556 sin bloqueo verificado; amparo PJ pendiente; forecast ML +41.200 P(F)=99,2%; 148 convocatorias activas; 26 riesgos / 23 EW."
   },
   "sources_index": [
     {
@@ -23222,7 +23222,25 @@
     }
   },
   "validacion": {
-    "fecha_corte": "2026-06-11T11:30:00-05:00",
+    "fecha_corte": "2026-06-16T10:50:00-05:00",
+    "lectura_ejecutiva": [
+      {
+        "titulo": "Consistencia interna",
+        "texto": "Los cuatro modelos Monte Carlo coinciden en P > 99 % de que Fujimori mantiene la ventaja al cierre del cómputo — robustez estructural muy alta con 99,07 % escrutado."
+      },
+      {
+        "titulo": "Convergencia externa",
+        "texto": "Polymarket (~97 % Fujimori) y modelo ML (P(F)=99,2 %) convergen: margen observado +34.967 votos hace estadísticamente improbable una reversión."
+      },
+      {
+        "titulo": "Validación empírica",
+        "texto": "Voto exterior cerrado al 100 % el 12-jun con ~63,4 % pro-Fujimori; su contribución ya está materializada en el margen actual."
+      },
+      {
+        "titulo": "Robustez adversarial",
+        "texto": "El amparo JP contra el voto exterior es el principal vector de cola (P≈15 %); recursos de nulidad masiva JP fueron improcedentes y FP no apelará Puno."
+      }
+    ],
     "mercados": {
       "polymarket": {
         "fujimori_pct": 97,
@@ -27231,7 +27249,7 @@
         "cross_ref": "@FuerzaPopular__; Luis Galarreta"
       }
     ],
-    "forecast_one_liner": "Modelo ML proyecta margen final +40.500 votos pro-Fujimori (IC95 [+32.100; +48.900]). P(Fujimori)=99,2 % · P(Sánchez)=0,7 %. Riesgo residual: amparo JP voto exterior.",
+    "forecast_one_liner": "Modelo ML proyecta margen final +41.200 votos pro-Fujimori (IC95 [+32.800; +49.600]). P(Fujimori)=99,2 % · P(Sánchez)=0,7 %. Riesgo residual: amparo JP voto exterior.",
     "three_things_to_watch": [
       {
         "titulo": "Amparo JP ante PJ para anular voto exterior (16-jun)",
@@ -27243,7 +27261,7 @@
       },
       {
         "titulo": "Resolución de 878 actas pendientes en JEE",
-        "detalle": "Con 99,054 % contabilizado y margen +33.620, resultado preliminar virtualmente irreversible. Riesgo operativo en audiencias JEE del 16-jun."
+        "detalle": "Con 99,07 % contabilizado y margen +34.967, resultado preliminar virtualmente irreversible. Riesgo operativo en audiencias JEE del 16-jun."
       }
     ]
   },

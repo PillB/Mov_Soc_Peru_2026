@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dossier OSINT — Manifestaciones Perú · v3.8.1 BLUF + ML forecast</title>
-  <meta name="description" content="Dossier OSINT v3.8 — BLUF + ML forecast + UX pirámide. 148 convocatorias activas en 5 macroregiones. Margen ONPE +33.620 votos al 99,054%, proyección ML +40.500 votos Fujimori (IC95 [+32.100, +48.900]), P(F)=99,2 %." />
+  <meta name="description" content="Dossier OSINT v3.8.1 — BLUF + ML forecast. Convocatorias activas en 5 macroregiones. Margen ONPE y proyección ML actualizados al corte 16-jun." />
   <meta name="theme-color" content="#0b1a2b" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Dossier OSINT — Manifestaciones Perú · v3 Social" />
-  <meta property="og:description" content="Eventos · Social media · Lives · Medios alternativos · Desinformación · próximos 7-10 días · cinco macroregiones." />
+  <meta property="og:title" content="Dossier OSINT — Manifestaciones Perú · v3.8.1 BLUF + ML" />
+  <meta property="og:description" content="Dossier OSINT v3.8.1 — manifestaciones, redes sociales y escrutinio post-2da vuelta en cinco macroregiones." />
   <meta property="og:type" content="article" />
   <meta property="og:locale" content="es_PE" />
 
@@ -149,7 +149,7 @@
         <div class="section-head">
           <p class="eyebrow">Sección 2 · Coyuntura post-electoral</p>
           <h2>Frentes de defensa del voto vs. contramarchas de Fuerza Popular</h2>
-          <p>Resultado actual: <strong id="post-margin">—</strong>. Voto exterior y 1 514 actas observadas mantienen el margen incierto. Dos bloques movilizados en paralelo.</p>
+          <p>Resultado actual: <strong id="post-margin">—</strong>. <span id="post-intro-tail">—</span></p>
         </div>
         <div class="post-electoral-grid">
           <article class="post-block post-jpp" aria-labelledby="post-jpp-h">
@@ -200,7 +200,7 @@
           <article class="rev-kpi">
             <span class="rev-kpi-label">Ventaja actual Fujimori</span>
             <span class="rev-kpi-value" id="rev-ventaja">—</span>
-            <span class="rev-kpi-sub" id="rev-ventaja-sub">al 95,84 % escrutado (ONPE)</span>
+            <span class="rev-kpi-sub" id="rev-ventaja-sub">—</span>
           </article>
         </div>
 
@@ -210,7 +210,7 @@
             <!-- Distribución del margen final (histograma SVG) -->
             <div class="rev-dist">
               <h3>Distribución del margen final (Fujimori − Sánchez)</h3>
-              <p class="rev-dist-desc">Cada barra representa la frecuencia con que el modelo proyectó ese margen tras 100 000 escenarios independientes. Área verde a la derecha del cero = Fujimori revierte; área ámbar a la izquierda = Sánchez consolida.</p>
+              <p class="rev-dist-desc">Cada barra representa la frecuencia con que el modelo proyectó ese margen tras 100 000 escenarios independientes. Área verde a la derecha del cero = Fujimori consolida o amplía ventaja; área ámbar a la izquierda = Sánchez recupera terreno.</p>
               <div id="rev-histogram" class="rev-histogram" role="img" aria-label="Histograma del margen final"></div>
               <div class="rev-hist-legend">
                 <span><span class="hist-sw hist-sw-f"></span> Fujimori gana</span>
@@ -297,8 +297,8 @@
             <h4>Supuestos clave</h4>
             <ul>
               <li>Independencia entre orígenes de actas (no se modela correlación de sesgo regional cruzado).</li>
-              <li>30 % del voto exterior ya contabilizado al cierre del 9-jun 13:00 (ONPE).</li>
-              <li>Actas observadas tienen mezcla 60 % Lima / 40 % resto; el sesgo Fujimori esperado es 55,5 %.</li>
+              <li>100 % del voto exterior contabilizado al 12-jun 18:56 (ONPE); contribución ya materializada en el margen.</li>
+              <li>~878 actas pendientes en JEE al corte 16-jun; margen observado +34.967 votos pro-Fujimori al 99,07 %.</li>
               <li>Semilla fija (42) para reproducibilidad.</li>
             </ul>
             <h4>Limitaciones</h4>
@@ -315,7 +315,7 @@
         <div class="section-head">
           <p class="eyebrow">Sección 2b·ML · Proyección bayesiana del margen final</p>
           <h2 id="fml-title">Estimación puntual con intervalos de confianza y escenarios</h2>
-          <p id="fml-deck">Modelo bayesiano condicional al 98,26 % escrutado. Combina cómputo observado, 443 actas JEE pendientes y dos recursos de nulidad como perturbaciones discretas. <strong>Punto central: +1.886 votos Fujimori (50,0052 %).</strong></p>
+          <p id="fml-deck">—</p>
         </div>
 
         <div class="fml-kpis" id="fml-kpis" role="list" aria-label="Proyección ML"></div>
@@ -371,12 +371,7 @@
           </article>
           <article class="val-headline-side">
             <h3>Lectura ejecutiva</h3>
-            <ul id="val-lectura">
-              <li><strong>Consistencia interna:</strong> los cuatro modelos coinciden en P&nbsp;&gt;&nbsp;93 % — robustez estructural alta.</li>
-              <li><strong>Convergencia externa:</strong> el ajustado (94 %) se acerca al promedio de mercados (86 %) sin perder señal de los modelos.</li>
-              <li><strong>Validación empírica:</strong> el voto exterior observado al 26 % escrutado (64 % Fujimori) cae a 1&nbsp;pp del prior 2021 (66,2&nbsp;%).</li>
-              <li><strong>Robustez adversarial:</strong> seis de los siete escenarios de cola mantienen P&nbsp;&gt;&nbsp;60 %; solo el cisne negro la rompe.</li>
-            </ul>
+            <ul id="val-lectura"></ul>
           </article>
         </div>
 
@@ -406,7 +401,7 @@
         <!-- Actualización bayesiana -->
         <div class="val-block val-bayes">
           <h3>Actualización bayesiana del voto exterior</h3>
-          <p class="val-block-desc">Partimos del desempeño 2021 como <em>prior</em> y lo actualizamos con el 26 % del exterior ya contabilizado. El posterior se desplaza un punto hacia abajo — evidencia ligeramente menos favorable que en 2021, pero aún ampliamente pro-Fujimori.</p>
+          <p class="val-block-desc" id="val-bayes-desc">—</p>
           <div id="val-bayes-canvas" class="val-bayes-canvas" role="img" aria-label="Distribución prior y posterior del voto exterior"></div>
           <div class="val-bayes-legend">
             <span><span class="bayes-sw bayes-sw-prior"></span> Prior · calibrado a 2021 (μ&nbsp;=&nbsp;66,2&nbsp;%)</span>
@@ -431,7 +426,7 @@
           </div>
           <aside class="val-historico">
             <h3>Calibración histórica · segunda vuelta 2021</h3>
-            <p>Fujimori obtuvo <strong>66,2&nbsp;%</strong> del voto exterior (220&thinsp;588 vs 112&thinsp;671 de Castillo) y aun así perdió por <strong>44&thinsp;263</strong> votos. El exterior aporta entre 80&thinsp;k y 110&thinsp;k de margen neto a Fujimori — magnitud que en 2026 alcanza para revertir los ≈25&thinsp;k de ventaja de Sánchez.</p>
+            <p id="val-historico-lead">—</p>
             <div class="val-historico-stats">
               <div><span class="val-historico-num">66,2 %</span><span class="val-historico-lbl">Fujimori exterior 2021</span></div>
               <div><span class="val-historico-num">+107&thinsp;917</span><span class="val-historico-lbl">Margen exterior neto 2021</span></div>
@@ -689,8 +684,8 @@
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">Sección 9 · Metodología</p>
-          <h2>Dieciocho fases de análisis OSINT</h2>
-          <p>Doce fases base (contexto, eventos, regional) + seis de expansión social (monitoreo de plataformas, lives, alt media, desinformación). Cada fase con preámbulo y retrospección. Síntesis verificada contra fuentes originales.</p>
+          <h2 id="methodology-title">—</h2>
+          <p id="methodology-deck">—</p>
         </div>
         <details class="foldable" data-fold="methodology">
           <summary><span class="fold-label">Ver las dieciocho fases</span><span class="fold-meta" id="method-count">—</span></summary>
@@ -733,7 +728,7 @@
       <div class="footer-grid">
         <div>
           <h4>Sobre este dossier</h4>
-          <p>Producto OSINT v3.1 preparado el 9 de junio de 2026 para residentes y profesionales en las cinco macroregiones del Perú. Integra terreno, redes sociales y medios alternativos. Su propósito es informar, no movilizar. La información se contrasta exclusivamente con fuentes públicas verificadas.</p>
+          <p id="footer-about">—</p>
         </div>
         <div>
           <h4>Actualización automática</h4>
