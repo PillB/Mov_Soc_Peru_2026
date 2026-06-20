@@ -643,9 +643,9 @@ function section(title) {
   }
   ok('no quedan fechas malformadas tipo YYYY-MM-DDT<garbage>', weirdDates === 0, `n=${weirdDates} samples=${JSON.stringify(weirdSamples)}`);
 
-  section('N21. v3.9.2 — meta.version = 3.9.2');
+  section('N21. v3.9.3 — meta.version = 3.9.3');
   const metaVersion = data_v357.meta && data_v357.meta.version;
-  ok('meta.version es 3.9.2', metaVersion === '3.9.2', `got=${metaVersion}`);
+  ok('meta.version es 3.9.3', metaVersion === '3.9.3', `got=${metaVersion}`);
 
   section('N22. v3.5.8 — gazetteer expone CORRIDORS con polylines de avenidas reales');
   const corridorsInfo = await page.evaluate(() => {
@@ -924,8 +924,8 @@ function section(title) {
     const navOrder = [...document.querySelectorAll('#primaryNav a')].map(a => a.getAttribute('href'));
     return { title, brandTitle, fmlValues, valueDisplay, icBounds, navOrder };
   });
-  ok('brand title actualizado a v3.9.2', /v3\.9\.2/.test(v361Check.brandTitle || ''), v361Check.brandTitle);
-  ok('document.title actualizado a v3.9.2', /v3\.9\.2/.test(v361Check.title), v361Check.title);
+  ok('brand title actualizado a v3.9.3', /v3\.9\.3/.test(v361Check.brandTitle || ''), v361Check.brandTitle);
+  ok('document.title actualizado a v3.9.3', /v3\.9\.3/.test(v361Check.title), v361Check.title);
   ok('fml-kpi-value renderiza como block', v361Check.valueDisplay === 'block', `display=${v361Check.valueDisplay}`);
   const hasEsThousands = (v361Check.fmlValues.find(v => /\d{1,3}\.\d{3}/.test(v)) || '');
   ok('formato es-PE con punto en miles (ej: +1.886)', /\d{1,3}\.\d{3}/.test(hasEsThousands), hasEsThousands || JSON.stringify(v361Check.fmlValues));
@@ -1028,7 +1028,7 @@ function section(title) {
   ok('#post-margin refleja margen ≥41.500', /41\.5\d{2}|41\.565/.test(editorialCheck.postMargin), editorialCheck.postMargin);
   ok('#fml-deck refleja proyección ≥44.000', /44\.8\d{2}|44\.800/.test(editorialCheck.fmlDeck), editorialCheck.fmlDeck);
   ok('#rev-ventaja-sub refleja 99,63 % escrutado', /99,63/.test(editorialCheck.revVentajaSub), editorialCheck.revVentajaSub);
-  ok('#footer-about actualizado a v3.9.2', /v3\.9\.2/.test(editorialCheck.footerAbout) && !/v3\.1/.test(editorialCheck.footerAbout), editorialCheck.footerAbout.slice(0, 80));
+  ok('#footer-about actualizado a v3.9.3', /v3\.9\.3/.test(editorialCheck.footerAbout) && !/v3\.1/.test(editorialCheck.footerAbout), editorialCheck.footerAbout.slice(0, 80));
   ok('#val-lectura tiene 4 bullets dinámicos', editorialCheck.valLectura === 4, `n=${editorialCheck.valLectura}`);
   ok('meta description incluye margen actualizado', /41\.565|41\.5/.test(editorialCheck.metaDesc), editorialCheck.metaDesc.slice(0, 100));
   const revH2Live = await page.evaluate(() => document.getElementById('rev-section-h2')?.textContent.trim() || '');
@@ -1071,7 +1071,7 @@ function section(title) {
     ok(`${vp.name}: validacion-deck poblado`, vpCheck.valDeck.ok === true, vpCheck.valDeck.text);
     ok(`${vp.name}: val-mercados-desc poblado`, vpCheck.mercDesc.ok === true, vpCheck.mercDesc.text);
     ok(`${vp.name}: alert-headline poblado`, vpCheck.alertHead.length > 20, vpCheck.alertHead.slice(0, 50));
-    ok(`${vp.name}: meta-version 3.9.2`, vpCheck.metaVer === '3.9.2', vpCheck.metaVer);
+    ok(`${vp.name}: meta-version 3.9.3`, vpCheck.metaVer === '3.9.3', vpCheck.metaVer);
     ok(`${vp.name}: P(Fuj mantiene) en tabla`, /mantiene/i.test(vpCheck.thProb), vpCheck.thProb);
     ok(`${vp.name}: BLUF ≥6 KPIs`, vpCheck.blufKpis >= 6, `n=${vpCheck.blufKpis}`);
     ok(`${vp.name}: sin Invalid Date / [object Object]`, vpCheck.renderErrors === 0, `hits=${vpCheck.renderErrors}`);
@@ -1103,6 +1103,26 @@ function section(title) {
   ok('RM-24 estado realizada', rm24?.estado === 'realizada', rm24?.estado);
   const bayesDesc392 = await page.evaluate(() => document.getElementById('val-bayes-desc')?.textContent || '');
   ok('#val-bayes-desc data-driven (41.565)', /41\.565/.test(bayesDesc392), bayesDesc392.slice(0, 80));
+
+  section('N57. v3.9.3 — Round 3 per-entity + pre-22-jun');
+  const p7r3 = data_v357.prediccion_7dias || {};
+  ok('prediccion_7dias nota v3.9.3 Round 3', /v3\.9\.3|Round 3/i.test(p7r3.nota_metodologica || ''), p7r3.nota_metodologica);
+  ok('norte prob_bloqueo_panamericana ≥ 0,65', (p7r3.norte || {}).prob_bloqueo_panamericana_norte >= 0.65, String((p7r3.norte || {}).prob_bloqueo_panamericana_norte));
+  const norteCf = (data_v357.regions?.norte?.convocatorias_futuras || []).find(c => c.id === 'NORTE-PARO-023');
+  ok('NORTE-PARO-023 prob realizacion ≥ 0,85', (norteCf?.probabilidad_realizacion || 0) >= 0.85, String(norteCf?.probabilidad_realizacion));
+  ok('NORTE-PARO-023 magnitud M', norteCf?.magnitud_codigo === 'M', norteCf?.magnitud_codigo);
+  const si393 = data_v357.social_intelligence || {};
+  ok('social_intelligence fecha_corte 19-jun', /2026-06-19/.test(si393.fecha_corte || ''), si393.fecha_corte);
+  const aguaTag = (si393.hashtags || []).find(h => h.hashtag === '#AguaSiMinaNo');
+  ok('#AguaSiMinaNo round 3 presente', !!aguaTag && aguaTag.validacion_ronda === 3, aguaTag?.hashtag);
+  const pachama = (si393.cuentas_emergentes || []).find(c => c.handle === '@PachamamaRadio_');
+  ok('@PachamamaRadio_ round 3 presente', !!pachama && pachama.validacion_ronda === 3, pachama?.handle);
+  const rm27r3 = (data_v357.risk_matrix || []).find(r => r.id === 'RM-27');
+  ok('RM-27 menciona dejó al voto', /dejó al voto|dejo al voto/i.test(rm27r3?.scenario || ''), rm27r3?.scenario?.slice(0, 60));
+  const rutasPiura = (data_v357.rutas_recurrentes_v370 || []).some(r => /El Trébol|Trebol/i.test(r.descripcion || ''));
+  ok('ruta Piura El Trébol en rutas_recurrentes', rutasPiura === true, String(rutasPiura));
+  const staleCatalysts = (data_v357.executive_alert?.catalysts || []).some(c => /Campo de Marte|bloqueado activo|99,07/i.test(c));
+  ok('executive_alert catalysts sin copy stale', staleCatalysts === false, JSON.stringify((data_v357.executive_alert?.catalysts || []).slice(0, 2)));
 
   section('N54. magnitude methodology subsite link');
   const subsiteCheck = await page.evaluate(() => {

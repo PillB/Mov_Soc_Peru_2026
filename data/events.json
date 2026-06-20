@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "3.9.2",
+    "version": "3.9.3",
     "generated_at": "2026-06-19T20:43:00-05:00",
     "scope": "Manifestaciones, marchas y eventos de acumulación de personas — Perú + Capa de inteligencia social y medios alternativos",
     "window": "19–26 junio 2026 (post-2da vuelta · corte 99,63% escrutado · margen 41.565 votos)",
@@ -38,7 +38,7 @@
       "routes": 55,
       "comunicados": 17
     },
-    "last_refresh_summary": "v3.9.2 — cross-update editorial: risk_matrix RM-16/20/24-26 + RM-27/28/29; early_warning EW-02/18-23 + EW-27/28/29/30; executive_alerts 5 regiones alineadas 19-jun.",
+    "last_refresh_summary": "v3.9.3 Round 3: per-entity hashtags/cuentas; prediccion_7dias pre-22-jun; Piura 23-jun P=0,85/escalada 0,65; JNE nulidad dejó al voto; 0 bloqueos activos 19-jun.",
     "fecha_corte": "2026-06-19T21:00:00-05:00"
   },
   "executive_alert": {
@@ -46,14 +46,12 @@
     "headline": "Fujimori +41.565 votos al 99,63% actas; marcha JP 19-jun ejecutada (cientos, pacífica); JNE evalúa nulidad 2.408 actas; Procuraduría denuncia 9 convocantes",
     "key_finding": "Margen +41.565 votos al 99,63% ([El Comercio](https://elcomercio.pe/politica/elecciones/resultados-onpe-en-vivo-entre-keiko-fujimori-y-roberto-sanchez-por-la-presidencia-del-peru-segunda-vuelta-lbposting-noticia/), 19-jun 20:43 PET). Marcha JP **realizada** 19-jun desde Paseo Colón (no Campo de Marte): cientos, sin incidentes graves ([RPP](https://rpp.pe/politica/elecciones/roberto-sanchez-salio-de-su-local-de-campana-en-el-inicio-de-marcha-convocada-por-juntos-por-el-peru-noticia-1693850)). 346 actas en JEE (↓ desde 878). JNE sustentó evaluación nulidad 2.408 actas; **resolución no publicada** al corte. Procuraduría denunció penalmente a 9 convocantes (no incluye Sánchez) ([RPP](https://rpp.pe/politica/judiciales/procuraduria-denuncia-penalmente-a-antauro-humala-y-otras-ocho-personas-por-presunta-perturbacion-de-la-tranquilidad-publica-noticia-1693848)). Ilave **sin bloqueo activo** verificado. Pariahuanca: acta GORE 19-jun. Piura arrocera **23-jun** confirmada.",
     "catalysts": [
-      "Margen escrutinio +34.967 votos al 99,07% — reversión estadística improbable.",
-      "JP convoca vigilias 17-jun y marcha Campo de Marte 19-jun 16:00.",
-      "Amparo JP ante PJ para anular voto exterior (16-jun).",
-      "Keiko Fujimori regresa al Perú 17-jun.",
-      "Marcha ambiental Pariahuanca ~10.000 hacia Huancayo 19-jun.",
-      "36 audiencias JEE de recuento en curso 16-jun.",
-      "Ilave: bloqueo anunciado 11-jun, estado incierto 16-jun.",
-      "De-escalación JP: Zunini reconoce ventaja Fujimori, descarta obstrucción sistemática."
+      "JNE dejó al voto nulidad 2.408 actas; JP admitió sin prueba material (19-jun).",
+      "Movilización arrocera Piura-Sechura 23-jun vigente sin cancelación.",
+      "MML restricción Centro Histórico hasta 22-jun 00:00; autoconvocatoria IG 22-jun (P=0,40).",
+      "0 bloqueos viales activos verificados 19-jun (Ilave, La Oroya, El Trébol libres).",
+      "Amparo JP voto exterior presentado; admisión PJ no confirmada.",
+      "Acampamento ~80 carpas JNE activo (conteo 16-jun; sin update 19-20)."
     ],
     "top_risks_24_72h": [
       "Resolución JNE nulidad 2.408 actas Lima/EE.UU. (Prob 0,70, Impacto CRÍTICO)",
@@ -1691,8 +1689,10 @@
           "magnitud_confianza": "baja",
           "fuente_url": "https://www.instagram.com/reel/DZQNoG-pSIU/",
           "fuente_nombre": "Instagram reel autoconvocatoria (sin respaldo JP oficial)",
-          "notas": "Reel vigente; sin comunicado partidario JP. MML mantiene restricción Centro Histórico hasta 22-jun.",
-          "es_pasado": false
+          "notas": "Reel IG vigente; sin respaldo JP oficial. MML restricción Centro Histórico hasta 22-jun 00:00. Post-levantamiento: P(marcha JP formal)=0,25.",
+          "es_pasado": false,
+          "prob_nueva_marcha_jp_post_mml": 0.25,
+          "status_mml": "restriccion_hasta_22jun_00:00"
         }
       ],
       "actores": [
@@ -3654,9 +3654,40 @@
           "ubicacion": "Piura (Sechura, Medio y Bajo Piura; posible El Trébol/Catacaos)",
           "tipo": "marcha",
           "fuente": "https://nortesostenible.com/arroceros-de-piura-anuncian-movilizacion-para-el-23-de-junio-y-evaluan-nuevo-paro-por-incumplimiento-de-demandas/",
-          "probabilidad_realizacion": 0.65,
+          "probabilidad_realizacion": 0.85,
           "magnitud_estimada": "alta",
-          "es_pasado": false
+          "es_pasado": false,
+          "probabilidad_escalada_bloqueo_trebol": 0.65,
+          "magnitud_codigo": "M",
+          "participantes_rango": [
+            500,
+            5000
+          ],
+          "participantes_est_central": 2000,
+          "magnitud_confianza": "baja",
+          "status_corredor_19jun": "latente",
+          "next_check": "2026-06-22T08:00:00-05:00",
+          "concentration_points": [
+            {
+              "nombre": "Sechura",
+              "lat": -5.5564,
+              "lng": -80.8204,
+              "riesgo": "alto"
+            },
+            {
+              "nombre": "Piura ciudad",
+              "lat": -5.1945,
+              "lng": -80.6328,
+              "riesgo": "medio-alto"
+            },
+            {
+              "nombre": "Óvalo El Trébol km 1058",
+              "lat": -4.9117,
+              "lng": -80.6788,
+              "riesgo": "muy_alto"
+            }
+          ],
+          "notas": "Sin cancelación 17-19 jun; sin reconfirmación Conveagro reciente. Monitoreo 22-jun AM (Walac, Norte Sostenible, SUTRAN)."
         }
       ],
       "actores": [
@@ -11711,7 +11742,7 @@
       "id": "RM-27",
       "category": "Crisis institucional",
       "title": "Resolución JNE nulidad 2.408 actas Lima + EE.UU.",
-      "scenario": "JP sustentó ante JNE el 19-jun pedido de nulidad de 2.408 actas (1.751 Lima + 647 EE.UU.); claim 583 patrones anómalos. Si JNE declara fundada nulidad Lima, ~43.577 votos netos en juego superan margen actual +41.565. Resolución no publicada al corte 20:43.",
+      "scenario": "JP sustentó 19-jun ante JNE nulidad de 2.408 actas (1.751 Lima + 647 EE.UU.); pleno dejó al voto; JP admitió sin prueba material de fraude (solo análisis 583 patrones). Si JNE declara fundada nulidad Lima, ~43.577 votos netos en juego superan margen +41.565. Resolución estimada 23-27 jun; no publicada al corte 19-jun 21:00.",
       "probability": "MEDIA",
       "impact": "CRÍTICO",
       "timeframe": "23-27 jun (estimado Roy Mendoza)",
@@ -12215,13 +12246,14 @@
       "name": "Bloqueos viales estratégicos persistentes",
       "category": "Logística",
       "status": "VERDE",
-      "value": "0 bloqueos confirmados · Ilave inactivo 19-jun",
+      "value": "0 bloqueos confirmados 19-jun · Piura 23-jun AMARILLO",
       "umbral": "CRÍTICO si >72h sin levantamiento",
       "note": "Ilave, La Oroya, Federico Basadre, Panamericana Norte km 556",
       "fuente": "R1/R2",
       "current_status": "VERDE",
-      "rationale": "Ilave sin bloqueo verificado. La Oroya transitable. Federico Basadre/FB Terry inactivos.",
-      "estado": "verde"
+      "rationale": "Ilave inactivo; La Oroya transitable; Federico Basadre/FB Terry levantados; El Trébol libre con riesgo escalada P=0,65.",
+      "estado": "verde",
+      "next_check": "2026-06-22T08:00:00-05:00"
     },
     {
       "id": "EW-21",
@@ -12251,10 +12283,10 @@
       "status": "NARANJA",
       "trend": "↑ nuevo",
       "data_source": "Infobae — https://www.infobae.com/peru/2026/06/16/juntos-por-el-peru-presenta-demanda-ante-el-pj-para-anular-votos-del-extranjero-se-hizo-con-una-norma-que-nunca-debio-existir/",
-      "rationale": "Presentado 16-jun; sin admisión/rechazo PJ indexado 17–19-jun",
+      "rationale": "Amparo Walter Ayala; sin admisión/rechazo indexado; voto exterior ya al 100%.",
       "next_check": "Diario mientras PJ tramite demanda",
       "title": "Demanda de amparo JP contra voto en el exterior",
-      "value": "Presentado · admisión no confirmada",
+      "value": "Presentado 16-jun · admisión PJ no confirmada 17-20 jun",
       "sources": [
         {
           "title": "Infobae — JP amparo PJ voto exterior",
@@ -12268,9 +12300,9 @@
       "indicator": "Resolución JNE nulidad 2.408 actas (Lima + EE.UU.)",
       "threshold": "ROJO si JNE declara fundada nulidad Lima (>43.577 votos netos en juego)",
       "status": "AMARILLO",
-      "value": "Audiencia sustentada 19-jun · resolución no publicada",
+      "value": "Dejó al voto 19-jun · JP sin prueba material · resolución pendiente",
       "trend": "→ pendiente",
-      "rationale": "Roy Mendoza sustentó 2.408 actas; plazo magistrados hasta 3 días hábiles. Margen +41.565 vs ~43.577 votos en juego si fundada.",
+      "rationale": "Audiencia sustentada; pleno dejó al voto recursos Lima+EE.UU. JP admitió creer en fraude sin prueba documentada (Infobae 19-jun).",
       "next_check": "2026-06-22 09:00 PET (portal JNE)",
       "data_source": "https://portal.jne.gob.pe/portal/"
     },
@@ -12290,7 +12322,7 @@
       "indicator": "Movilización arrocera Piura-Sechura 23-jun",
       "threshold": "ROJO si bloqueo El Trébol o Catacaos–Piura >4h",
       "status": "AMARILLO",
-      "value": "Convocatoria confirmada · sin cancelación 17–19-jun",
+      "value": "Convocatoria vigente · sin cancelación 17-19 jun · sin reconfirmación reciente",
       "trend": "→ vigente",
       "rationale": "NORTE-PARO-023 vigente. Reconfirmar 22-jun AM (Norte Sostenible, Walac, SUTRAN).",
       "next_check": "2026-06-22 08:00 PET",
@@ -14951,8 +14983,8 @@
     }
   ],
   "social_intelligence": {
-    "fecha_corte": "2026-06-12T13:00:00-05:00",
-    "contexto": "Al 98,215% de actas contabilizadas por la ONPE, Keiko Fujimori (FP) lidera por 651 votos sobre Roberto Sánchez (JP): 50,002% vs 49,998%. Restan 1.635 actas observadas (con ~480.000 votos pendientes de resolución por el JEE). El JP convocó una marcha 'La Toma de Lima / Los Cuatro Suyos' para el viernes 13 de junio desde Plaza San Martín. La PNP/FFAA anunciaron uso gradual de la fuerza para contener protestas. Proclamación oficial estimada: mediados de julio 2026.",
+    "fecha_corte": "2026-06-19T21:00:00-05:00",
+    "contexto": "Al 99,63% actas (19-jun 20:43 PET), Fujimori +41.565 votos. Marcha JP 19-jun ejecutada. JNE nulidad al voto. Piura 23-jun vigente. 0 bloqueos viales activos verificados.",
     "hashtags": [
       {
         "hashtag": "#TomaDeLima",
@@ -14984,11 +15016,12 @@
       {
         "hashtag": "#FujimoriPresidenta",
         "plataforma": "X / TikTok",
-        "volumen_estimado": "~70.000 menciones en 48h (estimado)",
-        "pico_observado": "2026-06-11T07:10:00-05:00",
+        "volumen_estimado": "alto (500-3.000 posts proxy 17-19 jun)",
+        "pico_observado": "2026-06-19T17:28:00-05:00",
         "bando": "pro-Fujimori / FP",
-        "fuente_url": "https://www.infobae.com/peru/2026/06/11/segunda-vuelta-cuanto-es-la-minima-diferencia-de-votos-entre-roberto-sanchez-y-keiko-fujimori-segun-onpe/",
-        "nota": "Pico coincide con actualización ONPE al 98,215% que sitúa a Fujimori al frente por 651 votos (7:10 a.m. del 11-jun)."
+        "fuente_url": "https://rpp.pe/politica/elecciones/jne-proclama-los-resultados-de-los-senadores-diputados-y-parlamentarios-andinos-noticia-1693837",
+        "nota": "JNE proclamó solo legislativos 19-jun; presidencia pendiente. disinfo DIS-JUN19-01.",
+        "validacion_ronda": 3
       },
       {
         "hashtag": "#ActasObservadas",
@@ -15142,7 +15175,11 @@
           "Instagram",
           "X/Twitter"
         ],
-        "region": "norte"
+        "region": "norte",
+        "volumen_estimado": "bajo (X) · medio (FB regional)",
+        "nota": "Paro nacional NO reactivado 17-19. Movilización 23-jun confirmada. validacion_ronda=3.",
+        "validacion_ronda": 3,
+        "fuente_url": "https://nortesostenible.com/arroceros-de-piura-anuncian-movilizacion-para-el-23-de-junio-y-evaluan-nuevo-paro-por-incumplimiento-de-demandas/"
       },
       {
         "hashtag": "#Elecciones2026",
@@ -15936,6 +15973,27 @@
         "bando": "pro_sanchez",
         "pico_observado": "2026-06-19T10:00:00-05:00",
         "fuente_url": "https://rpp.pe/politica/elecciones/juntos-por-el-peru-sustenta-pedido-de-nulidad-de-mas-de-2-400-actas-y-dice-que-encontraron-583-patrones-anomalos-noticia-1693777"
+      },
+      {
+        "hashtag": "#AguaSiMinaNo",
+        "plataforma": "Facebook / WhatsApp regional",
+        "volumen_estimado": "bajo (nacional) · medio (Junín)",
+        "pico_observado": "2026-06-19T19:49:00-05:00",
+        "bando": "ambiental-gremial",
+        "fuente_url": "https://hytimes.pe/2026/06/19/gobierno-regional-cede-y-emitira-ordenanza-para-proteger-el-huaytapallana-y-cabeceras-de-cuenca/",
+        "nota": "Slogan físico Pariahuanca; acta GORE 19-jun. validacion_ronda=3.",
+        "validacion_ronda": 3,
+        "magnitud_social_score": 3
+      },
+      {
+        "hashtag": "#PunoDefiendeSuVoto",
+        "plataforma": "X / medios regionales",
+        "volumen_estimado": "bajo",
+        "bando": "pro-Sánchez / autoconvocados sur",
+        "fuente_url": "https://evidencia.pe/raul-samillan-keiko-fujimori-posiblemente-este-gobernando-y-dios-nos-salve/",
+        "nota": "Narrativa Samillán 'no reconocer'; #NoReconocemosResultado no indexado 17-20 jun.",
+        "validacion_ronda": 3,
+        "magnitud_social_score": 2
       }
     ],
     "narratives": [
@@ -17694,6 +17752,39 @@
         "seguidores": 3400000,
         "contenido_tipico": "3.4M seguidores en X; creadora de #PorEstosNo (campaña anti-políticos tradicionales). Alta influencia en agenda digital del proceso electoral.",
         "url": "https://elpais.com/america/2026-04-03/porestosno-la-campana-en-redes-que-alienta-a-castigar-en-las-urnas-a-los-politicos-peruanos.html"
+      },
+      {
+        "nombre": "Conveagro Norte – Productores Agrarios Piura-Sechura",
+        "plataforma": "Facebook / comunicados",
+        "handle": null,
+        "url": "https://www.facebook.com/61570815782234",
+        "descripcion": "Gremio convocante movilización arrocera 23-jun. Sin handle X verificado.",
+        "posicion": "gremial",
+        "fuente_url": "https://nortesostenible.com/arroceros-de-piura-anuncian-movilizacion-para-el-23-de-junio-y-evaluan-nuevo-paro-por-incumplimiento-de-demandas/",
+        "validacion_ronda": 3,
+        "engagement_tier": "bajo"
+      },
+      {
+        "nombre": "Pachamama Radio",
+        "plataforma": "X / Instagram",
+        "handle": "@PachamamaRadio_",
+        "url": "https://x.com/PachamamaRadio_",
+        "descripcion": "X inactivo 17-19; reel IG convocatoria autoconvocatoria 22-jun Plaza San Martín.",
+        "posicion": "alternativo / pro-Sánchez",
+        "fuente_url": "https://www.instagram.com/reel/DZQNoG-pSIU/",
+        "validacion_ronda": 3,
+        "engagement_tier": "bajo"
+      },
+      {
+        "nombre": "UNAP Iquitos",
+        "plataforma": "X",
+        "handle": "@unapiquitos",
+        "url": "https://x.com/unapiquitos",
+        "descripcion": "Cuenta institucional dormante en ventana 17-19. Vínculo indirecto delegaciones oriente marcha Lima 19-jun.",
+        "posicion": "institucional",
+        "fuente_url": "https://elbuho.pe/2026/06/mas-de-7-mil-policias-restriccion-vehicular-amenazas-del-alcalde-de-lima-para-marcha-de-jp-en-defensa-del-voto/",
+        "validacion_ronda": 3,
+        "engagement_tier": "bajo"
       }
     ],
     "transmisiones": [
@@ -27475,7 +27566,7 @@
     "three_things_to_watch": [
       {
         "titulo": "Resolución JNE sobre nulidad 2.408 actas (Lima + EE.UU.)",
-        "detalle": "Audiencia sustentada 19-jun por Roy Mendoza; ~43.577 votos en juego vs margen +41.565. Resolución estimada semana 23-27-jun (no confirmada al corte 20:43)."
+        "detalle": "Pleno dejó al voto 19-jun; JP sin prueba material. ~43.577 votos en juego vs margen +41.565. Resolución estimada 23-27 jun."
       },
       {
         "titulo": "Denuncia Procuraduría vs. 9 convocantes de marchas",
@@ -27498,7 +27589,7 @@
       "actas_jee_pendientes": 346,
       "fuente_primaria": "https://elcomercio.pe/politica/elecciones/resultados-onpe-en-vivo-entre-keiko-fujimori-y-roberto-sanchez-por-la-presidencia-del-peru-segunda-vuelta-lbposting-noticia/",
       "hora_corte": "19-jun 20:43 PET",
-      "notas": "346 actas en JEE. JNE nulidad 2.408 actas: audiencia sustentada 19-jun, resolución pendiente. Amparo PJ sin resolución."
+      "notas": "346 actas en JEE. JNE nulidad 2.408: dejó al voto 19-jun; JP sin prueba material; resolución pendiente 23-27 jun. Amparo PJ sin admisión confirmada."
     },
     "oscilacion_intra_periodo": [
       {
@@ -27599,19 +27690,21 @@
   "prediccion_7dias": {
     "fecha_inicio": "2026-06-19",
     "fecha_fin": "2026-06-26",
-    "nota_metodologica": "v3.9: marcha JP 19-jun ejecutada pacífica; Ilave inactivo; Pariahuanca desescalado; Piura 23-jun vigente.",
+    "nota_metodologica": "v3.9.3 Round 3: 0 bloqueos activos 19-jun; Piura 23-jun P(escalada El Trébol)=0,65; Lima post-MML 22-jun P(marcha JP)=0,25; JNE nulidad al voto sin resolución.",
     "lima": {
       "eventos_esperados": 5,
       "prob_manifestacion_significativa": 0.45,
       "prob_escalada_violenta": 0.22,
       "prob_paro_gremial": 0.22,
-      "justificacion": "Marcha 19-jun realizada pacífica (cientos). Autoconvocatoria 22-jun incierta. Acampamento JNE continúa."
+      "justificacion": "Marcha 19-jun realizada pacífica. MML levanta restricción 22-jun 00:00. Autoconvocatoria IG sin JP (P=0,40). Sin convocatoria JP formal 20-23 jun.",
+      "prob_nueva_marcha_jp_post_22jun": 0.25,
+      "prob_autoconvocatoria_22jun": 0.4
     },
     "norte": {
       "eventos_esperados": 4,
       "prob_escalada": 0.28,
-      "prob_bloqueo_panamericana_norte": 0.25,
-      "justificacion": "Piura movilización 23-jun confirmada; El Trébol riesgo escalada P=0,65."
+      "prob_bloqueo_panamericana_norte": 0.65,
+      "justificacion": "Movilización Piura 23-jun confirmada sin cancelar; precedente violento El Trébol mayo."
     },
     "centro": {
       "eventos_esperados": 4,
@@ -27622,25 +27715,28 @@
     },
     "sur": {
       "eventos_esperados": 6,
-      "prob_bloqueo_ilave_activo": 0.4,
+      "prob_bloqueo_ilave_activo": 0.15,
       "prob_paro_indefinido_puno": 0.58,
       "prob_escalada_violenta": 0.48,
-      "justificacion": "Ilave inactivo 19-jun; delegaciones en Lima. Riesgo reactivación post-proclamación."
+      "justificacion": "Ilave inactivo 19-jun; delegaciones puneñas en Lima; riesgo reactivación post-proclamación.",
+      "prob_reactivacion_ilave": 0.4
     },
     "oriente": {
       "eventos_esperados": 3,
       "prob_bloqueo_federico_basadre": 0.35,
       "prob_nuevos_disturbios_pucallpa": 0.58,
-      "justificacion": "Paro arrocero levantado según PCM. Ucayali mantiene riesgo disturbios."
+      "justificacion": "Paro arrocero levantado según PCM. Ucayali mantiene riesgo disturbios.",
+      "prob_bloqueo_fb_terry": 0.5
     },
     "escenario_global_semana": {
       "prob_paro_nacional_coordinado": 0.28,
       "justificacion": "Rebajado desde 0,55: de-escalación Zunini, sin paro CGTP verificado.",
       "indicadores_de_escalada_a_monitorear": [
-        "Resolución PJ sobre amparo voto exterior",
-        "Asistencia marcha Campo de Marte 19-jun >10.000",
-        "Movilización arrocera Piura 23-jun",
-        "Reactivación bloqueo Ilave post-proclamación"
+        "Resolución JNE nulidad 2.408 actas (dejó al voto 19-jun)",
+        "Reconfirmación Conveagro Piura 22-jun AM",
+        "Autoconvocatoria Instagram Plaza San Martín 22-jun",
+        "Levantamiento restricción MML Centro Histórico 22-jun 00:00",
+        "Resolución PJ amparo voto exterior"
       ]
     }
   },
@@ -27762,6 +27858,25 @@
         "CENTRO-007",
         "ORIENTE-004",
         "SUR-006"
+      ]
+    },
+    {
+      "descripcion": "Piura arrocera: Sechura → Piura ciudad → Óvalo El Trébol km 1058 (proyectado 23-jun)",
+      "frecuencia_en_dossier": 1,
+      "distritos": [
+        "Sechura",
+        "Piura",
+        "Sullana"
+      ],
+      "bando_predominante": "gremial / arrocero",
+      "patron_historico": "Convocatoria Conveagro 23-jun; precedente bloqueo violento El Trébol mayo-2026 (~3.000).",
+      "probabilidad_uso": 0.85,
+      "magnitud_proyectada": "M",
+      "fuente": "https://nortesostenible.com/arroceros-de-piura-anuncian-movilizacion-para-el-23-de-junio-y-evaluan-nuevo-paro-por-incumplimiento-de-demandas/",
+      "puntos_clave": [
+        "Sechura",
+        "Piura ciudad",
+        "Óvalo El Trébol km 1058"
       ]
     }
   ],
