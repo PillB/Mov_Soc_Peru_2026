@@ -16,7 +16,7 @@
 - 001–037 | v3.9.0–v3.9.8 pipeline | 340 tests | Success (bcaf6ac)
 - 038 | update_v399.py + pipeline_jun24.md | dedup −3, actores R4 | Success
 - 039 | tests N63 + version 3.9.9 → 350/350 pass | build 1.995 MB | Success
-- 040 | git push v3.9.9 | Pending
+- 040 | git push v3.9.9 | Success (9b64e2e)
 
 ## 🧠 Retrospective & Post-Mortem Notes
 - JEE LIC2 (647 EE.UU.) + LIC1 (1.751 Lima) improcedente — Canal N documentado
