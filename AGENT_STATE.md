@@ -18,7 +18,7 @@
 - 028 | git push v3.9.5 | Success
 - 029 | Piura 23-jun: piura_jun23_results.md + update_v396.py | Success
 - 030 | tests N60 + version 3.9.6 → 316/316 pass | build 1.986 MB | Success
-- 031 | git push v3.9.6 | pending
+- 031 | git push v3.9.6 | Success (48b3830)
 
 ## 🧠 Retrospective & Post-Mortem Notes
 - Piura 23-jun: terreno no confirmado al corte PM; MIDAGRI lineamientos insuficientes para gremio
