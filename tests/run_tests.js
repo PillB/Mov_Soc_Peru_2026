@@ -643,9 +643,9 @@ function section(title) {
   }
   ok('no quedan fechas malformadas tipo YYYY-MM-DDT<garbage>', weirdDates === 0, `n=${weirdDates} samples=${JSON.stringify(weirdSamples)}`);
 
-  section('N21. v3.9.1 — meta.version = 3.9.1');
+  section('N21. v3.9.2 — meta.version = 3.9.2');
   const metaVersion = data_v357.meta && data_v357.meta.version;
-  ok('meta.version es 3.9.1', metaVersion === '3.9.1', `got=${metaVersion}`);
+  ok('meta.version es 3.9.2', metaVersion === '3.9.2', `got=${metaVersion}`);
 
   section('N22. v3.5.8 — gazetteer expone CORRIDORS con polylines de avenidas reales');
   const corridorsInfo = await page.evaluate(() => {
@@ -924,8 +924,8 @@ function section(title) {
     const navOrder = [...document.querySelectorAll('#primaryNav a')].map(a => a.getAttribute('href'));
     return { title, brandTitle, fmlValues, valueDisplay, icBounds, navOrder };
   });
-  ok('brand title actualizado a v3.9.1', /v3\.9\.1/.test(v361Check.brandTitle || ''), v361Check.brandTitle);
-  ok('document.title actualizado a v3.9.1', /v3\.9\.1/.test(v361Check.title), v361Check.title);
+  ok('brand title actualizado a v3.9.2', /v3\.9\.2/.test(v361Check.brandTitle || ''), v361Check.brandTitle);
+  ok('document.title actualizado a v3.9.2', /v3\.9\.2/.test(v361Check.title), v361Check.title);
   ok('fml-kpi-value renderiza como block', v361Check.valueDisplay === 'block', `display=${v361Check.valueDisplay}`);
   const hasEsThousands = (v361Check.fmlValues.find(v => /\d{1,3}\.\d{3}/.test(v)) || '');
   ok('formato es-PE con punto en miles (ej: +1.886)', /\d{1,3}\.\d{3}/.test(hasEsThousands), hasEsThousands || JSON.stringify(v361Check.fmlValues));
@@ -1028,7 +1028,7 @@ function section(title) {
   ok('#post-margin refleja margen ≥41.500', /41\.5\d{2}|41\.565/.test(editorialCheck.postMargin), editorialCheck.postMargin);
   ok('#fml-deck refleja proyección ≥44.000', /44\.8\d{2}|44\.800/.test(editorialCheck.fmlDeck), editorialCheck.fmlDeck);
   ok('#rev-ventaja-sub refleja 99,63 % escrutado', /99,63/.test(editorialCheck.revVentajaSub), editorialCheck.revVentajaSub);
-  ok('#footer-about actualizado a v3.9.1', /v3\.9\.1/.test(editorialCheck.footerAbout) && !/v3\.1/.test(editorialCheck.footerAbout), editorialCheck.footerAbout.slice(0, 80));
+  ok('#footer-about actualizado a v3.9.2', /v3\.9\.2/.test(editorialCheck.footerAbout) && !/v3\.1/.test(editorialCheck.footerAbout), editorialCheck.footerAbout.slice(0, 80));
   ok('#val-lectura tiene 4 bullets dinámicos', editorialCheck.valLectura === 4, `n=${editorialCheck.valLectura}`);
   ok('meta description incluye margen actualizado', /41\.565|41\.5/.test(editorialCheck.metaDesc), editorialCheck.metaDesc.slice(0, 100));
   const revH2Live = await page.evaluate(() => document.getElementById('rev-section-h2')?.textContent.trim() || '');
@@ -1071,7 +1071,7 @@ function section(title) {
     ok(`${vp.name}: validacion-deck poblado`, vpCheck.valDeck.ok === true, vpCheck.valDeck.text);
     ok(`${vp.name}: val-mercados-desc poblado`, vpCheck.mercDesc.ok === true, vpCheck.mercDesc.text);
     ok(`${vp.name}: alert-headline poblado`, vpCheck.alertHead.length > 20, vpCheck.alertHead.slice(0, 50));
-    ok(`${vp.name}: meta-version 3.9.1`, vpCheck.metaVer === '3.9.1', vpCheck.metaVer);
+    ok(`${vp.name}: meta-version 3.9.2`, vpCheck.metaVer === '3.9.2', vpCheck.metaVer);
     ok(`${vp.name}: P(Fuj mantiene) en tabla`, /mantiene/i.test(vpCheck.thProb), vpCheck.thProb);
     ok(`${vp.name}: BLUF ≥6 KPIs`, vpCheck.blufKpis >= 6, `n=${vpCheck.blufKpis}`);
     ok(`${vp.name}: sin Invalid Date / [object Object]`, vpCheck.renderErrors === 0, `hits=${vpCheck.renderErrors}`);
@@ -1086,6 +1086,23 @@ function section(title) {
   const methHtml = fs.readFileSync(path.join(REPO_ROOT, 'methodology', 'magnitude_methodology.html'), 'utf8');
   ok('magnitude_methodology.html tiene #plataformas', methHtml.includes('id="plataformas"'), 'missing');
   ok('magnitude_methodology.html v1.1', /v1\.1/.test(methHtml), 'version string');
+
+  section('N56. v3.9.2 — cross-update risk_matrix / EW / executive_alerts');
+  const rm392 = data_v357.risk_matrix || [];
+  const ew392 = data_v357.early_warning_indicators || [];
+  ok('risk_matrix ≥ 29 entradas', rm392.length >= 29, `len=${rm392.length}`);
+  ok('early_warning_indicators ≥ 27 entradas', ew392.length >= 27, `len=${ew392.length}`);
+  const rm27 = rm392.find(r => r.id === 'RM-27');
+  ok('RM-27 JNE nulidad 2.408 actas existe', !!rm27 && /2\.408/.test(rm27.scenario || ''), rm27?.scenario?.slice(0, 60));
+  const ew27 = ew392.find(e => e.id === 'EW-27');
+  ok('EW-27 resolución JNE nulidad existe', !!ew27, ew27?.indicator);
+  const surAlert = (data_v357.regions?.sur?.executive_alert || '');
+  ok('sur executive_alert sin bloqueado activo', !/bloqueado activo/i.test(surAlert), surAlert.slice(0, 80));
+  ok('lima executive_alert menciona marcha 19-jun ejecutada', /19-jun.*ejecutada|ejecutada.*19-jun/i.test(data_v357.regions?.lima?.executive_alert || ''), 'lima alert');
+  const rm24 = rm392.find(r => r.id === 'RM-24');
+  ok('RM-24 estado realizada', rm24?.estado === 'realizada', rm24?.estado);
+  const bayesDesc392 = await page.evaluate(() => document.getElementById('val-bayes-desc')?.textContent || '');
+  ok('#val-bayes-desc data-driven (41.565)', /41\.565/.test(bayesDesc392), bayesDesc392.slice(0, 80));
 
   section('N54. magnitude methodology subsite link');
   const subsiteCheck = await page.evaluate(() => {

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "3.9.1",
+    "version": "3.9.2",
     "generated_at": "2026-06-19T20:43:00-05:00",
     "scope": "Manifestaciones, marchas y eventos de acumulación de personas — Perú + Capa de inteligencia social y medios alternativos",
     "window": "19–26 junio 2026 (post-2da vuelta · corte 99,63% escrutado · margen 41.565 votos)",
@@ -28,7 +28,7 @@
         "url": "https://defensoria.gob.pe"
       }
     ],
-    "last_update": "2026-06-20T12:00:00-05:00",
+    "last_update": "2026-06-19T21:00:00-05:00",
     "expansion": "v3.1 — Capa grassroots por región: 89 cuentas individuales (autoridades locales, dirigentes, activistas), 67 colectivos/frentes, 87 lives identificados, 60 hashtags verificados, 55 rutas/bloqueos documentados, 17 comunicados oficiales nacionales. Investigación paralela en 6 frentes (Lima/Norte/Centro/Sur/Oriente/Nacional).",
     "grassroots_stats": {
       "accounts": 89,
@@ -38,8 +38,8 @@
       "routes": 55,
       "comunicados": 17
     },
-    "last_refresh_summary": "v3.9.1 — magnitude_methodology v1.1: matriz 9 plataformas (X/FB/YT tier-1 proxy 4); research platforms jun20 consolidado en magnitude_methodology.plataformas.",
-    "fecha_corte": "2026-06-19T20:43:00-05:00"
+    "last_refresh_summary": "v3.9.2 — cross-update editorial: risk_matrix RM-16/20/24-26 + RM-27/28/29; early_warning EW-02/18-23 + EW-27/28/29/30; executive_alerts 5 regiones alineadas 19-jun.",
+    "fecha_corte": "2026-06-19T21:00:00-05:00"
   },
   "executive_alert": {
     "level": "CRÍTICO",
@@ -2086,7 +2086,7 @@
           "origen_v355": true
         }
       ],
-      "executive_alert": "ALERTA ROJA — LIMA. Marcha 'La Toma de Lima / Los Cuatro Suyos' confirmada para 13-jun 15:00 en Plaza San Martín ([Infobae Perú](https://www.infobae.com/peru/2026/06/11/convocan-a-nueva-marcha-la-toma-de-lima-para-este-viernes-en-apoyo-de-roberto-sanchez-hay-que-defender-el-voto-popular/)). Municipalidad declaró el Centro Histórico zona intangible y PNP/FFAA anunciaron 'uso gradual de la fuerza' ([Infobae](https://www.infobae.com/peru/2026/06/10/elecciones-2026-municipalidad-de-lima-declara-alerta-maxima-y-advierte-prohibicion-de-protestas-en-el-centro-historico/)). Vigilias continuas frente al JNE (Jesús María) y ONPE (Surco) desde 9-jun. Concentración pro-Fujimori convocada 14-jun 11:00 Av. Javier Prado Este — primer evento masivo del bando oficialista. Universidades U. Lima y Cibertec anunciaron clases virtuales para 13-jun ([El Comercio](https://elcomercio.pe/lima/sucesos/resultado-ajustado-de-las-elecciones-2026-eleva-tension-politica-anuncian-movilizaciones-en-lima-y-regiones-mientras-autoridades-refuerzan-seguridad-noticia/)).",
+      "executive_alert": "ALERTA MEDIA — LIMA. Marcha JP 19-jun **ejecutada** desde Paseo Colón/Centro Histórico (~350-900, pacífica; Campo de Marte no fue epicentro) ([RPP](https://rpp.pe/politica/elecciones/roberto-sanchez-salio-de-su-local-de-campana-en-el-inicio-de-marcha-convocada-por-juntos-por-el-peru-noticia-1693850)). Acampamento ~80 carpas frente JNE continúa (conteo 16-jun; PNP desplegada 19-jun). MML: restricción Centro Histórico hasta **22-jun 00:00**. Procuraduría denunció a 9 convocantes 19-jun — **Sánchez excluido** ([RPP](https://rpp.pe/politica/judiciales/procuraduria-denuncia-penalmente-a-antauro-humala-y-otras-ocho-personas-por-presunta-perturbacion-de-la-tranquilidad-publica-noticia-1693848)). Autoconvocatoria Instagram Plaza San Martín **22-jun** sin respaldo JP (P=0,40). ONPE 99,63 % · margen +41.565 pro-Fujimori.",
       "social_v35": {
         "region": "lima",
         "fecha_corte": "2026-06-11T12:00:00-05:00",
@@ -3891,7 +3891,7 @@
           "fuente": "https://rpp.pe/peru/la-libertad/elecciones-la-libertad-pnp-usara-la-fuerza-si-bloqueos-impiden-paso-durante-segunda-vuelta-noticia/"
         }
       ],
-      "executive_alert": "ALERTA MEDIA — NORTE. División costa/sierra confirmada: Piura 57 % Fuj, La Libertad 57,5 % Fuj, Lambayeque 58,8 % Fuj vs Cajamarca 66,8 % Sán. Plantón en JEE Trujillo activo desde 9-jun ([La República](https://larepublica.pe/politica/2026/06/07/resultados-oficiales-onpe-en-vivo-conteo-de-votos-de-la-segunda-vuelta-de-elecciones-peru-2026-hnews-622951)). Riesgo Panamericana Norte en El Trébol (Sullana, Piura) y Cajamarca por reactivación rondera. Conveagro mantiene amenaza de reactivar paro agrario; nodo El Trébol puede bloquearse en 24h si decreto S/170M sigue incumplido ([El País](https://elpais.com/america/2026-06-04/la-rebelion-del-agro-el-campo-lanza-una-advertencia-a-quien-gane-la-segunda-vuelta-en-peru.html)). Delegaciones norteñas se incorporan a 'Toma de Lima' del 13-jun.",
+      "executive_alert": "ALERTA MEDIA — NORTE. Sin bloqueos viales activos verificados al 19-jun (El Trébol, Catacaos–Piura, km 556 libres). **Movilización arrocera Piura-Sechura confirmada 23-jun ~08:00** — riesgo escalada El Trébol P=0,65 ([Norte Sostenible](https://nortesostenible.com/arroceros-de-piura-anuncian-movilizacion-para-el-23-de-junio-y-evaluan-nuevo-paro-por-incumplimiento-de-demandas/)). Ronderas cajamarquinas inactivas con capacidad latente (CUDRCU/CUNARC). Plantón JEE Trujillo continuo desde 9-jun. Sin manifestaciones electorales verificadas Norte 17–19-jun. JNE evalúa nulidad 2.408 actas (catalizador narrativo regional).",
       "social_v35": {
         "region": "norte",
         "version": "v3.5",
@@ -4730,7 +4730,7 @@
             "Alcaldes provinciales: sin declaraciones verificadas post-segunda vuelta de alcaldes de Piura, Trujillo, Chiclayo o Cajamarca en el período 9-11 jun."
           ]
         },
-        "executive_alert": "El norte enfrenta al 11-jun-2026 una confluencia de riesgos: (1) La Federación Regional de Rondas Campesinas de Cajamarca está en máxima alerta con el 73% del voto cajamarquino para Sánchez y el resultado pendiente de actas observadas; su capacidad para bloquear vías interandinas es operativa e inmediata ([Canal B Cajamarca](https://www.canalb.pe/noticias/actualidad/rondas-campesinas-acatarian-paro-total-en-el-norte-para-el-19-de-julio)). (2) Los productores arroceros de Sechura ya tienen una nueva convocatoria para el 23-jun, y la tregua del paro agrario de mayo es precaria: el nodo El Trébol (Piura) puede bloquearse en 24 horas si el decreto de urgencia sigue sin respuesta ([El País – rebelión del agro](https://elpais.com/america/2026-06-04/la-rebelion-del-agro-el-campo-lanza-una-advertencia-a-quien-gane-la-segunda-vuelta-en-peru.html)). (3) En Trujillo, las narrativas de fraude y de defensa del voto coexisten en un espacio urbano con alta violencia estructural; Sol TV transmitió en vivo el plantón del 9-jun en el centro histórico ([Sol TV Perú](https://www.facebook.com/soltvperu/posts/envivo-trujillanos-protestan-tras-resultados-de-elecciones-desde-el-centro-hist/1444989731006093/)). (4) Lambayeque votó 58% por Keiko pero recibirá un gobierno de Sánchez: el desajuste entre elección regional y resultado nacional es el mayor detonante de agravio en la costa norte ([La República Lambayeque](https://larepublica.pe/politica/2026/06/07/resultados-en-lambayeque-entre-keiko-fujimori-y-roberto-sanchez-2026/)). Las delegaciones del norte se preparan para sumarse a la Toma de Lima el 13-jun ([Infobae Perú](https://www.infobae.com/peru/2026/06/11/convocan-a-nueva-marcha-la-toma-de-lima-para-este-viernes-en-apoyo-de-roberto-sanchez-hay-que-defender-el-voto-popular/))."
+        "executive_alert": "ALERTA MEDIA — NORTE. Sin bloqueos viales activos verificados al 19-jun (El Trébol, Catacaos–Piura, km 556 libres). **Movilización arrocera Piura-Sechura confirmada 23-jun ~08:00** — riesgo escalada El Trébol P=0,65 ([Norte Sostenible](https://nortesostenible.com/arroceros-de-piura-anuncian-movilizacion-para-el-23-de-junio-y-evaluan-nuevo-paro-por-incumplimiento-de-demandas/)). Ronderas cajamarquinas inactivas con capacidad latente (CUDRCU/CUNARC). Plantón JEE Trujillo continuo desde 9-jun. Sin manifestaciones electorales verificadas Norte 17–19-jun. JNE evalúa nulidad 2.408 actas (catalizador narrativo regional)."
       },
       "routes": [
         {
@@ -5748,7 +5748,7 @@
       ],
       "nota_densidad": "La región CENTRO presenta densidad informativa MEDIA-BAJA en comparación con el SUR. Las fuentes especializadas en Huancayo, Ayacucho y Huánuco (corresponsales Diario Correo regional, RPP regional) no registraron eventos locales específicos para el 10-11 de junio distintos de los resultados electorales. Se recomienda: (1) monitoreo directo de Radio La Voz de Huancayo y Diario Correo Ayacucho para el 12-13 de junio; (2) seguimiento de páginas de frentes de defensa provinciales en Facebook; (3) contacto con corresponsales de La República en Huancayo y Ayacucho.",
       "plan_remediacion": "Ampliar búsquedas en medios locales del centro (Correo Huancayo, Correo Ayacucho, InfoAyacucho, Inforegión) para el período 11-13 junio. Incluir alertas Google News para términos 'Junín protesta 2026', 'Ayacucho movilización 2026', 'VRAEM elecciones'.",
-      "executive_alert": "ALERTA ROJA — CENTRO. Bastión pro-Sánchez: Huancavelica 81,4 %, Apurímac 81,2 %, Ayacucho 79,3 %, Junín 54,9 %, Pasco 60,8 %. Plantón JP confirmado en Plaza Constitución, Huancayo (12-jun 15:00). Riesgo bloqueo Carretera Central km 90-180 — corredor Lima-Huancayo. Antecedente directo Ayacucho 2022: 6 muertos en represión. Comunidades VRAEM en vigilia por actas observadas. Posible paro Huancavelica 14-jun. Réplicas regionales de 'Toma de Lima' en Huancayo y Ayacucho 13-jun. Defensoría del Pueblo (Josué Gutiérrez): 'No hubo fraude' ([El Comercio](https://elcomercio.pe/lima/sucesos/resultado-ajustado-de-las-elecciones-2026-eleva-tension-politica-anuncian-movilizaciones-en-lima-y-regiones-mientras-autoridades-refuerzan-seguridad-noticia/)).",
+      "executive_alert": "ALERTA MEDIA — CENTRO. Carretera Central km 90–180 **transitable** (La Oroya sin bloqueo protesta). Protesta Pariahuanca frente GORE Junín 18–19-jun **desescalada** — acta compromisos firmada 19-jun 19:49 ([HYTimes](https://hytimes.pe/2026/06/19/gobierno-regional-cede-y-emitira-ordenanza-para-proteger-el-huaytapallana-y-cabeceras-de-cuenca/)); magnitud cientos, no ~10.000. Reunión Zósimo Cárdenas ↔ Pariahuanca reprogramada **25-jun**. Bastión pro-Sánchez: Huancavelica 81,4 %, Apurímac 81,2 %. Riesgo latente bloqueo Carretera Central P=0,40 si resolución JNE nulidad Lima escala narrativa electoral.",
       "social_v35": {
         "meta": {
           "version": "3.5",
@@ -7735,7 +7735,7 @@
           "fuente": "https://noticias.madrededios.com/tags/concesionaria-iirsa/"
         }
       ],
-      "executive_alert": "ALERTA ROJA — SUR. Epicentro nacional. Puno 86,4 % Sán, Cusco 78,2 %, Arequipa 63,6 %. Puente Internacional de Ilave **bloqueado activo** por CNUL/Fenatep (Lucio Ccallo) en huelga indefinida; convocan marcha nacional a Lima 15-jun. Comunidades aymaras declararon: 'no reconoceremos resultado' si Fujimori es proclamada. Marcha Arequipa 13-jun 16:00 'Fujimori Nunca Más / Generación Z' con ruta calle Ayacucho → Puente Grau → Av. Ejército → Plaza de Armas ([Radio Yaraví](https://radioyaravi.org.pe/noticia/regional/colectivo-fujimori-nunca-mas-y-generacion-z-convocan-a-una-movilizacion-en-defensa-del-voto-popular/)). Movilización Cusco Plaza de Armas 12-jun 10:00. Posible paro regional Sur Andino (Puno-Arequipa-Cusco) 15-jun. Antecedentes Juliaca 2023: 17 muertos en represión policial.",
+      "executive_alert": "ALERTA MEDIA — SUR. Puente Internacional Ilave **sin bloqueo activo verificado** al 19-jun (convocado 11-jun por CNUL/Fenatep; round 2 y cobertura 17–19 sin confirmación SUTRAN). Delegaciones de **Puno y Cusco** participaron en marcha JP Lima 19-jun — corredor sur–Lima presumiblemente transitable ([El Búho](https://elbuho.pe/2026/06/mas-de-7-mil-policias-restriccion-vehicular-amenazas-del-alcalde-de-lima-para-marcha-de-jp-en-defensa-del-voto/)). Lucio Ccallo **denunciado penalmente** 19-jun por Procuraduría ([El Comercio](https://elcomercio.pe/lima/judiciales/procuraduria-denuncia-penalmente-a-antauro-humala-hernando-cevallos-y-otros-siete-dirigentes-por-grave-perturbacion-de-la-tranquilidad-publica-ultimas-noticia/)). Raúl Samillán anunció movilización Puno→Lima **15–28-jul** ([Evidencia.pe](https://evidencia.pe/raul-samillan-keiko-fujimori-posiblemente-este-gobernando-y-dios-nos-salve/)). FP no apela nulidades Puno (14-jun). Arequipa/Cusco sin marchas masivas nuevas 17–19-jun. **Riesgo reactivación Ilave P=0,40** post-proclamación JNE.",
       "social_v35": {
         "meta": {
           "generated_at": "2026-06-11T18:00:00-05:00",
@@ -9668,7 +9668,7 @@
       ],
       "nota_densidad": "La región ORIENTE presenta densidad informativa BAJA-MEDIA. La fuente Pro y Contra (Iquitos) no fue directamente accesible. RPP y El Comercio tienen cobertura de resultados electorales pero limitada en eventos post-electorales del 10-11 de junio. El seguimiento de AIDESEP y organizaciones indígenas es el canal informativo más relevante para detectar movilizaciones en la región.",
       "plan_remediacion": "Monitorear: (1) Pro y Contra digital (Iquitos) para noticias del 11-12 junio; (2) página web y redes de AIDESEP para comunicados; (3) Mongabay Latam para conflictos ambientales; (4) RPP y La República corresponsales en Iquitos y Pucallpa. Agregar alertas para 'Loreto protesta', 'Ucayali movilización', 'Madre de Dios minería junio 2026'.",
-      "executive_alert": "ALERTA AMARILLA — ORIENTE. División inusual: Loreto 53,8 % Fuj y Ucayali 52,5 % Fuj vs Amazonas 64,5 % Sán y Madre de Dios 69,2 % Sán. Bloqueo carretera Federico Basadre (Ucayali) en riesgo de reanudación. Paro agrario San Martín — carretera Fernando Belaúnde Terry — productores arroceros mantienen alerta; SUTRAN reportó 19 puntos bloqueados antes de la segunda vuelta ([El País](https://elpais.com/america/2026-06-04/la-rebelion-del-agro-el-campo-lanza-una-advertencia-a-quien-gane-la-segunda-vuelta-en-peru.html)). Posible toma Universidad Nacional de Ucayali (Pucallpa) 12-jun. Movilización Loreto-Iquitos 12-jun 10:00. AIDESEP en monitoreo de agenda poselectoral; pronunciamiento institucional pendiente. Operativo minería ilegal Madre de Dios 10-jun (S/64 M incautados) — riesgo de protesta de mineros ilegales.",
+      "executive_alert": "ALERTA AMARILLA — ORIENTE. Federico Basadre (Ucayali) y Fernando Belaúnde Terry (San Martín) **sin bloqueo activo** al 19-jun — paro arrocero levantado pre-2da vuelta; riesgo reactivación latente P≈0,35–0,50. Sin toma UNAP Pucallpa ni movilización Loreto 12-jun materializada en ventana 17–19. AIDESEP en observación poselectoral. Referencia cruzada: movilización arrocera **Piura 23-jun** (norte) puede reactivar narrativa agro regional.",
       "social_v35": {
         "region": "oriente",
         "subregiones": [
@@ -11412,8 +11412,8 @@
       "id": "RM-16",
       "title": "Paro arrocero Oriente — bloqueos carreteras",
       "category": "Bloqueo logístico activo",
-      "scenario": "Paro indefinido de productores arroceros en Ucayali (carretera Federico Basadre) y San Martín (Fernando Belaúnde Terry km 742) activo desde 9-jun. La toma indefinida de la Universidad Nacional de Ucayali por su Federación de Estudiantes converge con la coyuntura electoral. Sin convocatoria pro-Sánchez documentada en lives, pero la tensión post-elección puede convertir bloqueos económicos en políticos.",
-      "probability": "alta",
+      "scenario": "Corredores transitables 19-jun; riesgo latente reactivación arrocera P≈0,35–0,50 (tregua vencida, sin comunicado nuevo).",
+      "probability": "MEDIA",
       "level": "medio-alto",
       "impact": "medio",
       "timeframe": "11-19 jun (activo)",
@@ -11540,7 +11540,7 @@
       "id": "RM-20",
       "category": "Logística",
       "scenario": "Bloqueo simultáneo de cuatro corredores estratégicos (Panamericana Norte km 556, Carretera Central La Oroya, Federico Basadre Pucallpa, Puente Internacional Ilave) compromete cadena logística nacional: aislamiento de Lima del sur y del Oriente, retraso de abastecimiento agroindustrial Norte→Lima, contracción del comercio binacional Perú-Bolivia. Si los bloqueos persisten >72h, el costo económico se vuelve sistémico.",
-      "probability": "ALTA",
+      "probability": "MEDIA",
       "impact": "ALTO",
       "timeframe": "24-168h",
       "triggers": [
@@ -11561,7 +11561,7 @@
       ],
       "title": "Bloqueo simultáneo de 4 corredores estratégicos",
       "level": "CRÍTICO",
-      "evidence": "P(bloqueo Ilave continuado)=0,90 · P(Carretera Central indefinido)=0,72 · P(Federico Basadre persistente)=0,70 · P(Panamericana Norte km 556 persistente)=0,65 según R2/routes_magnitud."
+      "evidence": "0 bloqueos confirmados 19-jun. Ilave inactivo; La Oroya transitable; Federico Basadre/FB Terry levantados; km 556 sin bloqueo."
     },
     {
       "id": "RM-21",
@@ -11643,11 +11643,11 @@
     {
       "id": "RM-24",
       "category": "Movilización masiva",
-      "scenario": "Cadena JP: vigilias nacionales 17-jun + marcha al Campo de Marte 19-jun 16:00. Pese a de-escalación retórica de Zunini, el comunicado formal mantiene narrativa de voto deslegitimado. Riesgo de colisión con simpatizantes pro-Fujimori y PNP en corredor Jesús María–Centro Histórico.",
-      "probability": "MEDIA",
+      "scenario": "Marcha JP 19-jun ejecutada desde Paseo Colón/Centro Histórico (~350-900, pacífica). Campo de Marte no fue epicentro. Riesgo residual: autoconvocatoria 22-jun (P=0,40).",
+      "probability": "BAJA",
       "impact": "ALTO",
-      "timeframe": "48-72h (17-19 jun)",
-      "level": "ALTO",
+      "timeframe": "cerrado 19-jun",
+      "level": "BAJO",
       "triggers": [
         "Más de 20.000 personas en Campo de Marte el 19-jun",
         "Incidente entre colectivos en vigilia JNE del 17-jun"
@@ -11661,16 +11661,17 @@
           "title": "La República — JP convoca marcha nacional 19-jun",
           "url": "https://larepublica.pe/politica/2026/06/16/juntos-por-el-peru-convoca-a-marcha-nacional-en-defensa-del-voto-para-este-19-de-junio-hnews-1501216"
         }
-      ]
+      ],
+      "estado": "realizada"
     },
     {
       "id": "RM-25",
       "category": "Ambiental-territorial",
-      "scenario": "Marcha multitudinaria Pariahuanca (~10.000) hacia Huancayo el 19-jun exigiendo intangibilidad de cuatro cuencas tras mortandad masiva de truchas.",
-      "probability": "ALTA",
+      "scenario": "Protesta estacionaria GORE Junín 18-19-jun (cientos); acta compromisos 19-jun 19:49. Marcha 10.000 NO materializada.",
+      "probability": "BAJA",
       "impact": "MEDIO",
       "timeframe": "24-48h (19-jun)",
-      "level": "MEDIO",
+      "level": "BAJO",
       "triggers": [
         "Más de 8.000 manifestantes en Parque Grau Huancayo"
       ],
@@ -11682,12 +11683,13 @@
           "title": "El Búho — Pariahuanca moviliza ~10.000",
           "url": "https://elbuho.pe/2026/06/junin-con-protesta-pariahuanca-exige-proteger-cuatro-cuencas-tras-mortandad-masiva-de-truchas/"
         }
-      ]
+      ],
+      "estado": "desescalado"
     },
     {
       "id": "RM-26",
       "category": "Étnico-territorial",
-      "scenario": "Reactivación impredecible del bloqueo en Puente Internacional Ilave (Puno). Convocado 11-jun por CNUL/Fenatep; estado al 16-jun incierto.",
+      "scenario": "Ilave inactivo 19-jun (sin SUTRAN/PNP). Riesgo reactivación post-proclamación P≈0,40.",
       "probability": "MEDIA",
       "impact": "ALTO",
       "timeframe": "7-14d",
@@ -11702,6 +11704,77 @@
         {
           "title": "Infobae — Convocan cierre puente Ilave",
           "url": "https://www.infobae.com/peru/2026/06/11/convocan-cierre-del-puente-de-ilave-y-marcha-a-lima-ante-resultados-parciales-de-la-segunda-vuelta/"
+        }
+      ]
+    },
+    {
+      "id": "RM-27",
+      "category": "Crisis institucional",
+      "title": "Resolución JNE nulidad 2.408 actas Lima + EE.UU.",
+      "scenario": "JP sustentó ante JNE el 19-jun pedido de nulidad de 2.408 actas (1.751 Lima + 647 EE.UU.); claim 583 patrones anómalos. Si JNE declara fundada nulidad Lima, ~43.577 votos netos en juego superan margen actual +41.565. Resolución no publicada al corte 20:43.",
+      "probability": "MEDIA",
+      "impact": "CRÍTICO",
+      "timeframe": "23-27 jun (estimado Roy Mendoza)",
+      "level": "CRÍTICO",
+      "triggers": [
+        "JNE admite/fundamenta nulidad parcial Lima",
+        "Resolución publicada en portal JNE",
+        "Sánchez convoca movilización post-fallo"
+      ],
+      "sources": [
+        {
+          "title": "RPP — JP sustenta 2.408 actas",
+          "url": "https://rpp.pe/politica/elecciones/juntos-por-el-peru-sustenta-pedido-de-nulidad-de-mas-de-2-400-actas-y-dice-que-encontraron-583-patrones-anomalos-noticia-1693777"
+        },
+        {
+          "title": "La República — 43.577 votos en juego",
+          "url": "https://larepublica.pe/politica/2026/06/18/jne-decidira-manana-si-acepta-pedido-de-nulidad-de-mesas-en-lima-mas-de-43-mil-votos-en-juego-hnews-1139454"
+        }
+      ]
+    },
+    {
+      "id": "RM-28",
+      "category": "Violencia política / institucional",
+      "title": "Denuncia penal Procuraduría vs. 9 convocantes de marchas",
+      "scenario": "Procuraduría presentó denuncia 19-jun noche (DEN-ENT-202602038) contra Antauro Humala, Hernando Cevallos, Lucio Ccallo y 6 más por art. 315-A CP. Roberto Sánchez excluido y rechazó denuncia. Riesgo: disuasión de convocatorias + polarización #CriminalizaciónDeLaProtesta.",
+      "probability": "ALTA",
+      "impact": "ALTO",
+      "timeframe": "72h-14d (investigación fiscal)",
+      "level": "ALTO",
+      "triggers": [
+        "Fiscalía admite a trámite y ordena medidas cautelares",
+        "Nueva convocatoria JP con Cevallos/Ccallo en primera línea",
+        "FP amplifica narrativa de azuzamiento"
+      ],
+      "sources": [
+        {
+          "title": "El Comercio — Denuncia Procuraduría",
+          "url": "https://elcomercio.pe/lima/judiciales/procuraduria-denuncia-penalmente-a-antauro-humala-hernando-cevallos-y-otros-siete-dirigentes-por-grave-perturbacion-de-la-tranquilidad-publica-ultimas-noticia/"
+        },
+        {
+          "title": "La República — Sánchez rechaza denuncia",
+          "url": "https://larepublica.pe/politica/2026/06/19/roberto-sanchez-rechaza-denuncia-de-la-procuraduria-contra-dirigentes-de-jp-y-otros-ciudadanos-por-convocar-a-marcha-hnews-542070"
+        }
+      ]
+    },
+    {
+      "id": "RM-29",
+      "category": "Económico-logístico",
+      "title": "Movilización arrocera Piura-Sechura 23-jun → escalada El Trébol",
+      "scenario": "Conveagro confirma movilización 23-jun ~08:00 (Sechura, Medio/Bajo Piura). Precedente mayo-2026: bloqueo Catacaos–Piura y El Trébol. Paro NO reactivado al 19-jun; este evento es escalón previo a posible bloqueo si DU 005-2026 sigue incumplido.",
+      "probability": "ALTA",
+      "impact": "ALTO",
+      "timeframe": "22-24 jun",
+      "level": "ALTO",
+      "triggers": [
+        "Reconfirmación Conveagro 22-jun AM",
+        "Bloqueo preventivo El Trébol km 1058",
+        "Escalada tras resolución JNE nulidad"
+      ],
+      "sources": [
+        {
+          "title": "Norte Sostenible — Piura 23-jun",
+          "url": "https://nortesostenible.com/arroceros-de-piura-anuncian-movilizacion-para-el-23-de-junio-y-evaluan-nuevo-paro-por-incumplimiento-de-demandas/"
         }
       ]
     }
@@ -11734,11 +11807,11 @@
       "id": "EW-02",
       "indicator": "Número de actas observadas pendientes de resolución ante los JEE",
       "threshold": "Si el número supera 1.700 actas o si la tasa de resolución diaria cae por debajo de 50 actas/día, el cronograma de mediados de julio estará en riesgo y la incertidumbre se prolongará más allá de 30 días adicionales",
-      "current_status": "NARANJA",
+      "current_status": "AMARILLO",
       "trend": "↑ ascendente",
       "data_source": "JNE — https://portal.jne.gob.pe/portal/Pagina/Nota/20259",
-      "rationale": "Al 12-jun 09:00: 1.611 actas observadas (1.136 atendidas, 71 %, 443 en trámite). 138 actas derivadas a recuento físico (9 audiencias realizadas, 126 pendientes). JP presentó nulidad por 2.400 mesas adicionales.",
-      "next_check": "Diario, 18:00 Lima, cotejando plataforma JNE y reportes de Canal N",
+      "rationale": "346 actas en tránsito JEE al 19-jun 20:43. JP nulidad 2.408 actas en evaluación JNE.",
+      "next_check": "Diario 18:00 PET",
       "sources": [
         {
           "title": "Canal N — JNE informa 1.547 actas observadas al 10-jun",
@@ -11755,7 +11828,7 @@
       ],
       "title": "Número de actas observadas pendientes de resolución ante los JEE",
       "status": "NARANJA",
-      "value": "Si el número supera 1.700 actas o si la tasa de resolución diaria cae por debajo de 50 actas/día, el cronograma de mediados de julio estará en riesgo y la incertidumbre se prolongará más allá de 30 días adicionales"
+      "value": "346 actas en JEE (↓ desde 878)"
     },
     {
       "id": "EW-03",
@@ -12111,10 +12184,10 @@
       "current_status": "NARANJA",
       "status": "AMARILLO",
       "trend": "→ estable",
-      "value": "17/138 audiencias",
+      "value": "Recuentos físicos en curso (calendario JNE)",
       "data_source": "JNE — Dashboard actas observadas",
       "rationale": "138 actas formalmente derivadas a recuento físico por JEE. 9 audiencias ya realizadas, 126 pendientes. Ritmo actual implica varias semanas hasta resolución completa. Proclamación oficial estimada 15-jul.",
-      "next_check": "13-jun-2026 09:00 Lima",
+      "next_check": "2026-06-22 09:00 PET",
       "sources": [
         {
           "title": "JNE — Dashboard actas observadas",
@@ -12129,24 +12202,24 @@
       "name": "Paro nacional CGTP-CNUL-CUL coordinado",
       "category": "Movilización",
       "status": "AMARILLO",
-      "value": "Marcha 19-jun realizada · sin CGTP 17-jun",
+      "value": "Marcha 19-jun realizada pacífica · CGTP 17-jun NO verificada · P(paro)=0,22",
       "umbral": "ROJO si CGTP convoca formalmente paro 48h",
       "note": "P sube a >0,80 si proclamación ocurre 16-18 jun. Histórico 2021/2022-2023 valida capacidad.",
       "fuente": "R2/routes_magnitud",
       "current_status": "AMARILLO",
-      "rationale": "Sin comunicado CGTP paro 17-jun. De-escalación JP reduce P(paro nacional).",
+      "rationale": "Sin paro CGTP. Marcha JP ejecutada sin incidentes graves.",
       "estado": "amarillo"
     },
     {
       "id": "EW-20",
       "name": "Bloqueos viales estratégicos persistentes",
       "category": "Logística",
-      "status": "NARANJA",
+      "status": "VERDE",
       "value": "0 bloqueos confirmados · Ilave inactivo 19-jun",
       "umbral": "CRÍTICO si >72h sin levantamiento",
       "note": "Ilave, La Oroya, Federico Basadre, Panamericana Norte km 556",
       "fuente": "R1/R2",
-      "current_status": "NARANJA",
+      "current_status": "VERDE",
       "rationale": "Ilave sin bloqueo verificado. La Oroya transitable. Federico Basadre/FB Terry inactivos.",
       "estado": "verde"
     },
@@ -12155,7 +12228,7 @@
       "name": "Probabilidad ML margen final",
       "category": "Escrutinio",
       "status": "VERDE",
-      "value": "P(F)=98% · IC95 [+13.662; +23.308]",
+      "value": "P(F)=99,4% · IC95 [+38.200; +51.400]",
       "umbral": "AMARILLO si IC95 cruza cero",
       "note": "IC95 inferior +13.662 votos pro-F — reversión matemática improbable",
       "fuente": "Modelo ML ensemble"
@@ -12164,10 +12237,10 @@
       "id": "EW-22",
       "name": "Proclamación JNE — ventana 16-21 jun",
       "category": "Institucional",
-      "status": "AMARILLO",
-      "value": "Mediados-julio (Grecia Rentería)",
+      "status": "VERDE",
+      "value": "Legislativos proclamados 19-jun; presidencia mediados-jul",
       "umbral": "ROJO si proclamación 16-18 jun sin actas observadas resueltas",
-      "note": "Cualquier proclamación antes de cerrar 100% actas dispara P(paro)>0,80",
+      "note": "JNE proclamó senadores/diputados 19-jun (RPP 1693837). Presidencia pendiente.",
       "fuente": "JNE / EFE"
     },
     {
@@ -12178,10 +12251,10 @@
       "status": "NARANJA",
       "trend": "↑ nuevo",
       "data_source": "Infobae — https://www.infobae.com/peru/2026/06/16/juntos-por-el-peru-presenta-demanda-ante-el-pj-para-anular-votos-del-extranjero-se-hizo-con-una-norma-que-nunca-debio-existir/",
-      "rationale": "Amparo interpuesto; sin admisión/rechazo verificado al 16-jun 10:50.",
+      "rationale": "Presentado 16-jun; sin admisión/rechazo PJ indexado 17–19-jun",
       "next_check": "Diario mientras PJ tramite demanda",
       "title": "Demanda de amparo JP contra voto en el exterior",
-      "value": "Presentado 16-jun · sin resolución PJ 19-jun",
+      "value": "Presentado · admisión no confirmada",
       "sources": [
         {
           "title": "Infobae — JP amparo PJ voto exterior",
@@ -12189,6 +12262,48 @@
         }
       ],
       "estado": "amarillo"
+    },
+    {
+      "id": "EW-27",
+      "indicator": "Resolución JNE nulidad 2.408 actas (Lima + EE.UU.)",
+      "threshold": "ROJO si JNE declara fundada nulidad Lima (>43.577 votos netos en juego)",
+      "status": "AMARILLO",
+      "value": "Audiencia sustentada 19-jun · resolución no publicada",
+      "trend": "→ pendiente",
+      "rationale": "Roy Mendoza sustentó 2.408 actas; plazo magistrados hasta 3 días hábiles. Margen +41.565 vs ~43.577 votos en juego si fundada.",
+      "next_check": "2026-06-22 09:00 PET (portal JNE)",
+      "data_source": "https://portal.jne.gob.pe/portal/"
+    },
+    {
+      "id": "EW-28",
+      "indicator": "Denuncia penal Procuraduría contra convocantes de marchas",
+      "threshold": "ROJO si fiscalía ordena detención o medida cautelar contra líderes JP activos",
+      "status": "AMARILLO",
+      "value": "Denuncia presentada 19-jun · 9 personas (excluye Sánchez)",
+      "trend": "↑ nuevo",
+      "rationale": "DEN-ENT-202602038 art. 315-A CP. Catalizador #CriminalizaciónDeLaProtesta.",
+      "next_check": "2026-06-21 12:00 PET",
+      "data_source": "https://elcomercio.pe/lima/judiciales/procuraduria-denuncia-penalmente-a-antauro-humala-hernando-cevallos-y-otros-siete-dirigentes-por-grave-perturbacion-de-la-tranquilidad-publica-ultimas-noticia/"
+    },
+    {
+      "id": "EW-29",
+      "indicator": "Movilización arrocera Piura-Sechura 23-jun",
+      "threshold": "ROJO si bloqueo El Trébol o Catacaos–Piura >4h",
+      "status": "AMARILLO",
+      "value": "Convocatoria confirmada · sin cancelación 17–19-jun",
+      "trend": "→ vigente",
+      "rationale": "NORTE-PARO-023 vigente. Reconfirmar 22-jun AM (Norte Sostenible, Walac, SUTRAN).",
+      "next_check": "2026-06-22 08:00 PET",
+      "data_source": "https://nortesostenible.com/arroceros-de-piura-anuncian-movilizacion-para-el-23-de-junio-y-evaluan-nuevo-paro-por-incumplimiento-de-demandas/"
+    },
+    {
+      "id": "EW-30",
+      "indicator": "Autoconvocatoria Instagram Plaza San Martín 22-jun",
+      "threshold": "NARANJA si reel reamplificado por handles JP",
+      "status": "AMARILLO",
+      "value": "P=0,40 · sin respaldo JP oficial",
+      "rationale": "Reel DZQNoG-pSIU vigente. MML restricción Centro Histórico hasta 22-jun 00:00.",
+      "next_check": "2026-06-21 18:00 PET"
     }
   ],
   "monitoring_tools": [

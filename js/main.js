@@ -251,10 +251,12 @@
     };
   }
 
-  // ---------- v3.8.1: Editorial copy — static HTML slots from live data ----------
+  // ---------- v3.9.2: Editorial copy — static HTML slots from live data ----------
   function renderEditorialCopy(d) {
     const meta = d.meta || {};
     const er = (d.escrutinio_realtime || {}).cifras_actuales || {};
+    const actasJee = er.actas_jee_pendientes != null ? er.actas_jee_pendientes : 346;
+    const corteLabel = meta.fecha_corte ? formatDate(meta.fecha_corte).replace(/\s+\d{4}$/, '') : '19 jun';
     const fml = d.forecast_ml || {};
     const pc = fml.punto_central || {};
     const ic = (fml.intervalos_confianza || {}).ic_95 || [];
@@ -267,9 +269,9 @@
     const icHi = ic[1] != null ? formatSignedInt(ic[1]) : '+51.400';
     const pF = prob.fujimori != null ? (prob.fujimori * 100).toFixed(1).replace('.', ',') : '99,4';
 
-    const metaDesc = `Dossier OSINT v${meta.version || '3.9.1'} — BLUF + ML forecast. ${convN} convocatorias activas en 5 macroregiones. Margen ONPE ${margen} votos al ${pctActas}, proyección ML ${margenMl} votos Fujimori (IC95 [${icLo}, ${icHi}]), P(F)=${pF} %.`;
+    const metaDesc = `Dossier OSINT v${meta.version || '3.9.2'} — BLUF + ML forecast. ${convN} convocatorias activas en 5 macroregiones. Margen ONPE ${margen} votos al ${pctActas}, proyección ML ${margenMl} votos Fujimori (IC95 [${icLo}, ${icHi}]), P(F)=${pF} %.`;
     setMetaContent('meta[name="description"]', metaDesc);
-    setMetaContent('meta[property="og:title"]', `Dossier OSINT — Manifestaciones Perú · v${meta.version || '3.9.1'} BLUF + ML`);
+    setMetaContent('meta[property="og:title"]', `Dossier OSINT — Manifestaciones Perú · v${meta.version || '3.9.2'} BLUF + ML`);
     setMetaContent('meta[property="og:description"]', metaDesc);
 
     const brandSub = document.querySelector('.brand-sub');
@@ -277,18 +279,18 @@
 
     const footerAbout = $('#footer-about');
     if (footerAbout) {
-      const genDate = meta.generated_at ? formatDate(meta.generated_at) : '16 jun 2026';
-      footerAbout.textContent = `Producto OSINT v${meta.version || '3.9.1'} preparado el ${genDate} para residentes y profesionales en las cinco macroregiones del Perú. Integra terreno, redes sociales y medios alternativos. Su propósito es informar, no movilizar. La información se contrasta exclusivamente con fuentes públicas verificadas.`;
+      const genDate = meta.generated_at ? formatDate(meta.generated_at) : '19 jun 2026';
+      footerAbout.textContent = `Producto OSINT v${meta.version || '3.9.2'} preparado el ${genDate} para residentes y profesionales en las cinco macroregiones del Perú. Integra terreno, redes sociales y medios alternativos. Su propósito es informar, no movilizar. La información se contrasta exclusivamente con fuentes públicas verificadas.`;
     }
 
     text('#rev-section-h2', `Resultado consolidado: Fujimori ${margen} votos al ${pctActas} escrutado`);
-    text('#rev-section-deck', `Monte Carlo sobre ~878 actas JEE pendientes y riesgo legal residual (amparo JP). Con ${pctActas} contabilizado, la reversión estadística es improbable; el foco operativo está en movilizaciones y resolución JNE.`);
+    text('#rev-section-deck', `Monte Carlo sobre ~${actasJee} actas JEE pendientes y riesgo legal residual (amparo JP). Con ${pctActas} contabilizado, la reversión estadística es improbable; el foco operativo está en movilizaciones y resolución JNE.`);
 
     text('#validacion-deck', `Escrutinio al ${pctActas} con margen ${margen} pro-Fujimori. Cuatro especificaciones de modelo, mercados de predicción y siete escenarios adversariales confirman robustez de la señal post-reversión.`);
 
     const polyPct = (d.validacion || {}).mercados?.polymarket?.fujimori_pct;
     const mercDesc = polyPct != null
-      ? `Polymarket ~${String(polyPct).replace('.', ',')} % Fujimori al corte 16-jun; converge con modelos internos (P(F) ${pF} %) y margen observado ${margen}.`
+      ? `Polymarket ~${String(polyPct).replace('.', ',')} % Fujimori al corte ${corteLabel}; converge con modelos internos (P(F) ${pF} %) y margen observado ${margen}.`
       : `Mercados de predicción y modelos internos convergen en victoria Fujimori con margen observado ${margen}.`;
     text('#val-mercados-desc', mercDesc);
 
@@ -368,12 +370,13 @@
     if (!f || !f.punto_central) return;
     const pc = f.punto_central || {};
     const ca = (er || {}).cifras_actuales || {};
-    const pctEsc = (f.subtitulo || ca.pct_actas || '99,07 %').replace(/corte[^·]*·\s*/i, '').trim();
+    const pctEsc = (f.subtitulo || ca.pct_actas || '99,63 %').replace(/corte[^·]*·\s*/i, '').trim();
+    const actasJee = ca.actas_jee_pendientes != null ? ca.actas_jee_pendientes : 346;
     const margenTxt = pc.margen_final_votos != null ? formatSignedInt(pc.margen_final_votos) : '—';
     const pctFDeck = pc.pct_fujimori_final != null ? pc.pct_fujimori_final.toFixed(3).replace('.', ',') + ' %' : '';
     const deckEl = $('#fml-deck');
     if (deckEl) {
-      deckEl.innerHTML = `Modelo bayesiano condicional al <strong>${escapeHtml(pctEsc)}</strong> escrutado. Combina cómputo observado, actas JEE pendientes (~878) y riesgo legal residual (amparo JP). <strong>Punto central: ${escapeHtml(margenTxt)} votos Fujimori${pctFDeck ? ' (' + escapeHtml(pctFDeck) + ')' : ''}.</strong>`;
+      deckEl.innerHTML = `Modelo bayesiano condicional al <strong>${escapeHtml(pctEsc)}</strong> escrutado. Combina cómputo observado, actas JEE pendientes (~${actasJee}) y riesgo legal residual (amparo JP). <strong>Punto central: ${escapeHtml(margenTxt)} votos Fujimori${pctFDeck ? ' (' + escapeHtml(pctFDeck) + ')' : ''}.</strong>`;
     }
     const prob = f.probabilidad_victoria || {};
     const ic = f.intervalos_confianza || {};
@@ -721,9 +724,10 @@
     text('#post-margin', marginLine || '—');
     const tail = $('#post-intro-tail');
     if (tail) {
-      const pct = ca.pct_actas ? ca.pct_actas.replace('.', ',') : (es.scrutinized_pct || '99,07 %');
-      const m = ca.margen_actual != null ? formatSignedInt(ca.margen_actual) : (es.difference_votes || '+34.967 votos');
-      tail.textContent = `Con ${pct} escrutado y margen ${m} pro-Fujimori, la reversión estadística es improbable. ~878 actas en JEE y amparo PJ pendiente condicionan el riesgo operativo. Dos bloques movilizados en paralelo.`;
+      const pct = ca.pct_actas ? ca.pct_actas.replace('.', ',') : (es.scrutinized_pct || '99,63 %');
+      const m = ca.margen_actual != null ? formatSignedInt(ca.margen_actual) : (es.difference_votes || '+41.565 votos');
+      const actasJee = ca.actas_jee_pendientes != null ? ca.actas_jee_pendientes : 346;
+      tail.textContent = `Con ${pct} escrutado y margen ${m} pro-Fujimori, la reversión estadística es improbable. ~${actasJee} actas en JEE y amparo PJ pendiente condicionan el riesgo operativo. Dos bloques movilizados en paralelo.`;
     }
 
     // Bloque A — defensa del voto
@@ -2914,11 +2918,14 @@
     const histLead = $('#val-historico-lead');
     if (histLead && er && er.cifras_actuales) {
       const m = formatSignedInt(er.cifras_actuales.margen_actual);
-      histLead.innerHTML = `Fujimori obtuvo <strong>66,2&nbsp;%</strong> del voto exterior en 2021 y aun así perdió por <strong>44&thinsp;263</strong> votos. En 2026 el exterior ya está contabilizado al 100&nbsp;% y Fujimori lidera por <strong>${escapeHtml(m)}</strong> votos al ${escapeHtml((er.cifras_actuales.pct_actas || '99,07%').replace('.', ','))} — la magnitud del margen actual supera ampliamente el umbral de empate técnico.`;
+      const pctVal = (er.cifras_actuales.pct_actas || '99,63%').replace('.', ',');
+      histLead.innerHTML = `Fujimori obtuvo <strong>66,2&nbsp;%</strong> del voto exterior en 2021 y aun así perdió por <strong>44&thinsp;263</strong> votos. En 2026 el exterior ya está contabilizado al 100&nbsp;% y Fujimori lidera por <strong>${escapeHtml(m)}</strong> votos al ${escapeHtml(pctVal)} — la magnitud del margen actual supera ampliamente el umbral de empate técnico.`;
     }
     const bayesDesc = $('#val-bayes-desc');
-    if (bayesDesc) {
-      bayesDesc.textContent = 'El voto exterior cerró al 100 % el 12-jun con ~63,4 % pro-Fujimori. El posterior bayesiano confirma sesgo pro-F favorable, ya materializado en el margen observado (+34.967 votos al 16-jun).';
+    if (bayesDesc && er && er.cifras_actuales) {
+      const mBayes = formatSignedInt(er.cifras_actuales.margen_actual);
+      const pctBayes = (er.cifras_actuales.pct_actas || '99,63%').replace('.', ',');
+      bayesDesc.textContent = `El voto exterior cerró al 100 % el 12-jun con ~63,4 % pro-Fujimori. El posterior bayesiano confirma sesgo pro-F favorable, ya materializado en el margen observado (${mBayes} votos al ${pctBayes}).`;
     }
   }
 
