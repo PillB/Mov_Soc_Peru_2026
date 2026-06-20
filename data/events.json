@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "3.9.8",
+    "version": "3.9.9",
     "generated_at": "2026-06-19T20:43:00-05:00",
     "scope": "Manifestaciones, marchas y eventos de acumulación de personas — Perú + Capa de inteligencia social y medios alternativos",
     "window": "19–26 junio 2026 (post-2da vuelta · corte 99,63% escrutado · margen 41.565 votos)",
@@ -28,7 +28,7 @@
         "url": "https://defensoria.gob.pe"
       }
     ],
-    "last_update": "2026-06-23T20:00:00-05:00",
+    "last_update": "2026-06-24T10:00:00-05:00",
     "expansion": "v3.1 — Capa grassroots por región: 89 cuentas individuales (autoridades locales, dirigentes, activistas), 67 colectivos/frentes, 87 lives identificados, 60 hashtags verificados, 55 rutas/bloqueos documentados, 17 comunicados oficiales nacionales. Investigación paralela en 6 frentes (Lima/Norte/Centro/Sur/Oriente/Nacional).",
     "grassroots_stats": {
       "accounts": 89,
@@ -38,8 +38,8 @@
       "routes": 55,
       "comunicados": 17
     },
-    "last_refresh_summary": "v3.9.8 RM-01–15 historico/vigente (5+10); grassroots nacional merge; montecarlo omitido.",
-    "fecha_corte": "2026-06-23T20:00:00-05:00"
+    "last_refresh_summary": "v3.9.9 JNE JEE documentado + pleno pendiente 24-jun; Piura AM; cuentas dedup; +2 actores R4; montecarlo omitido.",
+    "fecha_corte": "2026-06-24T10:00:00-05:00"
   },
   "executive_alert": {
     "level": "CRÍTICO",
@@ -3669,7 +3669,7 @@
           "participantes_est_central": 2000,
           "magnitud_confianza": "muy_baja",
           "status_corredor_19jun": "latente",
-          "next_check": "2026-06-24T08:00:00-05:00",
+          "next_check": "2026-06-25T08:00:00-05:00",
           "concentration_points": [
             {
               "nombre": "Sechura",
@@ -3690,7 +3690,7 @@
               "riesgo": "muy_alto"
             }
           ],
-          "notas": "23-jun PM: sin confirmación terreno indexada. MIDAGRI lineamientos aprobados; productores mantienen protesta (Norte Sostenible). El Trébol libre al corte. Monitoreo 24-jun AM.",
+          "notas": "24-jun AM: sin cobertura terreno adicional indexada. MIDAGRI lineamientos; gremio mantiene protesta. El Trébol libre al corte 23-jun.",
           "fuente_secundaria": "https://www.facebook.com/piuraplustv/videos/pptv-productores-anuncian-nueva-movilizaci%C3%B3n-para-el-23-de-junio-y-advierten-con/1007529818309319/",
           "fuente_secundaria_nombre": "Piura Plus TV (Facebook, 19-jun)",
           "reconfirmacion_parcial_19jun": true,
@@ -3700,7 +3700,8 @@
           "status_corredor_23jun": "transitable",
           "bloqueo_trebol_23jun": false,
           "magnitud_realizada": null,
-          "fuente_contexto_23jun": "https://nortesostenible.com/midagri-aprueba-lineamientos-para-compra-de-arroz-pero-productores-de-piura-mantienen-protesta/"
+          "fuente_contexto_23jun": "https://nortesostenible.com/midagri-aprueba-lineamientos-para-compra-de-arroz-pero-productores-de-piura-mantienen-protesta/",
+          "verificacion_terreno_24jun": "no_confirmado"
         }
       ],
       "actores": [
@@ -15041,8 +15042,8 @@
     }
   ],
   "social_intelligence": {
-    "fecha_corte": "2026-06-23T20:00:00-05:00",
-    "contexto": "23-jun PM: Round 4 social refresh. Marcha JP 19-jun verificada; #TomaDeLima decay. Criminalización protesta activa. Piura terreno no confirmado. ONPE meseta +41.565.",
+    "fecha_corte": "2026-06-24T10:00:00-05:00",
+    "contexto": "24-jun AM: JNE pleno sin resolución; JEE improcedente documentado. Piura sin terreno adicional. Cuentas deduplicadas. ONPE meseta +41.565.",
     "hashtags": [
       {
         "hashtag": "#TomaDeLima",
@@ -16715,7 +16716,11 @@
         "fuente_url": "https://wayka.pe",
         "handle_corregido_desde": "@waykaperu / @wayka.pe",
         "engagement_tier": "medio",
-        "validacion_ronda": 4
+        "validacion_ronda": 4,
+        "nombre_canónico": "Wayka Perú",
+        "_merged_duplicates": [
+          "Wayka Perú"
+        ]
       },
       {
         "nombre": "Hernando Cevallos",
@@ -16729,7 +16734,11 @@
         "handle_corregido_desde": "@HCevallosF",
         "notas_r4": "Objeto denuncia Procuraduría 19-jun; sin posts X 17–23 jun.",
         "engagement_tier": "bajo",
-        "validacion_ronda": 4
+        "validacion_ronda": 4,
+        "nombre_canónico": "Hernando Cevallos",
+        "_merged_duplicates": [
+          "Hernando Cevallos"
+        ]
       },
       {
         "nombre": "La Encerrona",
@@ -16742,7 +16751,8 @@
         "fuente_url": "https://laencerrona.pe",
         "estado_legal": "PRÓFUGO — orden de captura vigente desde 2023 (caso Los Dinámicos del Centro)",
         "nota_osint": "Publica desde clandestinidad usando VPN. Última posición pública (29-may-2026): Perú Libre NO apoya formalmente a Sánchez; otorga libertad de voto.",
-        "verificado_osint_v3514": true
+        "verificado_osint_v3514": true,
+        "nombre_canónico": "La Encerrona"
       },
       {
         "nombre": "César Hildebrandt (Hildebrandt en sus Trece)",
@@ -16752,17 +16762,8 @@
         "descripcion": "Periodista y analista político veterano. Su programa 'Destino Final IV' del 9-jun fue uno de los más compartidos en el período post-electoral. Declaración sobre 'guerra civil' generó debate de alto impacto amplificado por Wayka, France 24 y La República.",
         "seguidores_aprox": null,
         "posicion": "pro-Sánchez / izquierda",
-        "fuente_url": "https://www.youtube.com/watch?v=6coHASqu4dE"
-      },
-      {
-        "nombre": "Canal ciudadano ONPE 2026 EN VIVO",
-        "plataforma": "YouTube",
-        "handle": "no identificado",
-        "url": "https://www.youtube.com/watch?v=gui8sFmjj10",
-        "descripcion": "Canal ciudadano independiente lanzado el 11-jun 2026 con seguimiento en tiempo real de los resultados de la ONPE. El canal aclara que 'no somos un canal oficial de la ONPE'. Representa el fenómeno de ciudadanos-comunicadores emergentes que cubren el conteo directamente desde la web oficial.",
-        "seguidores_aprox": null,
-        "posicion": "neutral / ciudadano",
-        "fuente_url": "https://www.youtube.com/watch?v=gui8sFmjj10"
+        "fuente_url": "https://www.youtube.com/watch?v=6coHASqu4dE",
+        "nombre_canónico": "César Hildebrandt (Hildebrandt en sus Trece)"
       },
       {
         "nombre": "Roberto Sánchez (cuenta @robertosanchez.jp)",
@@ -16772,20 +16773,8 @@
         "descripcion": "Cuenta oficial del candidato de JP activa durante el escrutinio. Publicaciones en Instagram sobre el desarrollo del conteo y defensa del voto generaron comentarios virales (incluyendo debate sobre irregularidades y actas). Activa en el período crítico del 8-11 jun.",
         "seguidores_aprox": null,
         "posicion": "pro-Sánchez / JP",
-        "fuente_url": "https://www.instagram.com/reel/DZS1jlaJknY/"
-      },
-      {
-        "nombre": "Hernando Cevallos",
-        "handle": "@HCevallosFlores",
-        "plataforma": "X",
-        "perfil_url": "https://x.com/HCevallos",
-        "seguidores_aprox": "no verificado en esta consulta",
-        "rol": "organizador",
-        "region": "lima",
-        "bando_aparente": "pro-Sánchez",
-        "contenido_reciente": "En protesta nocturna frente al JNE declaró: 'La democracia no solo es decidir ir a votar y me voy a la casa. La calma no es incompatible con la movilización social.' Confirmó la marcha 'Los Cuatro Suyos' para el viernes 13 de junio.",
-        "url_contenido": "https://www.infobae.com/peru/2026/06/11/convocan-a-nueva-marcha-la-toma-de-lima-para-este-viernes-en-apoyo-de-roberto-sanchez-hay-que-defender-el-voto-popular/",
-        "handle_corregido_desde": "@HCevallos"
+        "fuente_url": "https://www.instagram.com/reel/DZS1jlaJknY/",
+        "nombre_canónico": "Roberto Sánchez (cuenta @robertosanchez.jp)"
       },
       {
         "nombre": "Walter Flores",
@@ -16797,7 +16786,8 @@
         "region": "lima",
         "bando_aparente": "pro-Sánchez",
         "contenido_reciente": "Desde plantón frente al JNE declaró: 'Hay una directiva de organizar al pueblo para hacer resistencia a los embates de la derecha.' Afirmó que 'hay todo un complot de la derecha que quiere preservar el poder político.'",
-        "url_contenido": "https://elpais.com/america/2026-06-11/resultados-de-las-elecciones-en-peru-en-vivo.html"
+        "url_contenido": "https://elpais.com/america/2026-06-11/resultados-de-las-elecciones-en-peru-en-vivo.html",
+        "nombre_canónico": "Walter Flores"
       },
       {
         "nombre": "Jaime Quito",
@@ -16809,19 +16799,8 @@
         "region": "lima",
         "bando_aparente": "pro-Sánchez",
         "contenido_reciente": "Congresista de JP y virtual senador convocó a la 'defensa del voto' en concentración frente al JNE e instó a 'permanecer atentos ante posibles irregularidades en el proceso electoral'.",
-        "url_contenido": "https://www.infobae.com/peru/2026/06/10/elecciones-2026-municipalidad-de-lima-declara-alerta-maxima-y-advierte-prohibicion-de-protestas-en-el-centro-historico/"
-      },
-      {
-        "nombre": "Samuel Breña",
-        "handle": "N/D",
-        "plataforma": "X",
-        "perfil_url": "N/D",
-        "seguidores_aprox": "N/D",
-        "rol": "líder vecinal",
-        "region": "lima",
-        "bando_aparente": "pro-Sánchez",
-        "contenido_reciente": "Integrante de la organización Guardianes de Pedro Castillo, de 54 años, presente en el plantón frente al JNE. Declaró a El País: 'Venimos a salvaguardar el voto del pueblo.'",
-        "url_contenido": "https://elpais.com/america/2026-06-09/resultados-de-las-elecciones-en-peru-en-vivo.html"
+        "url_contenido": "https://www.infobae.com/peru/2026/06/10/elecciones-2026-municipalidad-de-lima-declara-alerta-maxima-y-advierte-prohibicion-de-protestas-en-el-centro-historico/",
+        "nombre_canónico": "Jaime Quito"
       },
       {
         "nombre": "Renzo Reggiardo",
@@ -16833,7 +16812,8 @@
         "region": "lima",
         "bando_aparente": "pro-Fuji",
         "contenido_reciente": "Alcalde de Lima declaró alerta máxima en el Centro Histórico el 10 de junio: 'Estamos en alerta máxima para evitar violencia ante los anuncios de movilizaciones que, como era de esperarse, iban a suceder.' Dispuso vigilancia con ~1000 cámaras y patrullaje aéreo.",
-        "url_contenido": "https://www.infobae.com/peru/2026/06/10/elecciones-2026-municipalidad-de-lima-declara-alerta-maxima-y-advierte-prohibicion-de-protestas-en-el-centro-historico/"
+        "url_contenido": "https://www.infobae.com/peru/2026/06/10/elecciones-2026-municipalidad-de-lima-declara-alerta-maxima-y-advierte-prohibicion-de-protestas-en-el-centro-historico/",
+        "nombre_canónico": "Renzo Reggiardo"
       },
       {
         "nombre": "Rafael López Aliaga",
@@ -16846,7 +16826,11 @@
         "bando_aparente": "pro-Fuji",
         "contenido_reciente": "Convocó las 'Marchas por la Democracia' en Lima, paseo de los Héroes Navales y Campo de Marte (Jesús María). Declaró en mayo: 'Vamos a preparar una marcha más potente, van a ser cinco suyos, porque hasta el mar lo vamos a mover.' Calificó al JNE de 'mafia'.",
         "url_contenido": "https://caretas.pe/politica/lopez-aliaga-convoca-marcha-contra-la-segunda-vuelta-vendran-los-cinco-suyos-ya-no-cuatro-elecciones-2026-jne/",
-        "handle_corregido_desde": "@lopezaliaga"
+        "handle_corregido_desde": "@lopezaliaga",
+        "nombre_canónico": "Rafael López Aliaga",
+        "_merged_duplicates": [
+          "@rlopezaliaga1"
+        ]
       },
       {
         "nombre": "Norma Yarrow",
@@ -16858,7 +16842,8 @@
         "region": "lima",
         "bando_aparente": "pro-Fuji",
         "contenido_reciente": "Congresista de Renovación Popular participó en la marcha del 14 de mayo en el Campo de Marte y declaró: 'Cuando le da la gana al JNE, sí cambia su cronograma. (...) Se está reconociendo que ha habido delitos en actas fraguadas.'",
-        "url_contenido": "https://larepublica.pe/politica/2026/05/14/rafael-lopez-aliaga-realiza-marcha-pese-a-que-su-partido-reconocio-que-aceptarian-los-resultados-de-las-elecciones-hnews-1265264"
+        "url_contenido": "https://larepublica.pe/politica/2026/05/14/rafael-lopez-aliaga-realiza-marcha-pese-a-que-su-partido-reconocio-que-aceptarian-los-resultados-de-las-elecciones-hnews-1265264",
+        "nombre_canónico": "Norma Yarrow"
       },
       {
         "nombre": "Marco Sifuentes",
@@ -16870,7 +16855,8 @@
         "region": "lima",
         "bando_aparente": "crítico",
         "contenido_reciente": "Conductor de La Encerrona; el 5 de junio anticipó 'el berrinche del fraude después del domingo' y criticó la desesperación fujimorista. Reportó el incidente donde le lanzaron un botellón a Keiko en la USIL.",
-        "url_contenido": "https://www.youtube.com/watch?v=yUDr5GLVRMs"
+        "url_contenido": "https://www.youtube.com/watch?v=yUDr5GLVRMs",
+        "nombre_canónico": "Marco Sifuentes"
       },
       {
         "nombre": "César Hildebrandt",
@@ -16882,19 +16868,609 @@
         "region": "lima",
         "bando_aparente": "pro-Sánchez",
         "contenido_reciente": "En su programa del 2 de junio rectificó su postura: 'La mejor opción en esta segunda vuelta —lo reconozco— es votar positivamente e impedir que el fujimorismo tenga plenos poderes y cumpla sus oscuros designios sobre todos nosotros.' Advirtió que si gana Keiko 'estaríamos próximos a una guerra civil'.",
-        "url_contenido": "https://www.youtube.com/watch?v=MMoC8pKDM1I"
+        "url_contenido": "https://www.youtube.com/watch?v=MMoC8pKDM1I",
+        "nombre_canónico": "César Hildebrandt"
       },
       {
-        "nombre": "Wayka Perú",
-        "handle": "@WaykaPeru",
-        "plataforma": "FB",
-        "perfil_url": "https://www.facebook.com/waykaperu",
-        "seguidores_aprox": "no verificado en esta consulta",
-        "rol": "comunicador",
+        "nombre": null,
+        "handle": "@radiollata92.3fm",
+        "plataforma": "Facebook",
+        "perfil_url": null,
+        "rol": "Radio local Llata (Huamalíes, Huánuco) — publicó Convocatoria N°006-2026 del Frente de Defensa de los Intereses y Desarrollo de Llata para reunión multisectorial (4-jun-2026)",
+        "region": null,
+        "bando_aparente": "mixto/cívico (Frente de Defensa provincial)",
+        "contenido_reciente": "Radio local Llata (Huamalíes, Huánuco) — publicó Convocatoria N°006-2026 del Frente de Defensa de los Intereses y Desarrollo de Llata para reunión multisectorial (4-jun-2026)",
+        "fuente_url": "https://www.facebook.com/radiollata92.3fm/posts/convocatoria-n006-2026el-frente-de-defensa-de-los-intereses-y-desarrollo/",
+        "origen_v355": true,
+        "nombre_canónico": null
+      },
+      {
+        "nombre": null,
+        "handle": "@elmacheteperu",
+        "plataforma": "Web / Twitter",
+        "perfil_url": null,
+        "rol": "Medio digital peruano de línea izquierda — cubre bloqueos, conflictos y movilizaciones post-electorales",
+        "region": null,
+        "bando_aparente": "pro-Sánchez (línea editorial)",
+        "contenido_reciente": "Medio digital peruano de línea izquierda — cubre bloqueos, conflictos y movilizaciones post-electorales",
+        "fuente_url": "https://elmacheteperu.com/2026/06/02/segunda-vuelta-policia-advierte-uso-de-la-fuerza-si-bloqueos-impiden-traslado-material-electoral/",
+        "origen_v355": true,
+        "nombre_canónico": null
+      },
+      {
+        "nombre": null,
+        "handle": "@ILLARYtelevision",
+        "plataforma": "Facebook",
+        "perfil_url": null,
+        "rol": "Televisión local (región Sur/Cusco) — publicó postura del SUTEP y cubre movilizaciones regionales",
+        "region": null,
+        "bando_aparente": "neutral (cobertura)",
+        "contenido_reciente": "Televisión local (región Sur/Cusco) — publicó postura del SUTEP y cubre movilizaciones regionales",
+        "fuente_url": "https://www.facebook.com/ILLARYtelevision/posts/politica-sutep/",
+        "origen_v355": true,
+        "nombre_canónico": null
+      },
+      {
+        "nombre": null,
+        "handle": "@WalacNoticias",
+        "plataforma": "Facebook",
+        "perfil_url": null,
+        "rol": "Medio regional Huancayo — transmisiones en vivo de concentraciones JP en Huancayo y Lima",
+        "region": null,
+        "bando_aparente": "pro-Sánchez (cobertura afín)",
+        "contenido_reciente": "Medio regional Huancayo — transmisiones en vivo de concentraciones JP en Huancayo y Lima",
+        "fuente_url": "https://nortesostenible.com/midagri-aprueba-lineamientos-para-compra-de-arroz-pero-productores-de-piura-mantienen-protesta/",
+        "origen_v355": true,
+        "notas_r4": "23-jun PM: sin cobertura terreno Piura indexada; monitoreo 24-jun AM.",
+        "validacion_ronda": 4,
+        "nombre_canónico": "Walac Noticias Piura"
+      },
+      {
+        "nombre": null,
+        "handle": "@hytimes.pe",
+        "plataforma": "Facebook",
+        "perfil_url": null,
+        "rol": "Medio digital peruano con lives de plantones JP frente a ONPE y en Huancayo",
+        "region": null,
+        "bando_aparente": "pro-Sánchez (cobertura afín)",
+        "contenido_reciente": "Medio digital peruano con lives de plantones JP frente a ONPE y en Huancayo",
+        "fuente_url": "https://www.facebook.com/hytimes.pe/videos/envivo-juntos-por-el-per%C3%BA-hace-plant%C3%B3n-en-defensa-de-sus-votos/963103039883268/",
+        "origen_v355": true,
+        "nombre_canónico": null
+      },
+      {
+        "nombre": null,
+        "handle": "@n60noticias",
+        "plataforma": "Facebook",
+        "perfil_url": null,
+        "rol": "Canal regional La Libertad/Trujillo — documentó convocatoria movilización JP ante JNE Trujillo (9-jun)",
+        "region": null,
+        "bando_aparente": "pro-Sánchez (cobertura afín)",
+        "contenido_reciente": "Canal regional La Libertad/Trujillo — documentó convocatoria movilización JP ante JNE Trujillo (9-jun)",
+        "fuente_url": "https://www.facebook.com/n60noticias/posts/%EF%B8%8Fn60noticias-militantes-de-juntos-por-el-per%C3%BA-anuncian-movilizaci%C3%B3n-este-martes-/1611602120541790/",
+        "origen_v355": true,
+        "nombre_canónico": null
+      },
+      {
+        "nombre": null,
+        "handle": "@altavoz.pe",
+        "plataforma": "Web",
+        "perfil_url": null,
+        "rol": "Medio digital pro-izquierda que cubre convocatorias JP regionales con detalle (Ayacucho, Puno, etc.)",
+        "region": null,
+        "bando_aparente": "pro-Sánchez (línea editorial)",
+        "contenido_reciente": "Medio digital pro-izquierda que cubre convocatorias JP regionales con detalle (Ayacucho, Puno, etc.)",
+        "fuente_url": "https://altavoz.pe/politica/juntos-por-el-peru-impulsa-movilizaciones-mientras-keiko-fujimori-sube-en-conteo-basta-de-fraude/",
+        "origen_v355": true,
+        "nombre_canónico": null
+      },
+      {
+        "nombre": null,
+        "handle": "@willaxtvpe",
+        "plataforma": "Facebook",
+        "perfil_url": null,
+        "rol": "Canal de TV pro-derecha que publica análisis de actas observadas y cubre perspectiva Fuerza Popular",
+        "region": null,
+        "bando_aparente": "pro-Fujimori (línea editorial)",
+        "contenido_reciente": "Canal de TV pro-derecha que publica análisis de actas observadas y cubre perspectiva Fuerza Popular",
+        "fuente_url": "https://www.facebook.com/willaxtv/posts/noticia-conoce-las-regiones-con-m%C3%A1s-actas-observadas-en-la-segunda-vuelta-2026/",
+        "origen_v355": true,
+        "nombre_canónico": null
+      },
+      {
+        "nombre": null,
+        "handle": "Frente de Defensa de Llata y Huamalíes (Huánuco)",
+        "plataforma": "Facebook (a través de radio local)",
+        "perfil_url": null,
+        "rol": "Frente de defensa provincial que convocó reunión multisectorial el 4-jun-2026. Potencial actor de movilización semana 12-18 jun.",
+        "region": null,
+        "bando_aparente": "mixto/cívico",
+        "contenido_reciente": "Frente de defensa provincial que convocó reunión multisectorial el 4-jun-2026. Potencial actor de movilización semana 12-18 jun.",
+        "fuente_url": null,
+        "origen_v355": true,
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@RobertoSanchP",
+        "platform": "X",
+        "side": "pro_sanchez",
+        "growth_72h": "crecimiento acelerado no cuantificado; cuenta oficial candidato",
+        "topic": "Defensa del voto popular, denuncia de maniobras electorales, convocatoria a movilizaciones",
+        "position": "Candidato presidencial Juntos por el Perú",
+        "profile_url": "https://x.com/RobertoSanchP",
+        "nombre": "Roberto Sánchez Palomino",
+        "plataforma": "X",
+        "url": "https://x.com/RobertoSanchP",
+        "descripcion": "Candidato JP. Post 19-jun rechazo denuncia Procuraduría (~203K quotes). Encabezó marcha centro histórico.",
+        "posicion": "pro-Sánchez / JP",
+        "engagement_tier": "alto",
+        "mobilization_role": "convocador",
+        "validacion_ronda": 4,
+        "fuente_url": "https://x.com/RobertoSanchP/status/2068075544395321358",
+        "nombre_canónico": "Roberto Sánchez Palomino"
+      },
+      {
+        "handle": "@KeikoFujimori",
+        "platform": "X",
+        "side": "pro_fp",
+        "growth_72h": "crecimiento acelerado no cuantificado; cuenta oficial candidata",
+        "topic": "Prudencia institucional, defensa de actas observadas, espera del resultado oficial",
+        "position": "Candidata presidencial Fuerza Popular",
+        "profile_url": "https://x.com/KeikoFujimori",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@ONPE_oficial",
+        "platform": "X",
+        "side": "institucional",
+        "growth_72h": "no cuantificado",
+        "topic": "Actualizaciones oficiales del conteo, desmentido de desinformación (#ONPEinforma)",
+        "position": "Oficina Nacional de Procesos Electorales",
+        "profile_url": "https://x.com/ONPE_oficial",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@JNEperu",
+        "platform": "X",
+        "side": "institucional",
+        "growth_72h": "no cuantificado",
+        "topic": "Actas observadas, aclaraciones sobre error en plataforma web (Keiko como presidenta), rechazo a fraude",
+        "position": "Jurado Nacional de Elecciones",
+        "profile_url": "https://x.com/JNEperu",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@DefensoriaPerú",
+        "platform": "X",
+        "side": "institucional",
+        "growth_72h": "no cuantificado",
+        "topic": "Click Electoral, incidencias jornada, descarte de fraude sistemático",
+        "position": "Defensoría del Pueblo Perú",
+        "profile_url": "https://x.com/DefensoriaPerú",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@PatriciaJuarezE",
+        "platform": "X",
+        "side": "pro_fp",
+        "growth_72h": "alta actividad; portavoz FP en medios",
+        "topic": "Pide calma a Sánchez, defiende actas observadas, espera resultado oficial",
+        "position": "Congresista Fuerza Popular",
+        "profile_url": "https://rpp.pe/politica/elecciones/patricia-juarez-responde-a-roberto-sanchez-y-llama-a-esperar-resultados-oficiales-de-la-segunda-vuelta-noticia-1692462",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@PepeClimper",
+        "platform": "YouTube/X",
+        "side": "pro_fp",
+        "growth_72h": ">110.000 visualizaciones en live 10 jun (récord canal)",
+        "topic": "Análisis estadístico pro-Fujimori, predicción remontada por actas observadas y exterior",
+        "position": "Influencer político / analista pro-FP",
+        "profile_url": "https://www.youtube.com/watch?v=61ADBZfU2o4",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@WillaxTV",
+        "platform": "YouTube/X",
+        "side": "pro_fp",
+        "growth_72h": "alta audiencia; transmisiones Beto a Saber y Contracorriente diarias",
+        "topic": "Análisis favorable a Fujimori, cuestionamiento de conteo ONPE, cálculos estadísticos remontada",
+        "position": "Canal de televisión línea editorial pro-FP",
+        "profile_url": "https://www.youtube.com/watch?v=4Ta5UE6wL8c",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@betoortizperu",
+        "platform": "X/YouTube",
+        "side": "pro_fp",
+        "growth_72h": "alta actividad",
+        "topic": "Crítica a Claudia Cisneros por incitar violencia; cobertura pro-Fujimori",
+        "position": "Periodista / conductor Willax",
+        "profile_url": "https://www.youtube.com/watch?v=2iGBYdebOkw",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@PhilipButters",
+        "platform": "X/YouTube",
+        "side": "pro_fp",
+        "growth_72h": "alta actividad",
+        "topic": "Defensa de Fujimori, narrativa anticomunista, crítica a Sánchez y aliados",
+        "position": "Conductor de radio/TV, influencer conservador",
+        "profile_url": "https://www.youtube.com/@PhilipButters",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@ClaudiaCisneros",
+        "platform": "X/YouTube",
+        "side": "pro_sanchez",
+        "growth_72h": "alta actividad; polémica declaración 'las calles arderán'",
+        "topic": "Defensa de Sánchez, denuncia de fraude FP, convocatoria a movilizaciones",
+        "position": "Periodista / influencer izquierda",
+        "profile_url": "https://www.youtube.com/watch?v=MhZYMeGjwzI",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@GranComboClub",
+        "platform": "X",
+        "side": "pro_sanchez",
+        "growth_72h": "alta actividad; citado por Prensa Latina",
+        "topic": "Crítica a Alfredo Torres (Ipsos) por cambiar proyecciones sin sustento; defensa de conteo rápido Sánchez",
+        "position": "Influencer digital izquierda / analista político",
+        "profile_url": "https://www.prensa-latina.cu/2026/06/10/peru-denuncian-intento-de-afectar-integridad-del-proceso-electoral/",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@rodrigo.fronzo",
+        "platform": "IG",
+        "side": "pro_sanchez",
+        "growth_72h": "video viral celebrando triunfo Sánchez / derrota Keiko",
+        "topic": "Activismo digital anti-fujimorista, celebración resultados conteo rápido",
+        "position": "Activista digital",
+        "profile_url": "https://www.instagram.com/reel/DZVtjZsEssS/",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@LaEncerronaTV",
+        "platform": "YouTube/X",
+        "side": "pro_sanchez",
+        "growth_72h": "alta audiencia; especial electoral 8 jun",
+        "topic": "Análisis crítico de cédulas adulteradas, fraude FP, cobertura pro-Sánchez",
+        "position": "Canal informativo línea centro-izquierda",
+        "profile_url": "https://www.youtube.com/watch?v=yKvnUteTWM0",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@HernandoCevallos",
+        "platform": "X",
+        "side": "pro_sanchez",
+        "growth_72h": "alta actividad; portavoz JP movilizaciones",
+        "topic": "Defensa del voto popular, convocatoria a la Toma de Lima",
+        "position": "Exministro / dirigente Juntos por el Perú",
+        "profile_url": "https://www.infobae.com/peru/2026/06/11/convocan-a-nueva-marcha-la-toma-de-lima-para-este-viernes-en-apoyo-de-roberto-sanchez-hay-que-defender-el-voto-popular/",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@petrогustavo",
+        "platform": "X",
+        "side": "pro_sanchez",
+        "growth_72h": "tweet viral sobre defensas populares peruanas; injerencia internacional",
+        "topic": "Solidaridad con Sánchez, crítica al Estado peruano por dispersar manifestantes",
+        "position": "Presidente Colombia (actor externo)",
+        "profile_url": "https://www.semana.com/mundo/articulo/en-vivo-elecciones-presidenciales-en-peru-denuncian-retrasos-en-las-mesas-de-votacion/202614/",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@elonmusk",
+        "platform": "X",
+        "side": "pro_fp",
+        "growth_72h": "millones de impresiones post sobre Perú",
+        "topic": "Insinuó 'fraude a gran escala' en Perú para comparar con elecciones California",
+        "position": "CEO X / actor externo de alto impacto",
+        "profile_url": "https://caretas.pe/politica/segunda-vuelta-2026-elon-musk-insinua-fraude-a-gran-escala-y-roberto-sanchez-le-responde-elecciones-california-eeuu-peru-noticia/",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@EnfocatePeru",
+        "platform": "YouTube",
+        "side": "pro_fp",
+        "growth_72h": "canal creado con 4 suscriptores; millones de vistas via pauta Karamba",
+        "topic": "Contenido pro-Fujimori con IA, instrucciones falsas de votación anti-Sánchez",
+        "position": "Canal inauténtico (parte de operación Karamba)",
+        "profile_url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@RadarPeruano",
+        "platform": "YouTube",
+        "side": "pro_fp",
+        "growth_72h": "146 suscriptores; video viral 617K vistas en 3 semanas via pauta pagada",
+        "topic": "Videos de IA pro-Fujimori, ataques a Sánchez",
+        "position": "Canal inauténtico (parte de operación Karamba)",
+        "profile_url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@CheverePe",
+        "platform": "YouTube",
+        "side": "pro_fp",
+        "growth_72h": "4 suscriptores; +1.5M vistas via pauta (marzo-jun 2026)",
+        "topic": "Contenido IA pro-FP; entre ellos animación de Keiko con katana",
+        "position": "Canal inauténtico (parte de operación Karamba; creado marzo 2026)",
+        "profile_url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@EpiCentroTV",
+        "platform": "YouTube/X",
+        "side": "pro_sanchez",
+        "growth_72h": "alta audiencia; cobertura favorable a Sánchez",
+        "topic": "Análisis político pro-JP, cobertura resultados, defensa del voto popular",
+        "position": "Canal informativo izquierda",
+        "profile_url": "https://www.youtube.com/@EpiCentroTV",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@ConvocaPe",
+        "platform": "X/web",
+        "side": "institucional",
+        "growth_72h": "alta actividad investigativa",
+        "topic": "Investigación nulidades mesas JP/FP, análisis sin sustento de pedidos de nulidad",
+        "position": "Medio investigativo",
+        "profile_url": "https://convoca.pe/agenda-propia/la-disputa-pasa-la-mesa-fuerza-popular-y-juntos-por-el-peru-presentan-pedidos-de",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@ojopublico_pe",
+        "platform": "X",
+        "side": "institucional",
+        "growth_72h": "alta actividad investigativa",
+        "topic": "Investigación operación Karamba, actas observadas, empate técnico",
+        "position": "Medio investigativo",
+        "profile_url": "https://ojo-publico.com",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@EnfocatePeruYT",
+        "plataforma": "YouTube",
+        "posicion": "pro_fp / botlike",
+        "fecha_creacion": "entre 2025-11 y 2026-05 (pre-segunda vuelta)",
+        "seguidores": 146,
+        "contenido_tipico": "Anuncios políticos pagados con IA; video de Fujimori con katana llegó a 617.000 vistas en 3 semanas. Canal dado de baja post-investigación OjoPúblico.",
+        "url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@RadarPeruanoYT",
+        "plataforma": "YouTube",
+        "posicion": "pro_fp / botlike",
+        "fecha_creacion": "2025-11 a 2026-04",
+        "seguidores": 146,
+        "contenido_tipico": "Anuncio viral Fujimori+katana con 617K vistas; formato IA con voz sintética. Parte de la red Karamba Comunicación Digital. Canal dado de baja.",
+        "url": "https://ojo-publico.com/6338/empresa-ecuatoriana-pago-por-anuncios-youtube-favor-fujimori",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@SoyIndependienteYT",
+        "plataforma": "YouTube",
+        "posicion": "pro_fp / botlike",
+        "fecha_creacion": "2025-11 a 2026-04",
+        "seguidores": 4,
+        "contenido_tipico": "Anuncios políticos pro-FP con pauta pagada por Karamba. Millones de vistas pese a suscriptores mínimos. Canal dado de baja.",
+        "url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@ElMachetePeruYT",
+        "plataforma": "YouTube",
+        "posicion": "pro_fp / botlike",
+        "fecha_creacion": "2025-11 a 2026-04",
+        "seguidores": null,
+        "contenido_tipico": "Red Karamba: videos IA, ataques a candidatos izquierdistas. Canal dado de baja post-5-jun.",
+        "url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@SanchochauYT",
+        "plataforma": "YouTube",
+        "posicion": "pro_fp / botlike",
+        "fecha_creacion": "2025-11 a 2026-04",
+        "seguidores": 2530,
+        "contenido_tipico": "Parte de la red Karamba; ataques a Roberto Sánchez y contenido engañoso sobre forma de votar. Canal dado de baja.",
+        "url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@CheverePeYT",
+        "plataforma": "YouTube",
+        "posicion": "pro_fp / botlike",
+        "fecha_creacion": "2026-03",
+        "seguidores": 4,
+        "contenido_tipico": "Creado en marzo 2026; 4 suscriptores, 4 videos pero 1.5 millones de vistas acumuladas por pauta Karamba. Pico en silencio electoral 11-12 abr. Canal dado de baja.",
+        "url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@NotiCali",
+        "plataforma": "Instagram / X",
+        "posicion": "pro_fp / desinformador recurrente",
+        "fecha_creacion": "anterior a 2026",
+        "seguidores": null,
+        "contenido_tipico": "Publicó imagen falsa anunciando victoria oficial de Fujimori el 12-jun (00:04 GMT). Historial de contenido desinformador verificado por EFE Verifica.",
+        "url": "https://verifica.efe.com/anuncio-victoria-keiko-fujimori-peru/",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@ByViral24",
+        "plataforma": "X / Twitter",
+        "posicion": "botlike / desinformador",
+        "fecha_creacion": "anterior a 2026",
+        "seguidores": null,
+        "contenido_tipico": "Amplificador de contenido falso; replicó publicaciones de NotiCali y falso comunicado del ELN. Señalado por EFE Verifica.",
+        "url": "https://verifica.efe.com/anuncio-victoria-keiko-fujimori-peru/",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@victora86621867",
+        "plataforma": "X / Twitter",
+        "posicion": "botlike / desinformador",
+        "fecha_creacion": "anterior a 2026",
+        "seguidores": null,
+        "contenido_tipico": "Mayor difusor de desinformación monitoreado por JNE; probabilidad 30% de ser bot por auto-menciones y comportamiento automatizado. Señalado en informe JNE factchecking.",
+        "url": "https://factchecking.jne.gob.pe/img/publicaciones/5-guiaDesinformacionF_E_v_4.pdf",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@TendenciaEnPeru",
+        "plataforma": "X / Twitter",
+        "posicion": "neutral / monitor",
+        "fecha_creacion": "anterior a 2024",
+        "seguidores": null,
+        "contenido_tipico": "Cuenta de monitoreo de tendencias en X Perú; documenta hashtags políticos y virales durante el proceso electoral.",
+        "url": "https://x.com/TendenciaEnPeru",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@Ojo_Publico",
+        "plataforma": "X / Twitter / Instagram",
+        "posicion": "neutral / investigativo",
+        "fecha_creacion": "anterior a 2020",
+        "seguidores": null,
+        "contenido_tipico": "Medio investigativo; publicó investigación Karamba el 5-jun y amplificó verificaciones durante el conteo. Alta interacción post-segunda vuelta.",
+        "url": "https://ojo-publico.com/politica/elecciones-2026",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@WaykaPe",
+        "plataforma": "X / Twitter / Web",
+        "posicion": "pro_sanchez / izquierda",
+        "fecha_creacion": "anterior a 2020",
+        "seguidores": null,
+        "contenido_tipico": "Análisis politológico crítico al 'fraudismo' de la derecha; cobertura de voces del sur ('invalidar el voto de las regiones del sur'); alta actividad 12-14 jun.",
+        "url": "https://wayka.pe/elecciones-2026-buscan-invalidar-el-voto-de-las-regiones-del-sur-como-si-no-tuviera-el-mismo-valor/",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@IDLReporteros",
+        "plataforma": "X / Twitter / Web",
+        "posicion": "pro_sanchez (editorial) / investigativo",
+        "fecha_creacion": "anterior a 2015",
+        "seguidores": null,
+        "contenido_tipico": "Director Gustavo Gorriti calificó candidatura Sánchez como 'mal menor'; editorial pro-democracia. Alta interacción post-segunda vuelta.",
+        "url": "https://www.idl-reporteros.pe/el-dilema-peruano/",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@PeruCheck",
+        "plataforma": "X / Twitter / Web",
+        "posicion": "neutral / verificador",
+        "fecha_creacion": "anterior a 2021",
+        "seguidores": null,
+        "contenido_tipico": "Verificaciones en tiempo real de la segunda vuelta; desmintió claim de 'siempre se gana por 10 puntos'. Alta actividad 10-14 jun 2026.",
+        "url": "https://perucheck.pe/articles/verificadas/2026/06/10/es-falso-que-siempre-se-haya-ganado-la-segunda-vuelta-presidencial-con-hasta-10-puntos-de-diferencia-645498",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@AmaLullaRed",
+        "plataforma": "Facebook / Instagram / X",
+        "posicion": "neutral / verificador",
+        "fecha_creacion": "anterior a 2021",
+        "seguidores": null,
+        "contenido_tipico": "Red de verificación coordinada por OjoPúblico; activa durante la jornada electoral 7-jun con verificación de bulos en tiempo real.",
+        "url": "https://www.facebook.com/OjoPublico/videos/%EF%B8%8F-una-vez-m%C3%A1s-la-jornada-electoral-estuvo-marcada-por-la-desinformaci%C3%B3n-pero-en-/4233930970157349/",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@BetoOrtizTV",
+        "plataforma": "YouTube / X / TV (Willax)",
+        "posicion": "pro_fp",
+        "fecha_creacion": "anterior a 2010",
+        "seguidores": null,
+        "contenido_tipico": "Conductor Willax; rechaza reconteo, apoya tesis FP de validez del conteo ONPE. Viral por insultos a zonas de alto ausentismo (10-jun).",
+        "url": "https://elpopular.pe/espectaculos/2026/06/10/elecciones-2026-beto-ortiz-y-periodista-augusto-thorndike-insultan-en-vivo-a-zonas-privilegiadas-por-ausentismo-anda-a-votar-pues-idiota-180340",
+        "nombre_canónico": null
+      },
+      {
+        "handle": "@rmapalacios",
+        "plataforma": "X / Twitter",
+        "posicion": "neutral / anti_establishment",
+        "fecha_creacion": "anterior a 2018",
+        "seguidores": 3400000,
+        "contenido_tipico": "3.4M seguidores en X; creadora de #PorEstosNo (campaña anti-políticos tradicionales). Alta influencia en agenda digital del proceso electoral.",
+        "url": "https://elpais.com/america/2026-04-03/porestosno-la-campana-en-redes-que-alienta-a-castigar-en-las-urnas-a-los-politicos-peruanos.html",
+        "nombre_canónico": null
+      },
+      {
+        "nombre": "Pachamama Radio",
+        "plataforma": "X / Instagram",
+        "handle": "@PachamamaRadio_",
+        "url": "https://x.com/PachamamaRadio_",
+        "descripcion": "X inactivo 17-19; reel IG convocatoria autoconvocatoria 22-jun Plaza San Martín.",
+        "posicion": "alternativo / pro-Sánchez",
+        "fuente_url": "https://www.instagram.com/reel/DZQNoG-pSIU/",
+        "validacion_ronda": 4,
+        "engagement_tier": "bajo",
+        "notas_r4": "Autoconvocatoria IG 22-jun no materializada (v3.9.5). X dormante.",
+        "nombre_canónico": "Pachamama Radio"
+      },
+      {
+        "nombre": "UNAP Iquitos",
+        "plataforma": "X",
+        "handle": "@unapiquitos",
+        "url": "https://x.com/unapiquitos",
+        "descripcion": "Cuenta institucional dormante en ventana 17-19. Vínculo indirecto delegaciones oriente marcha Lima 19-jun.",
+        "posicion": "institucional",
+        "fuente_url": "https://elbuho.pe/2026/06/mas-de-7-mil-policias-restriccion-vehicular-amenazas-del-alcalde-de-lima-para-marcha-de-jp-en-defensa-del-voto/",
+        "validacion_ronda": 3,
+        "engagement_tier": "bajo",
+        "nombre_canónico": "UNAP Iquitos"
+      },
+      {
+        "nombre": "RPP Noticias",
+        "plataforma": "X / YouTube / TV",
+        "handle": "@RPPNoticias",
+        "url": "https://x.com/RPPNoticias",
+        "descripcion": "Cobertura institucional en vivo marcha 19-jun y acampamento JNE.",
+        "posicion": "neutral / institucional",
+        "engagement_tier": "alto",
+        "mobilization_role": "institucional",
+        "validacion_ronda": 4,
+        "fuente_url": "https://rpp.pe/politica/elecciones/roberto-sanchez-salio-de-su-local-de-campana-en-el-inicio-de-marcha-convocada-por-juntos-por-el-peru-noticia-1693850",
+        "nombre_canónico": "RPP Noticias"
+      },
+      {
+        "nombre": "Juntos por el Perú (oficial)",
+        "plataforma": "X",
+        "handle": "@JuntosPorElPer",
+        "url": "https://x.com/JuntosPorElPer",
+        "descripcion": "X inactivo 17–23 jun; convocatorias vía comunicado partidario.",
+        "posicion": "pro-Sánchez / JP",
+        "engagement_tier": "bajo",
+        "mobilization_role": "convocador",
+        "validacion_ronda": 4,
+        "fuente_url": "https://rpp.pe/politica/elecciones/roberto-sanchez-salio-de-su-local-de-campana-en-el-inicio-de-marcha-convocada-por-juntos-por-el-peru-noticia-1693850",
+        "nombre_canónico": "Juntos por el Perú (oficial)"
+      },
+      {
+        "nombre": "Canal ciudadano ONPE 2026 EN VIVO",
+        "plataforma": "YouTube",
+        "handle": "no identificado",
+        "url": "https://www.youtube.com/watch?v=gui8sFmjj10",
+        "descripcion": "Canal ciudadano independiente lanzado el 11-jun 2026 con seguimiento en tiempo real de los resultados de la ONPE. El canal aclara que 'no somos un canal oficial de la ONPE'. Representa el fenómeno de ciudadanos-comunicadores emergentes que cubren el conteo directamente desde la web oficial.",
+        "seguidores_aprox": null,
+        "posicion": "neutral / ciudadano",
+        "fuente_url": "https://www.youtube.com/watch?v=gui8sFmjj10"
+      },
+      {
+        "nombre": "Samuel Breña",
+        "handle": "N/D",
+        "plataforma": "X",
+        "perfil_url": "N/D",
+        "seguidores_aprox": "N/D",
+        "rol": "líder vecinal",
         "region": "lima",
         "bando_aparente": "pro-Sánchez",
-        "contenido_reciente": "Publicó sobre el mensaje 'entre líneas' de Keiko advirtiendo impugnación de votos y comentó: '¿Mantendrá nuevamente al país en vilo?' Transmitió en vivo la marcha del 30 de mayo desde el centro de Lima.",
-        "url_contenido": "https://www.facebook.com/waykaperu/posts/mensaje-de-keiko-fujimori-entre-l%C3%ADneas-advierte-impugnaci%C3%B3n-de-votos-de-jp-mante/1293183682996261/"
+        "contenido_reciente": "Integrante de la organización Guardianes de Pedro Castillo, de 54 años, presente en el plantón frente al JNE. Declaró a El País: 'Venimos a salvaguardar el voto del pueblo.'",
+        "url_contenido": "https://elpais.com/america/2026-06-09/resultados-de-las-elecciones-en-peru-en-vivo.html"
       },
       {
         "nombre": "Fernando Chuquilín",
@@ -17413,495 +17989,6 @@
         "url_contenido": ""
       },
       {
-        "nombre": null,
-        "handle": "@radiollata92.3fm",
-        "plataforma": "Facebook",
-        "perfil_url": null,
-        "rol": "Radio local Llata (Huamalíes, Huánuco) — publicó Convocatoria N°006-2026 del Frente de Defensa de los Intereses y Desarrollo de Llata para reunión multisectorial (4-jun-2026)",
-        "region": null,
-        "bando_aparente": "mixto/cívico (Frente de Defensa provincial)",
-        "contenido_reciente": "Radio local Llata (Huamalíes, Huánuco) — publicó Convocatoria N°006-2026 del Frente de Defensa de los Intereses y Desarrollo de Llata para reunión multisectorial (4-jun-2026)",
-        "fuente_url": "https://www.facebook.com/radiollata92.3fm/posts/convocatoria-n006-2026el-frente-de-defensa-de-los-intereses-y-desarrollo/",
-        "origen_v355": true
-      },
-      {
-        "nombre": null,
-        "handle": "@elmacheteperu",
-        "plataforma": "Web / Twitter",
-        "perfil_url": null,
-        "rol": "Medio digital peruano de línea izquierda — cubre bloqueos, conflictos y movilizaciones post-electorales",
-        "region": null,
-        "bando_aparente": "pro-Sánchez (línea editorial)",
-        "contenido_reciente": "Medio digital peruano de línea izquierda — cubre bloqueos, conflictos y movilizaciones post-electorales",
-        "fuente_url": "https://elmacheteperu.com/2026/06/02/segunda-vuelta-policia-advierte-uso-de-la-fuerza-si-bloqueos-impiden-traslado-material-electoral/",
-        "origen_v355": true
-      },
-      {
-        "nombre": null,
-        "handle": "@ILLARYtelevision",
-        "plataforma": "Facebook",
-        "perfil_url": null,
-        "rol": "Televisión local (región Sur/Cusco) — publicó postura del SUTEP y cubre movilizaciones regionales",
-        "region": null,
-        "bando_aparente": "neutral (cobertura)",
-        "contenido_reciente": "Televisión local (región Sur/Cusco) — publicó postura del SUTEP y cubre movilizaciones regionales",
-        "fuente_url": "https://www.facebook.com/ILLARYtelevision/posts/politica-sutep/",
-        "origen_v355": true
-      },
-      {
-        "nombre": null,
-        "handle": "@WalacNoticias",
-        "plataforma": "Facebook",
-        "perfil_url": null,
-        "rol": "Medio regional Huancayo — transmisiones en vivo de concentraciones JP en Huancayo y Lima",
-        "region": null,
-        "bando_aparente": "pro-Sánchez (cobertura afín)",
-        "contenido_reciente": "Medio regional Huancayo — transmisiones en vivo de concentraciones JP en Huancayo y Lima",
-        "fuente_url": "https://nortesostenible.com/midagri-aprueba-lineamientos-para-compra-de-arroz-pero-productores-de-piura-mantienen-protesta/",
-        "origen_v355": true,
-        "notas_r4": "23-jun PM: sin cobertura terreno Piura indexada; monitoreo 24-jun AM.",
-        "validacion_ronda": 4
-      },
-      {
-        "nombre": null,
-        "handle": "@hytimes.pe",
-        "plataforma": "Facebook",
-        "perfil_url": null,
-        "rol": "Medio digital peruano con lives de plantones JP frente a ONPE y en Huancayo",
-        "region": null,
-        "bando_aparente": "pro-Sánchez (cobertura afín)",
-        "contenido_reciente": "Medio digital peruano con lives de plantones JP frente a ONPE y en Huancayo",
-        "fuente_url": "https://www.facebook.com/hytimes.pe/videos/envivo-juntos-por-el-per%C3%BA-hace-plant%C3%B3n-en-defensa-de-sus-votos/963103039883268/",
-        "origen_v355": true
-      },
-      {
-        "nombre": null,
-        "handle": "@n60noticias",
-        "plataforma": "Facebook",
-        "perfil_url": null,
-        "rol": "Canal regional La Libertad/Trujillo — documentó convocatoria movilización JP ante JNE Trujillo (9-jun)",
-        "region": null,
-        "bando_aparente": "pro-Sánchez (cobertura afín)",
-        "contenido_reciente": "Canal regional La Libertad/Trujillo — documentó convocatoria movilización JP ante JNE Trujillo (9-jun)",
-        "fuente_url": "https://www.facebook.com/n60noticias/posts/%EF%B8%8Fn60noticias-militantes-de-juntos-por-el-per%C3%BA-anuncian-movilizaci%C3%B3n-este-martes-/1611602120541790/",
-        "origen_v355": true
-      },
-      {
-        "nombre": null,
-        "handle": "@altavoz.pe",
-        "plataforma": "Web",
-        "perfil_url": null,
-        "rol": "Medio digital pro-izquierda que cubre convocatorias JP regionales con detalle (Ayacucho, Puno, etc.)",
-        "region": null,
-        "bando_aparente": "pro-Sánchez (línea editorial)",
-        "contenido_reciente": "Medio digital pro-izquierda que cubre convocatorias JP regionales con detalle (Ayacucho, Puno, etc.)",
-        "fuente_url": "https://altavoz.pe/politica/juntos-por-el-peru-impulsa-movilizaciones-mientras-keiko-fujimori-sube-en-conteo-basta-de-fraude/",
-        "origen_v355": true
-      },
-      {
-        "nombre": null,
-        "handle": "@willaxtvpe",
-        "plataforma": "Facebook",
-        "perfil_url": null,
-        "rol": "Canal de TV pro-derecha que publica análisis de actas observadas y cubre perspectiva Fuerza Popular",
-        "region": null,
-        "bando_aparente": "pro-Fujimori (línea editorial)",
-        "contenido_reciente": "Canal de TV pro-derecha que publica análisis de actas observadas y cubre perspectiva Fuerza Popular",
-        "fuente_url": "https://www.facebook.com/willaxtv/posts/noticia-conoce-las-regiones-con-m%C3%A1s-actas-observadas-en-la-segunda-vuelta-2026/",
-        "origen_v355": true
-      },
-      {
-        "nombre": null,
-        "handle": "Frente de Defensa de Llata y Huamalíes (Huánuco)",
-        "plataforma": "Facebook (a través de radio local)",
-        "perfil_url": null,
-        "rol": "Frente de defensa provincial que convocó reunión multisectorial el 4-jun-2026. Potencial actor de movilización semana 12-18 jun.",
-        "region": null,
-        "bando_aparente": "mixto/cívico",
-        "contenido_reciente": "Frente de defensa provincial que convocó reunión multisectorial el 4-jun-2026. Potencial actor de movilización semana 12-18 jun.",
-        "fuente_url": null,
-        "origen_v355": true
-      },
-      {
-        "handle": "@RobertoSanchP",
-        "platform": "X",
-        "side": "pro_sanchez",
-        "growth_72h": "crecimiento acelerado no cuantificado; cuenta oficial candidato",
-        "topic": "Defensa del voto popular, denuncia de maniobras electorales, convocatoria a movilizaciones",
-        "position": "Candidato presidencial Juntos por el Perú",
-        "profile_url": "https://x.com/RobertoSanchP",
-        "nombre": "Roberto Sánchez Palomino",
-        "plataforma": "X",
-        "url": "https://x.com/RobertoSanchP",
-        "descripcion": "Candidato JP. Post 19-jun rechazo denuncia Procuraduría (~203K quotes). Encabezó marcha centro histórico.",
-        "posicion": "pro-Sánchez / JP",
-        "engagement_tier": "alto",
-        "mobilization_role": "convocador",
-        "validacion_ronda": 4,
-        "fuente_url": "https://x.com/RobertoSanchP/status/2068075544395321358"
-      },
-      {
-        "handle": "@KeikoFujimori",
-        "platform": "X",
-        "side": "pro_fp",
-        "growth_72h": "crecimiento acelerado no cuantificado; cuenta oficial candidata",
-        "topic": "Prudencia institucional, defensa de actas observadas, espera del resultado oficial",
-        "position": "Candidata presidencial Fuerza Popular",
-        "profile_url": "https://x.com/KeikoFujimori"
-      },
-      {
-        "handle": "@ONPE_oficial",
-        "platform": "X",
-        "side": "institucional",
-        "growth_72h": "no cuantificado",
-        "topic": "Actualizaciones oficiales del conteo, desmentido de desinformación (#ONPEinforma)",
-        "position": "Oficina Nacional de Procesos Electorales",
-        "profile_url": "https://x.com/ONPE_oficial"
-      },
-      {
-        "handle": "@JNEperu",
-        "platform": "X",
-        "side": "institucional",
-        "growth_72h": "no cuantificado",
-        "topic": "Actas observadas, aclaraciones sobre error en plataforma web (Keiko como presidenta), rechazo a fraude",
-        "position": "Jurado Nacional de Elecciones",
-        "profile_url": "https://x.com/JNEperu"
-      },
-      {
-        "handle": "@DefensoriaPerú",
-        "platform": "X",
-        "side": "institucional",
-        "growth_72h": "no cuantificado",
-        "topic": "Click Electoral, incidencias jornada, descarte de fraude sistemático",
-        "position": "Defensoría del Pueblo Perú",
-        "profile_url": "https://x.com/DefensoriaPerú"
-      },
-      {
-        "handle": "@rlopezaliaga1",
-        "platform": "X",
-        "side": "pro_fp",
-        "growth_72h": "alta actividad (marchas, denuncias fraude, convocatoria internacional)",
-        "topic": "Narrativa fraude sistemático, 'Marchas por la Democracia', denuncia de irregularidades",
-        "position": "Candidato presidencial Renovación Popular (3er lugar 1ra vuelta), promovió narrativa fraude según MOE UE",
-        "profile_url": "https://x.com/RLopezAliagaR",
-        "handle_corregido_desde": "@rlopezaliaga1R"
-      },
-      {
-        "handle": "@PatriciaJuarezE",
-        "platform": "X",
-        "side": "pro_fp",
-        "growth_72h": "alta actividad; portavoz FP en medios",
-        "topic": "Pide calma a Sánchez, defiende actas observadas, espera resultado oficial",
-        "position": "Congresista Fuerza Popular",
-        "profile_url": "https://rpp.pe/politica/elecciones/patricia-juarez-responde-a-roberto-sanchez-y-llama-a-esperar-resultados-oficiales-de-la-segunda-vuelta-noticia-1692462"
-      },
-      {
-        "handle": "@PepeClimper",
-        "platform": "YouTube/X",
-        "side": "pro_fp",
-        "growth_72h": ">110.000 visualizaciones en live 10 jun (récord canal)",
-        "topic": "Análisis estadístico pro-Fujimori, predicción remontada por actas observadas y exterior",
-        "position": "Influencer político / analista pro-FP",
-        "profile_url": "https://www.youtube.com/watch?v=61ADBZfU2o4"
-      },
-      {
-        "handle": "@WillaxTV",
-        "platform": "YouTube/X",
-        "side": "pro_fp",
-        "growth_72h": "alta audiencia; transmisiones Beto a Saber y Contracorriente diarias",
-        "topic": "Análisis favorable a Fujimori, cuestionamiento de conteo ONPE, cálculos estadísticos remontada",
-        "position": "Canal de televisión línea editorial pro-FP",
-        "profile_url": "https://www.youtube.com/watch?v=4Ta5UE6wL8c"
-      },
-      {
-        "handle": "@betoortizperu",
-        "platform": "X/YouTube",
-        "side": "pro_fp",
-        "growth_72h": "alta actividad",
-        "topic": "Crítica a Claudia Cisneros por incitar violencia; cobertura pro-Fujimori",
-        "position": "Periodista / conductor Willax",
-        "profile_url": "https://www.youtube.com/watch?v=2iGBYdebOkw"
-      },
-      {
-        "handle": "@PhilipButters",
-        "platform": "X/YouTube",
-        "side": "pro_fp",
-        "growth_72h": "alta actividad",
-        "topic": "Defensa de Fujimori, narrativa anticomunista, crítica a Sánchez y aliados",
-        "position": "Conductor de radio/TV, influencer conservador",
-        "profile_url": "https://www.youtube.com/@PhilipButters"
-      },
-      {
-        "handle": "@ClaudiaCisneros",
-        "platform": "X/YouTube",
-        "side": "pro_sanchez",
-        "growth_72h": "alta actividad; polémica declaración 'las calles arderán'",
-        "topic": "Defensa de Sánchez, denuncia de fraude FP, convocatoria a movilizaciones",
-        "position": "Periodista / influencer izquierda",
-        "profile_url": "https://www.youtube.com/watch?v=MhZYMeGjwzI"
-      },
-      {
-        "handle": "@GranComboClub",
-        "platform": "X",
-        "side": "pro_sanchez",
-        "growth_72h": "alta actividad; citado por Prensa Latina",
-        "topic": "Crítica a Alfredo Torres (Ipsos) por cambiar proyecciones sin sustento; defensa de conteo rápido Sánchez",
-        "position": "Influencer digital izquierda / analista político",
-        "profile_url": "https://www.prensa-latina.cu/2026/06/10/peru-denuncian-intento-de-afectar-integridad-del-proceso-electoral/"
-      },
-      {
-        "handle": "@rodrigo.fronzo",
-        "platform": "IG",
-        "side": "pro_sanchez",
-        "growth_72h": "video viral celebrando triunfo Sánchez / derrota Keiko",
-        "topic": "Activismo digital anti-fujimorista, celebración resultados conteo rápido",
-        "position": "Activista digital",
-        "profile_url": "https://www.instagram.com/reel/DZVtjZsEssS/"
-      },
-      {
-        "handle": "@LaEncerronaTV",
-        "platform": "YouTube/X",
-        "side": "pro_sanchez",
-        "growth_72h": "alta audiencia; especial electoral 8 jun",
-        "topic": "Análisis crítico de cédulas adulteradas, fraude FP, cobertura pro-Sánchez",
-        "position": "Canal informativo línea centro-izquierda",
-        "profile_url": "https://www.youtube.com/watch?v=yKvnUteTWM0"
-      },
-      {
-        "handle": "@HernandoCevallos",
-        "platform": "X",
-        "side": "pro_sanchez",
-        "growth_72h": "alta actividad; portavoz JP movilizaciones",
-        "topic": "Defensa del voto popular, convocatoria a la Toma de Lima",
-        "position": "Exministro / dirigente Juntos por el Perú",
-        "profile_url": "https://www.infobae.com/peru/2026/06/11/convocan-a-nueva-marcha-la-toma-de-lima-para-este-viernes-en-apoyo-de-roberto-sanchez-hay-que-defender-el-voto-popular/"
-      },
-      {
-        "handle": "@petrогustavo",
-        "platform": "X",
-        "side": "pro_sanchez",
-        "growth_72h": "tweet viral sobre defensas populares peruanas; injerencia internacional",
-        "topic": "Solidaridad con Sánchez, crítica al Estado peruano por dispersar manifestantes",
-        "position": "Presidente Colombia (actor externo)",
-        "profile_url": "https://www.semana.com/mundo/articulo/en-vivo-elecciones-presidenciales-en-peru-denuncian-retrasos-en-las-mesas-de-votacion/202614/"
-      },
-      {
-        "handle": "@elonmusk",
-        "platform": "X",
-        "side": "pro_fp",
-        "growth_72h": "millones de impresiones post sobre Perú",
-        "topic": "Insinuó 'fraude a gran escala' en Perú para comparar con elecciones California",
-        "position": "CEO X / actor externo de alto impacto",
-        "profile_url": "https://caretas.pe/politica/segunda-vuelta-2026-elon-musk-insinua-fraude-a-gran-escala-y-roberto-sanchez-le-responde-elecciones-california-eeuu-peru-noticia/"
-      },
-      {
-        "handle": "@EnfocatePeru",
-        "platform": "YouTube",
-        "side": "pro_fp",
-        "growth_72h": "canal creado con 4 suscriptores; millones de vistas via pauta Karamba",
-        "topic": "Contenido pro-Fujimori con IA, instrucciones falsas de votación anti-Sánchez",
-        "position": "Canal inauténtico (parte de operación Karamba)",
-        "profile_url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/"
-      },
-      {
-        "handle": "@RadarPeruano",
-        "platform": "YouTube",
-        "side": "pro_fp",
-        "growth_72h": "146 suscriptores; video viral 617K vistas en 3 semanas via pauta pagada",
-        "topic": "Videos de IA pro-Fujimori, ataques a Sánchez",
-        "position": "Canal inauténtico (parte de operación Karamba)",
-        "profile_url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/"
-      },
-      {
-        "handle": "@CheverePe",
-        "platform": "YouTube",
-        "side": "pro_fp",
-        "growth_72h": "4 suscriptores; +1.5M vistas via pauta (marzo-jun 2026)",
-        "topic": "Contenido IA pro-FP; entre ellos animación de Keiko con katana",
-        "position": "Canal inauténtico (parte de operación Karamba; creado marzo 2026)",
-        "profile_url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/"
-      },
-      {
-        "handle": "@EpiCentroTV",
-        "platform": "YouTube/X",
-        "side": "pro_sanchez",
-        "growth_72h": "alta audiencia; cobertura favorable a Sánchez",
-        "topic": "Análisis político pro-JP, cobertura resultados, defensa del voto popular",
-        "position": "Canal informativo izquierda",
-        "profile_url": "https://www.youtube.com/@EpiCentroTV"
-      },
-      {
-        "handle": "@ConvocaPe",
-        "platform": "X/web",
-        "side": "institucional",
-        "growth_72h": "alta actividad investigativa",
-        "topic": "Investigación nulidades mesas JP/FP, análisis sin sustento de pedidos de nulidad",
-        "position": "Medio investigativo",
-        "profile_url": "https://convoca.pe/agenda-propia/la-disputa-pasa-la-mesa-fuerza-popular-y-juntos-por-el-peru-presentan-pedidos-de"
-      },
-      {
-        "handle": "@ojopublico_pe",
-        "platform": "X",
-        "side": "institucional",
-        "growth_72h": "alta actividad investigativa",
-        "topic": "Investigación operación Karamba, actas observadas, empate técnico",
-        "position": "Medio investigativo",
-        "profile_url": "https://ojo-publico.com"
-      },
-      {
-        "handle": "@EnfocatePeruYT",
-        "plataforma": "YouTube",
-        "posicion": "pro_fp / botlike",
-        "fecha_creacion": "entre 2025-11 y 2026-05 (pre-segunda vuelta)",
-        "seguidores": 146,
-        "contenido_tipico": "Anuncios políticos pagados con IA; video de Fujimori con katana llegó a 617.000 vistas en 3 semanas. Canal dado de baja post-investigación OjoPúblico.",
-        "url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/"
-      },
-      {
-        "handle": "@RadarPeruanoYT",
-        "plataforma": "YouTube",
-        "posicion": "pro_fp / botlike",
-        "fecha_creacion": "2025-11 a 2026-04",
-        "seguidores": 146,
-        "contenido_tipico": "Anuncio viral Fujimori+katana con 617K vistas; formato IA con voz sintética. Parte de la red Karamba Comunicación Digital. Canal dado de baja.",
-        "url": "https://ojo-publico.com/6338/empresa-ecuatoriana-pago-por-anuncios-youtube-favor-fujimori"
-      },
-      {
-        "handle": "@SoyIndependienteYT",
-        "plataforma": "YouTube",
-        "posicion": "pro_fp / botlike",
-        "fecha_creacion": "2025-11 a 2026-04",
-        "seguidores": 4,
-        "contenido_tipico": "Anuncios políticos pro-FP con pauta pagada por Karamba. Millones de vistas pese a suscriptores mínimos. Canal dado de baja.",
-        "url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/"
-      },
-      {
-        "handle": "@ElMachetePeruYT",
-        "plataforma": "YouTube",
-        "posicion": "pro_fp / botlike",
-        "fecha_creacion": "2025-11 a 2026-04",
-        "seguidores": null,
-        "contenido_tipico": "Red Karamba: videos IA, ataques a candidatos izquierdistas. Canal dado de baja post-5-jun.",
-        "url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/"
-      },
-      {
-        "handle": "@SanchochauYT",
-        "plataforma": "YouTube",
-        "posicion": "pro_fp / botlike",
-        "fecha_creacion": "2025-11 a 2026-04",
-        "seguidores": 2530,
-        "contenido_tipico": "Parte de la red Karamba; ataques a Roberto Sánchez y contenido engañoso sobre forma de votar. Canal dado de baja.",
-        "url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/"
-      },
-      {
-        "handle": "@CheverePeYT",
-        "plataforma": "YouTube",
-        "posicion": "pro_fp / botlike",
-        "fecha_creacion": "2026-03",
-        "seguidores": 4,
-        "contenido_tipico": "Creado en marzo 2026; 4 suscriptores, 4 videos pero 1.5 millones de vistas acumuladas por pauta Karamba. Pico en silencio electoral 11-12 abr. Canal dado de baja.",
-        "url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/"
-      },
-      {
-        "handle": "@NotiCali",
-        "plataforma": "Instagram / X",
-        "posicion": "pro_fp / desinformador recurrente",
-        "fecha_creacion": "anterior a 2026",
-        "seguidores": null,
-        "contenido_tipico": "Publicó imagen falsa anunciando victoria oficial de Fujimori el 12-jun (00:04 GMT). Historial de contenido desinformador verificado por EFE Verifica.",
-        "url": "https://verifica.efe.com/anuncio-victoria-keiko-fujimori-peru/"
-      },
-      {
-        "handle": "@ByViral24",
-        "plataforma": "X / Twitter",
-        "posicion": "botlike / desinformador",
-        "fecha_creacion": "anterior a 2026",
-        "seguidores": null,
-        "contenido_tipico": "Amplificador de contenido falso; replicó publicaciones de NotiCali y falso comunicado del ELN. Señalado por EFE Verifica.",
-        "url": "https://verifica.efe.com/anuncio-victoria-keiko-fujimori-peru/"
-      },
-      {
-        "handle": "@victora86621867",
-        "plataforma": "X / Twitter",
-        "posicion": "botlike / desinformador",
-        "fecha_creacion": "anterior a 2026",
-        "seguidores": null,
-        "contenido_tipico": "Mayor difusor de desinformación monitoreado por JNE; probabilidad 30% de ser bot por auto-menciones y comportamiento automatizado. Señalado en informe JNE factchecking.",
-        "url": "https://factchecking.jne.gob.pe/img/publicaciones/5-guiaDesinformacionF_E_v_4.pdf"
-      },
-      {
-        "handle": "@TendenciaEnPeru",
-        "plataforma": "X / Twitter",
-        "posicion": "neutral / monitor",
-        "fecha_creacion": "anterior a 2024",
-        "seguidores": null,
-        "contenido_tipico": "Cuenta de monitoreo de tendencias en X Perú; documenta hashtags políticos y virales durante el proceso electoral.",
-        "url": "https://x.com/TendenciaEnPeru"
-      },
-      {
-        "handle": "@Ojo_Publico",
-        "plataforma": "X / Twitter / Instagram",
-        "posicion": "neutral / investigativo",
-        "fecha_creacion": "anterior a 2020",
-        "seguidores": null,
-        "contenido_tipico": "Medio investigativo; publicó investigación Karamba el 5-jun y amplificó verificaciones durante el conteo. Alta interacción post-segunda vuelta.",
-        "url": "https://ojo-publico.com/politica/elecciones-2026"
-      },
-      {
-        "handle": "@WaykaPe",
-        "plataforma": "X / Twitter / Web",
-        "posicion": "pro_sanchez / izquierda",
-        "fecha_creacion": "anterior a 2020",
-        "seguidores": null,
-        "contenido_tipico": "Análisis politológico crítico al 'fraudismo' de la derecha; cobertura de voces del sur ('invalidar el voto de las regiones del sur'); alta actividad 12-14 jun.",
-        "url": "https://wayka.pe/elecciones-2026-buscan-invalidar-el-voto-de-las-regiones-del-sur-como-si-no-tuviera-el-mismo-valor/"
-      },
-      {
-        "handle": "@IDLReporteros",
-        "plataforma": "X / Twitter / Web",
-        "posicion": "pro_sanchez (editorial) / investigativo",
-        "fecha_creacion": "anterior a 2015",
-        "seguidores": null,
-        "contenido_tipico": "Director Gustavo Gorriti calificó candidatura Sánchez como 'mal menor'; editorial pro-democracia. Alta interacción post-segunda vuelta.",
-        "url": "https://www.idl-reporteros.pe/el-dilema-peruano/"
-      },
-      {
-        "handle": "@PeruCheck",
-        "plataforma": "X / Twitter / Web",
-        "posicion": "neutral / verificador",
-        "fecha_creacion": "anterior a 2021",
-        "seguidores": null,
-        "contenido_tipico": "Verificaciones en tiempo real de la segunda vuelta; desmintió claim de 'siempre se gana por 10 puntos'. Alta actividad 10-14 jun 2026.",
-        "url": "https://perucheck.pe/articles/verificadas/2026/06/10/es-falso-que-siempre-se-haya-ganado-la-segunda-vuelta-presidencial-con-hasta-10-puntos-de-diferencia-645498"
-      },
-      {
-        "handle": "@AmaLullaRed",
-        "plataforma": "Facebook / Instagram / X",
-        "posicion": "neutral / verificador",
-        "fecha_creacion": "anterior a 2021",
-        "seguidores": null,
-        "contenido_tipico": "Red de verificación coordinada por OjoPúblico; activa durante la jornada electoral 7-jun con verificación de bulos en tiempo real.",
-        "url": "https://www.facebook.com/OjoPublico/videos/%EF%B8%8F-una-vez-m%C3%A1s-la-jornada-electoral-estuvo-marcada-por-la-desinformaci%C3%B3n-pero-en-/4233930970157349/"
-      },
-      {
-        "handle": "@BetoOrtizTV",
-        "plataforma": "YouTube / X / TV (Willax)",
-        "posicion": "pro_fp",
-        "fecha_creacion": "anterior a 2010",
-        "seguidores": null,
-        "contenido_tipico": "Conductor Willax; rechaza reconteo, apoya tesis FP de validez del conteo ONPE. Viral por insultos a zonas de alto ausentismo (10-jun).",
-        "url": "https://elpopular.pe/espectaculos/2026/06/10/elecciones-2026-beto-ortiz-y-periodista-augusto-thorndike-insultan-en-vivo-a-zonas-privilegiadas-por-ausentismo-anda-a-votar-pues-idiota-180340"
-      },
-      {
-        "handle": "@rmapalacios",
-        "plataforma": "X / Twitter",
-        "posicion": "neutral / anti_establishment",
-        "fecha_creacion": "anterior a 2018",
-        "seguidores": 3400000,
-        "contenido_tipico": "3.4M seguidores en X; creadora de #PorEstosNo (campaña anti-políticos tradicionales). Alta influencia en agenda digital del proceso electoral.",
-        "url": "https://elpais.com/america/2026-04-03/porestosno-la-campana-en-redes-que-alienta-a-castigar-en-las-urnas-a-los-politicos-peruanos.html"
-      },
-      {
         "nombre": "Conveagro Norte – Productores Agrarios Piura-Sechura",
         "plataforma": "Facebook / comunicados",
         "handle": null,
@@ -17911,53 +17998,6 @@
         "fuente_url": "https://nortesostenible.com/arroceros-de-piura-anuncian-movilizacion-para-el-23-de-junio-y-evaluan-nuevo-paro-por-incumplimiento-de-demandas/",
         "validacion_ronda": 3,
         "engagement_tier": "bajo"
-      },
-      {
-        "nombre": "Pachamama Radio",
-        "plataforma": "X / Instagram",
-        "handle": "@PachamamaRadio_",
-        "url": "https://x.com/PachamamaRadio_",
-        "descripcion": "X inactivo 17-19; reel IG convocatoria autoconvocatoria 22-jun Plaza San Martín.",
-        "posicion": "alternativo / pro-Sánchez",
-        "fuente_url": "https://www.instagram.com/reel/DZQNoG-pSIU/",
-        "validacion_ronda": 4,
-        "engagement_tier": "bajo",
-        "notas_r4": "Autoconvocatoria IG 22-jun no materializada (v3.9.5). X dormante."
-      },
-      {
-        "nombre": "UNAP Iquitos",
-        "plataforma": "X",
-        "handle": "@unapiquitos",
-        "url": "https://x.com/unapiquitos",
-        "descripcion": "Cuenta institucional dormante en ventana 17-19. Vínculo indirecto delegaciones oriente marcha Lima 19-jun.",
-        "posicion": "institucional",
-        "fuente_url": "https://elbuho.pe/2026/06/mas-de-7-mil-policias-restriccion-vehicular-amenazas-del-alcalde-de-lima-para-marcha-de-jp-en-defensa-del-voto/",
-        "validacion_ronda": 3,
-        "engagement_tier": "bajo"
-      },
-      {
-        "nombre": "RPP Noticias",
-        "plataforma": "X / YouTube / TV",
-        "handle": "@RPPNoticias",
-        "url": "https://x.com/RPPNoticias",
-        "descripcion": "Cobertura institucional en vivo marcha 19-jun y acampamento JNE.",
-        "posicion": "neutral / institucional",
-        "engagement_tier": "alto",
-        "mobilization_role": "institucional",
-        "validacion_ronda": 4,
-        "fuente_url": "https://rpp.pe/politica/elecciones/roberto-sanchez-salio-de-su-local-de-campana-en-el-inicio-de-marcha-convocada-por-juntos-por-el-peru-noticia-1693850"
-      },
-      {
-        "nombre": "Juntos por el Perú (oficial)",
-        "plataforma": "X",
-        "handle": "@JuntosPorElPer",
-        "url": "https://x.com/JuntosPorElPer",
-        "descripcion": "X inactivo 17–23 jun; convocatorias vía comunicado partidario.",
-        "posicion": "pro-Sánchez / JP",
-        "engagement_tier": "bajo",
-        "mobilization_role": "convocador",
-        "validacion_ronda": 4,
-        "fuente_url": "https://rpp.pe/politica/elecciones/roberto-sanchez-salio-de-su-local-de-campana-en-el-inicio-de-marcha-convocada-por-juntos-por-el-peru-noticia-1693850"
       }
     ],
     "transmisiones": [
@@ -18003,7 +18043,9 @@
       }
     ],
     "refresh_ronda": 4,
-    "refresh_notas": "Bulk refresh P0: 8 hashtags stale + 6 nuevos R4. Handles corregidos (@HCevallosFlores, @WaykaPeru, @rlopezaliaga1). Fuentes: RPP, Canal N, Norte Sostenible."
+    "refresh_notas": "Bulk refresh P0: 8 hashtags stale + 6 nuevos R4. Handles corregidos (@HCevallosFlores, @WaykaPeru, @rlopezaliaga1). Fuentes: RPP, Canal N, Norte Sostenible.",
+    "dedup_corte": "2026-06-24T10:00:00-05:00",
+    "dedup_removed": 3
   },
   "live_streams": [
     {
@@ -19860,7 +19902,7 @@
   "grassroots": {
     "meta": {
       "generated_at": "2026-06-23T20:00:00-05:00",
-      "version": "3.9.8",
+      "version": "3.9.9",
       "source_count": 8,
       "sources_used": [
         "regions/lima.json",
@@ -19875,7 +19917,8 @@
         "research/social/social_round4_jun23.md",
         "research/validation/piura_jun23_results.md"
       ],
-      "merge_corte": "2026-06-23T20:00:00-05:00"
+      "merge_corte": "2026-06-23T20:00:00-05:00",
+      "dedup_notas": "v3.9.9 cuentas sociales dedup 3 entradas"
     },
     "summary": "Al 23-jun PM (ONPE meseta 99,63 % / Fujimori +41.565), el eje grassroots combina: (1) marcha JP 19-jun ejecutada pacífica; (2) acampamento JNE ~80 carpas; (3) tensión arrocera Piura post-MIDAGRI sin confirmación terreno; (4) riesgo latente sur andino pre-proclamación. Montecarlo no recalculado — sin delta ONPE.",
     "national_events": [
@@ -27410,12 +27453,14 @@
       "nombre": "José María Balcázar",
       "cargo": "Presidente Interino del Perú (desde feb 2026, tras destitución de Dina Boluarte en 2025)",
       "org": "Poder Ejecutivo",
-      "declaracion_reciente": "7-jun: pidió respeto a resultados oficiales y respaldo a institucionalidad electoral.",
-      "fecha_declaracion": "2026-06-07",
+      "declaracion_reciente": "Contexto post-denuncia Procuraduría 19-jun; Sánchez rechazó criminalización convocantes.",
+      "fecha_declaracion": "2026-06-19",
       "side": "institucional",
       "fuente": "Infobae",
       "origen_v3514": true,
-      "verificado_osint": true
+      "verificado_osint": true,
+      "validacion_ronda": 4,
+      "fuente_url": "https://rpp.pe/politica/judiciales/procuraduria-denuncia-penalmente-a-antauro-humala-y-otras-ocho-personas-por-presunta-perturbacion-de-la-tranquilidad-publica-noticia-1693848"
     },
     {
       "nombre": "Óscar Arriola",
@@ -27471,23 +27516,26 @@
       "nombre": "Bernardo Pachas",
       "cargo": "Jefe interino de la ONPE (renunciará el 3-jul)",
       "org": "ONPE",
-      "declaracion_reciente": "7-jun: 'esperar 100% de resultados para tener cierre de fiesta democrática'.",
-      "fecha_declaracion": "2026-06-07",
+      "declaracion_reciente": "ONPE meseta 99,63 % / +41.565 al 24-jun; sin delta indexado.",
+      "fecha_declaracion": "2026-06-24",
       "side": "institucional",
       "fuente": "La República",
       "origen_v3514": true,
-      "verificado_osint": true
+      "verificado_osint": true,
+      "validacion_ronda": 4
     },
     {
       "nombre": "Roberto Burneo Bermejo",
       "cargo": "Presidente del Jurado Nacional de Elecciones (JNE) — desde nov 2024 (reemplazó a Jorge Salas Arenas)",
       "org": "JNE",
-      "declaracion_reciente": "17-may: 'voluntad ciudadana se ha respetado con absoluta transparencia'.",
-      "fecha_declaracion": "2026-05-17",
+      "declaracion_reciente": "Pleno dejó al voto apelación nulidad 2.408 actas (19-jun); resolución pleno no publicada al 24-jun. JEE previo improcedente Lima+EE.UU.",
+      "fecha_declaracion": "2026-06-24",
       "side": "institucional",
       "fuente": "Infobae",
       "origen_v3514": true,
-      "verificado_osint": true
+      "verificado_osint": true,
+      "validacion_ronda": 4,
+      "fuente_url": "https://canaln.pe/actualidad/jne-improcedente-nulidad-juntos-peru-mesas-extranjero-n492715"
     },
     {
       "nombre": "Grecia Rentería",
@@ -27497,6 +27545,30 @@
       "fecha_declaracion": "2026-06-12",
       "side": "institucional",
       "origen_v3514": true,
+      "verificado_osint": true
+    },
+    {
+      "nombre": "Roy Mendoza",
+      "cargo": "Abogado de Juntos por el Perú",
+      "org": "JP",
+      "declaracion_reciente": "Sustentó 19-jun nulidad 2.408 actas; claim 583 patrones anómalos (argumento legal, no ONPE).",
+      "fecha_declaracion": "2026-06-19",
+      "side": "pro-Sánchez",
+      "fuente": "RPP",
+      "fuente_url": "https://rpp.pe/politica/elecciones/juntos-por-el-peru-sustenta-pedido-de-nulidad-de-mas-de-2-400-actas-y-dice-que-encontraron-583-patrones-anomalos-noticia-1693777",
+      "validacion_ronda": 4,
+      "verificado_osint": true
+    },
+    {
+      "nombre": "Máximo Valdiviezo",
+      "cargo": "Presidente Conveagro / vocero arrocero Piura",
+      "org": "Conveagro",
+      "declaracion_reciente": "23-jun: mantiene protesta pese a lineamientos MIDAGRI; movilización terreno no confirmada al corte.",
+      "fecha_declaracion": "2026-06-23",
+      "side": "gremial",
+      "fuente": "Norte Sostenible",
+      "fuente_url": "https://nortesostenible.com/midagri-aprueba-lineamientos-para-compra-de-arroz-pero-productores-de-piura-mantienen-protesta/",
+      "validacion_ronda": 4,
       "verificado_osint": true
     }
   ],
@@ -28009,7 +28081,23 @@
         "motivo": "falta_tasa_y_prueba_material",
         "fuente": "https://canaln.pe/actualidad/jne-improcedente-nulidad-juntos-peru-mesas-extranjero-n492715"
       },
-      "pleno_resolucion_23jun": "no_publicada"
+      "pleno_resolucion_23jun": "no_publicada",
+      "pleno_resolucion_24jun": "no_publicada",
+      "jee_resoluciones": {
+        "eeuu_647": {
+          "resolucion": "09494-2026-JEE-LIC2/JNE",
+          "fecha": "2026-06-11",
+          "resultado": "improcedente",
+          "motivo": "falta_tasa_y_prueba_material",
+          "fuente": "https://canaln.pe/actualidad/jne-improcedente-nulidad-juntos-peru-mesas-extranjero-n492715"
+        },
+        "lima_1751": {
+          "resultado": "improcedente",
+          "motivo": "falta_tasa_y_prueba_material",
+          "fuente": "https://canaln.pe/actualidad/jee-lima-centro-1-declara-improcedente-pedido-juntos-peru-anular-mas-1751-mesas-lima-n492711"
+        }
+      },
+      "nota_24jun": "JEE improcedente documentado; apelación pleno sin resolución publicada al 24-jun 10:00."
     },
     "onpe_plateau": {
       "desde": "2026-06-19T20:43:00-05:00",
@@ -28022,7 +28110,7 @@
   "prediccion_7dias": {
     "fecha_inicio": "2026-06-19",
     "fecha_fin": "2026-06-26",
-    "nota_metodologica": "v3.9.6 Piura 23-jun: terreno no confirmado; tensión gremial activa post-lineamientos MIDAGRI; El Trébol libre; JNE pleno nulidad pendiente; ONPE meseta.",
+    "nota_metodologica": "v3.9.9 24-jun: JNE pleno nulidad pendiente; Piura terreno no confirmado; ONPE meseta; montecarlo omitido.",
     "lima": {
       "eventos_esperados": 5,
       "prob_manifestacion_significativa": 0.45,
@@ -28443,9 +28531,9 @@
           "Norte Sostenible",
           "SUTRAN"
         ],
-        "resultado": "23-jun PM: sin cobertura terreno indexada (Walac/SUTRAN). MIDAGRI lineamientos aprobados; gremio mantiene protesta. El Trébol sin bloqueo indexado.",
+        "resultado": "24-jun AM: sin confirmación terreno adicional. Tensión gremial activa; El Trébol libre.",
         "fuente_url": "https://nortesostenible.com/midagri-aprueba-lineamientos-para-compra-de-arroz-pero-productores-de-piura-mantienen-protesta/",
-        "verificado": "2026-06-23T18:00:00-05:00"
+        "verificado": "2026-06-24T10:00:00-05:00"
       },
       {
         "id": "VG-R4-02",
@@ -28457,8 +28545,8 @@
           "jne.gob.pe",
           "RPP"
         ],
-        "resultado": "Pleno JNE: resolución apelación 2.408 actas no publicada al 23-jun 18:00. JEE previo: improcedente 647 EE.UU. + 1.751 Lima (falta tasa/prueba).",
-        "verificado": "2026-06-23T18:00:00-05:00",
+        "resultado": "JEE improcedente 647 EE.UU. + 1.751 Lima documentado. Pleno apelación sin resolución al 24-jun 10:00.",
+        "verificado": "2026-06-24T10:00:00-05:00",
         "fuente_url": "https://canaln.pe/actualidad/jne-improcedente-nulidad-juntos-peru-mesas-extranjero-n492715"
       },
       {

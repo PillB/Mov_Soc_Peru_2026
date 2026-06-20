@@ -643,9 +643,9 @@ function section(title) {
   }
   ok('no quedan fechas malformadas tipo YYYY-MM-DDT<garbage>', weirdDates === 0, `n=${weirdDates} samples=${JSON.stringify(weirdSamples)}`);
 
-  section('N21. v3.9.8 — meta.version = 3.9.8');
+  section('N21. v3.9.9 — meta.version = 3.9.9');
   const metaVersion = data_v357.meta && data_v357.meta.version;
-  ok('meta.version es 3.9.8', metaVersion === '3.9.8', `got=${metaVersion}`);
+  ok('meta.version es 3.9.9', metaVersion === '3.9.9', `got=${metaVersion}`);
 
   section('N22. v3.5.8 — gazetteer expone CORRIDORS con polylines de avenidas reales');
   const corridorsInfo = await page.evaluate(() => {
@@ -924,8 +924,8 @@ function section(title) {
     const navOrder = [...document.querySelectorAll('#primaryNav a')].map(a => a.getAttribute('href'));
     return { title, brandTitle, fmlValues, valueDisplay, icBounds, navOrder };
   });
-  ok('brand title actualizado a v3.9.8', /v3\.9\.8/.test(v361Check.brandTitle || ''), v361Check.brandTitle);
-  ok('document.title actualizado a v3.9.8', /v3\.9\.8/.test(v361Check.title), v361Check.title);
+  ok('brand title actualizado a v3.9.9', /v3\.9\.9/.test(v361Check.brandTitle || ''), v361Check.brandTitle);
+  ok('document.title actualizado a v3.9.9', /v3\.9\.9/.test(v361Check.title), v361Check.title);
   ok('fml-kpi-value renderiza como block', v361Check.valueDisplay === 'block', `display=${v361Check.valueDisplay}`);
   const hasEsThousands = (v361Check.fmlValues.find(v => /\d{1,3}\.\d{3}/.test(v)) || '');
   ok('formato es-PE con punto en miles (ej: +1.886)', /\d{1,3}\.\d{3}/.test(hasEsThousands), hasEsThousands || JSON.stringify(v361Check.fmlValues));
@@ -1028,7 +1028,7 @@ function section(title) {
   ok('#post-margin refleja margen ≥41.500', /41\.5\d{2}|41\.565/.test(editorialCheck.postMargin), editorialCheck.postMargin);
   ok('#fml-deck refleja proyección ≥44.000', /44\.8\d{2}|44\.800/.test(editorialCheck.fmlDeck), editorialCheck.fmlDeck);
   ok('#rev-ventaja-sub refleja 99,63 % escrutado', /99,63/.test(editorialCheck.revVentajaSub), editorialCheck.revVentajaSub);
-  ok('#footer-about actualizado a v3.9.8', /v3\.9\.8/.test(editorialCheck.footerAbout) && !/v3\.1/.test(editorialCheck.footerAbout), editorialCheck.footerAbout.slice(0, 80));
+  ok('#footer-about actualizado a v3.9.9', /v3\.9\.9/.test(editorialCheck.footerAbout) && !/v3\.1/.test(editorialCheck.footerAbout), editorialCheck.footerAbout.slice(0, 80));
   ok('#val-lectura tiene 4 bullets dinámicos', editorialCheck.valLectura === 4, `n=${editorialCheck.valLectura}`);
   ok('meta description incluye margen actualizado', /41\.565|41\.5/.test(editorialCheck.metaDesc), editorialCheck.metaDesc.slice(0, 100));
   const revH2Live = await page.evaluate(() => document.getElementById('rev-section-h2')?.textContent.trim() || '');
@@ -1071,7 +1071,7 @@ function section(title) {
     ok(`${vp.name}: validacion-deck poblado`, vpCheck.valDeck.ok === true, vpCheck.valDeck.text);
     ok(`${vp.name}: val-mercados-desc poblado`, vpCheck.mercDesc.ok === true, vpCheck.mercDesc.text);
     ok(`${vp.name}: alert-headline poblado`, vpCheck.alertHead.length > 20, vpCheck.alertHead.slice(0, 50));
-    ok(`${vp.name}: meta-version 3.9.8`, vpCheck.metaVer === '3.9.8', vpCheck.metaVer);
+    ok(`${vp.name}: meta-version 3.9.9`, vpCheck.metaVer === '3.9.9', vpCheck.metaVer);
     ok(`${vp.name}: P(Fuj mantiene) en tabla`, /mantiene/i.test(vpCheck.thProb), vpCheck.thProb);
     ok(`${vp.name}: BLUF ≥6 KPIs`, vpCheck.blufKpis >= 6, `n=${vpCheck.blufKpis}`);
     ok(`${vp.name}: sin Invalid Date / [object Object]`, vpCheck.renderErrors === 0, `hits=${vpCheck.renderErrors}`);
@@ -1106,13 +1106,13 @@ function section(title) {
 
   section('N57. v3.9.3 — Round 3 per-entity + pre-22-jun');
   const p7r3 = data_v357.prediccion_7dias || {};
-  ok('prediccion_7dias nota Round 3+', /v3\.9\.[34567]|Round [345]/i.test(p7r3.nota_metodologica || ''), p7r3.nota_metodologica);
+  ok('prediccion_7dias nota Round 3+', /v3\.9\.[3456789]|Round [345]/i.test(p7r3.nota_metodologica || ''), p7r3.nota_metodologica);
   ok('norte prob_bloqueo_panamericana ≥ 0,55', (p7r3.norte || {}).prob_bloqueo_panamericana_norte >= 0.55, String((p7r3.norte || {}).prob_bloqueo_panamericana_norte));
   const norteCf = (data_v357.regions?.norte?.convocatorias_futuras || []).find(c => c.id === 'NORTE-PARO-023');
   ok('NORTE-PARO-023 prob realizacion ≥ 0,85', (norteCf?.probabilidad_realizacion || 0) >= 0.85, String(norteCf?.probabilidad_realizacion));
   ok('NORTE-PARO-023 magnitud M', norteCf?.magnitud_codigo === 'M', norteCf?.magnitud_codigo);
   const si393 = data_v357.social_intelligence || {};
-  ok('social_intelligence fecha_corte actualizado', /2026-06-(19|22|23)/.test(si393.fecha_corte || ''), si393.fecha_corte);
+  ok('social_intelligence fecha_corte actualizado', /2026-06-(19|22|23|24)/.test(si393.fecha_corte || ''), si393.fecha_corte);
   ok('social_intelligence refresh_ronda 4', si393.refresh_ronda === 4, String(si393.refresh_ronda));
   const aguaTag = (si393.hashtags || []).find(h => h.hashtag === '#AguaSiMinaNo');
   ok('#AguaSiMinaNo round 3 presente', !!aguaTag && aguaTag.validacion_ronda === 3, aguaTag?.hashtag);
@@ -1131,7 +1131,7 @@ function section(title) {
   const vgP0 = (vg4.gaps || []).filter(g => g.prioridad === 'P0');
   ok('verification_gaps_r4 ≥3 P0', vgP0.length >= 3, String(vgP0.length));
   const p7r4 = data_v357.prediccion_7dias || {};
-  ok('prediccion_7dias nota v3.9.4+ Round 4', /v3\.9\.[456]|Round 4/i.test(p7r4.nota_metodologica || ''), p7r4.nota_metodologica);
+  ok('prediccion_7dias nota v3.9.4+ Round 4', /v3\.9\.[456789]|Round 4/i.test(p7r4.nota_metodologica || ''), p7r4.nota_metodologica);
   const limaAuto = (data_v357.regions?.lima?.convocatorias_futuras || []).find(c => c.id === 'LIMA-AUTO-22JUN');
   ok('LIMA-AUTO-22JUN mml_fuente_url El Peruano', /elperuano\.pe/.test(limaAuto?.mml_fuente_url || ''), limaAuto?.mml_fuente_url);
   const nortePiura = (data_v357.regions?.norte?.convocatorias_futuras || []).find(c => c.id === 'NORTE-PARO-023');
@@ -1153,13 +1153,13 @@ function section(title) {
   ok('LIMA-AUTO-22JUN no_realizada', limaAuto59?.estado === 'no_realizada', limaAuto59?.estado);
   ok('LIMA-AUTO-22JUN es_pasado', limaAuto59?.es_pasado === true, String(limaAuto59?.es_pasado));
   const p7r5 = data_v357.prediccion_7dias || {};
-  ok('prediccion_7dias nota v3.9.5+ Round 4', /v3\.9\.[567]|Round 4/i.test(p7r5.nota_metodologica || ''), p7r5.nota_metodologica);
+  ok('prediccion_7dias nota v3.9.5+ Round 4', /v3\.9\.[56789]|Round 4/i.test(p7r5.nota_metodologica || ''), p7r5.nota_metodologica);
   const vg03 = (vg5.gaps || []).find(g => g.id === 'VG-R4-03');
   ok('VG-R4-03 MML cerrado programático', /cerrado_programatico|expiró|expiro/i.test(vg03?.estado || '') || /expiró|00:00/i.test(vg03?.resultado || ''), vg03?.resultado?.slice(0, 60));
   const vg04 = (vg5.gaps || []).find(g => g.id === 'VG-R4-04');
   ok('VG-R4-04 autoconv no materializada', /no_materializada|no materializada/i.test(vg04?.estado || vg04?.resultado || ''), vg04?.estado);
   const norte59 = (data_v357.regions?.norte?.convocatorias_futuras || []).find(c => c.id === 'NORTE-PARO-023');
-  ok('NORTE-PARO-023 next_check vigente', /2026-06-2[34]/.test(norte59?.next_check || ''), norte59?.next_check);
+  ok('NORTE-PARO-023 next_check vigente', /2026-06-2[345]/.test(norte59?.next_check || ''), norte59?.next_check);
 
   section('N60. v3.9.6 — Piura 23-jun terreno pass');
   const paro023 = (data_v357.regions?.norte?.convocatorias_futuras || []).find(c => c.id === 'NORTE-PARO-023');
@@ -1167,7 +1167,7 @@ function section(title) {
   const vg01 = (vg5.gaps || []).find(g => g.id === 'VG-R4-01');
   ok('VG-R4-01 estado no_confirmado_terreno', /no_confirmado_terreno/i.test(vg01?.estado || ''), vg01?.estado);
   const p7r6 = data_v357.prediccion_7dias || {};
-  ok('prediccion_7dias nota v3.9.6 Piura 23-jun', /v3\.9\.6|Piura 23-jun/i.test(p7r6.nota_metodologica || ''), p7r6.nota_metodologica);
+  ok('prediccion_7dias nota v3.9.6+ Piura', /v3\.9\.[69]|Piura/i.test(p7r6.nota_metodologica || ''), p7r6.nota_metodologica);
   const jne2408 = data_v357.escrutinio_realtime?.jne_nulidad_2408 || {};
   ok('jne_nulidad_2408 pleno_resolucion_23jun no_publicada', jne2408.pleno_resolucion_23jun === 'no_publicada', jne2408.pleno_resolucion_23jun);
   const ew20r6 = (data_v357.early_warning_indicators || []).find(e => e.id === 'EW-20');
@@ -1220,7 +1220,7 @@ function section(title) {
   const rm13b = rm62.find(r => r.id === 'RM-13');
   ok('RM-13 historico', rm13b?.estado === 'historico', rm13b?.estado);
   const grass62 = data_v357.grassroots || {};
-  ok('grassroots.meta.version 3.9.8', grass62.meta?.version === '3.9.8', grass62.meta?.version);
+  ok('grassroots.meta.version 3.9.8 o 3.9.9', ['3.9.8', '3.9.9'].includes(grass62.meta?.version), grass62.meta?.version);
   const ne62 = grass62.national_events || [];
   ok('national_events MARCHA-JP-19JUN', ne62.some(e => e.id === 'MARCHA-JP-19JUN'), String(ne62.length));
   ok('national_events PIURA-ARROCERA-23JUN', ne62.some(e => e.id === 'PIURA-ARROCERA-23JUN'), String(ne62.length));
@@ -1229,6 +1229,29 @@ function section(title) {
   ok('sin @HCevallos stale en grassroots', !nacAcc.some(a => a.handle === '@HCevallos'), String(nacAcc.filter(a => a.handle === '@HCevallos').length));
   ok('lima next_72h post-MML', /post-MML|22-jun|meseta/i.test((grass62.by_region || {}).lima?.next_72h_outlook || ''), (grass62.by_region || {}).lima?.next_72h_outlook?.slice(0, 50));
   ok('summary menciona montecarlo omitido o meseta', /montecarlo|meseta|99,63/i.test(grass62.summary || ''), grass62.summary?.slice(0, 60));
+
+  section('N63. v3.9.9 — JNE 24-jun + Piura AM + cuentas dedup + actores R4 (sin montecarlo)');
+  const jne63 = (data_v357.escrutinio_realtime || {}).jne_nulidad_2408 || {};
+  ok('jne pleno_resolucion_24jun no_publicada', jne63.pleno_resolucion_24jun === 'no_publicada', jne63.pleno_resolucion_24jun);
+  const jee63 = jne63.jee_resoluciones || {};
+  ok('jee_resoluciones eeuu_647 presente', !!jee63.eeuu_647 && jee63.eeuu_647.resultado === 'improcedente', JSON.stringify(jee63.eeuu_647));
+  ok('jee_resoluciones lima_1751 presente', !!jee63.lima_1751 && jee63.lima_1751.resultado === 'improcedente', JSON.stringify(jee63.lima_1751));
+  const norte63 = (data_v357.regions || {}).norte || {};
+  const piura23 = (norte63.convocatorias_futuras || []).find(c => c.id === 'NORTE-PARO-023');
+  ok('NORTE-PARO-023 verificacion_terreno_24jun no_confirmado', piura23?.verificacion_terreno_24jun === 'no_confirmado', piura23?.verificacion_terreno_24jun);
+  const si63 = data_v357.social_intelligence || {};
+  ok('social_intelligence dedup_removed ≥3', (si63.dedup_removed || 0) >= 3, String(si63.dedup_removed));
+  const cuentas63 = si63.cuentas_emergentes || [];
+  const waykaDup = cuentas63.filter(c => c.handle === '@WaykaPeru');
+  ok('sin duplicado @WaykaPeru en cuentas', waykaDup.length === 1, `n=${waykaDup.length}`);
+  const actores63 = data_v357.actores_nacionales || [];
+  const roy = actores63.find(a => a.nombre === 'Roy Mendoza');
+  const maximo = actores63.find(a => a.nombre === 'Máximo Valdiviezo');
+  ok('Roy Mendoza R4 presente', roy?.validacion_ronda === 4, String(roy?.validacion_ronda));
+  ok('Máximo Valdiviezo R4 presente', maximo?.validacion_ronda === 4, String(maximo?.validacion_ronda));
+  const p763 = data_v357.prediccion_7dias || {};
+  ok('prediccion_7dias nota v3.9.9', /v3\.9\.9/i.test(p763.nota_metodologica || ''), (p763.nota_metodologica || '').slice(0, 60));
+  ok('grassroots.meta.version 3.9.9', (data_v357.grassroots || {}).meta?.version === '3.9.9', (data_v357.grassroots || {}).meta?.version);
 
   section('N54. magnitude methodology subsite link');
   const subsiteCheck = await page.evaluate(() => {
