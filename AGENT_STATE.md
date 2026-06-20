@@ -15,7 +15,8 @@
 - 001–021 | v3.9.0–v3.9.3 Round 3 + deploy bdf27c8 | 292 tests | Success
 - 022 | research/validation/round4_jun22.md + mega_prompt_gap_matrix.md | Success
 - 023 | update_v394.py: verification_gaps_r4, MML El Peruano, Piura Plus, RM-01/03/04 | Success
-- 024 | tests N58 + version 3.9.4 → pending | In progress
+- 024 | tests N58 + version 3.9.4 → 300/300 pass | build 1.984 MB | Success
+- 025 | git push 77bc375 + live verify | pending
 
 ## 🧠 Retrospective & Post-Mortem Notes
 - MML restricción confirmada oficial El Peruano 19-jun (Res. D002556-2026)
