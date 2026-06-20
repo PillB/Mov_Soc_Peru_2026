@@ -643,9 +643,9 @@ function section(title) {
   }
   ok('no quedan fechas malformadas tipo YYYY-MM-DDT<garbage>', weirdDates === 0, `n=${weirdDates} samples=${JSON.stringify(weirdSamples)}`);
 
-  section('N21. v3.9.6 — meta.version = 3.9.6');
+  section('N21. v3.9.7 — meta.version = 3.9.7');
   const metaVersion = data_v357.meta && data_v357.meta.version;
-  ok('meta.version es 3.9.6', metaVersion === '3.9.6', `got=${metaVersion}`);
+  ok('meta.version es 3.9.7', metaVersion === '3.9.7', `got=${metaVersion}`);
 
   section('N22. v3.5.8 — gazetteer expone CORRIDORS con polylines de avenidas reales');
   const corridorsInfo = await page.evaluate(() => {
@@ -924,8 +924,8 @@ function section(title) {
     const navOrder = [...document.querySelectorAll('#primaryNav a')].map(a => a.getAttribute('href'));
     return { title, brandTitle, fmlValues, valueDisplay, icBounds, navOrder };
   });
-  ok('brand title actualizado a v3.9.6', /v3\.9\.6/.test(v361Check.brandTitle || ''), v361Check.brandTitle);
-  ok('document.title actualizado a v3.9.6', /v3\.9\.6/.test(v361Check.title), v361Check.title);
+  ok('brand title actualizado a v3.9.7', /v3\.9\.7/.test(v361Check.brandTitle || ''), v361Check.brandTitle);
+  ok('document.title actualizado a v3.9.7', /v3\.9\.7/.test(v361Check.title), v361Check.title);
   ok('fml-kpi-value renderiza como block', v361Check.valueDisplay === 'block', `display=${v361Check.valueDisplay}`);
   const hasEsThousands = (v361Check.fmlValues.find(v => /\d{1,3}\.\d{3}/.test(v)) || '');
   ok('formato es-PE con punto en miles (ej: +1.886)', /\d{1,3}\.\d{3}/.test(hasEsThousands), hasEsThousands || JSON.stringify(v361Check.fmlValues));
@@ -1028,7 +1028,7 @@ function section(title) {
   ok('#post-margin refleja margen ≥41.500', /41\.5\d{2}|41\.565/.test(editorialCheck.postMargin), editorialCheck.postMargin);
   ok('#fml-deck refleja proyección ≥44.000', /44\.8\d{2}|44\.800/.test(editorialCheck.fmlDeck), editorialCheck.fmlDeck);
   ok('#rev-ventaja-sub refleja 99,63 % escrutado', /99,63/.test(editorialCheck.revVentajaSub), editorialCheck.revVentajaSub);
-  ok('#footer-about actualizado a v3.9.6', /v3\.9\.6/.test(editorialCheck.footerAbout) && !/v3\.1/.test(editorialCheck.footerAbout), editorialCheck.footerAbout.slice(0, 80));
+  ok('#footer-about actualizado a v3.9.7', /v3\.9\.7/.test(editorialCheck.footerAbout) && !/v3\.1/.test(editorialCheck.footerAbout), editorialCheck.footerAbout.slice(0, 80));
   ok('#val-lectura tiene 4 bullets dinámicos', editorialCheck.valLectura === 4, `n=${editorialCheck.valLectura}`);
   ok('meta description incluye margen actualizado', /41\.565|41\.5/.test(editorialCheck.metaDesc), editorialCheck.metaDesc.slice(0, 100));
   const revH2Live = await page.evaluate(() => document.getElementById('rev-section-h2')?.textContent.trim() || '');
@@ -1071,7 +1071,7 @@ function section(title) {
     ok(`${vp.name}: validacion-deck poblado`, vpCheck.valDeck.ok === true, vpCheck.valDeck.text);
     ok(`${vp.name}: val-mercados-desc poblado`, vpCheck.mercDesc.ok === true, vpCheck.mercDesc.text);
     ok(`${vp.name}: alert-headline poblado`, vpCheck.alertHead.length > 20, vpCheck.alertHead.slice(0, 50));
-    ok(`${vp.name}: meta-version 3.9.6`, vpCheck.metaVer === '3.9.6', vpCheck.metaVer);
+    ok(`${vp.name}: meta-version 3.9.7`, vpCheck.metaVer === '3.9.7', vpCheck.metaVer);
     ok(`${vp.name}: P(Fuj mantiene) en tabla`, /mantiene/i.test(vpCheck.thProb), vpCheck.thProb);
     ok(`${vp.name}: BLUF ≥6 KPIs`, vpCheck.blufKpis >= 6, `n=${vpCheck.blufKpis}`);
     ok(`${vp.name}: sin Invalid Date / [object Object]`, vpCheck.renderErrors === 0, `hits=${vpCheck.renderErrors}`);
@@ -1106,17 +1106,18 @@ function section(title) {
 
   section('N57. v3.9.3 — Round 3 per-entity + pre-22-jun');
   const p7r3 = data_v357.prediccion_7dias || {};
-  ok('prediccion_7dias nota Round 3+', /v3\.9\.[3456]|Round [345]/i.test(p7r3.nota_metodologica || ''), p7r3.nota_metodologica);
+  ok('prediccion_7dias nota Round 3+', /v3\.9\.[34567]|Round [345]/i.test(p7r3.nota_metodologica || ''), p7r3.nota_metodologica);
   ok('norte prob_bloqueo_panamericana ≥ 0,55', (p7r3.norte || {}).prob_bloqueo_panamericana_norte >= 0.55, String((p7r3.norte || {}).prob_bloqueo_panamericana_norte));
   const norteCf = (data_v357.regions?.norte?.convocatorias_futuras || []).find(c => c.id === 'NORTE-PARO-023');
   ok('NORTE-PARO-023 prob realizacion ≥ 0,85', (norteCf?.probabilidad_realizacion || 0) >= 0.85, String(norteCf?.probabilidad_realizacion));
   ok('NORTE-PARO-023 magnitud M', norteCf?.magnitud_codigo === 'M', norteCf?.magnitud_codigo);
   const si393 = data_v357.social_intelligence || {};
   ok('social_intelligence fecha_corte actualizado', /2026-06-(19|22|23)/.test(si393.fecha_corte || ''), si393.fecha_corte);
+  ok('social_intelligence refresh_ronda 4', si393.refresh_ronda === 4, String(si393.refresh_ronda));
   const aguaTag = (si393.hashtags || []).find(h => h.hashtag === '#AguaSiMinaNo');
   ok('#AguaSiMinaNo round 3 presente', !!aguaTag && aguaTag.validacion_ronda === 3, aguaTag?.hashtag);
   const pachama = (si393.cuentas_emergentes || []).find(c => c.handle === '@PachamamaRadio_');
-  ok('@PachamamaRadio_ round 3 presente', !!pachama && pachama.validacion_ronda === 3, pachama?.handle);
+  ok('@PachamamaRadio_ round 3+ presente', !!pachama && pachama.validacion_ronda >= 3, String(pachama?.validacion_ronda));
   const rm27r3 = (data_v357.risk_matrix || []).find(r => r.id === 'RM-27');
   ok('RM-27 menciona dejó al voto', /dejó al voto|dejo al voto/i.test(rm27r3?.scenario || ''), rm27r3?.scenario?.slice(0, 60));
   const rutasPiura = (data_v357.rutas_recurrentes_v370 || []).some(r => /El Trébol|Trebol/i.test(r.descripcion || ''));
@@ -1152,7 +1153,7 @@ function section(title) {
   ok('LIMA-AUTO-22JUN no_realizada', limaAuto59?.estado === 'no_realizada', limaAuto59?.estado);
   ok('LIMA-AUTO-22JUN es_pasado', limaAuto59?.es_pasado === true, String(limaAuto59?.es_pasado));
   const p7r5 = data_v357.prediccion_7dias || {};
-  ok('prediccion_7dias nota v3.9.5+ Round 4', /v3\.9\.[56]|Round 4/i.test(p7r5.nota_metodologica || ''), p7r5.nota_metodologica);
+  ok('prediccion_7dias nota v3.9.5+ Round 4', /v3\.9\.[567]|Round 4/i.test(p7r5.nota_metodologica || ''), p7r5.nota_metodologica);
   const vg03 = (vg5.gaps || []).find(g => g.id === 'VG-R4-03');
   ok('VG-R4-03 MML cerrado programático', /cerrado_programatico|expiró|expiro/i.test(vg03?.estado || '') || /expiró|00:00/i.test(vg03?.resultado || ''), vg03?.resultado?.slice(0, 60));
   const vg04 = (vg5.gaps || []).find(g => g.id === 'VG-R4-04');
@@ -1177,6 +1178,34 @@ function section(title) {
   ok('VG-R4-07 El Trébol transitable', /transitable/i.test(vg07?.estado || vg07?.resultado || ''), vg07?.estado);
   ok('NORTE-PARO-023 bloqueo_trebol_23jun false', paro023?.bloqueo_trebol_23jun === false, String(paro023?.bloqueo_trebol_23jun));
   ok('norte prob_bloqueo_panamericana 0,55 post-23jun', (p7r6.norte || {}).prob_bloqueo_panamericana_norte === 0.55, String((p7r6.norte || {}).prob_bloqueo_panamericana_norte));
+
+  section('N61. v3.9.7 — Round 4 social + alt_media refresh');
+  const si61 = data_v357.social_intelligence || {};
+  const tags61 = si61.hashtags || [];
+  const r4tags = tags61.filter(h => h.validacion_ronda === 4);
+  ok('hashtags validacion_ronda 4 ≥10', r4tags.length >= 10, String(r4tags.length));
+  const toma = tags61.find(h => (h.hashtag || h.tag) === '#TomaDeLima');
+  ok('#TomaDeLima sin volumen stale ~85k', !/~85\.?000|~85k/i.test(toma?.volumen_estimado || ''), toma?.volumen_estimado?.slice(0, 60));
+  ok('#TomaDeLima estado_volumen decay', toma?.estado_volumen === 'decay', toma?.estado_volumen);
+  const marcha = tags61.find(h => (h.hashtag || h.tag) === '#MarchaEnDefensaDeLaDemocracia');
+  ok('#MarchaEnDefensaDeLaDemocracia R4 alto', marcha?.validacion_ronda === 4 && /alto/i.test(marcha?.volumen_estimado || ''), marcha?.volumen_estimado);
+  const crim = tags61.find(h => (h.hashtag || h.tag) === '#CriminalizaciónDeLaProtesta');
+  ok('#CriminalizaciónDeLaProtesta R4 con fuente RPP', crim?.validacion_ronda === 4 && /rpp\.pe/i.test(crim?.fuente_url || ''), crim?.fuente_url);
+  const cuentas61 = si61.cuentas_emergentes || [];
+  const roberto = cuentas61.find(c => c.handle === '@RobertoSanchP');
+  ok('@RobertoSanchP engagement_tier alto R4', roberto?.engagement_tier === 'alto' && roberto?.validacion_ronda === 4, roberto?.engagement_tier);
+  const rpp = cuentas61.find(c => c.handle === '@RPPNoticias');
+  ok('@RPPNoticias presente R4', !!rpp && rpp.validacion_ronda === 4, rpp?.handle);
+  const badHandles = cuentas61.filter(c => ['@HCevallosF', '@lopezaliaga', '@waykaperu / @wayka.pe', '@rlopezaliaga1R'].includes(c.handle || ''));
+  ok('handles erróneos corregidos (0 stale)', badHandles.length === 0, JSON.stringify(badHandles.map(c => c.handle)));
+  const alt61 = data_v357.alt_media || [];
+  const waykaAlt = alt61.find(a => a.name === 'Wayka' || a.medio === 'Wayka.pe');
+  ok('alt_media Wayka validacion_ronda 4', waykaAlt?.validacion_ronda === 4, String(waykaAlt?.validacion_ronda));
+  const trends61 = data_v357.alt_media_trends || [];
+  const crimTrend = trends61.find(t => /Criminalización|Criminalizacion/i.test(t.trend || ''));
+  ok('alt_media_trends criminalización presente', !!crimTrend, crimTrend?.trend?.slice(0, 50));
+  const jneTrend = trends61.find(t => /nulidad.*2\.408|2408/i.test(t.trend || t.description || ''));
+  ok('alt_media_trends JNE nulidad pendiente', !!jneTrend, jneTrend?.trend?.slice(0, 50));
 
   section('N54. magnitude methodology subsite link');
   const subsiteCheck = await page.evaluate(() => {
