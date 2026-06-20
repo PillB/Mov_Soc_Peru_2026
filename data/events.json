@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "3.9.3",
+    "version": "3.9.4",
     "generated_at": "2026-06-19T20:43:00-05:00",
     "scope": "Manifestaciones, marchas y eventos de acumulación de personas — Perú + Capa de inteligencia social y medios alternativos",
     "window": "19–26 junio 2026 (post-2da vuelta · corte 99,63% escrutado · margen 41.565 votos)",
@@ -28,7 +28,7 @@
         "url": "https://defensoria.gob.pe"
       }
     ],
-    "last_update": "2026-06-19T21:00:00-05:00",
+    "last_update": "2026-06-19T23:30:00-05:00",
     "expansion": "v3.1 — Capa grassroots por región: 89 cuentas individuales (autoridades locales, dirigentes, activistas), 67 colectivos/frentes, 87 lives identificados, 60 hashtags verificados, 55 rutas/bloqueos documentados, 17 comunicados oficiales nacionales. Investigación paralela en 6 frentes (Lima/Norte/Centro/Sur/Oriente/Nacional).",
     "grassroots_stats": {
       "accounts": 89,
@@ -38,8 +38,8 @@
       "routes": 55,
       "comunicados": 17
     },
-    "last_refresh_summary": "v3.9.3 Round 3: per-entity hashtags/cuentas; prediccion_7dias pre-22-jun; Piura 23-jun P=0,85/escalada 0,65; JNE nulidad dejó al voto; 0 bloqueos activos 19-jun.",
-    "fecha_corte": "2026-06-19T21:00:00-05:00"
+    "last_refresh_summary": "v3.9.4 Round 4 prep: MML oficial El Peruano; Piura Plus TV reconfirmación parcial; verification_gaps_r4 (8 ítems); RM-01/03/04 histórico; ONPE meseta documentada.",
+    "fecha_corte": "2026-06-19T23:30:00-05:00"
   },
   "executive_alert": {
     "level": "CRÍTICO",
@@ -48,7 +48,7 @@
     "catalysts": [
       "JNE dejó al voto nulidad 2.408 actas; JP admitió sin prueba material (19-jun).",
       "Movilización arrocera Piura-Sechura 23-jun vigente sin cancelación.",
-      "MML restricción Centro Histórico hasta 22-jun 00:00; autoconvocatoria IG 22-jun (P=0,40).",
+      "MML restricción oficial Centro Histórico 19-jun→22-jun 00:00 (Res. D002556-2026, [El Peruano](https://elperuano.pe/noticia/298272-centro-historico-de-lima-estas-son-las-restricciones-vehiculares-del-19-al-22-de-junio)).",
       "0 bloqueos viales activos verificados 19-jun (Ilave, La Oroya, El Trébol libres).",
       "Amparo JP voto exterior presentado; admisión PJ no confirmada.",
       "Acampamento ~80 carpas JNE activo (conteo 16-jun; sin update 19-20)."
@@ -1689,10 +1689,12 @@
           "magnitud_confianza": "baja",
           "fuente_url": "https://www.instagram.com/reel/DZQNoG-pSIU/",
           "fuente_nombre": "Instagram reel autoconvocatoria (sin respaldo JP oficial)",
-          "notas": "Reel IG vigente; sin respaldo JP oficial. MML restricción Centro Histórico hasta 22-jun 00:00. Post-levantamiento: P(marcha JP formal)=0,25.",
+          "notas": "MML: restricción oficial 19-jun 00:00 → 22-jun 00:00 (El Peruano 19-jun). Reel IG vigente; sin respaldo JP. Post-levantamiento: P(marcha JP formal)=0,25.",
           "es_pasado": false,
           "prob_nueva_marcha_jp_post_mml": 0.25,
-          "status_mml": "restriccion_hasta_22jun_00:00"
+          "status_mml": "restriccion_oficial_19-22jun",
+          "mml_resolucion": "D002556-2026-MML-GMU-SER",
+          "mml_fuente_url": "https://elperuano.pe/noticia/298272-centro-historico-de-lima-estas-son-las-restricciones-vehiculares-del-19-al-22-de-junio"
         }
       ],
       "actores": [
@@ -3687,7 +3689,10 @@
               "riesgo": "muy_alto"
             }
           ],
-          "notas": "Sin cancelación 17-19 jun; sin reconfirmación Conveagro reciente. Monitoreo 22-jun AM (Walac, Norte Sostenible, SUTRAN)."
+          "notas": "Vigente sin cancelación 17-19 jun. Reconfirmación parcial Piura Plus TV 19-jun. Monitoreo obligatorio 22-jun AM (Walac, Norte Sostenible, SUTRAN).",
+          "fuente_secundaria": "https://www.facebook.com/piuraplustv/videos/pptv-productores-anuncian-nueva-movilizaci%C3%B3n-para-el-23-de-junio-y-advierten-con/1007529818309319/",
+          "fuente_secundaria_nombre": "Piura Plus TV (Facebook, 19-jun)",
+          "reconfirmacion_parcial_19jun": true
         }
       ],
       "actores": [
@@ -10886,10 +10891,10 @@
     {
       "id": "RM-01",
       "category": "Movilización masiva",
-      "scenario": "Colisión entre la convocatoria masiva 'Toma de Lima / Los Cuatro Suyos' del 13 de junio y la prohibición municipal de protestas en el Centro Histórico declarada por el alcalde Reggiardo. La PNP y las FFAA anunciaron 'uso gradual de la fuerza'. La confluencia de decenas de miles de manifestantes en la Plaza San Martín contra una zona declarada intangible eleva el riesgo de confrontación violenta con víctimas, que podría activar el efecto dominó de movilizaciones nacionales.",
-      "probability": "ALTA",
+      "scenario": "Colisión entre la convocatoria masiva 'Toma de Lima / Los Cuatro Suyos' del 13 de junio y la prohibición municipal de protestas en el Centro Histórico declarada por el alcalde Reggiardo. La PNP y las FFAA anunciaron 'uso gradual de la fuerza'. La confluencia de decenas de miles de manifestantes en la Plaza San Martín contra una zona declarada intangible eleva el riesgo de confrontación violenta con víctimas, que podría activar el efecto dominó de movilizaciones nacionales. Evento del 13-jun concluido; riesgo residual autoconvocatorias post-MML.",
+      "probability": "BAJA",
       "impact": "ALTO",
-      "timeframe": "24-30h (13-jun 15:00)",
+      "timeframe": "cerrado 13-jun",
       "triggers": [
         "PNP despliega gases lacrimógenos o perdigones ante avance de manifestantes sobre Plaza San Martín",
         "Agresión a manifestantes por parte de grupos contrarios o fuerzas del orden",
@@ -10921,8 +10926,9 @@
         }
       ],
       "title": "Colisión entre la convocatoria masiva 'Toma de Lima / Los Cuatro Suyos' del 13 de junio y la prohibición municipal de protestas en el Centro Histórico declarada por el alcalde Reggiardo. La PNP y las FFAA anunciaron 'uso gradual de la fuerza'. La confluencia de decenas de miles de manifestantes en la Plaza San Martín contra una zona declarada intangible eleva el riesgo de confrontación violenta con víctimas, que podría activar el efecto dominó de movilizaciones nacionales.",
-      "level": "CRÍTICO",
-      "evidence": "Colisión entre la convocatoria masiva 'Toma de Lima / Los Cuatro Suyos' del 13 de junio y la prohibición municipal de protestas en el Centro Histórico declarada por el alcalde Reggiardo. La PNP y las FFAA anunciaron 'uso gradual de la fuerza'. La confluencia de decenas de miles de manifestantes en la Plaza San Martín contra una zona declarada intangible eleva el riesgo de confrontación violenta con víctimas, que podría activar el efecto dominó de movilizaciones nacionales."
+      "level": "BAJO",
+      "evidence": "Colisión entre la convocatoria masiva 'Toma de Lima / Los Cuatro Suyos' del 13 de junio y la prohibición municipal de protestas en el Centro Histórico declarada por el alcalde Reggiardo. La PNP y las FFAA anunciaron 'uso gradual de la fuerza'. La confluencia de decenas de miles de manifestantes en la Plaza San Martín contra una zona declarada intangible eleva el riesgo de confrontación violenta con víctimas, que podría activar el efecto dominó de movilizaciones nacionales.",
+      "estado": "realizada"
     },
     {
       "id": "RM-02",
@@ -10964,10 +10970,10 @@
     {
       "id": "RM-03",
       "category": "Crisis institucional",
-      "scenario": "Anulación masiva de actas observadas por el JNE: si el pleno del JNE o los JEE anulan un número significativo de actas observadas (particularmente de Lima o el exterior, donde Fujimori tiene ventaja), el resultado final podría invertirse nuevamente a favor de Sánchez. Si en cambio se anulan actas pro-Sánchez del sur, el bando contrario elevará la narrativa de fraude institucional. Cualquier decisión de anulación masiva —superior a 500 actas— generará una crisis de legitimidad para el bando perdedor.",
-      "probability": "MEDIA",
+      "scenario": "Anulación masiva de actas observadas por el JNE: si el pleno del JNE o los JEE anulan un número significativo de actas observadas (particularmente de Lima o el exterior, donde Fujimori tiene ventaja), el resultado final podría invertirse nuevamente a favor de Sánchez. Si en cambio se anulan actas pro-Sánchez del sur, el bando contrario elevará la narrativa de fraude institucional. Cualquier decisión de anulación masiva —superior a 500 actas— generará una crisis de legitimidad para el bando perdedor. Convocatoria 13-jun ya ejecutada.",
+      "probability": "BAJA",
       "impact": "ALTO",
-      "timeframe": "7-30d (resolución JEE)",
+      "timeframe": "cerrado 13-jun",
       "triggers": [
         "JEE emite resolución anulando más de 300 actas de un mismo departamento",
         "Partidos presentan recursos de apelación al Pleno del JNE en masa",
@@ -10999,16 +11005,17 @@
         }
       ],
       "title": "Anulación masiva de actas observadas por el JNE: si el pleno del JNE o los JEE anulan un número significativo de actas observadas (particularmente de Lima o el exterior, donde Fujimori tiene ventaja), el resultado final podría invertirse nuevamente a favor de Sánchez. Si en cambio se anulan actas pro-Sánchez del sur, el bando contrario elevará la narrativa de fraude institucional. Cualquier decisión de anulación masiva —superior a 500 actas— generará una crisis de legitimidad para el bando perdedor.",
-      "level": "ALTO",
-      "evidence": "Anulación masiva de actas observadas por el JNE: si el pleno del JNE o los JEE anulan un número significativo de actas observadas (particularmente de Lima o el exterior, donde Fujimori tiene ventaja), el resultado final podría invertirse nuevamente a favor de Sánchez. Si en cambio se anulan actas pro-Sánchez del sur, el bando contrario elevará la narrativa de fraude institucional. Cualquier decisión de anulación masiva —superior a 500 actas— generará una crisis de legitimidad para el bando perdedor."
+      "level": "BAJO",
+      "evidence": "Anulación masiva de actas observadas por el JNE: si el pleno del JNE o los JEE anulan un número significativo de actas observadas (particularmente de Lima o el exterior, donde Fujimori tiene ventaja), el resultado final podría invertirse nuevamente a favor de Sánchez. Si en cambio se anulan actas pro-Sánchez del sur, el bando contrario elevará la narrativa de fraude institucional. Cualquier decisión de anulación masiva —superior a 500 actas— generará una crisis de legitimidad para el bando perdedor.",
+      "estado": "historico"
     },
     {
       "id": "RM-04",
       "category": "Crisis institucional",
-      "scenario": "Cisma negro Monte Carlo (probabilidad 3,41%): el JNE anula más del 80% de las actas observadas actualmente en disputa Y Fujimori cae por debajo del 40% del total de actas observadas. Este escenario invertiría el resultado final y daría la victoria a Sánchez con un margen suficiente para superar el margen actual de 651 votos. Generaría una crisis de legitimidad sin precedentes desde el proceso de 2000, con movilizaciones pro-Fujimori de alta intensidad y posible cuestionamiento de la imparcialidad del JNE por parte de sectores de derecha.",
+      "scenario": "Cisma negro Monte Carlo (probabilidad 3,41%): el JNE anula más del 80% de las actas observadas actualmente en disputa Y Fujimori cae por debajo del 40% del total de actas observadas. Este escenario invertiría el resultado final y daría la victoria a Sánchez con un margen suficiente para superar el margen actual de 651 votos. Generaría una crisis de legitimidad sin precedentes desde el proceso de 2000, con movilizaciones pro-Fujimori de alta intensidad y posible cuestionamiento de la imparcialidad del JNE por parte de sectores de derecha. Concentración pro-F 14-jun no materializada en Av. Javier Prado.",
       "probability": "BAJA",
       "impact": "ALTO",
-      "timeframe": "7-30d",
+      "timeframe": "cerrado 14-jun",
       "triggers": [
         "JNE pleno emite sentencia de nulidad sobre más del 80% de actas observadas de Lima",
         "Evidencia técnica documentada de irregularidades sistemáticas en actas pro-Fujimori",
@@ -11040,8 +11047,9 @@
         }
       ],
       "title": "Cisma negro Monte Carlo (probabilidad 3,41%): el JNE anula más del 80% de las actas observadas actualmente en disputa Y Fujimori cae por debajo del 40% del total de actas observadas. Este escenario invertiría el resultado final y daría la victoria a Sánchez con un margen suficiente para superar el margen actual de 651 votos. Generaría una crisis de legitimidad sin precedentes desde el proceso de 2000, con movilizaciones pro-Fujimori de alta intensidad y posible cuestionamiento de la imparcialidad del JNE por parte de sectores de derecha.",
-      "level": "ALTO",
-      "evidence": "Cisma negro Monte Carlo (probabilidad 3,41%): el JNE anula más del 80% de las actas observadas actualmente en disputa Y Fujimori cae por debajo del 40% del total de actas observadas. Este escenario invertiría el resultado final y daría la victoria a Sánchez con un margen suficiente para superar el margen actual de 651 votos. Generaría una crisis de legitimidad sin precedentes desde el proceso de 2000, con movilizaciones pro-Fujimori de alta intensidad y posible cuestionamiento de la imparcialidad del JNE por parte de sectores de derecha."
+      "level": "BAJO",
+      "evidence": "Cisma negro Monte Carlo (probabilidad 3,41%): el JNE anula más del 80% de las actas observadas actualmente en disputa Y Fujimori cae por debajo del 40% del total de actas observadas. Este escenario invertiría el resultado final y daría la victoria a Sánchez con un margen suficiente para superar el margen actual de 651 votos. Generaría una crisis de legitimidad sin precedentes desde el proceso de 2000, con movilizaciones pro-Fujimori de alta intensidad y posible cuestionamiento de la imparcialidad del JNE por parte de sectores de derecha.",
+      "estado": "historico"
     },
     {
       "id": "RM-05",
@@ -14983,8 +14991,8 @@
     }
   ],
   "social_intelligence": {
-    "fecha_corte": "2026-06-19T21:00:00-05:00",
-    "contexto": "Al 99,63% actas (19-jun 20:43 PET), Fujimori +41.565 votos. Marcha JP 19-jun ejecutada. JNE nulidad al voto. Piura 23-jun vigente. 0 bloqueos viales activos verificados.",
+    "fecha_corte": "2026-06-19T23:30:00-05:00",
+    "contexto": "Al 99,63% actas (meseta 19-jun), Fujimori +41.565 votos. MML restricción oficial Centro Histórico hasta 22-jun 00:00. Piura 23-jun vigente (reconfirmación parcial). JNE nulidad al voto sin resolución.",
     "hashtags": [
       {
         "hashtag": "#TomaDeLima",
@@ -27574,7 +27582,7 @@
       },
       {
         "titulo": "Movilización arrocera Piura 23-jun y autoconvocatoria 22-jun",
-        "detalle": "Conveagro confirma movilización 23-jun; riesgo escalada El Trébol P=0,65. Autoconvocatoria Instagram 22-jun sin respaldo JP (P=0,40)."
+        "detalle": "Restricción oficial hasta 22-jun 00:00 (El Peruano). Verificar levantamiento efectivo VG-R4-03."
       }
     ]
   },
@@ -27684,13 +27692,22 @@
       "resolucion_19jun": "no_confirmada",
       "plazo_estimado": "semana 23-27-jun",
       "actas_disputa": 2408,
-      "votos_en_juego_est": 43577
+      "votos_en_juego_est": 43577,
+      "estado_19jun": "dejado_al_voto",
+      "resolucion_publicada": false
+    },
+    "onpe_plateau": {
+      "desde": "2026-06-19T20:43:00-05:00",
+      "pct_actas": "99.63%",
+      "margen": 41565,
+      "actas_jee": 346,
+      "nota": "Sin delta indexado 17-19 jun tarde; monitoreo VG-R4-08."
     }
   },
   "prediccion_7dias": {
     "fecha_inicio": "2026-06-19",
     "fecha_fin": "2026-06-26",
-    "nota_metodologica": "v3.9.3 Round 3: 0 bloqueos activos 19-jun; Piura 23-jun P(escalada El Trébol)=0,65; Lima post-MML 22-jun P(marcha JP)=0,25; JNE nulidad al voto sin resolución.",
+    "nota_metodologica": "v3.9.4 Round 4 prep: MML restricción oficial hasta 22-jun 00:00; Piura 23-jun vigente (reconfirmación parcial 19-jun); JNE nulidad al voto sin resolución; 8 brechas VG-R4.",
     "lima": {
       "eventos_esperados": 5,
       "prob_manifestacion_significativa": 0.45,
@@ -27698,7 +27715,9 @@
       "prob_paro_gremial": 0.22,
       "justificacion": "Marcha 19-jun realizada pacífica. MML levanta restricción 22-jun 00:00. Autoconvocatoria IG sin JP (P=0,40). Sin convocatoria JP formal 20-23 jun.",
       "prob_nueva_marcha_jp_post_22jun": 0.25,
-      "prob_autoconvocatoria_22jun": 0.4
+      "prob_autoconvocatoria_22jun": 0.4,
+      "status_mml_oficial": "restriccion_19-22jun_D002556",
+      "mml_fuente": "https://elperuano.pe/noticia/298272-centro-historico-de-lima-estas-son-las-restricciones-vehiculares-del-19-al-22-de-junio"
     },
     "norte": {
       "eventos_esperados": 4,
@@ -28089,6 +28108,99 @@
       "threads",
       "bluesky",
       "4chan"
+    ]
+  },
+  "verification_gaps_r4": {
+    "fecha_corte": "2026-06-19T23:30:00-05:00",
+    "next_monitoreo": "2026-06-22T08:00:00-05:00",
+    "nota": "Brechas explícitas para monitoreo 22-jun AM pre-Piura 23-jun.",
+    "gaps": [
+      {
+        "id": "VG-R4-01",
+        "item": "Reconfirmación Conveagro Piura (comunicado, FB, terreno)",
+        "prioridad": "P0",
+        "estado": "pendiente",
+        "next_check": "2026-06-22T08:00:00-05:00",
+        "fuentes": [
+          "Walac Noticias",
+          "Norte Sostenible",
+          "SUTRAN"
+        ]
+      },
+      {
+        "id": "VG-R4-02",
+        "item": "Resolución JNE nulidad 2.408 actas en portal oficial",
+        "prioridad": "P0",
+        "estado": "pendiente",
+        "next_check": "2026-06-22T08:00:00-05:00",
+        "fuentes": [
+          "jne.gob.pe",
+          "RPP"
+        ]
+      },
+      {
+        "id": "VG-R4-03",
+        "item": "Levantamiento MML 22-jun 00:00 — tránsito efectivo Centro Histórico",
+        "prioridad": "P0",
+        "estado": "pendiente",
+        "next_check": "2026-06-22T08:00:00-05:00",
+        "fuentes": [
+          "MML",
+          "PNP terreno"
+        ]
+      },
+      {
+        "id": "VG-R4-04",
+        "item": "Autoconvocatoria 22-jun Plaza San Martín — ejecución en terreno",
+        "prioridad": "P1",
+        "estado": "pendiente",
+        "next_check": "2026-06-22T18:00:00-05:00",
+        "fuentes": [
+          "Instagram reel métricas",
+          "medios Lima"
+        ]
+      },
+      {
+        "id": "VG-R4-05",
+        "item": "Conteo carpas acampamento JNE (baseline ~80 del 16-jun)",
+        "prioridad": "P1",
+        "estado": "pendiente",
+        "next_check": "2026-06-22T08:00:00-05:00",
+        "fuentes": [
+          "RPP",
+          "terreno"
+        ]
+      },
+      {
+        "id": "VG-R4-06",
+        "item": "Expediente PJ amparo voto exterior — admisión o rechazo",
+        "prioridad": "P1",
+        "estado": "pendiente",
+        "next_check": "2026-06-22T08:00:00-05:00",
+        "fuentes": [
+          "PJCE consulta expediente"
+        ]
+      },
+      {
+        "id": "VG-R4-07",
+        "item": "Corredores SUTRAN 20–22 jun (El Trébol, FB Terry, La Oroya)",
+        "prioridad": "P1",
+        "estado": "pendiente",
+        "next_check": "2026-06-22T08:00:00-05:00",
+        "fuentes": [
+          "SUTRAN"
+        ]
+      },
+      {
+        "id": "VG-R4-08",
+        "item": "ONPE delta actas JEE (baseline 346)",
+        "prioridad": "P2",
+        "estado": "pendiente",
+        "next_check": "2026-06-22T08:00:00-05:00",
+        "fuentes": [
+          "segundavuelta.onpe.gob.pe"
+        ]
+      }
     ]
   }
 }
