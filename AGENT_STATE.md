@@ -17,7 +17,7 @@
 - 013 | executive_alerts 5 regiones + norte.social_v35 sync | sur sin Ilave bloqueado | Success
 - 014 | main.js/index.html stale fixes (878→346, 34.967→41.565) | val-bayes-desc data-driven | Success
 - 015 | tests N56 + version bump 3.9.2 → 282/282 pass | build OK 1.976 MB | Success
-- 016 | git push + CI verify + live curl | Pending
+- 016 | git push aa052b0 + CI success + live curl 3.9.2 | 282 tests | Success
 
 ## 🧠 Retrospective & Post-Mortem Notes
 - Checklist editorial 44 ítems: 14 P0 resueltos en v3.9.2; resto histórico en eventos antiguos OK
@@ -27,6 +27,6 @@
 
 ## 📋 The Execution Pipeline
 - [x] Active Step: Fase 3 — cross-update risk_matrix/EW/executive_alerts (checklist editorial)
-- [x] Active Step: Fase 4 — tests 282/282, build, deploy
+- [x] Active Step: Fase 4 — tests 282/282, build, deploy, CI/CD, live verify
 - [ ] Next Step: Round 3 per-entity deep research (hashtags/cuentas/ubicaciones)
 - [ ] Future Milestone: v3.9.3 corte 22-jun pre-Piura 23-jun
