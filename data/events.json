@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "3.10.0",
+    "version": "3.10.1",
     "generated_at": "2026-06-19T20:43:00-05:00",
     "scope": "Manifestaciones, marchas y eventos de acumulación de personas — Perú + Capa de inteligencia social y medios alternativos",
     "window": "19–26 junio 2026 (post-2da vuelta · corte 99,63% escrutado · margen 41.565 votos)",
@@ -28,7 +28,7 @@
         "url": "https://defensoria.gob.pe"
       }
     ],
-    "last_update": "2026-06-24T10:00:00-05:00",
+    "last_update": "2026-06-24T12:00:00-05:00",
     "expansion": "v3.1 — Capa grassroots por región: 89 cuentas individuales (autoridades locales, dirigentes, activistas), 67 colectivos/frentes, 87 lives identificados, 60 hashtags verificados, 55 rutas/bloqueos documentados, 17 comunicados oficiales nacionales. Investigación paralela en 6 frentes (Lima/Norte/Centro/Sur/Oriente/Nacional).",
     "grassroots_stats": {
       "accounts": 89,
@@ -38,8 +38,8 @@
       "routes": 55,
       "comunicados": 17
     },
-    "last_refresh_summary": "v3.10.0 Round 5 deep dives: @EZunini, @cgt_peru, regional media, 6 actores, hashtags P1, grassroots dedup; montecarlo omitido.",
-    "fecha_corte": "2026-06-24T10:00:00-05:00"
+    "last_refresh_summary": "v3.10.1 backlog: JNE pleno monitor (sentido voto 19-jun, escrita pendiente); 4 FP grassroots amplifiers; Karamba P2 refresh; montecarlo omitido.",
+    "fecha_corte": "2026-06-24T12:00:00-05:00"
   },
   "executive_alert": {
     "level": "CRÍTICO",
@@ -12249,11 +12249,11 @@
       "threshold": ">100 anuncios o cuentas inauténticas activas con uso de IA documentado",
       "current_status": "ROJO",
       "status": "VERDE",
-      "trend": "↑ ascendente",
+      "trend": "→ estable",
       "value": "YouTube eliminó canales",
       "data_source": "OjoPúblico, DFRLab, Stanford Internet Observatory, AFP Factual",
       "rationale": "Operación Karamba (5-jun, OjoPúblico): 214 anuncios YouTube via 6 canales fantasma, 105 con IA generativa, promedio 493 mil visualizaciones, ~32 millones de impresiones agregadas. Canales eliminados tras publicación pero patrón replicable.",
-      "next_check": "12-jun-2026 18:00 Lima",
+      "next_check": "2026-06-26T09:00:00-05:00",
       "sources": [
         {
           "title": "OjoPúblico — Operación Karamba",
@@ -12265,7 +12265,7 @@
         }
       ],
       "title": "Operaciones de astroturfing con IA generativa",
-      "note": "6 canales Karamba dados de baja YouTube post-OjoPúblico"
+      "note": "Karamba dormant 19-jun: 3/6 handles 404; 3 shells sin reactivación pauta. Réplicas WhatsApp/TikTok residuales (DIS-JUN19-02)."
     },
     {
       "id": "EW-18",
@@ -15042,8 +15042,8 @@
     }
   ],
   "social_intelligence": {
-    "fecha_corte": "2026-06-24T10:00:00-05:00",
-    "contexto": "24-jun R5: fichas @EZunini + @cgt_peru completas; medios regionales Walac/Yaraví/Canal B; 6 actores P1; hashtags #NoReconocemosResultado/#ParoAgrarioNacional; grassroots dedup.",
+    "fecha_corte": "2026-06-24T12:00:00-05:00",
+    "contexto": "24-jun R6 backlog: JNE sentido voto infundadas; FP grassroots 4 cuentas; Karamba dormant granular; montecarlo omitido.",
     "hashtags": [
       {
         "hashtag": "#TomaDeLima",
@@ -17281,7 +17281,9 @@
         "seguidores": 146,
         "contenido_tipico": "Anuncios políticos pagados con IA; video de Fujimori con katana llegó a 617.000 vistas en 3 semanas. Canal dado de baja post-investigación OjoPúblico.",
         "url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/",
-        "nombre_canónico": null
+        "nombre_canónico": null,
+        "estado_yt": "eliminado",
+        "verificado": "2026-06-19"
       },
       {
         "handle": "@RadarPeruanoYT",
@@ -17291,7 +17293,9 @@
         "seguidores": 146,
         "contenido_tipico": "Anuncio viral Fujimori+katana con 617K vistas; formato IA con voz sintética. Parte de la red Karamba Comunicación Digital. Canal dado de baja.",
         "url": "https://ojo-publico.com/6338/empresa-ecuatoriana-pago-por-anuncios-youtube-favor-fujimori",
-        "nombre_canónico": null
+        "nombre_canónico": null,
+        "estado_yt": "eliminado",
+        "verificado": "2026-06-19"
       },
       {
         "handle": "@SoyIndependienteYT",
@@ -17301,7 +17305,10 @@
         "seguidores": 4,
         "contenido_tipico": "Anuncios políticos pro-FP con pauta pagada por Karamba. Millones de vistas pese a suscriptores mínimos. Canal dado de baja.",
         "url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/",
-        "nombre_canónico": null
+        "nombre_canónico": null,
+        "estado_yt": "colision_handle",
+        "verificado": "2026-06-19",
+        "nota_yt": "URL resuelve canal español 2008, no fantasma Karamba"
       },
       {
         "handle": "@ElMachetePeruYT",
@@ -17311,7 +17318,10 @@
         "seguidores": null,
         "contenido_tipico": "Red Karamba: videos IA, ataques a candidatos izquierdistas. Canal dado de baja post-5-jun.",
         "url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/",
-        "nombre_canónico": null
+        "nombre_canónico": null,
+        "estado_yt": "residual_dormant",
+        "verificado": "2026-06-19",
+        "ultimo_upload": "2026-05-14"
       },
       {
         "handle": "@SanchochauYT",
@@ -17321,7 +17331,9 @@
         "seguidores": 2530,
         "contenido_tipico": "Parte de la red Karamba; ataques a Roberto Sánchez y contenido engañoso sobre forma de votar. Canal dado de baja.",
         "url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/",
-        "nombre_canónico": null
+        "nombre_canónico": null,
+        "estado_yt": "eliminado",
+        "verificado": "2026-06-19"
       },
       {
         "handle": "@CheverePeYT",
@@ -17331,7 +17343,10 @@
         "seguidores": 4,
         "contenido_tipico": "Creado en marzo 2026; 4 suscriptores, 4 videos pero 1.5 millones de vistas acumuladas por pauta Karamba. Pico en silencio electoral 11-12 abr. Canal dado de baja.",
         "url": "https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/",
-        "nombre_canónico": null
+        "nombre_canónico": null,
+        "estado_yt": "shell_vacio",
+        "verificado": "2026-06-19",
+        "channel_id": "UCKwK_8nXcUzBTLr537MtgzA"
       },
       {
         "handle": "@NotiCali",
@@ -17547,6 +17562,75 @@
         "validacion_ronda": 5,
         "fuente_url": "https://radioyaravi.org.pe/noticia/regional/colectivo-fujimori-nunca-mas-y-generacion-z-convocan-a-una-movilizacion-en-defensa-del-voto-popular/",
         "nombre_canónico": "Radio Yaraví Arequipa"
+      },
+      {
+        "nombre": "Jóvenes Fuerza Popular",
+        "plataforma": "Instagram",
+        "handle": "@jovenesfp",
+        "url": "https://www.instagram.com/jovenesfp/",
+        "descripcion": "Organización juvenil FP. Reel colaborativo con @fuerzapopular_ sobre campaña Defensores del Perú (1-jun-2026). Amplifica reclutamiento de personeros y narrativa pro-Keiko.",
+        "posicion": "pro_fp",
+        "bando": "pro_fp",
+        "region": "nacional",
+        "contenido_tipico": "Reels campaña Defensores del Perú; movilización juvenil FP",
+        "growth_72h": "no cuantificado",
+        "fuente_url": "https://www.instagram.com/reel/DZDGSDFRwwl/",
+        "mobilization_role": "amplificador",
+        "engagement_tier": "medio",
+        "validacion_ronda": 6,
+        "nombre_canónico": "Jóvenes Fuerza Popular"
+      },
+      {
+        "nombre": "Jóvenes Fuerza Popular",
+        "plataforma": "X",
+        "handle": "@JovenesFP_",
+        "url": "https://x.com/JovenesFP_",
+        "descripcion": "Cuenta X de la organización juvenil FP. Par de @jovenesfp (IG).",
+        "posicion": "pro_fp",
+        "bando": "pro_fp",
+        "region": "nacional",
+        "contenido_tipico": "Difusión juvenil FP; personeros; defensa de actas",
+        "growth_72h": "no cuantificado",
+        "fuente_url": "https://x.com/JovenesFP_/status/2060425991890116740",
+        "mobilization_role": "amplificador",
+        "engagement_tier": "medio",
+        "validacion_ronda": 6,
+        "nombre_canónico": "Jóvenes Fuerza Popular"
+      },
+      {
+        "nombre": "Jóvenes Fuerza Popular",
+        "plataforma": "Facebook",
+        "handle": "facebook.com/JovenesFuerzaPopular",
+        "url": "https://www.facebook.com/JovenesFuerzaPopular",
+        "descripcion": "Página FB de la organización juvenil FP («Jóvenes Fuerza Popular Keiko»).",
+        "posicion": "pro_fp",
+        "bando": "pro_fp",
+        "region": "nacional",
+        "contenido_tipico": "Movilización juvenil FP; campañas personeros",
+        "growth_72h": "no cuantificado",
+        "fuente_url": "https://www.facebook.com/JovenesFuerzaPopular",
+        "mobilization_role": "amplificador",
+        "engagement_tier": "medio",
+        "validacion_ronda": 6,
+        "nombre_canónico": "Jóvenes Fuerza Popular"
+      },
+      {
+        "nombre": "Defensores del Perú",
+        "plataforma": "X",
+        "handle": "@DefensoresDelPeru",
+        "url": "https://x.com/DefensoresDelPeru",
+        "descripcion": "Red voluntaria FP — meta 100.000 personeros. Programa documentado Infobae/RPP; handle verificado HTTP 200.",
+        "posicion": "pro_fp",
+        "bando": "pro_fp",
+        "region": "nacional",
+        "contenido_tipico": "Reclutamiento personeros; defensa de actas post-7-jun",
+        "growth_72h": "no cuantificado",
+        "fuente_url": "https://www.infobae.com/peru/2026/05/19/elecciones-2026-fuerza-popular-inicia-el-registro-de-100-mil-personeros-voluntarios-para-la-segunda-vuelta/",
+        "mobilization_role": "amplificador",
+        "engagement_tier": "medio",
+        "validacion_ronda": 6,
+        "notas_r6": "Evidencia indirecta: programa documentado; handle coincide con campaña",
+        "nombre_canónico": "Defensores del Perú"
       },
       {
         "nombre": "Canal ciudadano ONPE 2026 EN VIVO",
@@ -18148,7 +18232,8 @@
     "dedup_corte": "2026-06-24T10:00:00-05:00",
     "dedup_removed": 4,
     "deep_dive_ronda": 5,
-    "dedup_removed_r5": 0
+    "dedup_removed_r5": 0,
+    "dedup_removed_r6": 0
   },
   "live_streams": [
     {
@@ -20051,7 +20136,7 @@
   "grassroots": {
     "meta": {
       "generated_at": "2026-06-23T20:00:00-05:00",
-      "version": "3.10.0",
+      "version": "3.10.1",
       "source_count": 8,
       "sources_used": [
         "regions/lima.json",
@@ -20068,7 +20153,8 @@
       ],
       "merge_corte": "2026-06-23T20:00:00-05:00",
       "dedup_notas": "v3.10.0 grassroots dedup −0 (nacional+by_region); cuentas sociales dedup acum −4",
-      "deep_dive_ronda": 5
+      "deep_dive_ronda": 5,
+      "backlog_r6": "v3.10.1: +0 FP grassroots; dedup cuentas r6 −0"
     },
     "summary": "Al 23-jun PM (ONPE meseta 99,63 % / Fujimori +41.565), el eje grassroots combina: (1) marcha JP 19-jun ejecutada pacífica; (2) acampamento JNE ~80 carpas; (3) tensión arrocera Piura post-MIDAGRI sin confirmación terreno; (4) riesgo latente sur andino pre-proclamación. Montecarlo no recalculado — sin delta ONPE.",
     "national_events": [
@@ -21060,6 +21146,46 @@
           "verification": "",
           "handle_corregido_desde": "N/D",
           "nombre_canónico": "Walac Noticias Piura"
+        },
+        {
+          "name": "Jóvenes Fuerza Popular (IG)",
+          "handle": "@jovenesfp",
+          "role": "amplificador",
+          "platform": "Instagram",
+          "url": "https://www.instagram.com/jovenesfp/",
+          "notes": "Reel Defensores del Perú 1-jun-2026 co-autor @fuerzapopular_.",
+          "verification": "fp_grassroots_jun24",
+          "nombre_canónico": "Jóvenes Fuerza Popular"
+        },
+        {
+          "name": "Jóvenes Fuerza Popular (X)",
+          "handle": "@JovenesFP_",
+          "role": "amplificador",
+          "platform": "X",
+          "url": "https://x.com/JovenesFP_",
+          "notes": "Par X de organización juvenil FP.",
+          "verification": "fp_grassroots_jun24",
+          "nombre_canónico": "Jóvenes Fuerza Popular"
+        },
+        {
+          "name": "Jóvenes Fuerza Popular (FB)",
+          "handle": "facebook.com/JovenesFuerzaPopular",
+          "role": "amplificador",
+          "platform": "Facebook",
+          "url": "https://www.facebook.com/JovenesFuerzaPopular",
+          "notes": "Página juvenil FP verificada.",
+          "verification": "fp_grassroots_jun24",
+          "nombre_canónico": "Jóvenes Fuerza Popular (FB)"
+        },
+        {
+          "name": "Defensores del Perú",
+          "handle": "@DefensoresDelPeru",
+          "role": "amplificador",
+          "platform": "X",
+          "url": "https://x.com/DefensoresDelPeru",
+          "notes": "Programa 100k personeros; evidencia indirecta handle.",
+          "verification": "fp_grassroots_jun24",
+          "nombre_canónico": "Defensores del Perú"
         },
         {
           "name": "Samuel Breña",
@@ -28213,11 +28339,11 @@
     ],
     "jne_nulidad_2408": {
       "audiencia_19jun": "sustentada",
-      "resolucion_19jun": "no_confirmada",
+      "resolucion_19jun": "sentido_voto_infundadas_escrita_pendiente",
       "plazo_estimado": "semana 23-27-jun",
       "actas_disputa": 2408,
       "votos_en_juego_est": 43577,
-      "estado_19jun": "dejado_al_voto",
+      "estado_19jun": "sentido_voto_emitido",
       "resolucion_publicada": false,
       "jee_improcedente_previo": {
         "lima_1751": true,
@@ -28241,7 +28367,17 @@
           "fuente": "https://canaln.pe/actualidad/jee-lima-centro-1-declara-improcedente-pedido-juntos-peru-anular-mas-1751-mesas-lima-n492711"
         }
       },
-      "nota_24jun": "JEE improcedente documentado; apelación pleno sin resolución publicada al 24-jun 10:00."
+      "nota_24jun": "Sentido del voto 19-jun: apelaciones JP Lima+EE.UU. infundadas (RPP/Infobae/LR). Resolución escrita sin publicar en portal al 24-jun 12:00.",
+      "sentido_voto_19jun": {
+        "lima_1751": "infundada",
+        "eeuu_647": "infundada",
+        "otras_actas_observadas_27": "infundadas",
+        "europa_1": "fundada_en_parte",
+        "expedientes_totales": 32,
+        "fecha_audiencia": "2026-06-19",
+        "fuente_primaria_medios": "https://rpp.pe/politica/elecciones/jne-declaro-infundadas-las-apelaciones-de-juntos-por-el-peru-que-solicitaban-nulidad-masiva-de-mesas-de-votacion-lima-y-america-noticia-1693871"
+      },
+      "fuente_monitor": "research/validation/jne_pleno_monitor_jun24.md"
     },
     "onpe_plateau": {
       "desde": "2026-06-19T20:43:00-05:00",
@@ -28254,7 +28390,7 @@
   "prediccion_7dias": {
     "fecha_inicio": "2026-06-19",
     "fecha_fin": "2026-06-26",
-    "nota_metodologica": "v3.10.0 24-jun: Round 5 deep dives completos; JNE pleno nulidad pendiente; Piura terreno no confirmado; ONPE meseta; montecarlo omitido.",
+    "nota_metodologica": "v3.10.1 24-jun: JNE sentido voto 19-jun infundadas (escrita pendiente); FP grassroots @jovenesfp/@DefensoresDelPeru indexados; Karamba dormant verificado; ONPE meseta; montecarlo omitido.",
     "lima": {
       "eventos_esperados": 5,
       "prob_manifestacion_significativa": 0.45,
@@ -28773,7 +28909,7 @@
     ]
   },
   "entity_deep_dives": {
-    "corte": "2026-06-24T10:00:00-05:00",
+    "corte": "2026-06-24T12:00:00-05:00",
     "ronda": 5,
     "entidades": [
       {
@@ -28859,7 +28995,9 @@
         "tipo": "disinfo",
         "deep_dive_ronda": 5,
         "completo": true,
-        "nota": "6 canales eliminados post-OjoPúblico 5-jun; dormant 17–24 jun."
+        "nota": "Verificado 19-jun: 3 canales 404 (@EnfocatePeru, @RadarPeruano, @Sancochau); @CheverePe shell vacío (0 videos RSS); @SoyIndependiente = colisión handle; @ElMachetePeru residual sin pauta post-5-jun. Operación dormant.",
+        "verificado": "2026-06-19T12:00:00-05:00",
+        "fuente_refresh": "research/disinfo/karamba_refresh_jun24.md"
       }
     ],
     "pendientes_resueltos": [
@@ -28876,8 +29014,16 @@
       "AIDESEP",
       "#NoReconocemosResultado",
       "#ParoAgrarioNacional",
-      "Karamba dormant"
+      "Karamba dormant",
+      "FP grassroots amplifiers R6",
+      "JNE pleno monitor 24-jun",
+      "Karamba P2 refresh"
     ],
-    "fuente_research": "research/entities/deep_dives_round5_jun24.md"
+    "fuente_research": "research/entities/deep_dives_round5_jun24.md",
+    "fuente_backlog_r6": [
+      "research/validation/jne_pleno_monitor_jun24.md",
+      "research/entities/fp_grassroots_amplifiers_jun24.md",
+      "research/disinfo/karamba_refresh_jun24.md"
+    ]
   }
 }
