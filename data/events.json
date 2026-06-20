@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "3.9.5",
+    "version": "3.9.6",
     "generated_at": "2026-06-19T20:43:00-05:00",
     "scope": "Manifestaciones, marchas y eventos de acumulación de personas — Perú + Capa de inteligencia social y medios alternativos",
     "window": "19–26 junio 2026 (post-2da vuelta · corte 99,63% escrutado · margen 41.565 votos)",
@@ -28,7 +28,7 @@
         "url": "https://defensoria.gob.pe"
       }
     ],
-    "last_update": "2026-06-22T20:00:00-05:00",
+    "last_update": "2026-06-23T18:00:00-05:00",
     "expansion": "v3.1 — Capa grassroots por región: 89 cuentas individuales (autoridades locales, dirigentes, activistas), 67 colectivos/frentes, 87 lives identificados, 60 hashtags verificados, 55 rutas/bloqueos documentados, 17 comunicados oficiales nacionales. Investigación paralela en 6 frentes (Lima/Norte/Centro/Sur/Oriente/Nacional).",
     "grassroots_stats": {
       "accounts": 89,
@@ -38,20 +38,20 @@
       "routes": 55,
       "comunicados": 17
     },
-    "last_refresh_summary": "v3.9.5 Round 4 live: VG-R4 cerrados/parciales; MML expiró 22-jun; autoconv no materializada; Piura 23-jun vigente; JNE sin resolución; ONPE meseta.",
-    "fecha_corte": "2026-06-22T20:00:00-05:00"
+    "last_refresh_summary": "v3.9.6 Piura 23-jun: terreno no confirmado; MIDAGRI lineamientos + protesta activa; El Trébol libre; JNE pleno pendiente; JEE improcedente documentado.",
+    "fecha_corte": "2026-06-23T18:00:00-05:00"
   },
   "executive_alert": {
     "level": "CRÍTICO",
-    "headline": "Fujimori +41.565 votos al 99,63% actas; marcha JP 19-jun ejecutada (cientos, pacífica); JNE evalúa nulidad 2.408 actas; Procuraduría denuncia 9 convocantes",
+    "headline": "Piura 23-jun sin confirmación terreno; tensión arrocera activa; JNE nulidad pleno pendiente; Fujimori +41.565 al 99,63%",
     "key_finding": "Margen +41.565 votos al 99,63% ([El Comercio](https://elcomercio.pe/politica/elecciones/resultados-onpe-en-vivo-entre-keiko-fujimori-y-roberto-sanchez-por-la-presidencia-del-peru-segunda-vuelta-lbposting-noticia/), 19-jun 20:43 PET). Marcha JP **realizada** 19-jun desde Paseo Colón (no Campo de Marte): cientos, sin incidentes graves ([RPP](https://rpp.pe/politica/elecciones/roberto-sanchez-salio-de-su-local-de-campana-en-el-inicio-de-marcha-convocada-por-juntos-por-el-peru-noticia-1693850)). 346 actas en JEE (↓ desde 878). JNE sustentó evaluación nulidad 2.408 actas; **resolución no publicada** al corte. Procuraduría denunció penalmente a 9 convocantes (no incluye Sánchez) ([RPP](https://rpp.pe/politica/judiciales/procuraduria-denuncia-penalmente-a-antauro-humala-y-otras-ocho-personas-por-presunta-perturbacion-de-la-tranquilidad-publica-noticia-1693848)). Ilave **sin bloqueo activo** verificado. Pariahuanca: acta GORE 19-jun. Piura arrocera **23-jun** confirmada.",
     "catalysts": [
-      "Movilización arrocera Piura-Sechura **23-jun** vigente (monitoreo terreno AM).",
-      "JNE nulidad 2.408 actas: dejó al voto 19-jun; **resolución no publicada** al 22-jun.",
-      "MML restricción Centro Histórico **expiró 22-jun 00:00** (Res. D002556); zona intangible persiste.",
-      "Autoconvocatoria IG 22-jun **no materializada** (sin cobertura indexada).",
-      "0 bloqueos viales activos 20–22 jun verificados (corredores transitables).",
-      "Acampamento JNE activo (~80 carpas baseline 16-jun; sin conteo nuevo)."
+      "Piura arrocera 23-jun: terreno **no confirmado**; gremio mantiene protesta post-lineamientos MIDAGRI.",
+      "JNE pleno nulidad 2.408 actas: resolución **no publicada** (JEE previo improcedente por tasa/prueba).",
+      "El Trébol y corredores norte **transitables** al 23-jun (sin bloqueo indexado).",
+      "ONPE meseta 99,63 % / +41.565 / 346 actas JEE.",
+      "Acampamento JNE activo (~80 carpas baseline 16-jun).",
+      "Procuraduría denuncia 9 convocantes; Sánchez rechazó criminalización ([Infobae 20-jun](https://www.infobae.com/peru/2026/06/20/procuraduria-denuncia-a-antauro-humala-claudia-cisneros-y-hernando-cevallos-por-presunta-perturbacion-de-la-tranquilidad-publica/))."
     ],
     "top_risks_24_72h": [
       "Resolución JNE nulidad 2.408 actas Lima/EE.UU. (Prob 0,70, Impacto CRÍTICO)",
@@ -2875,7 +2875,7 @@
     },
     "norte": {
       "region": "norte",
-      "fecha_corte": "2026-06-16T10:22:00-05:00",
+      "fecha_corte": "2026-06-23T18:00:00-05:00",
       "subregiones": [
         "Piura",
         "Lambayeque",
@@ -3660,16 +3660,16 @@
           "probabilidad_realizacion": 0.85,
           "magnitud_estimada": "alta",
           "es_pasado": false,
-          "probabilidad_escalada_bloqueo_trebol": 0.65,
+          "probabilidad_escalada_bloqueo_trebol": 0.55,
           "magnitud_codigo": "M",
           "participantes_rango": [
             500,
             5000
           ],
           "participantes_est_central": 2000,
-          "magnitud_confianza": "baja",
+          "magnitud_confianza": "muy_baja",
           "status_corredor_19jun": "latente",
-          "next_check": "2026-06-23T08:00:00-05:00",
+          "next_check": "2026-06-24T08:00:00-05:00",
           "concentration_points": [
             {
               "nombre": "Sechura",
@@ -3690,11 +3690,17 @@
               "riesgo": "muy_alto"
             }
           ],
-          "notas": "Vigente 22-jun (Norte Sostenible). Sin comunicado Conveagro nuevo. Monitoreo terreno obligatorio 23-jun AM pre-escalada El Trébol.",
+          "notas": "23-jun PM: sin confirmación terreno indexada. MIDAGRI lineamientos aprobados; productores mantienen protesta (Norte Sostenible). El Trébol libre al corte. Monitoreo 24-jun AM.",
           "fuente_secundaria": "https://www.facebook.com/piuraplustv/videos/pptv-productores-anuncian-nueva-movilizaci%C3%B3n-para-el-23-de-junio-y-advierten-con/1007529818309319/",
           "fuente_secundaria_nombre": "Piura Plus TV (Facebook, 19-jun)",
           "reconfirmacion_parcial_19jun": true,
-          "status_corredor_22jun": "latente"
+          "status_corredor_22jun": "latente",
+          "verificacion_terreno_23jun": "no_confirmado",
+          "estado_convocatoria": "vigente_sin_confirmacion_terreno",
+          "status_corredor_23jun": "transitable",
+          "bloqueo_trebol_23jun": false,
+          "magnitud_realizada": null,
+          "fuente_contexto_23jun": "https://nortesostenible.com/midagri-aprueba-lineamientos-para-compra-de-arroz-pero-productores-de-piura-mantienen-protesta/"
         }
       ],
       "actores": [
@@ -3929,7 +3935,7 @@
           "fuente": "https://rpp.pe/peru/la-libertad/elecciones-la-libertad-pnp-usara-la-fuerza-si-bloqueos-impiden-paso-durante-segunda-vuelta-noticia/"
         }
       ],
-      "executive_alert": "ALERTA MEDIA — NORTE. Sin bloqueos viales activos verificados al 19-jun (El Trébol, Catacaos–Piura, km 556 libres). **Movilización arrocera Piura-Sechura confirmada 23-jun ~08:00** — riesgo escalada El Trébol P=0,65 ([Norte Sostenible](https://nortesostenible.com/arroceros-de-piura-anuncian-movilizacion-para-el-23-de-junio-y-evaluan-nuevo-paro-por-incumplimiento-de-demandas/)). Ronderas cajamarquinas inactivas con capacidad latente (CUDRCU/CUNARC). Plantón JEE Trujillo continuo desde 9-jun. Sin manifestaciones electorales verificadas Norte 17–19-jun. JNE evalúa nulidad 2.408 actas (catalizador narrativo regional).",
+      "executive_alert": "Piura arrocera 23-jun: **sin confirmación terreno** al corte PM; tensión gremial activa ([Norte Sostenible](https://nortesostenible.com/midagri-aprueba-lineamientos-para-compra-de-arroz-pero-productores-de-piura-mantienen-protesta/)). El Trébol **sin bloqueo indexado**. Margen ONPE meseta +41.565. JNE pleno nulidad pendiente.",
       "social_v35": {
         "region": "norte",
         "version": "v3.5",
@@ -11756,7 +11762,7 @@
       "id": "RM-27",
       "category": "Crisis institucional",
       "title": "Resolución JNE nulidad 2.408 actas Lima + EE.UU.",
-      "scenario": "JP sustentó 19-jun ante JNE nulidad de 2.408 actas (1.751 Lima + 647 EE.UU.); pleno dejó al voto; JP admitió sin prueba material de fraude (solo análisis 583 patrones). Si JNE declara fundada nulidad Lima, ~43.577 votos netos en juego superan margen +41.565. Resolución estimada 23-27 jun; no publicada al corte 19-jun 21:00.",
+      "scenario": "Pleno dejó al voto 19-jun apelación nulidad 2.408 actas; JP sin prueba material. JEE previo declaró improcedente 647 EE.UU. + 1.751 Lima (falta tasa/prueba). Resolución pleno no publicada al 23-jun 18:00. ~43.577 votos en juego vs +41.565.",
       "probability": "MEDIA",
       "impact": "CRÍTICO",
       "timeframe": "23-27 jun (estimado Roy Mendoza)",
@@ -12260,14 +12266,14 @@
       "name": "Bloqueos viales estratégicos persistentes",
       "category": "Logística",
       "status": "VERDE",
-      "value": "0 bloqueos 20–22 jun · Piura 23-jun ROJO",
+      "value": "Piura 23-jun terreno no confirmado · El Trébol libre · tensión gremial AMARILLO",
       "umbral": "CRÍTICO si >72h sin levantamiento",
       "note": "Ilave, La Oroya, Federico Basadre, Panamericana Norte km 556",
       "fuente": "R1/R2",
       "current_status": "VERDE",
-      "rationale": "Corredores transitables; Piura arrocera mañana 23-jun P(escalada El Trébol)=0,65.",
+      "rationale": "Sin bloqueo indexado 23-jun; MIDAGRI lineamientos insuficientes para gremio.",
       "estado": "verde",
-      "next_check": "2026-06-23T08:00:00-05:00"
+      "next_check": "2026-06-24T08:00:00-05:00"
     },
     {
       "id": "EW-21",
@@ -12336,9 +12342,9 @@
       "indicator": "Movilización arrocera Piura-Sechura 23-jun",
       "threshold": "ROJO si bloqueo El Trébol o Catacaos–Piura >4h",
       "status": "AMARILLO",
-      "value": "Vigente 22-jun · monitoreo terreno 23-jun AM",
+      "value": "NORTE-PARO-023 sin confirmación terreno 23-jun",
       "trend": "→ vigente",
-      "rationale": "NORTE-PARO-023 sin cancelación; Conveagro sin comunicado nuevo.",
+      "rationale": "Convocatoria vigente pre-evento; resultado terreno no indexado al corte PM.",
       "next_check": "2026-06-22 08:00 PET",
       "data_source": "https://nortesostenible.com/arroceros-de-piura-anuncian-movilizacion-para-el-23-de-junio-y-evaluan-nuevo-paro-por-incumplimiento-de-demandas/"
     },
@@ -14997,8 +15003,8 @@
     }
   ],
   "social_intelligence": {
-    "fecha_corte": "2026-06-22T20:00:00-05:00",
-    "contexto": "Al 22-jun 20:00 PET: ONPE meseta 99,63 %/+41.565. MML levantada programática. Piura 23-jun vigente. Autoconv 22-jun no materializada. JNE nulidad sin resolución.",
+    "fecha_corte": "2026-06-23T18:00:00-05:00",
+    "contexto": "23-jun PM: Piura arrocera sin confirmación terreno; tensión gremial activa. JNE pleno nulidad pendiente. ONPE meseta +41.565.",
     "hashtags": [
       {
         "hashtag": "#TomaDeLima",
@@ -27700,7 +27706,14 @@
       "actas_disputa": 2408,
       "votos_en_juego_est": 43577,
       "estado_19jun": "dejado_al_voto",
-      "resolucion_publicada": false
+      "resolucion_publicada": false,
+      "jee_improcedente_previo": {
+        "lima_1751": true,
+        "eeuu_647": true,
+        "motivo": "falta_tasa_y_prueba_material",
+        "fuente": "https://canaln.pe/actualidad/jne-improcedente-nulidad-juntos-peru-mesas-extranjero-n492715"
+      },
+      "pleno_resolucion_23jun": "no_publicada"
     },
     "onpe_plateau": {
       "desde": "2026-06-19T20:43:00-05:00",
@@ -27713,7 +27726,7 @@
   "prediccion_7dias": {
     "fecha_inicio": "2026-06-19",
     "fecha_fin": "2026-06-26",
-    "nota_metodologica": "v3.9.5 Round 4 live: MML levantada 22-jun 00:00; autoconv 22-jun no materializada; Piura 23-jun vigente; JNE nulidad sin resolución; 0 bloqueos 20–22 jun.",
+    "nota_metodologica": "v3.9.6 Piura 23-jun: terreno no confirmado; tensión gremial activa post-lineamientos MIDAGRI; El Trébol libre; JNE pleno nulidad pendiente; ONPE meseta.",
     "lima": {
       "eventos_esperados": 5,
       "prob_manifestacion_significativa": 0.45,
@@ -27729,8 +27742,9 @@
     "norte": {
       "eventos_esperados": 4,
       "prob_escalada": 0.28,
-      "prob_bloqueo_panamericana_norte": 0.7,
-      "justificacion": "Piura 23-jun vigente 22-jun; precedente El Trébol; monitoreo AM 23-jun."
+      "prob_bloqueo_panamericana_norte": 0.55,
+      "justificacion": "Movilización 23-jun no confirmada en terreno; gremio mantiene protesta; riesgo latente El Trébol.",
+      "prob_escalada_post_23jun": 0.45
     },
     "centro": {
       "eventos_esperados": 4,
@@ -28118,37 +28132,38 @@
     ]
   },
   "verification_gaps_r4": {
-    "fecha_corte": "2026-06-22T20:00:00-05:00",
-    "next_monitoreo": "2026-06-23T08:00:00-05:00",
-    "nota": "Round 4 live 22-jun: 5/8 ítems cerrados o parciales; Piura 23-jun próximo P0.",
+    "fecha_corte": "2026-06-23T18:00:00-05:00",
+    "next_monitoreo": "2026-06-24T08:00:00-05:00",
+    "nota": "v3.9.6 Piura 23-jun: terreno no confirmado; tensión gremial activa; JNE pleno pendiente.",
     "gaps": [
       {
         "id": "VG-R4-01",
         "item": "Reconfirmación Conveagro Piura (comunicado, FB, terreno)",
         "prioridad": "P0",
-        "estado": "parcial",
+        "estado": "no_confirmado_terreno",
         "next_check": "2026-06-22T08:00:00-05:00",
         "fuentes": [
           "Walac Noticias",
           "Norte Sostenible",
           "SUTRAN"
         ],
-        "resultado": "Convocatoria Piura 23-jun vigente en Norte Sostenible; sin comunicado Conveagro nuevo 20–22 jun.",
-        "fuente_url": "https://nortesostenible.com/arroceros-de-piura-anuncian-movilizacion-para-el-23-de-junio-y-evaluan-nuevo-paro-por-incumplimiento-de-demandas/",
-        "verificado": "2026-06-22T12:00:00-05:00"
+        "resultado": "23-jun PM: sin cobertura terreno indexada (Walac/SUTRAN). MIDAGRI lineamientos aprobados; gremio mantiene protesta. El Trébol sin bloqueo indexado.",
+        "fuente_url": "https://nortesostenible.com/midagri-aprueba-lineamientos-para-compra-de-arroz-pero-productores-de-piura-mantienen-protesta/",
+        "verificado": "2026-06-23T18:00:00-05:00"
       },
       {
         "id": "VG-R4-02",
         "item": "Resolución JNE nulidad 2.408 actas en portal oficial",
         "prioridad": "P0",
-        "estado": "pendiente",
+        "estado": "pendiente_pleno",
         "next_check": "2026-06-22T08:00:00-05:00",
         "fuentes": [
           "jne.gob.pe",
           "RPP"
         ],
-        "resultado": "Resolución JNE nulidad 2.408 actas no publicada en portal al corte 22-jun 20:00.",
-        "verificado": "2026-06-22T12:00:00-05:00"
+        "resultado": "Pleno JNE: resolución apelación 2.408 actas no publicada al 23-jun 18:00. JEE previo: improcedente 647 EE.UU. + 1.751 Lima (falta tasa/prueba).",
+        "verificado": "2026-06-23T18:00:00-05:00",
+        "fuente_url": "https://canaln.pe/actualidad/jne-improcedente-nulidad-juntos-peru-mesas-extranjero-n492715"
       },
       {
         "id": "VG-R4-03",
@@ -28212,8 +28227,8 @@
         "fuentes": [
           "SUTRAN"
         ],
-        "resultado": "0 bloqueos SUTRAN indexados 20–22 jun (El Trébol, FB Terry, La Oroya libres).",
-        "verificado": "2026-06-22T12:00:00-05:00"
+        "resultado": "El Trébol y Panamericana Norte Piura sin bloqueo indexado 23-jun.",
+        "verificado": "2026-06-23T18:00:00-05:00"
       },
       {
         "id": "VG-R4-08",
