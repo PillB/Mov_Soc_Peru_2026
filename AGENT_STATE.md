@@ -14,7 +14,7 @@
 - 001–034 | v3.9.0–v3.9.7 pipeline | 328 tests | Success
 - 035 | rm_historico_jun23 + update_v398.py | Success
 - 036 | tests N62 + version 3.9.8 → 340/340 pass | build 1.993 MB | Success
-- 037 | git push v3.9.8 | pending
+- 037 | git push v3.9.8 | Success (bcaf6ac)
 
 ## 🧠 Retrospective & Post-Mortem Notes
 - RM-01/04/05/10/13 → historico; RM-11 vigente (Piura post-MIDAGRI)
