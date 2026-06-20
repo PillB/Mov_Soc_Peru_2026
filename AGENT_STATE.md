@@ -18,7 +18,7 @@
 - 018 | research/validation/round3_jun22_prep.md + hashtags_accounts_round3 | Success
 - 019 | update_v393.py: social_intelligence, prediccion_7dias, NORTE-PARO-023, rutas Piura | Success
 - 020 | tests N57 + version 3.9.3 → 292/292 pass | build 1.980 MB | Success
-- 021 | git push + CI verify + live curl | Pending
+- 021 | git push bdf27c8 + CI success + live 3.9.3 | 292 tests | Success
 
 ## 🧠 Retrospective & Post-Mortem Notes
 - JNE: pleno dejó al voto 19-jun; JP sin prueba material — RM-27/EW-27 actualizados
@@ -28,6 +28,6 @@
 
 ## 📋 The Execution Pipeline
 - [x] Active Step: Round 3 per-entity deep research (hashtags/cuentas/ubicaciones)
-- [x] Active Step: v3.9.3 pre-22-jun corte — build, tests 292/292
+- [x] Active Step: v3.9.3 pre-22-jun corte — build, tests 292/292, deploy, live verify
 - [ ] Next Step: Round 4 corte 22-jun AM (pre-Piura 23-jun live verification)
 - [ ] Future Milestone: v3.9.4 post-23-jun (resultado movilización Piura + JNE fallo)
