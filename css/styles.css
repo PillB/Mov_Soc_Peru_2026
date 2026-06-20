@@ -2307,6 +2307,82 @@ details.foldable > summary:focus-visible {
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
+
+/* Subsite / anexo técnico (metodología magnitud) */
+details.subsite-fold {
+  margin-top: var(--s-4);
+  border-style: dashed;
+  border-color: var(--c-line);
+  background: var(--c-bg-soft);
+}
+details.subsite-fold > summary {
+  font-size: var(--text-sm);
+  color: var(--c-muted);
+}
+details.subsite-fold > summary .fold-meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+.subsite-card {
+  display: grid;
+  gap: var(--s-4);
+}
+.subsite-lead {
+  font-size: var(--text-sm);
+  color: var(--c-ink-2);
+  line-height: 1.55;
+  margin: 0;
+}
+.subsite-points {
+  margin: 0;
+  padding-left: 1.15rem;
+  font-size: var(--text-sm);
+  color: var(--c-muted);
+  display: grid;
+  gap: 0.35rem;
+}
+.subsite-points code {
+  font-family: var(--font-mono);
+  font-size: 0.82em;
+  background: var(--c-bg-elev);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+.subsite-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--c-navy);
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-line);
+  border-radius: 6px;
+  padding: 0.55rem 0.9rem;
+  text-decoration: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.subsite-link:hover {
+  border-color: var(--c-amber);
+  box-shadow: 0 2px 8px rgba(11, 26, 43, 0.08);
+}
+.subsite-link:focus-visible {
+  outline: 2px solid var(--c-amber);
+  outline-offset: 2px;
+}
+.footer-subsite-link {
+  color: #8e98a5;
+  font-size: inherit;
+  border-bottom: 1px dotted rgba(142, 152, 165, 0.5);
+  text-decoration: none;
+}
+.footer-subsite-link:hover {
+  color: #e9c989;
+  border-bottom-color: #e9c989;
+}
+
 details.foldable > .foldable-body {
   padding: 0.8rem 1.1rem 1.4rem 1.1rem;
   border-top: 1px solid var(--c-line);

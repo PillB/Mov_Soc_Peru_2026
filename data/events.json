@@ -1,9 +1,9 @@
 {
   "meta": {
-    "version": "3.8.1",
-    "generated_at": "2026-06-16T10:50:00-05:00",
+    "version": "3.9.0",
+    "generated_at": "2026-06-19T20:43:00-05:00",
     "scope": "Manifestaciones, marchas y eventos de acumulación de personas — Perú + Capa de inteligencia social y medios alternativos",
-    "window": "16–23 junio 2026 (post-2da vuelta · corte 99,07% escrutado · margen 34.967 votos)",
+    "window": "19–26 junio 2026 (post-2da vuelta · corte 99,63% escrutado · margen 41.565 votos)",
     "language": "es-PE",
     "classification": "USO OPERATIVO — SENSIBLE",
     "self_update_sources": [
@@ -28,7 +28,7 @@
         "url": "https://defensoria.gob.pe"
       }
     ],
-    "last_update": "2026-06-16T10:50:00-05:00",
+    "last_update": "2026-06-19T20:43:00-05:00",
     "expansion": "v3.1 — Capa grassroots por región: 89 cuentas individuales (autoridades locales, dirigentes, activistas), 67 colectivos/frentes, 87 lives identificados, 60 hashtags verificados, 55 rutas/bloqueos documentados, 17 comunicados oficiales nacionales. Investigación paralela en 6 frentes (Lima/Norte/Centro/Sur/Oriente/Nacional).",
     "grassroots_stats": {
       "accounts": 89,
@@ -38,13 +38,13 @@
       "routes": 55,
       "comunicados": 17
     },
-    "last_refresh_summary": "Refresh v3.8.1 — round 2 loose threads: ONPE 99,07%/+34.967; Ilave y km 556 NO verificados activos 16-jun; amparo PJ presentado sin resolución; ruta probable Campo de Marte→JNE documentada; Piura movilización 23-jun; lives RPP acampamento JNE; @JuntosPorElPer sin post X — convocatoria vía comunicado partidario.",
-    "fecha_corte": "2026-06-16T10:50:00-05:00"
+    "last_refresh_summary": "v3.9.0 — 3 rondas research granular: ONPE 99,63%/+41.565; marcha JP 19-jun ejecutada (Paseo Colón, 350-900); Ilave inactivo; Pariahuanca desescalado con acta GORE; Procuraduría denuncia 9 convocantes; JNE nulidad 2.408 actas pendiente; Piura 23-jun vigente; magnitud OSINT multi-fuente.",
+    "fecha_corte": "2026-06-19T20:43:00-05:00"
   },
   "executive_alert": {
     "level": "CRÍTICO",
-    "headline": "Fujimori +34.967 votos al 99,07% actas; JP vigilias 17-jun y marcha Campo de Marte 19-jun; Ilave y km 556 sin bloqueo verificado; amparo PJ pendiente",
-    "key_finding": "Margen +34.967 votos al 99,07% (El Comercio 10:50 PET, 16-jun). Hilos cerrados round 2: Puente Ilave y Panamericana km 556 **sin bloqueo activo verificado** al 16-jun (convocatoria Ilave desde 11-jun sin confirmación SUTRAN). Amparo JP voto exterior **presentado**, sin admisión/rechazo PJ. Marcha 19-jun: solo Campo de Marte 16:00 confirmado; ruta probable vía Arequipa→JNE (precedente 13-jun). Piura: paro NO reactivado; movilización arrocera **23-jun** confirmada. Acampamento ~80 carpas frente JNE (RPP 16-jun).",
+    "headline": "Fujimori +41.565 votos al 99,63% actas; marcha JP 19-jun ejecutada (cientos, pacífica); JNE evalúa nulidad 2.408 actas; Procuraduría denuncia 9 convocantes",
+    "key_finding": "Margen +41.565 votos al 99,63% ([El Comercio](https://elcomercio.pe/politica/elecciones/resultados-onpe-en-vivo-entre-keiko-fujimori-y-roberto-sanchez-por-la-presidencia-del-peru-segunda-vuelta-lbposting-noticia/), 19-jun 20:43 PET). Marcha JP **realizada** 19-jun desde Paseo Colón (no Campo de Marte): cientos, sin incidentes graves ([RPP](https://rpp.pe/politica/elecciones/roberto-sanchez-salio-de-su-local-de-campana-en-el-inicio-de-marcha-convocada-por-juntos-por-el-peru-noticia-1693850)). 346 actas en JEE (↓ desde 878). JNE sustentó evaluación nulidad 2.408 actas; **resolución no publicada** al corte. Procuraduría denunció penalmente a 9 convocantes (no incluye Sánchez) ([RPP](https://rpp.pe/politica/judiciales/procuraduria-denuncia-penalmente-a-antauro-humala-y-otras-ocho-personas-por-presunta-perturbacion-de-la-tranquilidad-publica-noticia-1693848)). Ilave **sin bloqueo activo** verificado. Pariahuanca: acta GORE 19-jun. Piura arrocera **23-jun** confirmada.",
     "catalysts": [
       "Margen escrutinio +34.967 votos al 99,07% — reversión estadística improbable.",
       "JP convoca vigilias 17-jun y marcha Campo de Marte 19-jun 16:00.",
@@ -56,11 +56,11 @@
       "De-escalación JP: Zunini reconoce ventaja Fujimori, descarta obstrucción sistemática."
     ],
     "top_risks_24_72h": [
-      "Marcha JP Campo de Marte 19-jun (Prob 0,80, Impacto ALTO)",
-      "Vigilias JP 17-jun frente JNE (Prob 0,85, Impacto MEDIO)",
-      "Amparo PJ voto exterior (Prob 0,15, Impacto CRÍTICO)",
-      "Marcha Pariahuanca 19-jun (Prob 0,90, Impacto MEDIO-ALTO)",
-      "Reactivación bloqueo Ilave (Prob 0,42, Impacto ALTO)"
+      "Resolución JNE nulidad 2.408 actas Lima/EE.UU. (Prob 0,70, Impacto CRÍTICO)",
+      "Movilización arrocera Piura 23-jun (Prob 0,65, Impacto ALTO)",
+      "Autoconvocatoria Instagram 22-jun Plaza San Martín (Prob 0,40, Impacto MEDIO)",
+      "Reactivación bloqueo Ilave post-proclamación (Prob 0,40, Impacto ALTO)",
+      "Amparo PJ voto exterior sin resolución (Prob 0,15, Impacto CRÍTICO)"
     ],
     "sources": [
       {
@@ -92,10 +92,10 @@
   "context": {
     "election_state": {
       "second_round": "domingo 7 junio 2026",
-      "scrutinized_pct": "99,07 %",
-      "sanchez_pct": "49,889 %",
-      "fujimori_pct": "50,111 %",
-      "difference_votes": "+34.967 votos (pro-Fujimori)",
+      "scrutinized_pct": "99,63 %",
+      "sanchez_pct": "49,887 %",
+      "fujimori_pct": "50,113 %",
+      "difference_votes": "+41.565 votos (pro-Fujimori)",
       "exterior_vote": "100 % contabilizado (12-jun) · ~63,4 % Fujimori en exterior",
       "proclamation_expected": "mediados de julio 2026 (JNE)"
     },
@@ -1492,7 +1492,8 @@
           "prob_materializacion": 0.78,
           "riesgo_enfrentamiento": "medio",
           "impacto_logistico": "leve",
-          "es_pasado": false
+          "es_pasado": true,
+          "estado": "realizada_parcial"
         },
         {
           "id": "lima_NEW_18",
@@ -1511,7 +1512,7 @@
             "#VotoPopular",
             "#DefensaDemocracia"
           ],
-          "participantes_est": "Sin estimación",
+          "participantes_est": 600,
           "ruta": "Plaza San Martín → Av. Garcilaso de la Vega → Av. Paseo de la República → Av. Nazca → JNE – Av. Nazca 584, Jesús María",
           "fuente_url": "https://www.instagram.com/reel/DZQNoG-pSIU/",
           "fuente_nombre": "Instagram – Convocatoria marcha 22 junio Lima 2026",
@@ -1525,7 +1526,19 @@
           "prob_materializacion": 0.6,
           "riesgo_enfrentamiento": "medio",
           "impacto_logistico": "leve",
-          "es_pasado": false
+          "es_pasado": true,
+          "estado": "realizada",
+          "ubicacion_real": "Paseo Colón / Centro Histórico (no Campo de Marte)",
+          "participantes_rango": [
+            350,
+            900
+          ],
+          "magnitud_codigo": "S",
+          "magnitud_confianza": "media",
+          "probabilidad_realizacion": 1.0,
+          "ruta_real": "Local JP av. 9 de Diciembre/Paseo Colón → Bolognesi → Alfonso Ugarte → Piérola/Garcilaso → retorno",
+          "notas": "Ejecutada 19-jun pacífica; cientos de asistentes (RPP, LR, Infobae). Sánchez encabezó desde Paseo Colón, NO Campo de Marte. PNP +7.000. MML restricción Centro Histórico hasta 22-jun.",
+          "fuente_ejecucion": "https://rpp.pe/politica/elecciones/roberto-sanchez-salio-de-su-local-de-campana-en-el-inicio-de-marcha-convocada-por-juntos-por-el-peru-noticia-1693850"
         },
         {
           "id": "lima_NEW_19",
@@ -1626,15 +1639,25 @@
             "Hernando Cevallos",
             "colectivos sociales aliados"
           ],
-          "estado": "confirmada",
+          "estado": "realizada",
           "fuente_url": "https://www.expreso.com.pe/politica/juntos-por-el-peru-no-garantiza-aceptar-resultado-electoral-y-llama-a-marcha-en-lima-comunicado-completo-roberto-sanchez-keiko-fujimori-conteo-onpe-noticia/1294804/",
           "fuente_nombre": "Expreso (16-jun-2026)",
-          "notas": "Concentración 16:00 Campo de Marte. Ruta post-16:00 NO oficializada por JP/MML/PNP al 16-jun. Ruta probable (precedente 13-jun): Campo de Marte → av. Arequipa → Inca Garcilaso de la Vega → av. Nicolás de Piérola → JNE (jr. Nazca). MML: alerta máxima Centro Histórico; zona intangible.",
-          "probabilidad_realizacion": 0.8,
+          "notas": "Ejecutada 19-jun pacífica; cientos de asistentes (RPP, LR, Infobae). Sánchez encabezó desde Paseo Colón, NO Campo de Marte. PNP +7.000. MML restricción Centro Histórico hasta 22-jun.",
+          "probabilidad_realizacion": 1.0,
           "magnitud_estimada": "alta",
-          "es_pasado": false,
+          "es_pasado": true,
           "ruta_probable": "Campo de Marte → av. Arequipa → Inca Garcilaso → av. Nicolás de Piérola → JNE (jr. Nazca)",
-          "fuente_ruta": "https://rpp.pe/politica/elecciones/marcha-en-lima-simpatizantes-de-juntos-por-el-peru-y-colectivos-sociales-exigen-respeto-a-la-voluntad-popular-y-transparencia-electoral-noticia-1692948"
+          "fuente_ruta": "https://rpp.pe/politica/elecciones/marcha-en-lima-simpatizantes-de-juntos-por-el-peru-y-colectivos-sociales-exigen-respeto-a-la-voluntad-popular-y-transparencia-electoral-noticia-1692948",
+          "ubicacion_real": "Paseo Colón / Centro Histórico (no Campo de Marte)",
+          "participantes_est": 600,
+          "participantes_rango": [
+            350,
+            900
+          ],
+          "magnitud_codigo": "S",
+          "magnitud_confianza": "media",
+          "ruta_real": "Local JP av. 9 de Diciembre/Paseo Colón → Bolognesi → Alfonso Ugarte → Piérola/Garcilaso → retorno",
+          "fuente_ejecucion": "https://rpp.pe/politica/elecciones/roberto-sanchez-salio-de-su-local-de-campana-en-el-inicio-de-marcha-convocada-por-juntos-por-el-peru-noticia-1693850"
         },
         {
           "fecha_convocatoria": "2026-06-17T12:00:00-05:00",
@@ -1652,6 +1675,23 @@
           "notas": "Viaje familiar; posible concentración espontánea de simpatizantes. Sin convocatoria callejera FP verificada.",
           "probabilidad_realizacion": 0.9,
           "magnitud_estimada": "baja",
+          "es_pasado": false
+        },
+        {
+          "id": "LIMA-AUTO-22JUN",
+          "fecha": "2026-06-22T16:00:00-05:00",
+          "titulo": "Autoconvocatoria Plaza San Martín (no verificada)",
+          "ubicacion": "Plaza San Martín, Centro Histórico, Lima",
+          "tipo": "marcha",
+          "bando": "pro_sanchez",
+          "estado": "no_verificada",
+          "probabilidad_realizacion": 0.4,
+          "participantes_est": "500-3000",
+          "magnitud_codigo": "S",
+          "magnitud_confianza": "baja",
+          "fuente_url": "https://www.instagram.com/reel/DZQNoG-pSIU/",
+          "fuente_nombre": "Instagram reel autoconvocatoria (sin respaldo JP oficial)",
+          "notas": "Reel vigente; sin comunicado partidario JP. MML mantiene restricción Centro Histórico hasta 22-jun.",
           "es_pasado": false
         }
       ],
@@ -5461,7 +5501,15 @@
           "fuente": "https://elbuho.pe/2026/06/junin-con-protesta-pariahuanca-exige-proteger-cuatro-cuencas-tras-mortandad-masiva-de-truchas/",
           "probabilidad_realizacion": 0.9,
           "magnitud_estimada": "alta",
-          "es_pasado": false
+          "es_pasado": true,
+          "estado": "realizada_parcial",
+          "participantes_est": 400,
+          "participantes_rango": [
+            200,
+            600
+          ],
+          "magnitud_codigo": "S",
+          "notas": "Marcha ~10.000 NO materializada. Protesta estacionaria GORE Huancayo 18-19-jun; acta compromisos firmada 19-jun 19:49 (RPP)."
         }
       ],
       "actores": [
@@ -12081,24 +12129,26 @@
       "name": "Paro nacional CGTP-CNUL-CUL coordinado",
       "category": "Movilización",
       "status": "AMARILLO",
-      "value": "P=0,28",
+      "value": "Marcha 19-jun realizada · sin CGTP 17-jun",
       "umbral": "ROJO si CGTP convoca formalmente paro 48h",
       "note": "P sube a >0,80 si proclamación ocurre 16-18 jun. Histórico 2021/2022-2023 valida capacidad.",
       "fuente": "R2/routes_magnitud",
       "current_status": "AMARILLO",
-      "rationale": "Sin comunicado CGTP paro 17-jun. De-escalación JP reduce P(paro nacional)."
+      "rationale": "Sin comunicado CGTP paro 17-jun. De-escalación JP reduce P(paro nacional).",
+      "estado": "amarillo"
     },
     {
       "id": "EW-20",
       "name": "Bloqueos viales estratégicos persistentes",
       "category": "Logística",
       "status": "NARANJA",
-      "value": "0 bloqueos confirmados · 2 inciertos",
+      "value": "0 bloqueos confirmados · Ilave inactivo 19-jun",
       "umbral": "CRÍTICO si >72h sin levantamiento",
       "note": "Ilave, La Oroya, Federico Basadre, Panamericana Norte km 556",
       "fuente": "R1/R2",
       "current_status": "NARANJA",
-      "rationale": "Ilave y km 556 sin bloqueo verificado 16-jun. Federico Basadre levantado según PCM. La Oroya: solo congestión obras km 90."
+      "rationale": "Ilave sin bloqueo verificado. La Oroya transitable. Federico Basadre/FB Terry inactivos.",
+      "estado": "verde"
     },
     {
       "id": "EW-21",
@@ -12131,13 +12181,14 @@
       "rationale": "Amparo interpuesto; sin admisión/rechazo verificado al 16-jun 10:50.",
       "next_check": "Diario mientras PJ tramite demanda",
       "title": "Demanda de amparo JP contra voto en el exterior",
-      "value": "Presentado 15-16/jun · sin resolución PJ",
+      "value": "Presentado 16-jun · sin resolución PJ 19-jun",
       "sources": [
         {
           "title": "Infobae — JP amparo PJ voto exterior",
           "url": "https://www.infobae.com/peru/2026/06/16/juntos-por-el-peru-presenta-demanda-ante-el-pj-para-anular-votos-del-extranjero-se-hizo-con-una-norma-que-nunca-debio-existir/"
         }
-      ]
+      ],
+      "estado": "amarillo"
     }
   ],
   "monitoring_tools": [
@@ -15749,6 +15800,27 @@
         "volumen_est": "~5.000 tweets (5-14 jun)",
         "ejemplo_url": "https://www.instagram.com/p/DZVwmd2Gvkr/",
         "fuente_metricas": "metrica_estimada:true; referencia Lupa.ec https://lupa.com.ec/explicativos/empresa-ecuatoriana-elecciones-peru/"
+      },
+      {
+        "tag": "#MarchaEnDefensaDeLaDemocracia",
+        "volumen_estimado": "alto",
+        "bando": "pro_sanchez",
+        "pico_observado": "2026-06-19T18:00:00-05:00",
+        "fuente_url": "https://rpp.pe/politica/elecciones/roberto-sanchez-salio-de-su-local-de-campana-en-el-inicio-de-marcha-convocada-por-juntos-por-el-peru-noticia-1693850"
+      },
+      {
+        "tag": "#CriminalizaciónDeLaProtesta",
+        "volumen_estimado": "medio",
+        "bando": "pro_sanchez",
+        "pico_observado": "2026-06-19T20:00:00-05:00",
+        "fuente_url": "https://rpp.pe/politica/judiciales/procuraduria-denuncia-penalmente-a-antauro-humala-y-otras-ocho-personas-por-presunta-perturbacion-de-la-tranquilidad-publica-noticia-1693848"
+      },
+      {
+        "tag": "#583PatronesAnomalos",
+        "volumen_estimado": "medio",
+        "bando": "pro_sanchez",
+        "pico_observado": "2026-06-19T10:00:00-05:00",
+        "fuente_url": "https://rpp.pe/politica/elecciones/juntos-por-el-peru-sustenta-pedido-de-nulidad-de-mas-de-2-400-actas-y-dice-que-encontraron-583-patrones-anomalos-noticia-1693777"
       }
     ],
     "narratives": [
@@ -19350,6 +19422,33 @@
       "url_fact_check": "https://larepublica.pe/verificador/2026/06/15/es-falso-que-roberto-sanchez-protagonizara-una-pelea-en-plenaria-de-juntos-por-el-peru-442725",
       "fecha": "2026-06-15",
       "fuente": "https://larepublica.pe/verificador/2026/06/15/es-falso-que-roberto-sanchez-protagonizara-una-pelea-en-plenaria-de-juntos-por-el-peru-442725"
+    },
+    {
+      "id": "DIS-JUN19-01",
+      "bulo": "Keiko Fujimori ya fue proclamada presidenta electa",
+      "veredicto": "FALSO",
+      "verificador": "EFE Verifica / AFP Factual",
+      "fecha_fact_check": "2026-06-19",
+      "url_fact_check": "https://elcomercio.pe/politica/elecciones/cual-es-la-cantidad-de-votos-que-separa-a-keiko-fujimori-y-roberto-sanchez-segun-ultimos-resultados-onpe-de-la-segunda-vuelta-elecciones-peru-2026-noticia/",
+      "plataformas": [
+        "Facebook",
+        "WhatsApp",
+        "X"
+      ],
+      "notas": "JNE proclamó solo legislativos 19-jun; presidencia pendiente mediados julio."
+    },
+    {
+      "id": "DIS-JUN19-04",
+      "bulo": "583 patrones anómalos = fraude electoral comprobado",
+      "veredicto": "ENGAÑOSO",
+      "verificador": "Análisis OSINT (argumento legal JP, no dictamen ONPE/JNE)",
+      "fecha_fact_check": "2026-06-19",
+      "url_fact_check": "https://rpp.pe/politica/elecciones/juntos-por-el-peru-sustenta-pedido-de-nulidad-de-mas-de-2-400-actas-y-dice-que-encontraron-583-patrones-anomalos-noticia-1693777",
+      "plataformas": [
+        "X",
+        "TikTok",
+        "WhatsApp"
+      ]
     }
   ],
   "grassroots": {
@@ -26889,7 +26988,7 @@
   ],
   "forecast_ml": {
     "titulo": "Proyección probabilística del margen final",
-    "subtitulo": "Modelo ensemble · corte 16-jun 10:50 PET · 99,07% actas",
+    "subtitulo": "Modelo ensemble · corte 19-jun 20:43 PET · 99,63% actas",
     "metodologia": "Mezcla de distribución t(df=5) para colas gruesas estadísticas (97%) con componente de riesgo-cola sistémico (3%) que captura incertidumbre legal/institucional no estadística. σ efectivo incluye varianza estadística (1,434 votos) más riesgo sistémico (2,000 votos) = σ_eff = 2,461 votos.",
     "papers_referencia": [
       {
@@ -26942,7 +27041,7 @@
       }
     ],
     "punto_central": {
-      "margen_final_votos": 41200,
+      "margen_final_votos": 44800,
       "pct_fujimori_final": 50.111,
       "pct_sanchez_final": 49.889,
       "ganador_modelo_base": "Fujimori",
@@ -26960,15 +27059,16 @@
         45500
       ],
       "ic_95": [
-        32800,
-        49600
+        38200,
+        51400
       ]
     },
     "probabilidad_victoria": {
-      "fujimori": 0.992,
-      "sanchez": 0.007,
+      "fujimori": 0.994,
+      "sanchez": 0.005,
       "empate_tecnico_reconteo": 0.0001,
-      "nota": "Cola legal 2% por amparo JP voto exterior."
+      "nota": "Cola legal 2% por amparo JP voto exterior.",
+      "empate": 0.0001
     },
     "escenarios": [
       {
@@ -27151,131 +27251,139 @@
     "kpis": [
       {
         "label": "Margen actual",
-        "value": "+34.967 votos",
-        "sub": "99,07 % actas · pro-Fujimori",
+        "value": "+41.565 votos",
+        "sub": "99,63 % actas · pro-Fujimori",
         "tone": "red"
       },
       {
         "label": "Margen proyectado",
-        "value": "+41.200",
-        "sub": "IC95 [+32.800; +49.600]",
+        "value": "+44.800",
+        "sub": "IC95 [+38.200; +51.400]",
         "tone": "red"
       },
       {
         "label": "Prob. Fujimori",
-        "value": "99,2 %",
-        "sub": "vs Sánchez 0,7 % · empate 0,01 %",
+        "value": "99,4 %",
+        "sub": "vs Sánchez 0,5 % · empate 0,01 %",
         "tone": "red"
       },
       {
         "label": "Convocatorias 7d",
-        "value": "148",
-        "sub": "JP vigilias 17-jun + marcha 19-jun",
+        "value": "142",
+        "sub": "Piura 23-jun · autoconv. 22-jun incierta",
         "tone": "amber"
       },
       {
         "label": "P(movilización nacional)",
-        "value": "38 %",
-        "sub": "rebaja · JP de-escala, mantiene calle",
+        "value": "32 %",
+        "sub": "rebaja post-marcha 19-jun pacífica",
         "tone": "amber"
       },
       {
-        "label": "Proclamación JNE",
-        "value": "Mediados-julio",
-        "sub": "878 actas en JEE · sin anuncio 16-jun",
+        "label": "Actas JEE",
+        "value": "346",
+        "sub": "↓ desde 878 · nulidad 2.408 pendiente",
         "tone": "amber"
       }
     ],
     "manifestaciones_criticas_top": [
       {
-        "nombre": "Vigilias y plantones JP — nacional",
-        "region": "lima",
-        "fecha": "2026-06-17T00:00:00-05:00",
-        "ubicacion": "Plazas y sedes regionales (Lima: JNE Jesús María)",
-        "side": "pro-Sánchez",
-        "estado": "convocado",
-        "riesgo": "medio",
-        "cross_ref": "@JuntosPorElPer; Ernesto Zunini; #DefensaDelVoto"
-      },
-      {
-        "nombre": "Marcha nacional JP — Campo de Marte 16:00",
+        "nombre": "Marcha JP 19-jun — realizada (Paseo Colón)",
         "region": "lima",
         "fecha": "2026-06-19T16:00:00-05:00",
-        "ubicacion": "Campo de Marte, Jesús María, Lima",
+        "ubicacion": "Paseo Colón / Centro Histórico",
         "side": "pro-Sánchez",
+        "estado": "realizada",
+        "riesgo": "bajo",
+        "es_pasado": true,
+        "cross_ref": "@RobertoSanchP; #MarchaEnDefensaDeLaDemocracia",
+        "magnitud": "350-900 (cientos)"
+      },
+      {
+        "nombre": "Acampamento JNE — ~80 carpas activo",
+        "region": "lima",
+        "fecha": "2026-06-16T10:00:00-05:00",
+        "ubicacion": "JNE, jr. Nazca, Jesús María",
+        "side": "pro-Sánchez",
+        "estado": "activo",
+        "riesgo": "medio",
+        "cross_ref": "#AcampamentoJNE; RPP",
+        "magnitud": "50-150 personas"
+      },
+      {
+        "nombre": "JNE nulidad 2.408 actas — resolución pendiente",
+        "region": "nacional",
+        "fecha": "2026-06-19T10:00:00-05:00",
+        "ubicacion": "JNE, Lima",
+        "side": "institucional",
+        "estado": "en curso",
+        "riesgo": "alto",
+        "cross_ref": "Roy Mendoza; #583PatronesAnomalos"
+      },
+      {
+        "nombre": "Movilización arrocera Piura — 23-jun",
+        "region": "norte",
+        "fecha": "2026-06-23T08:00:00-05:00",
+        "ubicacion": "Piura-Sechura / posible El Trébol",
+        "side": "gremial",
         "estado": "convocado",
         "riesgo": "alto",
-        "cross_ref": "@JuntosPorElPer; #LaTomaDeLima; #DefensaDelVoto"
+        "cross_ref": "Conveagro; Norte Sostenible",
+        "magnitud": "500-5000 (proyectado M)"
       },
       {
-        "nombre": "Marcha ambiental Pariahuanca → Huancayo (~10.000)",
-        "region": "centro",
-        "fecha": "2026-06-19T08:00:00-05:00",
-        "ubicacion": "Parque Grau, Pariahuanca → Huancayo",
-        "side": "ambiental-gremial",
-        "estado": "convocado",
-        "riesgo": "medio-alto",
-        "cross_ref": "Frente Defensa Junín; #AguaSiMinaNo"
-      },
-      {
-        "nombre": "Puente Ilave — bloqueo NO verificado activo (16-jun)",
+        "nombre": "Puente Ilave — inactivo (no verificado 19-jun)",
         "region": "sur",
         "fecha": "2026-06-12T00:00:00-05:00",
         "ubicacion": "Puente Internacional Ilave, Puno",
         "side": "pro-Sánchez",
-        "estado": "incierto",
+        "estado": "inactivo",
         "riesgo": "medio",
-        "cross_ref": "Lucio Ccallo; CNUL; #PunoResiste",
-        "nota": "Convocado 11-jun; sin alerta SUTRAN ni reporte 16-jun de cierre sostenido"
+        "es_pasado": true,
+        "cross_ref": "Lucio Ccallo; CNUL",
+        "nota": "Convocado 11-jun; delegaciones puneñas en Lima 19-jun"
       },
       {
-        "nombre": "Audiencias JEE — 36 sesiones recuento (16-jun)",
-        "region": "nacional",
-        "fecha": "2026-06-16T09:00:00-05:00",
-        "ubicacion": "JEE Lima y regiones",
-        "side": "institucional",
-        "estado": "en curso",
-        "riesgo": "medio",
-        "cross_ref": "878 actas JEE; portal.jne.gob.pe"
-      },
-      {
-        "nombre": "Retorno Keiko Fujimori — 17-jun",
-        "region": "lima",
-        "fecha": "2026-06-17T12:00:00-05:00",
-        "ubicacion": "Aeropuerto Jorge Chávez",
-        "side": "pro-Fujimori",
-        "estado": "convocado",
+        "nombre": "Pariahuanca/GORE Junín — acta firmada 19-jun",
+        "region": "centro",
+        "fecha": "2026-06-19T19:49:00-05:00",
+        "ubicacion": "GORE Junín, Huancayo",
+        "side": "ambiental-gremial",
+        "estado": "desescalado",
         "riesgo": "bajo",
-        "cross_ref": "@FuerzaPopular__; Luis Galarreta"
+        "es_pasado": true,
+        "cross_ref": "#AguaSiMinaNo",
+        "magnitud": "200-600 (no 10.000)"
       }
     ],
-    "forecast_one_liner": "Modelo ML proyecta margen final +41.200 votos pro-Fujimori (IC95 [+32.800; +49.600]). P(Fujimori)=99,2 % · P(Sánchez)=0,7 %. Riesgo residual: amparo JP voto exterior.",
+    "forecast_one_liner": "Modelo ML proyecta margen final +44.800 votos pro-Fujimori (IC95 [+38.200; +51.400]). P(Fujimori)=99,4 %. Riesgo residual: resolución JNE nulidad 2.408 actas (~43.577 votos en juego).",
     "three_things_to_watch": [
       {
-        "titulo": "Amparo JP ante PJ para anular voto exterior (16-jun)",
-        "detalle": "Walter Ayala presentó demanda 15-jun noche; anuncio público 16-jun. Sin admisión, inadmisión ni rechazo verificado al 16-jun 10:50 PET."
+        "titulo": "Resolución JNE sobre nulidad 2.408 actas (Lima + EE.UU.)",
+        "detalle": "Audiencia sustentada 19-jun por Roy Mendoza; ~43.577 votos en juego vs margen +41.565. Resolución estimada semana 23-27-jun (no confirmada al corte 20:43)."
       },
       {
-        "titulo": "Convergencia calle JP 17–19 jun vs regreso Keiko 17-jun",
-        "detalle": "Vigilias nacionales el miércoles 17 y marcha Campo de Marte viernes 19 a las 16:00, mientras Keiko regresa el 17. Riesgo de enfrentamientos simbólicos en Jesús María."
+        "titulo": "Denuncia Procuraduría vs. 9 convocantes de marchas",
+        "detalle": "Denuncia penal 19-jun por art. 315-A CP; incluye Cevallos, Ccallo, Antauro. Sánchez excluido y rechazó denuncia públicamente."
       },
       {
-        "titulo": "Resolución de 878 actas pendientes en JEE",
-        "detalle": "Con 99,07 % contabilizado y margen +34.967, resultado preliminar virtualmente irreversible. Riesgo operativo en audiencias JEE del 16-jun."
+        "titulo": "Movilización arrocera Piura 23-jun y autoconvocatoria 22-jun",
+        "detalle": "Conveagro confirma movilización 23-jun; riesgo escalada El Trébol P=0,65. Autoconvocatoria Instagram 22-jun sin respaldo JP (P=0,40)."
       }
     ]
   },
   "escrutinio_realtime": {
-    "fecha_corte": "2026-06-16T10:50:00-05:00",
+    "fecha_corte": "2026-06-19T20:43:00-05:00",
     "cifras_actuales": {
-      "pct_actas": "99.07%",
-      "votos_F": 9128178,
-      "votos_S": 9093193,
-      "margen_actual": 34967,
+      "pct_actas": "99.63%",
+      "votos_F": 9183280,
+      "votos_S": 9141715,
+      "margen_actual": 41565,
       "favorece": "F",
-      "fuente_primaria": "https://elcomercio.pe/politica/elecciones/cual-es-la-cantidad-de-votos-que-separa-a-keiko-fujimori-y-roberto-sanchez-segun-ultimos-resultados-onpe-de-la-segunda-vuelta-elecciones-peru-2026-noticia/",
-      "hora_corte": "16-jun 10:50 PET",
-      "notas": "878 actas en JEE. Amparo JP pendiente. Sin corte 17-jun en esta actualización."
+      "actas_jee_pendientes": 346,
+      "fuente_primaria": "https://elcomercio.pe/politica/elecciones/resultados-onpe-en-vivo-entre-keiko-fujimori-y-roberto-sanchez-por-la-presidencia-del-peru-segunda-vuelta-lbposting-noticia/",
+      "hora_corte": "19-jun 20:43 PET",
+      "notas": "346 actas en JEE. JNE nulidad 2.408 actas: audiencia sustentada 19-jun, resolución pendiente. Amparo PJ sin resolución."
     },
     "oscilacion_intra_periodo": [
       {
@@ -27356,39 +27464,53 @@
         "favorece": "F",
         "actas_pct": "99,07%",
         "fuente": "https://elcomercio.pe/politica/elecciones/cual-es-la-cantidad-de-votos-que-separa-a-keiko-fujimori-y-roberto-sanchez-segun-ultimos-resultados-onpe-de-la-segunda-vuelta-elecciones-peru-2026-noticia/"
+      },
+      {
+        "hora_PET": "2026-06-19 20:43",
+        "margen": 41565,
+        "favorece": "F",
+        "actas_pct": "99,63%",
+        "fuente": "https://elcomercio.pe/politica/elecciones/resultados-onpe-en-vivo-entre-keiko-fujimori-y-roberto-sanchez-por-la-presidencia-del-peru-segunda-vuelta-lbposting-noticia/"
       }
-    ]
+    ],
+    "jne_nulidad_2408": {
+      "audiencia_19jun": "sustentada",
+      "resolucion_19jun": "no_confirmada",
+      "plazo_estimado": "semana 23-27-jun",
+      "actas_disputa": 2408,
+      "votos_en_juego_est": 43577
+    }
   },
   "prediccion_7dias": {
-    "fecha_inicio": "2026-06-16",
-    "fecha_fin": "2026-06-23",
-    "nota_metodologica": "Ajuste v3.8: escrutinio 99,054%, de-escalación JP, CGTP 17-jun no verificada, La Oroya levantado.",
+    "fecha_inicio": "2026-06-19",
+    "fecha_fin": "2026-06-26",
+    "nota_metodologica": "v3.9: marcha JP 19-jun ejecutada pacífica; Ilave inactivo; Pariahuanca desescalado; Piura 23-jun vigente.",
     "lima": {
       "eventos_esperados": 5,
-      "prob_manifestacion_significativa": 0.72,
-      "prob_escalada_violenta": 0.38,
+      "prob_manifestacion_significativa": 0.45,
+      "prob_escalada_violenta": 0.22,
       "prob_paro_gremial": 0.22,
-      "justificacion": "JP vigilias 17-jun + marcha 19-jun Campo de Marte. Sin CGTP verificada 17-jun."
+      "justificacion": "Marcha 19-jun realizada pacífica (cientos). Autoconvocatoria 22-jun incierta. Acampamento JNE continúa."
     },
     "norte": {
       "eventos_esperados": 4,
       "prob_escalada": 0.28,
-      "prob_bloqueo_panamericana_norte": 0.2,
-      "justificacion": "Km 556 sin bloqueo verificado 16-jun; Piura movilización 23-jun (P=0,65)."
+      "prob_bloqueo_panamericana_norte": 0.25,
+      "justificacion": "Piura movilización 23-jun confirmada; El Trébol riesgo escalada P=0,65."
     },
     "centro": {
       "eventos_esperados": 4,
-      "prob_manifestacion_significativa": 0.68,
+      "prob_manifestacion_significativa": 0.35,
       "prob_bloqueo_carretera_central": 0.18,
       "prob_paro_regional_junin": 0.45,
-      "justificacion": "La Oroya levantado. Pariahuanca 19-jun eleva riesgo ambiental."
+      "justificacion": "Pariahuanca desescalado con acta GORE 19-jun. Seguimiento cumplimiento 20-23-jun."
     },
     "sur": {
       "eventos_esperados": 6,
-      "prob_bloqueo_ilave_activo": 0.35,
+      "prob_bloqueo_ilave_activo": 0.4,
       "prob_paro_indefinido_puno": 0.58,
       "prob_escalada_violenta": 0.48,
-      "justificacion": "Ilave: anuncio CNUL 11-jun sin verificación terreno 16-jun. FP no apela Puno."
+      "justificacion": "Ilave inactivo 19-jun; delegaciones en Lima. Riesgo reactivación post-proclamación."
     },
     "oriente": {
       "eventos_esperados": 3,
@@ -27409,7 +27531,7 @@
   },
   "rutas_recurrentes_v370": [
     {
-      "descripcion": "Campo de Marte → av. Arequipa → Inca Garcilaso → av. Nicolás de Piérola → JNE Jesús María",
+      "descripcion": "Paseo Colón → Centro Histórico → av. Alfonso Ugarte (marcha JP 19-jun REAL)",
       "frecuencia_en_dossier": 1,
       "distritos": [
         "Jesús María",
@@ -27417,9 +27539,10 @@
         "Cercado de Lima"
       ],
       "bando_predominante": "pro-S / antifujimorista",
-      "patron_historico": "Ruta probable marcha JP 19-jun 2026. NO oficializada; precedente 13-jun Plaza San Martín→JNE.",
-      "probabilidad_uso": 0.75,
-      "fuente": "https://rpp.pe/politica/elecciones/marcha-en-lima-simpatizantes-de-juntos-por-el-peru-y-colectivos-sociales-exigen-respeto-a-la-voluntad-popular-y-transparencia-electoral-noticia-1692948"
+      "patron_historico": "Convocado Campo de Marte; ejecutado Paseo Colón 19-jun 2026. Precedente 13-jun Plaza San Martín.",
+      "probabilidad_uso": 0.25,
+      "fuente": "https://rpp.pe/politica/elecciones/marcha-en-lima-simpatizantes-de-juntos-por-el-peru-y-colectivos-sociales-exigen-respeto-a-la-voluntad-popular-y-transparencia-electoral-noticia-1692948",
+      "notas_19jun": "Campo de Marte vacío como epicentro el 19-jun."
     },
     {
       "descripcion": "Plaza San Martín → Av. Garcilaso de la Vega → Av. Paseo de la República → Av. Brasil → Av. Nazca → JNE Jesús María",
@@ -27598,5 +27721,16 @@
       "tipo_riesgo": "enfrentamiento",
       "justificacion": "Arequipa tiene la segunda mayor densidad de movilización antifujimorista del sur. Colectivo Fujimori Nunca Más + Generación Z tienen capacidad de convocar 3.000-5.000 personas. Historial de marchas masivas en 2021."
     }
-  ]
+  ],
+  "magnitude_methodology": {
+    "version": "1.0",
+    "doc": "research/methodology/magnitude_estimation.md",
+    "report_html": "methodology/magnitude_methodology.html",
+    "composite_weights": {
+      "terreno": 0.35,
+      "medios": 0.25,
+      "social": 0.2,
+      "movilizadora": 0.2
+    }
+  }
 }

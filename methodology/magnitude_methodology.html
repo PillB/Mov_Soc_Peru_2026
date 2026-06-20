@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Metodología de magnitud · Dossier OSINT Perú 2026</title>
+  <meta name="description" content="Marco paso a paso para estimar magnitud de manifestaciones, protestas y eventos de acumulación de personas. Índice compuesto OSINT v1.0." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { DEFAULT: '#0b1a2b', 2: '#1e3a5c', 3: '#213347' },
+            paper: { DEFAULT: '#f7f6f3', soft: '#efece6' },
+            amber: { DEFAULT: '#b8761f', soft: '#f4e7c8', text: '#8a5a1f' },
+            teal: { DEFAULT: '#1f6f6b', soft: '#d4e6e5' },
+          },
+          fontFamily: {
+            sans: ['"Atkinson Hyperlegible"', 'Inter', 'system-ui', 'sans-serif'],
+            display: ['Fraunces', 'Georgia', 'serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    @media print { .no-print { display: none; } body { background: white; } }
+    .weight-bar { transition: width 0.6s ease; }
+    details summary { cursor: pointer; list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+    .flow-arrow::after { content: '↓'; display: block; text-align: center; color: #b8761f; font-size: 1.25rem; margin: 0.25rem 0; }
+    @media (min-width: 768px) {
+      .flow-horizontal .flow-arrow::after { content: '→'; display: inline; margin: 0 0.5rem; }
+    }
+  </style>
+</head>
+<body class="bg-paper text-navy font-sans antialiased">
+
+  <!-- Header -->
+  <header class="bg-navy text-white border-b-4 border-amber">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
+      <p class="text-amber text-sm font-mono tracking-wide uppercase mb-2">Dossier OSINT Perú 2026 · Backend</p>
+      <h1 class="font-display text-3xl sm:text-4xl font-semibold leading-tight">Metodología de estimación de magnitud</h1>
+      <p class="mt-3 text-slate-300 max-w-3xl text-base sm:text-lg leading-relaxed">
+        Marco reproducible para cuantificar asistencia, probabilidad de realización y confianza en manifestaciones,
+        protestas, bloqueos y puntos de concentración. Versión <strong class="text-white">1.0</strong> · corte 19-jun-2026.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3 text-sm">
+        <span class="bg-navy-2 px-3 py-1 rounded border border-slate-600">Índice compuesto 4 dimensiones</span>
+        <span class="bg-navy-2 px-3 py-1 rounded border border-slate-600">Escala XS → XL</span>
+        <span class="bg-navy-2 px-3 py-1 rounded border border-slate-600">Anti-alucinación estricta</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-14">
+
+    <!-- BLUF -->
+    <section id="bluf" class="bg-white rounded-xl border border-slate-200 shadow-sm p-6 sm:p-8">
+      <h2 class="font-display text-xl font-semibold text-navy mb-3">Conclusión ejecutiva</h2>
+      <p class="text-navy-3 leading-relaxed">
+        La magnitud <em>no</em> se infiere de un solo tweet ni de la cifra del convocante. Se construye como
+        <strong>rango [mín, central, máx]</strong> a partir de un índice compuesto que pondera confirmación en terreno (35 %),
+        prevalencia mediática (25 %), señal social (20 %) y capacidad movilizadora (20 %). La señal social predice
+        <em>alcance narrativo</em> y probabilidad de convocatoria, no asistencia directa — hallazgo replicado en
+        González-Bailón et al. (2014, <em>Science</em>).
+      </p>
+      <div class="mt-6 grid sm:grid-cols-3 gap-4">
+        <div class="bg-teal-soft rounded-lg p-4 border border-teal/20">
+          <p class="text-xs font-mono text-teal uppercase">Salida principal</p>
+          <p class="font-display text-2xl font-semibold mt-1">350–900</p>
+          <p class="text-sm text-navy-3 mt-1">Ejemplo: marcha JP 19-jun (código S)</p>
+        </div>
+        <div class="bg-amber-soft rounded-lg p-4 border border-amber/20">
+          <p class="text-xs font-mono text-amber-text uppercase">Confianza</p>
+          <p class="font-display text-2xl font-semibold mt-1">Media</p>
+          <p class="text-sm text-navy-3 mt-1">≥2 medios independientes, sin dato PNP</p>
+        </div>
+        <div class="bg-paper-soft rounded-lg p-4 border border-slate-200">
+          <p class="text-xs font-mono text-navy-3 uppercase">P(realización)</p>
+          <p class="font-display text-2xl font-semibold mt-1">1,0</p>
+          <p class="text-sm text-navy-3 mt-1">Evento ejecutado y verificado</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why this approach -->
+    <section id="por-que">
+      <h2 class="font-display text-2xl font-semibold text-navy mb-2">1 · Por qué este enfoque</h2>
+      <p class="text-navy-3 mb-6 max-w-3xl">Tres limitaciones del conteo tradicional en contextos peruanos post-electoral motivan el diseño.</p>
+      <div class="grid md:grid-cols-3 gap-4">
+        <article class="bg-white rounded-lg border border-slate-200 p-5">
+          <div class="w-10 h-10 rounded bg-navy text-white flex items-center justify-center font-mono text-sm mb-3">A</div>
+          <h3 class="font-semibold mb-2">Asimetría de fuentes</h3>
+          <p class="text-sm text-navy-3 leading-relaxed">Organizadores sobrestiman; autoridades a veces no publican cifras; medios usan calificativos («cientos», «miles») sin número.</p>
+        </article>
+        <article class="bg-white rounded-lg border border-slate-200 p-5">
+          <div class="w-10 h-10 rounded bg-navy text-white flex items-center justify-center font-mono text-sm mb-3">B</div>
+          <h3 class="font-semibold mb-2">Redes ≠ terreno</h3>
+          <p class="text-sm text-navy-3 leading-relaxed">Un post viral (p. ej. 203K quotes) no implica miles en calle. La dimensión social pesa 20 %, nunca 100 %.</p>
+        </article>
+        <article class="bg-white rounded-lg border border-slate-200 p-5">
+          <div class="w-10 h-10 rounded bg-navy text-white flex items-center justify-center font-mono text-sm mb-3">C</div>
+          <h3 class="font-semibold mb-2">Convocatoria ≠ ejecución</h3>
+          <p class="text-sm text-navy-3 leading-relaxed">Campo de Marte fue convocado; la ruta real fue Paseo Colón. La magnitud se evalúa sobre lo <em>ejecutado</em>, no lo anunciado.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Academic basis -->
+    <section id="fundamentos">
+      <h2 class="font-display text-2xl font-semibold text-navy mb-2">2 · Fundamentos bibliográficos</h2>
+      <div class="overflow-x-auto rounded-xl border border-slate-200 bg-white">
+        <table class="w-full text-sm">
+          <thead class="bg-paper-soft text-left">
+            <tr>
+              <th class="px-4 py-3 font-semibold">Fuente</th>
+              <th class="px-4 py-3 font-semibold">Aporte al modelo</th>
+              <th class="px-4 py-3 font-semibold">Uso en dossier</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr>
+              <td class="px-4 py-3">Stillwell &amp; Estill · monitoreo de protestas</td>
+              <td class="px-4 py-3 text-navy-3">Triangulación multi-fuente; reportar intervalos</td>
+              <td class="px-4 py-3"><code class="text-xs bg-paper-soft px-1 rounded">participantes_rango[]</code></td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">González-Bailón et al. 2014 · <em>Science</em></td>
+              <td class="px-4 py-3 text-navy-3">Correlación débil redes ↔ asistencia</td>
+              <td class="px-4 py-3">Peso social = 20 %</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Bayesian crowd / Gelman et al.</td>
+              <td class="px-4 py-3 text-navy-3">Actualización con evidencia parcial</td>
+              <td class="px-4 py-3"><code class="text-xs bg-paper-soft px-1 rounded">P(realización)</code></td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Práctica SUTRAN / PNP / medios EN VIVO</td>
+              <td class="px-4 py-3 text-navy-3">Confirmación operativa de bloqueos y despliegue</td>
+              <td class="px-4 py-3">Dimensión A (terreno)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Composite index diagram -->
+    <section id="indice-compuesto">
+      <h2 class="font-display text-2xl font-semibold text-navy mb-2">3 · Índice compuesto OSINT (4 dimensiones)</h2>
+      <p class="text-navy-3 mb-6">Cada dimensión se puntúa 0–100. El score ponderado alimenta código de magnitud y nivel de confianza.</p>
+
+      <!-- Weight bars -->
+      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 space-y-5">
+        <div>
+          <div class="flex justify-between text-sm mb-1">
+            <span class="font-semibold">A · Confirmación terreno</span>
+            <span class="font-mono text-teal">35 %</span>
+          </div>
+          <div class="h-4 bg-paper-soft rounded-full overflow-hidden">
+            <div class="weight-bar h-full bg-teal rounded-full" style="width:35%"></div>
+          </div>
+          <p class="text-xs text-navy-3 mt-1">Foto/video geolocalizado · SUTRAN/PNP · ≥2 medios independientes · testigos locales</p>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-1">
+            <span class="font-semibold">B · Prevalencia mediática</span>
+            <span class="font-mono text-navy-2">25 %</span>
+          </div>
+          <div class="h-4 bg-paper-soft rounded-full overflow-hidden">
+            <div class="weight-bar h-full bg-navy-2 rounded-full" style="width:25%"></div>
+          </div>
+          <p class="text-xs text-navy-3 mt-1">Artículos 48h · TV en vivo · cobertura regional</p>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-1">
+            <span class="font-semibold">C · Señal social</span>
+            <span class="font-mono text-amber">20 %</span>
+          </div>
+          <div class="h-4 bg-paper-soft rounded-full overflow-hidden">
+            <div class="weight-bar h-full bg-amber rounded-full" style="width:20%"></div>
+          </div>
+          <p class="text-xs text-navy-3 mt-1">Volumen hashtag · RT/likes convocante · views lives · <strong>no sustituto de conteo</strong></p>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-1">
+            <span class="font-semibold">D · Capacidad movilizadora</span>
+            <span class="font-mono text-slate-500">20 %</span>
+          </div>
+          <div class="h-4 bg-paper-soft rounded-full overflow-hidden">
+            <div class="weight-bar h-full bg-slate-500 rounded-full" style="width:20%"></div>
+          </div>
+          <p class="text-xs text-navy-3 mt-1">Historial del convocante · tamaño base sindical/colectivo · antecedentes de bloqueo</p>
+        </div>
+      </div>
+
+      <!-- SVG flow -->
+      <div class="mt-8 bg-white rounded-xl border border-slate-200 p-6">
+        <h3 class="font-semibold mb-4 text-center">Flujo de cálculo</h3>
+        <div class="flex flex-col md:flex-row md:items-center md:justify-center gap-2 md:gap-0 flow-horizontal text-center text-sm">
+          <div class="bg-paper-soft border border-slate-200 rounded-lg px-4 py-3 max-w-xs mx-auto md:mx-0">
+            <p class="font-mono text-xs text-navy-3">INPUT</p>
+            <p>Fuentes crudas<br/><span class="text-xs">(OSINT, medios, redes)</span></p>
+          </div>
+          <span class="flow-arrow"></span>
+          <div class="bg-teal-soft border border-teal/30 rounded-lg px-4 py-3 max-w-xs mx-auto md:mx-0">
+            <p class="font-mono text-xs text-teal">SCORE</p>
+            <p>4 dimensiones<br/>0–100 c/u</p>
+          </div>
+          <span class="flow-arrow"></span>
+          <div class="bg-amber-soft border border-amber/30 rounded-lg px-4 py-3 max-w-xs mx-auto md:mx-0">
+            <p class="font-mono text-xs text-amber-text">RANGO</p>
+            <p>[min, central, max]<br/>personas</p>
+          </div>
+          <span class="flow-arrow"></span>
+          <div class="bg-navy text-white rounded-lg px-4 py-3 max-w-xs mx-auto md:mx-0">
+            <p class="font-mono text-xs text-amber">OUTPUT</p>
+            <p>magnitud_codigo<br/>+ confianza + P</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step by step -->
+    <section id="pasos">
+      <h2 class="font-display text-2xl font-semibold text-navy mb-6">4 · Procedimiento paso a paso</h2>
+      <ol class="space-y-4">
+        <li class="flex gap-4 bg-white rounded-lg border border-slate-200 p-5">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full bg-navy text-white flex items-center justify-center font-mono text-sm">1</span>
+          <div>
+            <h3 class="font-semibold">Clasificar el objeto</h3>
+            <p class="text-sm text-navy-3 mt-1">¿Convocatoria futura, evento en curso o ejecutado? ¿Bloqueo vial, marcha, plantón, concentración?</p>
+          </div>
+        </li>
+        <li class="flex gap-4 bg-white rounded-lg border border-slate-200 p-5">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full bg-navy text-white flex items-center justify-center font-mono text-sm">2</span>
+          <div>
+            <h3 class="font-semibold">Recolectar fuentes independientes (mín. 2 para confianza media)</h3>
+            <p class="text-sm text-navy-3 mt-1">Prioridad: terreno &gt; institucional &gt; prensa nacional &gt; prensa regional &gt; redes del convocante.</p>
+          </div>
+        </li>
+        <li class="flex gap-4 bg-white rounded-lg border border-slate-200 p-5">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full bg-navy text-white flex items-center justify-center font-mono text-sm">3</span>
+          <div>
+            <h3 class="font-semibold">Puntuar las 4 dimensiones (0–100)</h3>
+            <p class="text-sm text-navy-3 mt-1">Usar rúbrica interna: 0 = sin evidencia; 50 = anuncio o un medio; 80 = multi-fuente coherente; 100 = dato oficial + audiovisual geolocalizado.</p>
+          </div>
+        </li>
+        <li class="flex gap-4 bg-white rounded-lg border border-slate-200 p-5">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full bg-navy text-white flex items-center justify-center font-mono text-sm">4</span>
+          <div>
+            <h3 class="font-semibold">Calcular score ponderado y mapear a escala XS–XL</h3>
+            <p class="text-sm text-navy-3 mt-1"><code class="bg-paper-soft px-1 rounded text-xs">S_pond = 0,35·A + 0,25·B + 0,20·C + 0,20·D</code>. El rango de personas se fija por triangulación textual («cientos» → 200–800), no solo por S_pond.</p>
+          </div>
+        </li>
+        <li class="flex gap-4 bg-white rounded-lg border border-slate-200 p-5">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full bg-navy text-white flex items-center justify-center font-mono text-sm">5</span>
+          <div>
+            <h3 class="font-semibold">Asignar confianza y P(realización)</h3>
+            <p class="text-sm text-navy-3 mt-1">Confianza: baja (1 fuente o solo organizador) · media (2+ medios) · alta (oficial + medios + AV). P: 0–1 según estado del evento.</p>
+          </div>
+        </li>
+        <li class="flex gap-4 bg-white rounded-lg border border-slate-200 p-5">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full bg-navy text-white flex items-center justify-center font-mono text-sm">6</span>
+          <div>
+            <h3 class="font-semibold">Documentar y versionar en JSON</h3>
+            <p class="text-sm text-navy-3 mt-1">Campos obligatorios en <code class="bg-paper-soft px-1 rounded text-xs">events.json</code> — ver sección 7. Toda cifra lleva <code class="bg-paper-soft px-1 rounded text-xs">magnitud_fuentes[]</code>.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Scale visualization -->
+    <section id="escala">
+      <h2 class="font-display text-2xl font-semibold text-navy mb-2">5 · Escala de magnitud estandarizada</h2>
+      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8">
+        <div class="relative mt-4 mb-8">
+          <div class="h-3 rounded-full bg-gradient-to-r from-slate-300 via-amber to-red-800"></div>
+          <div class="flex justify-between mt-2 text-xs font-mono text-navy-3">
+            <span>0</span><span>100</span><span>500</span><span>3K</span><span>10K</span><span>10K+</span>
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-5 gap-3 text-center text-sm">
+          <div class="rounded-lg bg-slate-100 p-3 border border-slate-200">
+            <p class="font-mono font-bold text-lg">XS</p>
+            <p class="text-xs text-navy-3">&lt;100</p>
+            <p class="mt-1 text-xs">Plantón núcleo</p>
+          </div>
+          <div class="rounded-lg bg-teal-soft p-3 border border-teal/30">
+            <p class="font-mono font-bold text-lg">S</p>
+            <p class="text-xs text-navy-3">100–500</p>
+            <p class="mt-1 text-xs">Concentración</p>
+          </div>
+          <div class="rounded-lg bg-amber-soft p-3 border border-amber/30">
+            <p class="font-mono font-bold text-lg">M</p>
+            <p class="text-xs text-navy-3">500–3.000</p>
+            <p class="mt-1 text-xs">Marcha significativa</p>
+          </div>
+          <div class="rounded-lg bg-orange-100 p-3 border border-orange-200">
+            <p class="font-mono font-bold text-lg">L</p>
+            <p class="text-xs text-navy-3">3.000–10.000</p>
+            <p class="mt-1 text-xs">Masiva regional</p>
+          </div>
+          <div class="rounded-lg bg-red-100 p-3 border border-red-200">
+            <p class="font-mono font-bold text-lg">XL</p>
+            <p class="text-xs text-navy-3">&gt;10.000</p>
+            <p class="mt-1 text-xs">Paro / nacional</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social metrics rubric -->
+    <section id="senal-social">
+      <h2 class="font-display text-2xl font-semibold text-navy mb-2">6 · Métricas de señal social (20 % del índice)</h2>
+      <p class="text-navy-3 mb-4 text-sm">Proxy de alcance y movilización <em>potencial</em>, no de conteo en plaza.</p>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-white rounded-lg border border-slate-200 p-5">
+          <h3 class="font-semibold text-sm mb-3">Volumen hashtag (cualitativo)</h3>
+          <ul class="text-sm space-y-2 text-navy-3">
+            <li><span class="inline-block w-16 font-mono text-xs">bajo</span> &lt;10 menciones relevantes / 48h</li>
+            <li><span class="inline-block w-16 font-mono text-xs">medio</span> cobertura en 2–5 medios o trending local</li>
+            <li><span class="inline-block w-16 font-mono text-xs">alto</span> TV en vivo + replicación multi-plataforma</li>
+            <li><span class="inline-block w-16 font-mono text-xs">muy_alto</span> pico nacional + encabezados principales</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-lg border border-slate-200 p-5">
+          <h3 class="font-semibold text-sm mb-3">Engagement cuenta convocante</h3>
+          <ul class="text-sm space-y-2 text-navy-3">
+            <li><span class="inline-block w-16 font-mono text-xs">bajo</span> &lt;100 interacciones o cuenta inactiva</li>
+            <li><span class="inline-block w-16 font-mono text-xs">medio</span> 100–5.000 interacciones</li>
+            <li><span class="inline-block w-16 font-mono text-xs">alto</span> &gt;5.000 o cobertura institucional (RPP TV)</li>
+          </ul>
+          <p class="text-xs text-amber-text mt-3 border-t border-slate-100 pt-2">Ejemplo: @RobertoSanchP 19-jun ~203K quotes → tier <strong>alto</strong> en narrativa, no en asistencia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case studies -->
+    <section id="casos">
+      <h2 class="font-display text-2xl font-semibold text-navy mb-6">7 · Casos aplicados (corte 19-jun-2026)</h2>
+      <div class="space-y-6">
+
+        <!-- Case 1 -->
+        <details class="bg-white rounded-xl border border-slate-200 overflow-hidden group" open>
+          <summary class="px-6 py-4 bg-paper-soft font-semibold flex justify-between items-center">
+            <span>Marcha JP 19-jun · Lima Centro Histórico</span>
+            <span class="text-xs font-mono bg-teal-soft text-teal px-2 py-0.5 rounded">S · 350–900 · confianza media</span>
+          </summary>
+          <div class="px-6 py-5 text-sm space-y-4">
+            <div class="grid sm:grid-cols-4 gap-3">
+              <div><p class="text-xs font-mono text-navy-3">A terreno</p><p class="font-semibold">75/100</p><p class="text-xs text-navy-3">RPP+LR+Infobae, ruta verificada</p></div>
+              <div><p class="text-xs font-mono text-navy-3">B medios</p><p class="font-semibold">85/100</p><p class="text-xs text-navy-3">TV en vivo, &gt;10 artículos</p></div>
+              <div><p class="text-xs font-mono text-navy-3">C social</p><p class="font-semibold">70/100</p><p class="text-xs text-navy-3">#MarchaEnDefensaDeLaDemocracia alto</p></div>
+              <div><p class="text-xs font-mono text-navy-3">D movilizadora</p><p class="font-semibold">60/100</p><p class="text-xs text-navy-3">JP + precedente 13-jun miles</p></div>
+            </div>
+            <p class="text-navy-3"><strong>Triangulación:</strong> Medios convergen en «cientos» (200–800). Proyección JP 3.000–15.000 <em>no materializada</em>. Ruta real ≠ Campo de Marte.</p>
+            <p class="text-xs font-mono text-navy-3">Fuentes: RPP 1693850 · LR 526014 · Infobae 19-jun</p>
+          </div>
+        </details>
+
+        <!-- Case 2 -->
+        <details class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+          <summary class="px-6 py-4 bg-paper-soft font-semibold flex justify-between items-center">
+            <span>Acampamento JNE · Jesús María</span>
+            <span class="text-xs font-mono bg-teal-soft text-teal px-2 py-0.5 rounded">S · 50–150 · confianza media-baja</span>
+          </summary>
+          <div class="px-6 py-5 text-sm space-y-3 text-navy-3">
+            <p><strong>Hecho ancla:</strong> ~80 carpas (RPP 16-jun). Personas estimadas 50–150 (0,6–1,9 pers/carpa). Sin reconteo 19-jun.</p>
+            <p>Dimensión A: 65 (cobertura RPP, sin dato PNP). C social: medio (#AcampamentoJNE). P(realización)=1,0 (continuo).</p>
+          </div>
+        </details>
+
+        <!-- Case 3 -->
+        <details class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+          <summary class="px-6 py-4 bg-paper-soft font-semibold flex justify-between items-center">
+            <span>Pariahuanca → Huancayo · convocado vs ejecutado</span>
+            <span class="text-xs font-mono bg-amber-soft text-amber-text px-2 py-0.5 rounded">S · 200–600 · desescalado</span>
+          </summary>
+          <div class="px-6 py-5 text-sm text-navy-3 space-y-2">
+            <p><strong>Convocatoria:</strong> ~10.000 (XL proyectado). <strong>Ejecutado:</strong> plantón GORE, cientos; acta 19-jun 19:49.</p>
+            <p>Lección metodológica: la magnitud del dossier debe reflejar <em>ejecución</em>, no titular del convocante. Confianza alta en desescalación; código S.</p>
+          </div>
+        </details>
+
+        <!-- Case 4 -->
+        <details class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+          <summary class="px-6 py-4 bg-paper-soft font-semibold flex justify-between items-center">
+            <span>Piura arrocera · 23-jun (futuro)</span>
+            <span class="text-xs font-mono bg-orange-100 text-orange-800 px-2 py-0.5 rounded">M* · 500–5.000 · P=0,65</span>
+          </summary>
+          <div class="px-6 py-5 text-sm text-navy-3 space-y-2">
+            <p>Evento no ejecutado: magnitud <em>proyectada</em>. Capacidad movilizadora alta (Conveagro, precedente El Trébol ~3.000). Marcar <code class="bg-paper-soft px-1 rounded text-xs">magnitud_confianza: baja</code> hasta post-evento.</p>
+          </div>
+        </details>
+
+        <!-- Case 5 -->
+        <details class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+          <summary class="px-6 py-4 bg-paper-soft font-semibold flex justify-between items-center">
+            <span>Puente Ilave · bloqueo convocado no verificado</span>
+            <span class="text-xs font-mono bg-slate-200 text-navy-3 px-2 py-0.5 rounded">XS · 0 activo · P(reactivación)=0,40</span>
+          </summary>
+          <div class="px-6 py-5 text-sm text-navy-3">
+            <p>Dimensión A = 0 para bloqueo activo (sin SUTRAN). Capacidad histórica alta → P(reactivación) elevada, no magnitud actual.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- JSON schema -->
+    <section id="json">
+      <h2 class="font-display text-2xl font-semibold text-navy mb-4">8 · Esquema JSON (<code class="text-lg">events.json</code>)</h2>
+      <pre class="bg-navy text-slate-200 rounded-xl p-5 sm:p-6 text-xs sm:text-sm overflow-x-auto font-mono leading-relaxed"><code>{
+  "participantes_est": 600,
+  "participantes_rango": [350, 900],
+  "magnitud_codigo": "S",
+  "magnitud_confianza": "media",
+  "magnitud_fuentes": ["RPP", "La República EN VIVO", "Infobae"],
+  "magnitud_scores": {
+    "terreno": 75,
+    "medios": 85,
+    "social": 70,
+    "movilizadora": 60,
+    "ponderado": 74.25
+  },
+  "probabilidad_realizacion": 1.0,
+  "senal_social": {
+    "hashtag_volumen_est": "alto",
+    "engagement_convocante": "alto",
+    "live_views_est": null
+  },
+  "senal_medios": {
+    "articulos_48h": 12,
+    "tv_en_vivo": true
+  },
+  "estado": "realizada",
+  "es_pasado": true
+}</code></pre>
+      <p class="text-sm text-navy-3 mt-3">Referencia global: <code class="bg-paper-soft px-1 rounded text-xs">data/events.json → magnitude_methodology</code></p>
+    </section>
+
+    <!-- Anti-hallucination -->
+    <section id="guardrails" class="bg-red-50 border border-red-200 rounded-xl p-6 sm:p-8">
+      <h2 class="font-display text-xl font-semibold text-red-900 mb-3">9 · Reglas inviolables</h2>
+      <ul class="space-y-2 text-sm text-red-900/90">
+        <li class="flex gap-2"><span class="text-red-600">✕</span> Nunca publicar cifra única sin rango cuando no hay dato oficial.</li>
+        <li class="flex gap-2"><span class="text-red-600">✕</span> No extrapolar shares/RT/likes a asistencia (peso social máx. 20 %).</li>
+        <li class="flex gap-2"><span class="text-red-600">✕</span> No confundir convocatoria con ejecución (ruta, punto y fecha reales).</li>
+        <li class="flex gap-2"><span class="text-green-700">✓</span> Etiquetar explícitamente: <em>(no confirmado)</em>, <em>proyectado</em>, <em>incierto</em>.</li>
+        <li class="flex gap-2"><span class="text-green-700">✓</span> Cada entrada lleva ≥1 URL verificable en <code class="bg-white/80 px-1 rounded">fuente</code> / <code class="bg-white/80 px-1 rounded">magnitud_fuentes</code>.</li>
+      </ul>
+    </section>
+
+    <!-- P realization formula -->
+    <section id="probabilidad">
+      <h2 class="font-display text-2xl font-semibold text-navy mb-4">10 · Probabilidad de realización P</h2>
+      <div class="bg-white rounded-xl border border-slate-200 p-6 font-mono text-sm">
+        <p class="text-navy-3 font-sans mb-4">Actualización informal tipo Bayes para convocatorias futuras:</p>
+        <p class="text-center py-4 text-base sm:text-lg">P ≈ prior<sub>convocante</sub> × señal<sub>confirmación</sub> × factor<sub>institucional</sub></p>
+        <table class="w-full mt-4 text-left font-sans text-sm">
+          <tr class="border-t"><td class="py-2 pr-4">prior convocante</td><td class="text-navy-3">histórico del actor (JP 0,7 · autoconvocatoria 0,3 · CGTP sin comunicado 0,1)</td></tr>
+          <tr class="border-t"><td class="py-2 pr-4">señal confirmación</td><td class="text-navy-3">0 = desmentido · 0,5 = solo anuncio · 1,0 = ejecutado</td></tr>
+          <tr class="border-t"><td class="py-2 pr-4">factor institucional</td><td class="text-navy-3">restricción MML 0,8 · estado emergencia 0,85 · bloqueo SUTRAN activo 1,0</td></tr>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-navy text-slate-400 py-8 mt-12 no-print">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-sm flex flex-col sm:flex-row justify-between gap-4">
+      <p>Dossier OSINT Perú 2026 · <code class="text-amber">magnitude_methodology v1.0</code></p>
+      <p>Fuente markdown: <code class="text-slate-300">research/methodology/magnitude_estimation.md</code></p>
+    </div>
+  </footer>
+
+</body>
+</html>

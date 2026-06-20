@@ -643,9 +643,9 @@ function section(title) {
   }
   ok('no quedan fechas malformadas tipo YYYY-MM-DDT<garbage>', weirdDates === 0, `n=${weirdDates} samples=${JSON.stringify(weirdSamples)}`);
 
-  section('N21. v3.8.1 — meta.version = 3.8.1');
+  section('N21. v3.9.0 — meta.version = 3.9.0');
   const metaVersion = data_v357.meta && data_v357.meta.version;
-  ok('meta.version es 3.8.1', metaVersion === '3.8.1', `got=${metaVersion}`);
+  ok('meta.version es 3.9.0', metaVersion === '3.9.0', `got=${metaVersion}`);
 
   section('N22. v3.5.8 — gazetteer expone CORRIDORS con polylines de avenidas reales');
   const corridorsInfo = await page.evaluate(() => {
@@ -924,8 +924,8 @@ function section(title) {
     const navOrder = [...document.querySelectorAll('#primaryNav a')].map(a => a.getAttribute('href'));
     return { title, brandTitle, fmlValues, valueDisplay, icBounds, navOrder };
   });
-  ok('brand title actualizado a v3.8.1', /v3\.8\.1/.test(v361Check.brandTitle || ''), v361Check.brandTitle);
-  ok('document.title actualizado a v3.8.1', /v3\.8\.1/.test(v361Check.title), v361Check.title);
+  ok('brand title actualizado a v3.9.0', /v3\.9\.0/.test(v361Check.brandTitle || ''), v361Check.brandTitle);
+  ok('document.title actualizado a v3.9.0', /v3\.9\.0/.test(v361Check.title), v361Check.title);
   ok('fml-kpi-value renderiza como block', v361Check.valueDisplay === 'block', `display=${v361Check.valueDisplay}`);
   const hasEsThousands = (v361Check.fmlValues.find(v => /\d{1,3}\.\d{3}/.test(v)) || '');
   ok('formato es-PE con punto en miles (ej: +1.886)', /\d{1,3}\.\d{3}/.test(hasEsThousands), hasEsThousands || JSON.stringify(v361Check.fmlValues));
@@ -984,12 +984,12 @@ function section(title) {
   const hasCgtp17 = blufCrit.some(c => /CGTP/i.test(c.nombre || '') && /17/.test(c.fecha || ''));
   ok('BLUF críticas no incluye CGTP 17-jun erróneo', hasCgtp17 === false, `criticas=${blufCrit.length}`);
 
-  section('N49. v3.8.1 — escrutinio ≥ 34.900 y Ilave marcado incierto en BLUF');
+  section('N49. v3.9.0 — escrutinio ≥ 41.500 y Ilave inactivo en BLUF');
   const er391 = data_v357.escrutinio_realtime || {};
   const m391 = (er391.cifras_actuales || {}).margen_actual;
-  ok('escrutinio margen ≥ 34900', typeof m391 === 'number' && m391 >= 34900, `got=${m391}`);
+  ok('escrutinio margen ≥ 41500', typeof m391 === 'number' && m391 >= 41500, `got=${m391}`);
   const ilaveCrit = blufCrit.find(c => /Ilave/i.test(c.nombre || ''));
-  ok('BLUF Ilave marcado incierto/no verificado', ilaveCrit && /incierto|NO verificado/i.test((ilaveCrit.estado || '') + (ilaveCrit.nombre || '')), JSON.stringify(ilaveCrit));
+  ok('BLUF Ilave marcado inactivo/no verificado', ilaveCrit && /inactivo|incierto|NO verificado/i.test((ilaveCrit.estado || '') + (ilaveCrit.nombre || '')), JSON.stringify(ilaveCrit));
 
   section('N50. v3.8.1 — convocatoria Piura 23-jun en norte');
   const norteConv = (data_v357.regions || {}).norte || {};
@@ -1025,14 +1025,14 @@ function section(title) {
     };
   });
   ok('sin strings obsoletos en body (98,26 / 1.886 / 50,07 / 95,84 / v3.1 / 1514 / P>93)', editorialCheck.staleHits === 0, `hits=${editorialCheck.staleHits}`);
-  ok('#post-margin refleja margen ≥34.900', /34\.9\d{2}|34\.967/.test(editorialCheck.postMargin), editorialCheck.postMargin);
-  ok('#fml-deck refleja proyección ≥41.000', /41\.2\d{2}|41\.200/.test(editorialCheck.fmlDeck), editorialCheck.fmlDeck);
-  ok('#rev-ventaja-sub refleja 99,07 % escrutado', /99,07/.test(editorialCheck.revVentajaSub), editorialCheck.revVentajaSub);
-  ok('#footer-about actualizado a v3.8.1', /v3\.8\.1/.test(editorialCheck.footerAbout) && !/v3\.1/.test(editorialCheck.footerAbout), editorialCheck.footerAbout.slice(0, 80));
+  ok('#post-margin refleja margen ≥41.500', /41\.5\d{2}|41\.565/.test(editorialCheck.postMargin), editorialCheck.postMargin);
+  ok('#fml-deck refleja proyección ≥44.000', /44\.8\d{2}|44\.800/.test(editorialCheck.fmlDeck), editorialCheck.fmlDeck);
+  ok('#rev-ventaja-sub refleja 99,63 % escrutado', /99,63/.test(editorialCheck.revVentajaSub), editorialCheck.revVentajaSub);
+  ok('#footer-about actualizado a v3.9.0', /v3\.9\.0/.test(editorialCheck.footerAbout) && !/v3\.1/.test(editorialCheck.footerAbout), editorialCheck.footerAbout.slice(0, 80));
   ok('#val-lectura tiene 4 bullets dinámicos', editorialCheck.valLectura === 4, `n=${editorialCheck.valLectura}`);
-  ok('meta description incluye margen actualizado', /34\.967|34\.9/.test(editorialCheck.metaDesc), editorialCheck.metaDesc.slice(0, 100));
+  ok('meta description incluye margen actualizado', /41\.565|41\.5/.test(editorialCheck.metaDesc), editorialCheck.metaDesc.slice(0, 100));
   const revH2Live = await page.evaluate(() => document.getElementById('rev-section-h2')?.textContent.trim() || '');
-  ok('#rev-section-h2 refleja margen consolidado', /34\.9|Resultado consolidado/i.test(revH2Live), revH2Live);
+  ok('#rev-section-h2 refleja margen consolidado', /41\.5|Resultado consolidado/i.test(revH2Live), revH2Live);
 
   section('N53. v3.8.1 — Playwright editorial QA multi-viewport');
   const viewports = [
@@ -1066,16 +1066,33 @@ function section(title) {
       };
     });
     ok(`${vp.name}: sin overflow horizontal`, vpCheck.overflow === false, `body=${vpCheck.bodyW} view=${vpCheck.viewW}`);
-    ok(`${vp.name}: brand-sub con 99,07 %`, /99,07/.test(vpCheck.brandSub), vpCheck.brandSub);
+    ok(`${vp.name}: brand-sub con 99,63 %`, /99,63/.test(vpCheck.brandSub), vpCheck.brandSub);
     ok(`${vp.name}: rev-section-h2 poblado`, vpCheck.revH2.ok === true, vpCheck.revH2.text);
     ok(`${vp.name}: validacion-deck poblado`, vpCheck.valDeck.ok === true, vpCheck.valDeck.text);
     ok(`${vp.name}: val-mercados-desc poblado`, vpCheck.mercDesc.ok === true, vpCheck.mercDesc.text);
     ok(`${vp.name}: alert-headline poblado`, vpCheck.alertHead.length > 20, vpCheck.alertHead.slice(0, 50));
-    ok(`${vp.name}: meta-version 3.8.1`, vpCheck.metaVer === '3.8.1', vpCheck.metaVer);
+    ok(`${vp.name}: meta-version 3.9.0`, vpCheck.metaVer === '3.9.0', vpCheck.metaVer);
     ok(`${vp.name}: P(Fuj mantiene) en tabla`, /mantiene/i.test(vpCheck.thProb), vpCheck.thProb);
     ok(`${vp.name}: BLUF ≥6 KPIs`, vpCheck.blufKpis >= 6, `n=${vpCheck.blufKpis}`);
     ok(`${vp.name}: sin Invalid Date / [object Object]`, vpCheck.renderErrors === 0, `hits=${vpCheck.renderErrors}`);
   }
+
+  section('N54. magnitude methodology subsite link');
+  const subsiteCheck = await page.evaluate(() => {
+    const fold = document.getElementById('magnitude-methodology-subsite');
+    const link = fold?.querySelector('.subsite-link');
+    const footerLink = document.querySelector('.footer-subsite-link');
+    return {
+      foldExists: !!fold,
+      href: link?.getAttribute('href') || '',
+      footerHref: footerLink?.getAttribute('href') || '',
+      target: link?.getAttribute('target') || '',
+    };
+  });
+  ok('#magnitude-methodology-subsite existe en metodología', subsiteCheck.foldExists === true);
+  ok('subsite-link apunta a methodology/magnitude_methodology.html', subsiteCheck.href === 'methodology/magnitude_methodology.html', subsiteCheck.href);
+  ok('footer-subsite-link misma ruta', subsiteCheck.footerHref === 'methodology/magnitude_methodology.html', subsiteCheck.footerHref);
+  ok('subsite abre en pestaña nueva', subsiteCheck.target === '_blank', subsiteCheck.target);
 
   section('N. Global — no dash-only badge anywhere in regions/social/EW');
   const allDashBadges = await page.evaluate(() => {

@@ -260,16 +260,16 @@
     const ic = (fml.intervalos_confianza || {}).ic_95 || [];
     const prob = fml.probabilidad_victoria || {};
     const convN = countConvocatorias(d.regions) || (d.bluf || {}).kpis?.find(k => /convocatoria/i.test(k.label || ''))?.value || '—';
-    const pctActas = (er.pct_actas || '99,07 %').replace('.', ',').replace('%', ' %').replace(/ % %/, ' %').trim();
-    const margen = er.margen_actual != null ? formatSignedInt(er.margen_actual) : '+34.967';
-    const margenMl = pc.margen_final_votos != null ? formatSignedInt(pc.margen_final_votos) : '+41.200';
-    const icLo = ic[0] != null ? formatSignedInt(ic[0]) : '+32.800';
-    const icHi = ic[1] != null ? formatSignedInt(ic[1]) : '+49.600';
-    const pF = prob.fujimori != null ? (prob.fujimori * 100).toFixed(1).replace('.', ',') : '99,2';
+    const pctActas = (er.pct_actas || '99,63 %').replace('.', ',').replace('%', ' %').replace(/ % %/, ' %').trim();
+    const margen = er.margen_actual != null ? formatSignedInt(er.margen_actual) : '+41.565';
+    const margenMl = pc.margen_final_votos != null ? formatSignedInt(pc.margen_final_votos) : '+44.800';
+    const icLo = ic[0] != null ? formatSignedInt(ic[0]) : '+38.200';
+    const icHi = ic[1] != null ? formatSignedInt(ic[1]) : '+51.400';
+    const pF = prob.fujimori != null ? (prob.fujimori * 100).toFixed(1).replace('.', ',') : '99,4';
 
-    const metaDesc = `Dossier OSINT v${meta.version || '3.8.1'} — BLUF + ML forecast. ${convN} convocatorias activas en 5 macroregiones. Margen ONPE ${margen} votos al ${pctActas}, proyección ML ${margenMl} votos Fujimori (IC95 [${icLo}, ${icHi}]), P(F)=${pF} %.`;
+    const metaDesc = `Dossier OSINT v${meta.version || '3.9.0'} — BLUF + ML forecast. ${convN} convocatorias activas en 5 macroregiones. Margen ONPE ${margen} votos al ${pctActas}, proyección ML ${margenMl} votos Fujimori (IC95 [${icLo}, ${icHi}]), P(F)=${pF} %.`;
     setMetaContent('meta[name="description"]', metaDesc);
-    setMetaContent('meta[property="og:title"]', `Dossier OSINT — Manifestaciones Perú · v${meta.version || '3.8.1'} BLUF + ML`);
+    setMetaContent('meta[property="og:title"]', `Dossier OSINT — Manifestaciones Perú · v${meta.version || '3.9.0'} BLUF + ML`);
     setMetaContent('meta[property="og:description"]', metaDesc);
 
     const brandSub = document.querySelector('.brand-sub');
@@ -278,7 +278,7 @@
     const footerAbout = $('#footer-about');
     if (footerAbout) {
       const genDate = meta.generated_at ? formatDate(meta.generated_at) : '16 jun 2026';
-      footerAbout.textContent = `Producto OSINT v${meta.version || '3.8.1'} preparado el ${genDate} para residentes y profesionales en las cinco macroregiones del Perú. Integra terreno, redes sociales y medios alternativos. Su propósito es informar, no movilizar. La información se contrasta exclusivamente con fuentes públicas verificadas.`;
+      footerAbout.textContent = `Producto OSINT v${meta.version || '3.9.0'} preparado el ${genDate} para residentes y profesionales en las cinco macroregiones del Perú. Integra terreno, redes sociales y medios alternativos. Su propósito es informar, no movilizar. La información se contrasta exclusivamente con fuentes públicas verificadas.`;
     }
 
     text('#rev-section-h2', `Resultado consolidado: Fujimori ${margen} votos al ${pctActas} escrutado`);
