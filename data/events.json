@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "3.9.7",
+    "version": "3.9.8",
     "generated_at": "2026-06-19T20:43:00-05:00",
     "scope": "Manifestaciones, marchas y eventos de acumulación de personas — Perú + Capa de inteligencia social y medios alternativos",
     "window": "19–26 junio 2026 (post-2da vuelta · corte 99,63% escrutado · margen 41.565 votos)",
@@ -38,7 +38,7 @@
       "routes": 55,
       "comunicados": 17
     },
-    "last_refresh_summary": "v3.9.7 Round 4 social: bulk hashtags refresh (decay #TomaDeLima), +6 hashtags R4, cuentas handles corregidos + R4, alt_media 12 outlets + 3 trends.",
+    "last_refresh_summary": "v3.9.8 RM-01–15 historico/vigente (5+10); grassroots nacional merge; montecarlo omitido.",
     "fecha_corte": "2026-06-23T20:00:00-05:00"
   },
   "executive_alert": {
@@ -10936,7 +10936,9 @@
       "title": "Colisión entre la convocatoria masiva 'Toma de Lima / Los Cuatro Suyos' del 13 de junio y la prohibición municipal de protestas en el Centro Histórico declarada por el alcalde Reggiardo. La PNP y las FFAA anunciaron 'uso gradual de la fuerza'. La confluencia de decenas de miles de manifestantes en la Plaza San Martín contra una zona declarada intangible eleva el riesgo de confrontación violenta con víctimas, que podría activar el efecto dominó de movilizaciones nacionales.",
       "level": "BAJO",
       "evidence": "Colisión entre la convocatoria masiva 'Toma de Lima / Los Cuatro Suyos' del 13 de junio y la prohibición municipal de protestas en el Centro Histórico declarada por el alcalde Reggiardo. La PNP y las FFAA anunciaron 'uso gradual de la fuerza'. La confluencia de decenas de miles de manifestantes en la Plaza San Martín contra una zona declarada intangible eleva el riesgo de confrontación violenta con víctimas, que podría activar el efecto dominó de movilizaciones nacionales.",
-      "estado": "realizada"
+      "estado": "historico",
+      "estado_nota": "Toma 13-jun y marcha JP 19-jun concluidas; MML levantada 22-jun 00:00.",
+      "estado_corte": "2026-06-23T20:00:00-05:00"
     },
     {
       "id": "RM-02",
@@ -10973,12 +10975,15 @@
       ],
       "title": "Desconocimiento aymara en Puno: comunidades del altiplano puneño (Juliaca, Puente Ilave) declaran formalmente que no reconocerán a Keiko Fujimori como presidenta si el JNE la proclama, invocando la memoria de los 18 fallecidos en Juliaca en enero de 2023. El movimiento puede escalar de declaraciones a bloqueos de la carretera Puno-Juliaca y del eje binacional hacia Bolivia, con riesgo de enfrentamientos violentos similares a los de 2022-2023.",
       "level": "CRÍTICO",
-      "evidence": "Desconocimiento aymara en Puno: comunidades del altiplano puneño (Juliaca, Puente Ilave) declaran formalmente que no reconocerán a Keiko Fujimori como presidenta si el JNE la proclama, invocando la memoria de los 18 fallecidos en Juliaca en enero de 2023. El movimiento puede escalar de declaraciones a bloqueos de la carretera Puno-Juliaca y del eje binacional hacia Bolivia, con riesgo de enfrentamientos violentos similares a los de 2022-2023."
+      "evidence": "Desconocimiento aymara en Puno: comunidades del altiplano puneño (Juliaca, Puente Ilave) declaran formalmente que no reconocerán a Keiko Fujimori como presidenta si el JNE la proclama, invocando la memoria de los 18 fallecidos en Juliaca en enero de 2023. El movimiento puede escalar de declaraciones a bloqueos de la carretera Puno-Juliaca y del eje binacional hacia Bolivia, con riesgo de enfrentamientos violentos similares a los de 2022-2023.",
+      "estado": "vigente",
+      "estado_nota": "Puno aymara / Ilave latente; riesgo post-proclamación.",
+      "estado_corte": "2026-06-23T20:00:00-05:00"
     },
     {
       "id": "RM-03",
       "category": "Crisis institucional",
-      "scenario": "Anulación masiva de actas observadas por el JNE: si el pleno del JNE o los JEE anulan un número significativo de actas observadas (particularmente de Lima o el exterior, donde Fujimori tiene ventaja), el resultado final podría invertirse nuevamente a favor de Sánchez. Si en cambio se anulan actas pro-Sánchez del sur, el bando contrario elevará la narrativa de fraude institucional. Cualquier decisión de anulación masiva —superior a 500 actas— generará una crisis de legitimidad para el bando perdedor. Convocatoria 13-jun ya ejecutada.",
+      "scenario": "Nulidad 2.408 actas: JEE improcedente 647 EE.UU. + 1.751 Lima (falta tasa/prueba). Pleno sin resolución publicada 23-jun. ~43.577 votos en juego vs +41.565.",
       "probability": "BAJA",
       "impact": "ALTO",
       "timeframe": "cerrado 13-jun",
@@ -11015,7 +11020,9 @@
       "title": "Anulación masiva de actas observadas por el JNE: si el pleno del JNE o los JEE anulan un número significativo de actas observadas (particularmente de Lima o el exterior, donde Fujimori tiene ventaja), el resultado final podría invertirse nuevamente a favor de Sánchez. Si en cambio se anulan actas pro-Sánchez del sur, el bando contrario elevará la narrativa de fraude institucional. Cualquier decisión de anulación masiva —superior a 500 actas— generará una crisis de legitimidad para el bando perdedor.",
       "level": "BAJO",
       "evidence": "Anulación masiva de actas observadas por el JNE: si el pleno del JNE o los JEE anulan un número significativo de actas observadas (particularmente de Lima o el exterior, donde Fujimori tiene ventaja), el resultado final podría invertirse nuevamente a favor de Sánchez. Si en cambio se anulan actas pro-Sánchez del sur, el bando contrario elevará la narrativa de fraude institucional. Cualquier decisión de anulación masiva —superior a 500 actas— generará una crisis de legitimidad para el bando perdedor.",
-      "estado": "historico"
+      "estado": "vigente",
+      "estado_nota": "Nulidad 2.408 actas: JEE improcedente parcial; pleno sin resolución 23-jun.",
+      "estado_corte": "2026-06-23T20:00:00-05:00"
     },
     {
       "id": "RM-04",
@@ -11057,7 +11064,9 @@
       "title": "Cisma negro Monte Carlo (probabilidad 3,41%): el JNE anula más del 80% de las actas observadas actualmente en disputa Y Fujimori cae por debajo del 40% del total de actas observadas. Este escenario invertiría el resultado final y daría la victoria a Sánchez con un margen suficiente para superar el margen actual de 651 votos. Generaría una crisis de legitimidad sin precedentes desde el proceso de 2000, con movilizaciones pro-Fujimori de alta intensidad y posible cuestionamiento de la imparcialidad del JNE por parte de sectores de derecha.",
       "level": "BAJO",
       "evidence": "Cisma negro Monte Carlo (probabilidad 3,41%): el JNE anula más del 80% de las actas observadas actualmente en disputa Y Fujimori cae por debajo del 40% del total de actas observadas. Este escenario invertiría el resultado final y daría la victoria a Sánchez con un margen suficiente para superar el margen actual de 651 votos. Generaría una crisis de legitimidad sin precedentes desde el proceso de 2000, con movilizaciones pro-Fujimori de alta intensidad y posible cuestionamiento de la imparcialidad del JNE por parte de sectores de derecha.",
-      "estado": "historico"
+      "estado": "historico",
+      "estado_nota": "Escenario Monte Carlo extremo; concentración pro-F 14-jun Av. Javier Prado no materializada.",
+      "estado_corte": "2026-06-23T20:00:00-05:00"
     },
     {
       "id": "RM-05",
@@ -11095,7 +11104,9 @@
       "title": "Reactivación del conflicto en el corredor minero Las Bambas (Apurímac-Cusco): las 40 comunidades que protagonizaron protestas en 2025 contra MMG Limited pueden instrumentalizar la incertidumbre postelectoral para presionar por renegociación de acuerdos o bloquear el corredor vial que conecta la mina con los puertos de Ilo y Matarani. Un bloqueo sostenido afectaría las exportaciones del yacimiento de cobre más grande de Latinoamérica, generando presión inversora internacional.",
       "level": "BAJO",
       "evidence": "Reactivación del conflicto en el corredor minero Las Bambas (Apurímac-Cusco): las 40 comunidades que protagonizaron protestas en 2025 contra MMG Limited pueden instrumentalizar la incertidumbre postelectoral para presionar por renegociación de acuerdos o bloquear el corredor vial que conecta la mina con los puertos de Ilo y Matarani. Un bloqueo sostenido afectaría las exportaciones del yacimiento de cobre más grande de Latinoamérica, generando presión inversora internacional.",
-      "estado": "historico"
+      "estado": "historico",
+      "estado_nota": "Corredor Las Bambas sin reactivación verificada 17–23 jun.",
+      "estado_corte": "2026-06-23T20:00:00-05:00"
     },
     {
       "id": "RM-06",
@@ -11132,7 +11143,10 @@
       ],
       "title": "Deepfake de alta calidad difundido masivamente en las 48 horas previas a la proclamación oficial: un video o audio sintético que simule declaraciones de Keiko Fujimori reconociendo fraude, o de Roberto Sánchez llamando a la insurrección, puede detonar reacciones de calle antes de que las plataformas o los fact-checkers puedan desmentirlo. El patrón ya existe (DIS-009, DIS-010 documentados en cases.json) y la capacidad técnica de producción ha aumentado exponencialmente.",
       "level": "ALTO",
-      "evidence": "Deepfake de alta calidad difundido masivamente en las 48 horas previas a la proclamación oficial: un video o audio sintético que simule declaraciones de Keiko Fujimori reconociendo fraude, o de Roberto Sánchez llamando a la insurrección, puede detonar reacciones de calle antes de que las plataformas o los fact-checkers puedan desmentirlo. El patrón ya existe (DIS-009, DIS-010 documentados en cases.json) y la capacidad técnica de producción ha aumentado exponencialmente."
+      "evidence": "Deepfake de alta calidad difundido masivamente en las 48 horas previas a la proclamación oficial: un video o audio sintético que simule declaraciones de Keiko Fujimori reconociendo fraude, o de Roberto Sánchez llamando a la insurrección, puede detonar reacciones de calle antes de que las plataformas o los fact-checkers puedan desmentirlo. El patrón ya existe (DIS-009, DIS-010 documentados en cases.json) y la capacidad técnica de producción ha aumentado exponencialmente.",
+      "estado": "vigente",
+      "estado_nota": "Riesgo deepfake pre-proclamación (patrón DIS-009/010).",
+      "estado_corte": "2026-06-23T20:00:00-05:00"
     },
     {
       "id": "RM-07",
@@ -11169,7 +11183,10 @@
       ],
       "title": "Bloqueo de la Carretera Central y el corredor del VRAEM: organizaciones del centro del país (Junín, Huánuco, Ayacucho) pueden reactivar el bloqueo de la Carretera Central (Lima-Huancayo) en respuesta a la proclamación de Fujimori, cortando el principal eje logístico de abastecimiento de Lima desde la sierra. El VRAEM añade la dimensión del narcotráfico y grupos rezagales como vectores de inestabilidad adicional, con antecedentes de uso de la interrupción vial como herramienta de presión política.",
       "level": "ALTO",
-      "evidence": "Bloqueo de la Carretera Central y el corredor del VRAEM: organizaciones del centro del país (Junín, Huánuco, Ayacucho) pueden reactivar el bloqueo de la Carretera Central (Lima-Huancayo) en respuesta a la proclamación de Fujimori, cortando el principal eje logístico de abastecimiento de Lima desde la sierra. El VRAEM añade la dimensión del narcotráfico y grupos rezagales como vectores de inestabilidad adicional, con antecedentes de uso de la interrupción vial como herramienta de presión política."
+      "evidence": "Bloqueo de la Carretera Central y el corredor del VRAEM: organizaciones del centro del país (Junín, Huánuco, Ayacucho) pueden reactivar el bloqueo de la Carretera Central (Lima-Huancayo) en respuesta a la proclamación de Fujimori, cortando el principal eje logístico de abastecimiento de Lima desde la sierra. El VRAEM añade la dimensión del narcotráfico y grupos rezagales como vectores de inestabilidad adicional, con antecedentes de uso de la interrupción vial como herramienta de presión política.",
+      "estado": "vigente",
+      "estado_nota": "Carretera Central / VRAEM latente; La Oroya transitable al corte.",
+      "estado_corte": "2026-06-23T20:00:00-05:00"
     },
     {
       "id": "RM-08",
@@ -11206,7 +11223,10 @@
       ],
       "title": "Crisis institucional si Roberto Sánchez no reconoce el resultado final: el candidato ya ha modificado su discurso, condicionando el reconocimiento a que los resultados 'emanen de las urnas'. Si el JNE proclama a Fujimori y Sánchez no reconoce el resultado, movilizando a sus bases con el argumento de 'defensa del voto popular', se produce una crisis de legitimidad que pone al Estado en la difícil posición de tener que proclamar a una presidenta sin reconocimiento de la mitad del electorado.",
       "level": "ALTO",
-      "evidence": "Crisis institucional si Roberto Sánchez no reconoce el resultado final: el candidato ya ha modificado su discurso, condicionando el reconocimiento a que los resultados 'emanen de las urnas'. Si el JNE proclama a Fujimori y Sánchez no reconoce el resultado, movilizando a sus bases con el argumento de 'defensa del voto popular', se produce una crisis de legitimidad que pone al Estado en la difícil posición de tener que proclamar a una presidenta sin reconocimiento de la mitad del electorado."
+      "evidence": "Crisis institucional si Roberto Sánchez no reconoce el resultado final: el candidato ya ha modificado su discurso, condicionando el reconocimiento a que los resultados 'emanen de las urnas'. Si el JNE proclama a Fujimori y Sánchez no reconoce el resultado, movilizando a sus bases con el argumento de 'defensa del voto popular', se produce una crisis de legitimidad que pone al Estado en la difícil posición de tener que proclamar a una presidenta sin reconocimiento de la mitad del electorado.",
+      "estado": "vigente",
+      "estado_nota": "Sánchez condiciona reconocimiento a transparencia escrutinio.",
+      "estado_corte": "2026-06-23T20:00:00-05:00"
     },
     {
       "id": "RM-09",
@@ -11243,7 +11263,10 @@
       ],
       "title": "Polarización Lima vs. sur andino se convierte en fractura político-institucional crónica: la brecha entre el voto urbano-costero (pro-Fujimori) y el voto rural-andino (pro-Sánchez, con Puno 86,4%, Huancavelica 81,4%, Cusco ~70%) es leída en el sur como un 'mandato andino negado'. Si la presidenta electa no incorpora en su agenda de gobierno demandas estructurales del sur, la gobernabilidad del primer año estará permanentemente comprometida por movilizaciones cíclicas.",
       "level": "ALTO",
-      "evidence": "Polarización Lima vs. sur andino se convierte en fractura político-institucional crónica: la brecha entre el voto urbano-costero (pro-Fujimori) y el voto rural-andino (pro-Sánchez, con Puno 86,4%, Huancavelica 81,4%, Cusco ~70%) es leída en el sur como un 'mandato andino negado'. Si la presidenta electa no incorpora en su agenda de gobierno demandas estructurales del sur, la gobernabilidad del primer año estará permanentemente comprometida por movilizaciones cíclicas."
+      "evidence": "Polarización Lima vs. sur andino se convierte en fractura político-institucional crónica: la brecha entre el voto urbano-costero (pro-Fujimori) y el voto rural-andino (pro-Sánchez, con Puno 86,4%, Huancavelica 81,4%, Cusco ~70%) es leída en el sur como un 'mandato andino negado'. Si la presidenta electa no incorpora en su agenda de gobierno demandas estructurales del sur, la gobernabilidad del primer año estará permanentemente comprometida por movilizaciones cíclicas.",
+      "estado": "vigente",
+      "estado_nota": "Brecha Lima–sur andino estructural; gobernabilidad post-electoral.",
+      "estado_corte": "2026-06-23T20:00:00-05:00"
     },
     {
       "id": "RM-10",
@@ -11281,12 +11304,14 @@
       "title": "Ataques a periodistas y presión sobre la ANP: el período postelectoral de alta tensión eleva el riesgo de agresiones físicas a periodistas cubriendo movilizaciones y audiencias del JEE. IDL-Reporteros ya ha documentado el periodismo bajo ataque en Perú; el CPJ ha registrado intimidaciones durante la campaña. Ataques a reporteros en el Centro Histórico el 13 de junio o en regiones conflictivas del sur podrían generar restricciones de facto a la libertad de prensa.",
       "level": "BAJO",
       "evidence": "Ataques a periodistas y presión sobre la ANP: el período postelectoral de alta tensión eleva el riesgo de agresiones físicas a periodistas cubriendo movilizaciones y audiencias del JEE. IDL-Reporteros ya ha documentado el periodismo bajo ataque en Perú; el CPJ ha registrado intimidaciones durante la campaña. Ataques a reporteros en el Centro Histórico el 13 de junio o en regiones conflictivas del sur podrían generar restricciones de facto a la libertad de prensa.",
-      "estado": "historico"
+      "estado": "historico",
+      "estado_nota": "Ventana 13-jun cerrada sin ataques graves a periodistas indexados.",
+      "estado_corte": "2026-06-23T20:00:00-05:00"
     },
     {
       "id": "RM-11",
       "category": "Económico",
-      "scenario": "Reactivación del paro agrario nacional por Conveagro ante incumplimiento de demandas estructurales: el decreto de urgencia de S/120 millones fue calificado de insuficiente por gremios piuranos. Con el cambio de gobierno y la incertidumbre postelectoral, los productores de arroz del norte y sur pueden reactivar bloqueos en la Panamericana Norte (El Trébol, Piura), la Panamericana Sur (Arequipa) y la Carretera Central simultáneamente, paralizando el abastecimiento nacional.",
+      "scenario": "Reactivación paro agrario: productores Piura mantienen protesta pese a lineamientos MIDAGRI (23-jun). Precedente bloqueo violento El Trébol mayo-2026. Riesgo escalada Panamericana Norte P=0,55 al corte.",
       "probability": "BAJA",
       "impact": "ALTO",
       "timeframe": "cerrado 13-jun",
@@ -11319,7 +11344,9 @@
       "title": "Reactivación del paro agrario nacional por Conveagro ante incumplimiento de demandas estructurales: el decreto de urgencia de S/120 millones fue calificado de insuficiente por gremios piuranos. Con el cambio de gobierno y la incertidumbre postelectoral, los productores de arroz del norte y sur pueden reactivar bloqueos en la Panamericana Norte (El Trébol, Piura), la Panamericana Sur (Arequipa) y la Carretera Central simultáneamente, paralizando el abastecimiento nacional.",
       "level": "BAJO",
       "evidence": "Reactivación del paro agrario nacional por Conveagro ante incumplimiento de demandas estructurales: el decreto de urgencia de S/120 millones fue calificado de insuficiente por gremios piuranos. Con el cambio de gobierno y la incertidumbre postelectoral, los productores de arroz del norte y sur pueden reactivar bloqueos en la Panamericana Norte (El Trébol, Piura), la Panamericana Sur (Arequipa) y la Carretera Central simultáneamente, paralizando el abastecimiento nacional.",
-      "estado": "historico"
+      "estado": "vigente",
+      "estado_nota": "Piura arrocera: MIDAGRI lineamientos insuficientes; gremio mantiene protesta 23-jun.",
+      "estado_corte": "2026-06-23T20:00:00-05:00"
     },
     {
       "id": "RM-12",
@@ -11357,7 +11384,9 @@
       "title": "Narrativa de fraude sistémico amplificada por el entorno de López Aliaga (Plan Morrocoy, actas serie 900K) que genera movilizaciones pro-nulidad de sectores de derecha: la desinformación DIS-002 y DIS-003 —con más de 500.000 impresiones combinadas— puede reactivarse en el período previo a la proclamación si el resultado final es ajustado, generando protestas simultáneas de ambos bandos en sede del JNE y generando la paradoja de una presión de calle simétrica pero contradictoria.",
       "level": "BAJO",
       "evidence": "Narrativa de fraude sistémico amplificada por el entorno de López Aliaga (Plan Morrocoy, actas serie 900K) que genera movilizaciones pro-nulidad de sectores de derecha: la desinformación DIS-002 y DIS-003 —con más de 500.000 impresiones combinadas— puede reactivarse en el período previo a la proclamación si el resultado final es ajustado, generando protestas simultáneas de ambos bandos en sede del JNE y generando la paradoja de una presión de calle simétrica pero contradictoria.",
-      "estado": "historico"
+      "estado": "vigente",
+      "estado_nota": "Narrativa fraude (Plan Morrocoy, actas 900K) reactivable pre-proclamación.",
+      "estado_corte": "2026-06-23T20:00:00-05:00"
     },
     {
       "id": "RM-13",
@@ -11394,7 +11423,10 @@
       ],
       "title": "Efecto dominó nacional post-incidente Lima: si la marcha del 13 de junio en Lima genera víctimas (heridos graves o fallecidos) como consecuencia del choque entre manifestantes y fuerzas del orden en el Centro Histórico, se activa un efecto de escalada simultánea en todas las regiones donde Sánchez ganó con amplias ventajas. El sur andino —con la memoria viva de Juliaca 2023— sería el primer foco de escalada crítica.",
       "level": "ALTO",
-      "evidence": "Efecto dominó nacional post-incidente Lima: si la marcha del 13 de junio en Lima genera víctimas (heridos graves o fallecidos) como consecuencia del choque entre manifestantes y fuerzas del orden en el Centro Histórico, se activa un efecto de escalada simultánea en todas las regiones donde Sánchez ganó con amplias ventajas. El sur andino —con la memoria viva de Juliaca 2023— sería el primer foco de escalada crítica."
+      "evidence": "Efecto dominó nacional post-incidente Lima: si la marcha del 13 de junio en Lima genera víctimas (heridos graves o fallecidos) como consecuencia del choque entre manifestantes y fuerzas del orden en el Centro Histórico, se activa un efecto de escalada simultánea en todas las regiones donde Sánchez ganó con amplias ventajas. El sur andino —con la memoria viva de Juliaca 2023— sería el primer foco de escalada crítica.",
+      "estado": "historico",
+      "estado_nota": "Marcha 13-jun y 19-jun sin víctimas graves; efecto dominó no activado.",
+      "estado_corte": "2026-06-23T20:00:00-05:00"
     },
     {
       "id": "RM-14",
@@ -11431,7 +11463,10 @@
       ],
       "title": "Conflicto minero en Madre de Dios post-operativo del 10 de junio: el operativo de interdicción que destruyó bienes por S/64 millones en Tambopata (10-jun) puede provocar represalias organizadas de mineros ilegales durante la transición de poder. La incertidumbre sobre qué gobierno aplicará las políticas de interdicción añade un vector de riesgo que se superpone con la inestabilidad postelectoral en una región con alta capacidad organizativa.",
       "level": "MEDIO",
-      "evidence": "Conflicto minero en Madre de Dios post-operativo del 10 de junio: el operativo de interdicción que destruyó bienes por S/64 millones en Tambopata (10-jun) puede provocar represalias organizadas de mineros ilegales durante la transición de poder. La incertidumbre sobre qué gobierno aplicará las políticas de interdicción añade un vector de riesgo que se superpone con la inestabilidad postelectoral en una región con alta capacidad organizativa."
+      "evidence": "Conflicto minero en Madre de Dios post-operativo del 10 de junio: el operativo de interdicción que destruyó bienes por S/64 millones en Tambopata (10-jun) puede provocar represalias organizadas de mineros ilegales durante la transición de poder. La incertidumbre sobre qué gobierno aplicará las políticas de interdicción añade un vector de riesgo que se superpone con la inestabilidad postelectoral en una región con alta capacidad organizativa.",
+      "estado": "vigente",
+      "estado_nota": "Madre de Dios post-operativo Tambopata 10-jun; represalia mineros latente.",
+      "estado_corte": "2026-06-23T20:00:00-05:00"
     },
     {
       "id": "RM-15",
@@ -11457,7 +11492,10 @@
           "url": "https://larepublica.pe/politica/elecciones/2026/06/10/aymaras-de-puno-anuncian-protestas-si-keiko-fujimori-es-proclamada",
           "name": "La República"
         }
-      ]
+      ],
+      "estado": "vigente",
+      "estado_nota": "Escalada aymara Puno si proclamación Fujimori.",
+      "estado_corte": "2026-06-23T20:00:00-05:00"
     },
     {
       "id": "RM-16",
@@ -19821,8 +19859,8 @@
   ],
   "grassroots": {
     "meta": {
-      "generated_at": "2026-06-11T11:45:00-05:00",
-      "version": "3.4",
+      "generated_at": "2026-06-23T20:00:00-05:00",
+      "version": "3.9.8",
       "source_count": 8,
       "sources_used": [
         "regions/lima.json",
@@ -19832,11 +19870,65 @@
         "regions/oriente.json",
         "social/snapshot.json",
         "context/refresh.md",
-        "post_electoral/refresh.md"
-      ]
+        "post_electoral/refresh.md",
+        "research/validation/rm_historico_jun23.md",
+        "research/social/social_round4_jun23.md",
+        "research/validation/piura_jun23_results.md"
+      ],
+      "merge_corte": "2026-06-23T20:00:00-05:00"
     },
-    "summary": "Con Keiko Fujimori al frente por 651 votos al 98,2% del escrutinio, el eje grassroots pro-Sánchez activó convocatorias masivas en todas las regiones del país, siendo la 'Toma de Lima / Los Cuatro Suyos' del 13 de junio el epicentro de una movilización que combina demanda de respeto al voto con agravios estructurales acumulados: la crisis agraria latente del norte y sur, el rechazo aymara desde Puno y el conflicto minero preexistente en el corredor sur y el oriente amazónico.",
+    "summary": "Al 23-jun PM (ONPE meseta 99,63 % / Fujimori +41.565), el eje grassroots combina: (1) marcha JP 19-jun ejecutada pacífica; (2) acampamento JNE ~80 carpas; (3) tensión arrocera Piura post-MIDAGRI sin confirmación terreno; (4) riesgo latente sur andino pre-proclamación. Montecarlo no recalculado — sin delta ONPE.",
     "national_events": [
+      {
+        "id": "PIURA-ARROCERA-23JUN",
+        "date": "2026-06-23",
+        "title": "Movilización arrocera Piura-Sechura — terreno no confirmado al corte PM",
+        "organizers": [
+          "Conveagro",
+          "Productores arroceros Piura-Sechura"
+        ],
+        "regions_involved": [
+          "norte"
+        ],
+        "estimated_attendance": "No confirmado en terreno indexado (Walac/SUTRAN)",
+        "risk_level": "MEDIO",
+        "narrative": "MIDAGRI aprobó lineamientos compra arroz; gremio mantiene protesta. El Trébol sin bloqueo indexado 23-jun. Monitoreo 24-jun AM.",
+        "sources": [
+          {
+            "title": "Norte Sostenible — MIDAGRI + protesta",
+            "url": "https://nortesostenible.com/midagri-aprueba-lineamientos-para-compra-de-arroz-pero-productores-de-piura-mantienen-protesta/"
+          }
+        ],
+        "estado": "vigente_sin_confirmacion_terreno"
+      },
+      {
+        "id": "MARCHA-JP-19JUN",
+        "date": "2026-06-19",
+        "title": "Marcha en defensa de la democracia — JP centro histórico Lima",
+        "organizers": [
+          "Roberto Sánchez",
+          "Juntos por el Perú",
+          "Hernando Cevallos",
+          "Colectivos autoconvocados"
+        ],
+        "regions_involved": [
+          "lima",
+          "sur",
+          "centro",
+          "norte",
+          "oriente"
+        ],
+        "estimated_attendance": "Cientos (RPP, LR, Infobae); sin cifra PNP/organizador",
+        "risk_level": "MEDIO",
+        "narrative": "Marcha ejecutada 19-jun desde Paseo Colón hacia centro histórico; Sánchez encabezó. No alcanzó Campo de Marte (cordon PNP). Sin incidentes graves indexados. Procuraduría denunció 9 convocantes esa noche.",
+        "sources": [
+          {
+            "title": "RPP — Marcha Sánchez 19-jun",
+            "url": "https://rpp.pe/politica/elecciones/roberto-sanchez-salio-de-su-local-de-campana-en-el-inicio-de-marcha-convocada-por-juntos-por-el-peru-noticia-1693850"
+          }
+        ],
+        "estado": "realizada"
+      },
       {
         "id": "TOMA-LIMA-13JUN",
         "date": "2026-06-13",
@@ -20178,7 +20270,7 @@
           "Roberto Burneo (Presidente JNE – institucional)",
           "Rafael López Aliaga (narrativa anti-fraude pro-FP)"
         ],
-        "next_72h_outlook": "Concentración masiva el 13-jun en Plaza San Martín con alto riesgo de confrontación con fuerzas de seguridad dado que la zona fue declarada 'intangible' por el municipio. Plantones continuos frente al JNE en Jesús María. La resolución de actas observadas por el JEE puede generar reacciones inmediatas en ambos bandos. Recurso de nulidad de JP contra 1.751 mesas en Lima añade tensión legal que puede trasladarse a las calles.",
+        "next_72h_outlook": "Post-MML 22-jun: P(marcha JP formal)=0,25. Acampamento ~80 carpas JNE continuo. Autoconv 22-jun no materializada. JNE nulidad pleno pendiente. ONPE meseta +41.565.",
         "social_v35_events_count": 10,
         "social_v35_cuentas_count": 14,
         "puntos_concentracion": [
@@ -20266,7 +20358,8 @@
             "La Municipalidad Metropolitana de Lima ha desplegado ~1.000 cámaras de videovigilancia y patrullaje aéreo; respetar las indicaciones policiales en los corredores del Centro Histórico.",
             "Ante señales de escalada, alejarse de la Plaza San Martín por la Av. Emancipación o por la Av. Tacna hacia el norte."
           ]
-        }
+        },
+        "outlook_corte": "2026-06-23T20:00:00-05:00"
       },
       "norte": {
         "active_events": 3,
@@ -20278,7 +20371,7 @@
           "Conveagro (gremio agrario)",
           "Diego Bazán (Renovación Popular La Libertad – bando contrario)"
         ],
-        "next_72h_outlook": "Cajamarca en estado de alerta máxima: rondas con capacidad de bloquear vías interandinas ante una proclamación de Keiko. El Trébol (Piura) es el punto más crítico de la Panamericana Norte con riesgo de reactivación del paro agrario. Delegaciones del norte parten hacia Lima para la 'Toma de Lima' del 13-jun. Plantones probables frente a sedes JEE en Trujillo y Chiclayo con el procesamiento de actas observadas.",
+        "next_72h_outlook": "Piura 23-jun: terreno no confirmado PM; tensión gremial activa post-MIDAGRI. El Trébol transitable al corte. Ronderas cajamarquinas latentes.",
         "social_v35_events_count": 9,
         "social_v35_cuentas_count": 11,
         "puntos_concentracion": [
@@ -20331,7 +20424,8 @@
             "justificacion": "Referencia geográfica/cultural próxima a Trujillo. Sin registro de protestas en la zona arqueológica; se incluye como punto de referencia territorial del área metropolitana de Trujillo.",
             "fuente": "https://walac.pe"
           }
-        ]
+        ],
+        "outlook_corte": "2026-06-23T20:00:00-05:00"
       },
       "centro": {
         "active_events": 2,
@@ -20342,10 +20436,11 @@
           "Productores agrarios de Junín y Huánuco",
           "Comunidades del VRAEM"
         ],
-        "next_72h_outlook": "Bloqueo de la Carretera Central (Lima-Huancayo) es el riesgo principal ante proclamación de Keiko. Ayacucho es el punto de mayor sensibilidad histórica (narrativa fujimorismo = impunidad). Actas observadas pendientes en Junín y Ayacucho son detonante adicional. Densidad informativa local baja: requiere refuerzo de monitoreo en Radio La Voz de Huancayo y Correo Ayacucho.",
+        "next_72h_outlook": "Pariahuanca desescalada (acta GORE 19-jun). Carretera Central transitable. Riesgo latente si resolución JNE nulidad Lima escala narrativa.",
         "social_v35_events_count": 10,
         "social_v35_cuentas_count": 10,
-        "puntos_concentracion": []
+        "puntos_concentracion": [],
+        "outlook_corte": "2026-06-23T20:00:00-05:00"
       },
       "sur": {
         "active_events": 3,
@@ -20357,10 +20452,11 @@
           "Hernando Cevallos (convocatoria nacional)",
           "Yamel Romero Peralta (Frente Social Arequipa – bando contrario)"
         ],
-        "next_72h_outlook": "Puno es el epicentro de mayor volatilidad nacional. Las comunidades aymaras declararon no reconocimiento a Keiko con memoria viva de fallecidos de 2023. El altiplano puneño (Juliaca, Ilave) puede escalar a bloqueos de la carretera Puno-Juliaca y el eje hacia Bolivia. La Panamericana Sur y el corredor minero Las Bambas son los nodos de riesgo logístico más alto. Réplicas de la 'Toma de Lima' esperadas en Arequipa, Cusco y Puno el 13-jun.",
+        "next_72h_outlook": "Ilave sin bloqueo activo verificado. FP no apela Puno. Samillán anunció movilización jul 15–28. Riesgo post-proclamación RM-15.",
         "social_v35_events_count": 10,
         "social_v35_cuentas_count": 12,
-        "puntos_concentracion": []
+        "puntos_concentracion": [],
+        "outlook_corte": "2026-06-23T20:00:00-05:00"
       },
       "oriente": {
         "active_events": 2,
@@ -20371,10 +20467,11 @@
           "Primera Fiscalía de Prevención del Delito de Loreto",
           "Mongabay Latam (monitor ambiental)"
         ],
-        "next_72h_outlook": "Riesgo electoral-político postelectoral BAJO en Loreto y Ucayali (votaron por Keiko). El riesgo principal es el conflicto minero en Madre de Dios activado por el operativo del 10-jun (S/64 millones incautados). AIDESEP puede activar movilizaciones con agenda propia de derechos territoriales. La densidad informativa regional es baja; monitoreo vía Pro y Contra (Iquitos) y redes de AIDESEP es indispensable.",
+        "next_72h_outlook": "FB Terry / corredores oriente transitables. AIDESEP monitoreo postelectoral activo. Minería ilegal Madre de Dios latente (RM-14).",
         "social_v35_events_count": 8,
         "social_v35_cuentas_count": 10,
-        "puntos_concentracion": []
+        "puntos_concentracion": [],
+        "outlook_corte": "2026-06-23T20:00:00-05:00"
       }
     },
     "cross_cutting_narratives": [
@@ -20625,14 +20722,35 @@
     "nacional": {
       "accounts": [
         {
+          "name": "RPP Noticias",
+          "handle": "@RPPNoticias",
+          "role": "institucional",
+          "platform": "X / TV",
+          "url": "https://x.com/RPPNoticias",
+          "followers": "3,5M",
+          "notes": "Cobertura en vivo marcha 19-jun y acampamento JNE.",
+          "verification": "accounts_deep_jun19 R4"
+        },
+        {
+          "name": "Roberto Sánchez Palomino",
+          "handle": "@RobertoSanchP",
+          "role": "convocador",
+          "platform": "X",
+          "url": "https://x.com/RobertoSanchP",
+          "followers": "21,6K",
+          "notes": "Encabezó marcha 19-jun; post viral rechazo denuncia Procuraduría.",
+          "verification": "accounts_deep_jun19 R4"
+        },
+        {
           "name": "Hernando Cevallos",
-          "handle": "@HCevallos",
+          "handle": "@HCevallosFlores",
           "role": "organizador",
           "platform": "X",
-          "url": "https://x.com/HCevallos",
+          "url": "https://x.com/HCevallosFlores",
           "followers": "no verificado en esta consulta",
           "notes": "En protesta nocturna frente al JNE declaró: 'La democracia no solo es decidir ir a votar y me voy a la casa. La calma no es incompatible con la movilización social.' Confirmó la marcha 'Los Cuatro Suyos' para el viernes 13 de junio.",
-          "verification": ""
+          "verification": "",
+          "handle_corregido": "@HCevallos"
         },
         {
           "name": "Walter Flores",
@@ -20676,13 +20794,14 @@
         },
         {
           "name": "Rafael López Aliaga",
-          "handle": "@lopezaliaga",
+          "handle": "@rlopezaliaga1",
           "role": "organizador",
           "platform": "X",
-          "url": "https://x.com/lopezaliaga",
+          "url": "https://x.com/rlopezaliaga1",
           "followers": "no verificado en esta consulta",
           "notes": "Convocó las 'Marchas por la Democracia' en Lima, paseo de los Héroes Navales y Campo de Marte (Jesús María). Declaró en mayo: 'Vamos a preparar una marcha más potente, van a ser cinco suyos, porque hasta el mar lo vamos a mover.' Calificó al JNE de 'mafia'.",
-          "verification": ""
+          "verification": "",
+          "handle_corregido": "@lopezaliaga"
         },
         {
           "name": "Norma Yarrow",

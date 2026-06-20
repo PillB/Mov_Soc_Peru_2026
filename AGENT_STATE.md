@@ -1,30 +1,28 @@
-# SYSTEM STATE: v3.9.7 — Round 4 social + alt_media refresh
+# SYSTEM STATE: v3.9.8 — RM historico + grassroots merge
 
 ## 🎯 Final Success Criteria
-- Hashtags bulk refresh (0 stale ~85k); ≥10 validacion_ronda 4
-- Cuentas handles corregidos + @RPPNoticias/@RobertoSanchP R4
-- alt_media 12 outlets + 3 trends R4
-- Tests ≥328 pass; live verificado
+- RM-01–15: 5 histórico + 10 vigente documentados
+- Grassroots nacional merge (eventos 19-jun / 23-jun Piura)
+- montecarlo sin cambios (omitido por meseta ONPE)
+- Tests ≥340 pass; live verificado
 
 ## 🛑 Immutable Constraints & Guardrails
-- Anti-alucinación: volúmenes = proxy mediático; sin API plataformas
-- Español en contenido visible; sin lenguaje meta
-- `git push --force` prohibido
+- Anti-alucinación; español visible; `git push --force` prohibido
+- montecarlo omitido — sin delta ONPE ≥0,05 pp
 
 ## 🕒 Transactional Ledger (Chronological)
-- 001–031 | v3.9.0–v3.9.6 pipeline | 316 tests | Success
-- 032 | social_round4 + alt_media_round4 research + update_v397.py | Success
-- 033 | tests N61 + version 3.9.7 → 328/328 pass | build 1.990 MB | Success
-- 034 | git push v3.9.7 | Success (15bfab5)
+- 001–034 | v3.9.0–v3.9.7 pipeline | 328 tests | Success
+- 035 | rm_historico_jun23 + update_v398.py | Success
+- 036 | tests N62 + version 3.9.8 → 340/340 pass | build 1.993 MB | Success
+- 037 | git push v3.9.8 | pending
 
 ## 🧠 Retrospective & Post-Mortem Notes
-- #TomaDeLima decay: 85k/11-jun → medio 19-jun (RPP verificado)
-- Handles corregidos: @HCevallosFlores, @WaykaPeru, @rlopezaliaga1
-- alt_media heterogéneo (name/type + medio/linea) — ambos esquemas actualizados
+- RM-01/04/05/10/13 → historico; RM-11 vigente (Piura post-MIDAGRI)
+- Grassroots: +MARCHA-JP-19JUN, +PIURA-ARROCERA-23JUN; handles @HCevallosFlores
+- JNE pleno nulidad sigue pendiente — no forzado en v3.9.8
 
 ## 📋 The Execution Pipeline
-- [x] Piura 23-jun v3.9.6 — terreno no confirmado
-- [x] Social hashtags bulk + cuentas R4 v3.9.7
-- [x] alt_media Round 4 refresh v3.9.7
-- [ ] Next Step: JNE pleno resolución nulidad → v3.9.8
-- [ ] Future: RM-01–15 historico, grassroots nacional merge, montecarlo si delta ONPE
+- [x] Social/alt-media R4 v3.9.7
+- [x] RM-01–15 + grassroots v3.9.8 (montecarlo omitido)
+- [ ] Next Step: JNE pleno resolución nulidad cuando se publique → v3.9.9
+- [ ] Future: grassroots dedup nombre_canónico, entity deep-dives pendientes

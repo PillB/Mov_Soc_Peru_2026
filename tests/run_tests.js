@@ -643,9 +643,9 @@ function section(title) {
   }
   ok('no quedan fechas malformadas tipo YYYY-MM-DDT<garbage>', weirdDates === 0, `n=${weirdDates} samples=${JSON.stringify(weirdSamples)}`);
 
-  section('N21. v3.9.7 — meta.version = 3.9.7');
+  section('N21. v3.9.8 — meta.version = 3.9.8');
   const metaVersion = data_v357.meta && data_v357.meta.version;
-  ok('meta.version es 3.9.7', metaVersion === '3.9.7', `got=${metaVersion}`);
+  ok('meta.version es 3.9.8', metaVersion === '3.9.8', `got=${metaVersion}`);
 
   section('N22. v3.5.8 — gazetteer expone CORRIDORS con polylines de avenidas reales');
   const corridorsInfo = await page.evaluate(() => {
@@ -924,8 +924,8 @@ function section(title) {
     const navOrder = [...document.querySelectorAll('#primaryNav a')].map(a => a.getAttribute('href'));
     return { title, brandTitle, fmlValues, valueDisplay, icBounds, navOrder };
   });
-  ok('brand title actualizado a v3.9.7', /v3\.9\.7/.test(v361Check.brandTitle || ''), v361Check.brandTitle);
-  ok('document.title actualizado a v3.9.7', /v3\.9\.7/.test(v361Check.title), v361Check.title);
+  ok('brand title actualizado a v3.9.8', /v3\.9\.8/.test(v361Check.brandTitle || ''), v361Check.brandTitle);
+  ok('document.title actualizado a v3.9.8', /v3\.9\.8/.test(v361Check.title), v361Check.title);
   ok('fml-kpi-value renderiza como block', v361Check.valueDisplay === 'block', `display=${v361Check.valueDisplay}`);
   const hasEsThousands = (v361Check.fmlValues.find(v => /\d{1,3}\.\d{3}/.test(v)) || '');
   ok('formato es-PE con punto en miles (ej: +1.886)', /\d{1,3}\.\d{3}/.test(hasEsThousands), hasEsThousands || JSON.stringify(v361Check.fmlValues));
@@ -1028,7 +1028,7 @@ function section(title) {
   ok('#post-margin refleja margen ≥41.500', /41\.5\d{2}|41\.565/.test(editorialCheck.postMargin), editorialCheck.postMargin);
   ok('#fml-deck refleja proyección ≥44.000', /44\.8\d{2}|44\.800/.test(editorialCheck.fmlDeck), editorialCheck.fmlDeck);
   ok('#rev-ventaja-sub refleja 99,63 % escrutado', /99,63/.test(editorialCheck.revVentajaSub), editorialCheck.revVentajaSub);
-  ok('#footer-about actualizado a v3.9.7', /v3\.9\.7/.test(editorialCheck.footerAbout) && !/v3\.1/.test(editorialCheck.footerAbout), editorialCheck.footerAbout.slice(0, 80));
+  ok('#footer-about actualizado a v3.9.8', /v3\.9\.8/.test(editorialCheck.footerAbout) && !/v3\.1/.test(editorialCheck.footerAbout), editorialCheck.footerAbout.slice(0, 80));
   ok('#val-lectura tiene 4 bullets dinámicos', editorialCheck.valLectura === 4, `n=${editorialCheck.valLectura}`);
   ok('meta description incluye margen actualizado', /41\.565|41\.5/.test(editorialCheck.metaDesc), editorialCheck.metaDesc.slice(0, 100));
   const revH2Live = await page.evaluate(() => document.getElementById('rev-section-h2')?.textContent.trim() || '');
@@ -1071,7 +1071,7 @@ function section(title) {
     ok(`${vp.name}: validacion-deck poblado`, vpCheck.valDeck.ok === true, vpCheck.valDeck.text);
     ok(`${vp.name}: val-mercados-desc poblado`, vpCheck.mercDesc.ok === true, vpCheck.mercDesc.text);
     ok(`${vp.name}: alert-headline poblado`, vpCheck.alertHead.length > 20, vpCheck.alertHead.slice(0, 50));
-    ok(`${vp.name}: meta-version 3.9.7`, vpCheck.metaVer === '3.9.7', vpCheck.metaVer);
+    ok(`${vp.name}: meta-version 3.9.8`, vpCheck.metaVer === '3.9.8', vpCheck.metaVer);
     ok(`${vp.name}: P(Fuj mantiene) en tabla`, /mantiene/i.test(vpCheck.thProb), vpCheck.thProb);
     ok(`${vp.name}: BLUF ≥6 KPIs`, vpCheck.blufKpis >= 6, `n=${vpCheck.blufKpis}`);
     ok(`${vp.name}: sin Invalid Date / [object Object]`, vpCheck.renderErrors === 0, `hits=${vpCheck.renderErrors}`);
@@ -1137,7 +1137,7 @@ function section(title) {
   const nortePiura = (data_v357.regions?.norte?.convocatorias_futuras || []).find(c => c.id === 'NORTE-PARO-023');
   ok('NORTE-PARO-023 fuente_secundaria Piura Plus', /piuraplustv|facebook\.com/i.test(nortePiura?.fuente_secundaria || ''), nortePiura?.fuente_secundaria);
   const rm01 = (data_v357.risk_matrix || []).find(r => r.id === 'RM-01');
-  ok('RM-01 estado realizada', rm01?.estado === 'realizada', rm01?.estado);
+  ok('RM-01 estado historico o realizada', /historico|realizada/i.test(rm01?.estado || ''), rm01?.estado);
   const erPlateau = data_v357.escrutinio_realtime?.onpe_plateau;
   ok('escrutinio onpe_plateau documentado', erPlateau?.margen === 41565, String(erPlateau?.margen));
   const vg03mml = (vg4.gaps || []).find(g => g.id === 'VG-R4-03');
@@ -1206,6 +1206,29 @@ function section(title) {
   ok('alt_media_trends criminalización presente', !!crimTrend, crimTrend?.trend?.slice(0, 50));
   const jneTrend = trends61.find(t => /nulidad.*2\.408|2408/i.test(t.trend || t.description || ''));
   ok('alt_media_trends JNE nulidad pendiente', !!jneTrend, jneTrend?.trend?.slice(0, 50));
+
+  section('N62. v3.9.8 — RM historico + grassroots merge (sin montecarlo)');
+  const rm62 = (data_v357.risk_matrix || []).filter(r => /^RM-(0[1-9]|1[0-5])$/.test(r.id || ''));
+  const hist62 = rm62.filter(r => r.estado === 'historico');
+  const vig62 = rm62.filter(r => r.estado === 'vigente');
+  ok('RM-01–15 ≥5 historico', hist62.length >= 5, String(hist62.length));
+  ok('RM-01–15 ≥8 vigente', vig62.length >= 8, String(vig62.length));
+  const rm01b = rm62.find(r => r.id === 'RM-01');
+  ok('RM-01 historico', rm01b?.estado === 'historico', rm01b?.estado);
+  const rm11b = rm62.find(r => r.id === 'RM-11');
+  ok('RM-11 vigente Piura', rm11b?.estado === 'vigente', rm11b?.estado);
+  const rm13b = rm62.find(r => r.id === 'RM-13');
+  ok('RM-13 historico', rm13b?.estado === 'historico', rm13b?.estado);
+  const grass62 = data_v357.grassroots || {};
+  ok('grassroots.meta.version 3.9.8', grass62.meta?.version === '3.9.8', grass62.meta?.version);
+  const ne62 = grass62.national_events || [];
+  ok('national_events MARCHA-JP-19JUN', ne62.some(e => e.id === 'MARCHA-JP-19JUN'), String(ne62.length));
+  ok('national_events PIURA-ARROCERA-23JUN', ne62.some(e => e.id === 'PIURA-ARROCERA-23JUN'), String(ne62.length));
+  const nacAcc = (grass62.nacional || {}).accounts || [];
+  ok('@RobertoSanchP en grassroots nacional', nacAcc.some(a => a.handle === '@RobertoSanchP'), String(nacAcc.length));
+  ok('sin @HCevallos stale en grassroots', !nacAcc.some(a => a.handle === '@HCevallos'), String(nacAcc.filter(a => a.handle === '@HCevallos').length));
+  ok('lima next_72h post-MML', /post-MML|22-jun|meseta/i.test((grass62.by_region || {}).lima?.next_72h_outlook || ''), (grass62.by_region || {}).lima?.next_72h_outlook?.slice(0, 50));
+  ok('summary menciona montecarlo omitido o meseta', /montecarlo|meseta|99,63/i.test(grass62.summary || ''), grass62.summary?.slice(0, 60));
 
   section('N54. magnitude methodology subsite link');
   const subsiteCheck = await page.evaluate(() => {
