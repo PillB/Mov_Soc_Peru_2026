@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "3.9.9",
+    "version": "3.10.0",
     "generated_at": "2026-06-19T20:43:00-05:00",
     "scope": "Manifestaciones, marchas y eventos de acumulación de personas — Perú + Capa de inteligencia social y medios alternativos",
     "window": "19–26 junio 2026 (post-2da vuelta · corte 99,63% escrutado · margen 41.565 votos)",
@@ -38,7 +38,7 @@
       "routes": 55,
       "comunicados": 17
     },
-    "last_refresh_summary": "v3.9.9 JNE JEE documentado + pleno pendiente 24-jun; Piura AM; cuentas dedup; +2 actores R4; montecarlo omitido.",
+    "last_refresh_summary": "v3.10.0 Round 5 deep dives: @EZunini, @cgt_peru, regional media, 6 actores, hashtags P1, grassroots dedup; montecarlo omitido.",
     "fecha_corte": "2026-06-24T10:00:00-05:00"
   },
   "executive_alert": {
@@ -15043,7 +15043,7 @@
   ],
   "social_intelligence": {
     "fecha_corte": "2026-06-24T10:00:00-05:00",
-    "contexto": "24-jun AM: JNE pleno sin resolución; JEE improcedente documentado. Piura sin terreno adicional. Cuentas deduplicadas. ONPE meseta +41.565.",
+    "contexto": "24-jun R5: fichas @EZunini + @cgt_peru completas; medios regionales Walac/Yaraví/Canal B; 6 actores P1; hashtags #NoReconocemosResultado/#ParoAgrarioNacional; grassroots dedup.",
     "hashtags": [
       {
         "hashtag": "#TomaDeLima",
@@ -15779,7 +15779,12 @@
         "plataforma": "X",
         "volumen_est": "",
         "ejemplo_url": "https://x.com/search?q=%23CNULEnLucha&src=typed_query&f=live",
-        "fuente_metricas": ""
+        "fuente_metricas": "",
+        "volumen_estimado": "bajo-latente post-denuncia",
+        "estado_volumen": "latente",
+        "nota": "Stale refresh R5; delegaciones puneñas marcha Lima 19-jun sin columna propia Ilave.",
+        "validacion_ronda": 5,
+        "deep_dive_ronda": 5
       },
       {
         "tag": "#CierreDeIlave",
@@ -16122,6 +16127,37 @@
         "nota": "~80 carpas Jr. Nazca / JNE Jesús María; continuidad sin update oficial 23-jun.",
         "validacion_ronda": 4,
         "magnitud_social_score": 3
+      },
+      {
+        "hashtag": "#NoReconocemosResultado",
+        "plataforma": "X / FB regional sur",
+        "volumen_estimado": "bajo (proxy narrativo, no trending 17–24 jun)",
+        "bando": "pro-Sánchez / autoconvocados Puno",
+        "nota": "Alias narrativo Samillán; usar cruce con #PunoDefiendeSuVoto.",
+        "validacion_ronda": 5,
+        "deep_dive_ronda": 5,
+        "fuente_url": "https://evidencia.pe/raul-samillan-keiko-fujimori-posiblemente-este-gobernando-y-dios-nos-salve/"
+      },
+      {
+        "hashtag": "#ParoAgrarioNacional",
+        "plataforma": "Facebook regional",
+        "volumen_estimado": "medio (Piura/Lambayeque post-MIDAGRI 23-jun)",
+        "pico_observado": "2026-06-23T12:00:00-05:00",
+        "bando": "gremial",
+        "nota": "Conveagro mantiene protesta; terreno 24-jun no confirmado.",
+        "validacion_ronda": 5,
+        "deep_dive_ronda": 5,
+        "fuente_url": "https://nortesostenible.com/midagri-aprueba-lineamientos-para-compra-de-arroz-pero-productores-de-piura-mantienen-protesta/"
+      },
+      {
+        "hashtag": "#IlaveResiste",
+        "bando": "mixto",
+        "volumen_estimado": "bajo-latente (sin bloqueo Ilave activo verificado 17–24 jun)",
+        "estado_volumen": "latente",
+        "nota": "CNUL/Ccallo denunciado 19-jun; sin reactivación convocatoria indexada.",
+        "validacion_ronda": 5,
+        "deep_dive_ronda": 5,
+        "fuente_url": "https://rpp.pe/politica/judiciales/procuraduria-denuncia-penalmente-a-antauro-humala-y-otras-ocho-personas-por-presunta-perturbacion-de-la-tranquilidad-publica-noticia-1693848"
       }
     ],
     "narratives": [
@@ -16763,7 +16799,7 @@
         "seguidores_aprox": null,
         "posicion": "pro-Sánchez / izquierda",
         "fuente_url": "https://www.youtube.com/watch?v=6coHASqu4dE",
-        "nombre_canónico": "César Hildebrandt (Hildebrandt en sus Trece)"
+        "nombre_canónico": "César Hildebrandt"
       },
       {
         "nombre": "Roberto Sánchez (cuenta @robertosanchez.jp)",
@@ -16911,19 +16947,27 @@
         "nombre_canónico": null
       },
       {
-        "nombre": null,
+        "nombre": "Walac Noticias Piura",
         "handle": "@WalacNoticias",
         "plataforma": "Facebook",
         "perfil_url": null,
         "rol": "Medio regional Huancayo — transmisiones en vivo de concentraciones JP en Huancayo y Lima",
-        "region": null,
+        "region": "norte",
         "bando_aparente": "pro-Sánchez (cobertura afín)",
         "contenido_reciente": "Medio regional Huancayo — transmisiones en vivo de concentraciones JP en Huancayo y Lima",
         "fuente_url": "https://nortesostenible.com/midagri-aprueba-lineamientos-para-compra-de-arroz-pero-productores-de-piura-mantienen-protesta/",
         "origen_v355": true,
         "notas_r4": "23-jun PM: sin cobertura terreno Piura indexada; monitoreo 24-jun AM.",
-        "validacion_ronda": 4,
-        "nombre_canónico": "Walac Noticias Piura"
+        "validacion_ronda": 5,
+        "nombre_canónico": "Walac Noticias Piura",
+        "descripcion": "Medio regional Piura (FB/YouTube/walac.pe). Cobertura Plazuela Merino 10-jun; arrocera 11-jun. 24-jun AM: sin terreno adicional indexado; monitoreo Piura activo.",
+        "engagement_tier": "medio-regional",
+        "mobilization_role": "cobertura terreno / verificación física norte",
+        "deep_dive_ronda": 5,
+        "notas_r5": "Prioridad monitoreo NORTE-PARO-023 y El Trébol.",
+        "_merged_duplicates": [
+          "Walac Noticias (cuenta oficial)"
+        ]
       },
       {
         "nombre": null,
@@ -17407,10 +17451,13 @@
         "descripcion": "X inactivo 17-19; reel IG convocatoria autoconvocatoria 22-jun Plaza San Martín.",
         "posicion": "alternativo / pro-Sánchez",
         "fuente_url": "https://www.instagram.com/reel/DZQNoG-pSIU/",
-        "validacion_ronda": 4,
+        "validacion_ronda": 5,
         "engagement_tier": "bajo",
         "notas_r4": "Autoconvocatoria IG 22-jun no materializada (v3.9.5). X dormante.",
-        "nombre_canónico": "Pachamama Radio"
+        "nombre_canónico": "Pachamama Radio",
+        "notas_r5": "Autoconvocatoria IG reel DZQNoG-pSIU 22-jun Plaza San Martín — no materializada (VG-R4-04). Sin handle autor reel verificado.",
+        "deep_dive_ronda": 5,
+        "mobilization_role": "autoconvocatoria latente"
       },
       {
         "nombre": "UNAP Iquitos",
@@ -17449,6 +17496,57 @@
         "validacion_ronda": 4,
         "fuente_url": "https://rpp.pe/politica/elecciones/roberto-sanchez-salio-de-su-local-de-campana-en-el-inicio-de-marcha-convocada-por-juntos-por-el-peru-noticia-1693850",
         "nombre_canónico": "Juntos por el Perú (oficial)"
+      },
+      {
+        "nombre": "Ernesto Zunini",
+        "plataforma": "X",
+        "handle": "@EZunini",
+        "url": "https://x.com/EZunini",
+        "descripcion": "Secretario General Juntos por el Perú. Última cita directa 13-jun (reconteo EE.UU./Argentina; exhortó respeto a protesta pacífica). Sin aparición pública indexada 17–24 jun.",
+        "posicion": "pro-Sánchez / JP institucional",
+        "seguidores_aprox": "no verificado sin login X",
+        "engagement_tier": "bajo",
+        "mobilization_role": "moderada/desescalatoria — rol convocatoria desplazado a Sánchez",
+        "posts_17_24jun": "ninguno verificable (muro X)",
+        "deep_dive_ronda": 5,
+        "validacion_ronda": 5,
+        "fuente_url": "https://rpp.pe/politica/elecciones/zunini-insiste-con-reconteo-de-votos-en-eeuu-y-argentina-y-exhorta-a-autoridades-de-lima-a-respetar-el-derecho-a-la-protesta-noticia-1692928",
+        "nombre_canónico": "Ernesto Zunini",
+        "eventos_vinculados": [
+          "MARCHA-JP-19JUN"
+        ],
+        "notas_r5": "Silencio estratégico o ausencia operativa; co-convocante histórico sin nueva convocatoria."
+      },
+      {
+        "nombre": "CGTP Perú",
+        "plataforma": "X",
+        "handle": "@cgt_peru",
+        "url": "https://x.com/cgt_peru",
+        "descripcion": "Confederación General de Trabajadores del Perú (~11,7K seguidores R2). Timeline vacía 17–24 jun. Sin comunicado formal de paro/marcha 17-jun verificado.",
+        "posicion": "sindical / mixto",
+        "engagement_tier": "bajo",
+        "mobilization_role": "ausente — vigilias JP ≠ paro CGTP",
+        "posts_17_24jun": "ninguno",
+        "deep_dive_ronda": 5,
+        "validacion_ronda": 5,
+        "cgtp_17jun": "no_verificada",
+        "nombre_canónico": "CGTP Perú",
+        "notas_r5": "Corrige @CGTPOficial. Sindicato ausente del debate digital movilización post-19-jun."
+      },
+      {
+        "nombre": "Radio Yaraví Arequipa",
+        "plataforma": "Web / radio",
+        "handle": "@RadioYaravi",
+        "url": "https://radioyaravi.org.pe",
+        "descripcion": "Medio regional Arequipa. Documentó convocatoria Gen Z / Fujimori Nunca Más 13-jun 16:00 Plaza España (vocero David Calisaya). Sin nueva convocatoria 17–24 jun.",
+        "posicion": "neutral-regional",
+        "region": "sur",
+        "engagement_tier": "bajo-regional",
+        "mobilization_role": "cobertura sur andino",
+        "deep_dive_ronda": 5,
+        "validacion_ronda": 5,
+        "fuente_url": "https://radioyaravi.org.pe/noticia/regional/colectivo-fujimori-nunca-mas-y-generacion-z-convocan-a-una-movilizacion-en-defensa-del-voto-popular/",
+        "nombre_canónico": "Radio Yaraví Arequipa"
       },
       {
         "nombre": "Canal ciudadano ONPE 2026 EN VIVO",
@@ -17527,18 +17625,6 @@
         "perfil_url": "",
         "seguidores_aprox": "",
         "rol": "Analista político regional de Piura; declarante frecuente en medios nacionales sobre clima social piurano",
-        "region": "norte",
-        "bando_aparente": "",
-        "contenido_reciente": "",
-        "url_contenido": ""
-      },
-      {
-        "nombre": "Walac Noticias (cuenta oficial)",
-        "handle": "",
-        "plataforma": "",
-        "perfil_url": "",
-        "seguidores_aprox": "",
-        "rol": "Canal de televisión y portal digital de Piura; cobertura en vivo de la segunda vuelta y plantones en Plazuela Merino",
         "region": "norte",
         "bando_aparente": "",
         "contenido_reciente": "",
@@ -17998,6 +18084,21 @@
         "fuente_url": "https://nortesostenible.com/arroceros-de-piura-anuncian-movilizacion-para-el-23-de-junio-y-evaluan-nuevo-paro-por-incumplimiento-de-demandas/",
         "validacion_ronda": 3,
         "engagement_tier": "bajo"
+      },
+      {
+        "nombre": "Canal B Cajamarca",
+        "plataforma": "Web / TV regional",
+        "handle": null,
+        "url": "https://www.canalb.pe",
+        "descripcion": "Medio regional Cajamarca. Referencia rondas campesinas y paro total norte 19-jul. Cruce con RPP Cajamarca (Fernando Chuquilín / Aladino Fernández).",
+        "posicion": "neutral-regional",
+        "region": "norte",
+        "engagement_tier": "bajo-regional",
+        "mobilization_role": "cobertura rondero / alerta post-proclamación",
+        "deep_dive_ronda": 5,
+        "validacion_ronda": 5,
+        "fuente_url": "https://www.canalb.pe/noticias/actualidad/rondas-campesinas-acatarian-paro-total-en-el-norte-para-el-19-de-julio",
+        "nombre_canónico": "Canal B Cajamarca"
       }
     ],
     "transmisiones": [
@@ -18045,7 +18146,9 @@
     "refresh_ronda": 4,
     "refresh_notas": "Bulk refresh P0: 8 hashtags stale + 6 nuevos R4. Handles corregidos (@HCevallosFlores, @WaykaPeru, @rlopezaliaga1). Fuentes: RPP, Canal N, Norte Sostenible.",
     "dedup_corte": "2026-06-24T10:00:00-05:00",
-    "dedup_removed": 3
+    "dedup_removed": 4,
+    "deep_dive_ronda": 5,
+    "dedup_removed_r5": 0
   },
   "live_streams": [
     {
@@ -19238,6 +19341,52 @@
       "url": "https://www.facebook.com/Convoca/posts/segundavuelta-la-inteligencia-artificial-y-la-desinformaci%C3%B3n-marca-la-campa%C3%B1a-el/1548352213312865/",
       "declaracion_reciente": "IA desinformación campaña; 46 casos penales Fiscalía. Batalla legal JEE post-19-jun (346 actas).",
       "fuente": "convoca.pe + Canal N JEE 23-jun"
+    },
+    {
+      "name": "Walac Noticias Piura",
+      "medio": "Walac Noticias Piura",
+      "url": "https://walac.pe",
+      "type": "centro",
+      "region": "norte",
+      "focus": "Cobertura Piura-Sechura: plantones JP Plazuela Merino, arrocera 23-jun, monitoreo El Trébol. 24-jun sin terreno adicional indexado.",
+      "position_post_electoral": "alta-regional",
+      "recent_url": "https://www.facebook.com/WalacNoticias/posts/segunda-vueltasimpatizantes-de-juntos-por-el-peru-se-reunen-en-la-plazuela-merin/1445477584292587/",
+      "validacion_ronda": 5,
+      "deep_dive_ronda": 5,
+      "social_links": [
+        {
+          "platform": "facebook",
+          "url": "https://www.facebook.com/WalacNoticias"
+        },
+        {
+          "platform": "web",
+          "url": "https://walac.pe"
+        }
+      ]
+    },
+    {
+      "name": "Radio Yaraví",
+      "medio": "Radio Yaraví Arequipa",
+      "url": "https://radioyaravi.org.pe",
+      "type": "centro",
+      "region": "sur",
+      "focus": "Convocatoria Gen Z / Fujimori Nunca Más 13-jun Plaza España Arequipa (David Calisaya). Cobertura sur andino post-electoral.",
+      "position_post_electoral": "media-regional",
+      "recent_url": "https://radioyaravi.org.pe/noticia/regional/colectivo-fujimori-nunca-mas-y-generacion-z-convocan-a-una-movilizacion-en-defensa-del-voto-popular/",
+      "validacion_ronda": 5,
+      "deep_dive_ronda": 5
+    },
+    {
+      "name": "Canal B Cajamarca",
+      "medio": "Canal B Cajamarca",
+      "url": "https://www.canalb.pe",
+      "type": "centro",
+      "region": "norte",
+      "focus": "Rondas campesinas Cajamarca: paro total norte 19-jul (patrón). Alerta post-proclamación si resultado pro-Fujimori.",
+      "position_post_electoral": "media-regional",
+      "recent_url": "https://www.canalb.pe/noticias/actualidad/rondas-campesinas-acatarian-paro-total-en-el-norte-para-el-19-de-julio",
+      "validacion_ronda": 5,
+      "deep_dive_ronda": 5
     }
   ],
   "narratives": [
@@ -19902,7 +20051,7 @@
   "grassroots": {
     "meta": {
       "generated_at": "2026-06-23T20:00:00-05:00",
-      "version": "3.9.9",
+      "version": "3.10.0",
       "source_count": 8,
       "sources_used": [
         "regions/lima.json",
@@ -19918,7 +20067,8 @@
         "research/validation/piura_jun23_results.md"
       ],
       "merge_corte": "2026-06-23T20:00:00-05:00",
-      "dedup_notas": "v3.9.9 cuentas sociales dedup 3 entradas"
+      "dedup_notas": "v3.10.0 grassroots dedup −0 (nacional+by_region); cuentas sociales dedup acum −4",
+      "deep_dive_ronda": 5
     },
     "summary": "Al 23-jun PM (ONPE meseta 99,63 % / Fujimori +41.565), el eje grassroots combina: (1) marcha JP 19-jun ejecutada pacífica; (2) acampamento JNE ~80 carpas; (3) tensión arrocera Piura post-MIDAGRI sin confirmación terreno; (4) riesgo latente sur andino pre-proclamación. Montecarlo no recalculado — sin delta ONPE.",
     "national_events": [
@@ -20772,7 +20922,8 @@
           "url": "https://x.com/RPPNoticias",
           "followers": "3,5M",
           "notes": "Cobertura en vivo marcha 19-jun y acampamento JNE.",
-          "verification": "accounts_deep_jun19 R4"
+          "verification": "accounts_deep_jun19 R4",
+          "nombre_canónico": "RPP Noticias"
         },
         {
           "name": "Roberto Sánchez Palomino",
@@ -20782,7 +20933,8 @@
           "url": "https://x.com/RobertoSanchP",
           "followers": "21,6K",
           "notes": "Encabezó marcha 19-jun; post viral rechazo denuncia Procuraduría.",
-          "verification": "accounts_deep_jun19 R4"
+          "verification": "accounts_deep_jun19 R4",
+          "nombre_canónico": "Roberto Sánchez Palomino"
         },
         {
           "name": "Hernando Cevallos",
@@ -20793,7 +20945,8 @@
           "followers": "no verificado en esta consulta",
           "notes": "En protesta nocturna frente al JNE declaró: 'La democracia no solo es decidir ir a votar y me voy a la casa. La calma no es incompatible con la movilización social.' Confirmó la marcha 'Los Cuatro Suyos' para el viernes 13 de junio.",
           "verification": "",
-          "handle_corregido": "@HCevallos"
+          "handle_corregido": "@HCevallos",
+          "nombre_canónico": "Hernando Cevallos"
         },
         {
           "name": "Walter Flores",
@@ -20803,7 +20956,8 @@
           "url": "https://x.com/WalterFloresJP",
           "followers": "no verificado en esta consulta",
           "notes": "Desde plantón frente al JNE declaró: 'Hay una directiva de organizar al pueblo para hacer resistencia a los embates de la derecha.' Afirmó que 'hay todo un complot de la derecha que quiere preservar el poder político.'",
-          "verification": ""
+          "verification": "",
+          "nombre_canónico": "Walter Flores"
         },
         {
           "name": "Jaime Quito",
@@ -20813,17 +20967,8 @@
           "url": "https://x.com/JaimeQuitoPeru",
           "followers": "no verificado en esta consulta",
           "notes": "Congresista de JP y virtual senador convocó a la 'defensa del voto' en concentración frente al JNE e instó a 'permanecer atentos ante posibles irregularidades en el proceso electoral'.",
-          "verification": ""
-        },
-        {
-          "name": "Samuel Breña",
-          "handle": "N/D",
-          "role": "líder vecinal",
-          "platform": "X",
-          "url": "N/D",
-          "followers": "N/D",
-          "notes": "Integrante de la organización Guardianes de Pedro Castillo, de 54 años, presente en el plantón frente al JNE. Declaró a El País: 'Venimos a salvaguardar el voto del pueblo.'",
-          "verification": ""
+          "verification": "",
+          "nombre_canónico": "Jaime Quito"
         },
         {
           "name": "Renzo Reggiardo",
@@ -20833,7 +20978,8 @@
           "url": "https://x.com/RenzoReggiardo",
           "followers": "no verificado en esta consulta",
           "notes": "Alcalde de Lima declaró alerta máxima en el Centro Histórico el 10 de junio: 'Estamos en alerta máxima para evitar violencia ante los anuncios de movilizaciones que, como era de esperarse, iban a suceder.' Dispuso vigilancia con ~1000 cámaras y patrullaje aéreo.",
-          "verification": ""
+          "verification": "",
+          "nombre_canónico": "Renzo Reggiardo"
         },
         {
           "name": "Rafael López Aliaga",
@@ -20844,7 +20990,8 @@
           "followers": "no verificado en esta consulta",
           "notes": "Convocó las 'Marchas por la Democracia' en Lima, paseo de los Héroes Navales y Campo de Marte (Jesús María). Declaró en mayo: 'Vamos a preparar una marcha más potente, van a ser cinco suyos, porque hasta el mar lo vamos a mover.' Calificó al JNE de 'mafia'.",
           "verification": "",
-          "handle_corregido": "@lopezaliaga"
+          "handle_corregido": "@lopezaliaga",
+          "nombre_canónico": "Rafael López Aliaga"
         },
         {
           "name": "Norma Yarrow",
@@ -20854,7 +21001,8 @@
           "url": "https://x.com/NormaYarrow",
           "followers": "no verificado en esta consulta",
           "notes": "Congresista de Renovación Popular participó en la marcha del 14 de mayo en el Campo de Marte y declaró: 'Cuando le da la gana al JNE, sí cambia su cronograma. (...) Se está reconociendo que ha habido delitos en actas fraguadas.'",
-          "verification": ""
+          "verification": "",
+          "nombre_canónico": "Norma Yarrow"
         },
         {
           "name": "Marco Sifuentes",
@@ -20864,7 +21012,8 @@
           "url": "https://www.youtube.com/channel/UCP0AJJeNkFBYzegTTVbKhPg",
           "followers": "no verificado en esta consulta",
           "notes": "Conductor de La Encerrona; el 5 de junio anticipó 'el berrinche del fraude después del domingo' y criticó la desesperación fujimorista. Reportó el incidente donde le lanzaron un botellón a Keiko en la USIL.",
-          "verification": ""
+          "verification": "",
+          "nombre_canónico": "Marco Sifuentes"
         },
         {
           "name": "César Hildebrandt",
@@ -20874,7 +21023,8 @@
           "url": "https://www.youtube.com/@hildebrandtensus13",
           "followers": "no verificado en esta consulta",
           "notes": "En su programa del 2 de junio rectificó su postura: 'La mejor opción en esta segunda vuelta —lo reconozco— es votar positivamente e impedir que el fujimorismo tenga plenos poderes y cumpla sus oscuros designios sobre todos nosotros.' Advirtió que si gana Keiko 'estaríamos próximos a una guerra civil'.",
-          "verification": ""
+          "verification": "",
+          "nombre_canónico": "César Hildebrandt"
         },
         {
           "name": "Wayka Perú",
@@ -20884,6 +21034,41 @@
           "url": "https://www.facebook.com/waykaperu",
           "followers": "no verificado en esta consulta",
           "notes": "Publicó sobre el mensaje 'entre líneas' de Keiko advirtiendo impugnación de votos y comentó: '¿Mantendrá nuevamente al país en vilo?' Transmitió en vivo la marcha del 30 de mayo desde el centro de Lima.",
+          "verification": "",
+          "nombre_canónico": "Wayka Perú"
+        },
+        {
+          "name": "Ernesto Zunini",
+          "handle": "@EZunini",
+          "role": "frente de defensa",
+          "platform": "X",
+          "url": "N/D",
+          "followers": "N/D",
+          "notes": "Miembro del equipo técnico de Juntos por el Perú, participó en la marcha del 30 de mayo afirmando: 'Nuestra presencia aquí ratifica nuestro compromiso con la democracia.'",
+          "verification": "",
+          "handle_corregido_desde": "N/D",
+          "nombre_canónico": "Ernesto Zunini"
+        },
+        {
+          "name": "Walac Noticias (cuenta oficial)",
+          "handle": "@WalacNoticias",
+          "role": "Canal de televisión y portal digital de Piura; cobertura en vivo de la segunda vuelta y plantones en Plazuela Merino",
+          "platform": "",
+          "url": "",
+          "followers": "",
+          "notes": "",
+          "verification": "",
+          "handle_corregido_desde": "N/D",
+          "nombre_canónico": "Walac Noticias Piura"
+        },
+        {
+          "name": "Samuel Breña",
+          "handle": "N/D",
+          "role": "líder vecinal",
+          "platform": "X",
+          "url": "N/D",
+          "followers": "N/D",
+          "notes": "Integrante de la organización Guardianes de Pedro Castillo, de 54 años, presente en el plantón frente al JNE. Declaró a El País: 'Venimos a salvaguardar el voto del pueblo.'",
           "verification": ""
         },
         {
@@ -20904,16 +21089,6 @@
           "url": "https://www.instagram.com/p/DY-GxSHDXow/",
           "followers": "N/D",
           "notes": "Vocera de colectivos convocantes de la marcha del 30 de mayo, advirtió que 'un voto perdido favorece a la lideresa de Fuerza Popular' e instó a no viciar el sufragio.",
-          "verification": ""
-        },
-        {
-          "name": "Ernesto Zunini",
-          "handle": "N/D",
-          "role": "frente de defensa",
-          "platform": "X",
-          "url": "N/D",
-          "followers": "N/D",
-          "notes": "Miembro del equipo técnico de Juntos por el Perú, participó en la marcha del 30 de mayo afirmando: 'Nuestra presencia aquí ratifica nuestro compromiso con la democracia.'",
           "verification": ""
         },
         {
@@ -20970,16 +21145,6 @@
           "name": "Ricardo Parra",
           "handle": "",
           "role": "Analista político regional de Piura; declarante frecuente en medios nacionales sobre clima social piurano",
-          "platform": "",
-          "url": "",
-          "followers": "",
-          "notes": "",
-          "verification": ""
-        },
-        {
-          "name": "Walac Noticias (cuenta oficial)",
-          "handle": "",
-          "role": "Canal de televisión y portal digital de Piura; cobertura en vivo de la segunda vuelta y plantones en Plazuela Merino",
           "platform": "",
           "url": "",
           "followers": "",
@@ -22300,36 +22465,6 @@
     "lima": {
       "accounts": [
         {
-          "name": "Hernando Cevallos",
-          "handle": "@HCevallos",
-          "role": "organizador",
-          "platform": "X",
-          "url": "https://x.com/HCevallos",
-          "followers": "no verificado en esta consulta",
-          "notes": "En protesta nocturna frente al JNE declaró: 'La democracia no solo es decidir ir a votar y me voy a la casa. La calma no es incompatible con la movilización social.' Confirmó la marcha 'Los Cuatro Suyos' para el viernes 13 de junio.",
-          "verification": ""
-        },
-        {
-          "name": "Walter Flores",
-          "handle": "@WalterFloresJP",
-          "role": "organizador",
-          "platform": "X",
-          "url": "https://x.com/WalterFloresJP",
-          "followers": "no verificado en esta consulta",
-          "notes": "Desde plantón frente al JNE declaró: 'Hay una directiva de organizar al pueblo para hacer resistencia a los embates de la derecha.' Afirmó que 'hay todo un complot de la derecha que quiere preservar el poder político.'",
-          "verification": ""
-        },
-        {
-          "name": "Jaime Quito",
-          "handle": "@JaimeQuitoPeru",
-          "role": "autoridad local",
-          "platform": "X",
-          "url": "https://x.com/JaimeQuitoPeru",
-          "followers": "no verificado en esta consulta",
-          "notes": "Congresista de JP y virtual senador convocó a la 'defensa del voto' en concentración frente al JNE e instó a 'permanecer atentos ante posibles irregularidades en el proceso electoral'.",
-          "verification": ""
-        },
-        {
           "name": "Samuel Breña",
           "handle": "N/D",
           "role": "líder vecinal",
@@ -22337,66 +22472,6 @@
           "url": "N/D",
           "followers": "N/D",
           "notes": "Integrante de la organización Guardianes de Pedro Castillo, de 54 años, presente en el plantón frente al JNE. Declaró a El País: 'Venimos a salvaguardar el voto del pueblo.'",
-          "verification": ""
-        },
-        {
-          "name": "Renzo Reggiardo",
-          "handle": "@RenzoReggiardo",
-          "role": "autoridad local",
-          "platform": "X",
-          "url": "https://x.com/RenzoReggiardo",
-          "followers": "no verificado en esta consulta",
-          "notes": "Alcalde de Lima declaró alerta máxima en el Centro Histórico el 10 de junio: 'Estamos en alerta máxima para evitar violencia ante los anuncios de movilizaciones que, como era de esperarse, iban a suceder.' Dispuso vigilancia con ~1000 cámaras y patrullaje aéreo.",
-          "verification": ""
-        },
-        {
-          "name": "Rafael López Aliaga",
-          "handle": "@lopezaliaga",
-          "role": "organizador",
-          "platform": "X",
-          "url": "https://x.com/lopezaliaga",
-          "followers": "no verificado en esta consulta",
-          "notes": "Convocó las 'Marchas por la Democracia' en Lima, paseo de los Héroes Navales y Campo de Marte (Jesús María). Declaró en mayo: 'Vamos a preparar una marcha más potente, van a ser cinco suyos, porque hasta el mar lo vamos a mover.' Calificó al JNE de 'mafia'.",
-          "verification": ""
-        },
-        {
-          "name": "Norma Yarrow",
-          "handle": "@NormaYarrow",
-          "role": "autoridad local",
-          "platform": "X",
-          "url": "https://x.com/NormaYarrow",
-          "followers": "no verificado en esta consulta",
-          "notes": "Congresista de Renovación Popular participó en la marcha del 14 de mayo en el Campo de Marte y declaró: 'Cuando le da la gana al JNE, sí cambia su cronograma. (...) Se está reconociendo que ha habido delitos en actas fraguadas.'",
-          "verification": ""
-        },
-        {
-          "name": "Marco Sifuentes",
-          "handle": "@msifuentes",
-          "role": "comunicador",
-          "platform": "YT",
-          "url": "https://www.youtube.com/channel/UCP0AJJeNkFBYzegTTVbKhPg",
-          "followers": "no verificado en esta consulta",
-          "notes": "Conductor de La Encerrona; el 5 de junio anticipó 'el berrinche del fraude después del domingo' y criticó la desesperación fujimorista. Reportó el incidente donde le lanzaron un botellón a Keiko en la USIL.",
-          "verification": ""
-        },
-        {
-          "name": "César Hildebrandt",
-          "handle": "@hildebrandtperu",
-          "role": "comunicador",
-          "platform": "YT",
-          "url": "https://www.youtube.com/@hildebrandtensus13",
-          "followers": "no verificado en esta consulta",
-          "notes": "En su programa del 2 de junio rectificó su postura: 'La mejor opción en esta segunda vuelta —lo reconozco— es votar positivamente e impedir que el fujimorismo tenga plenos poderes y cumpla sus oscuros designios sobre todos nosotros.' Advirtió que si gana Keiko 'estaríamos próximos a una guerra civil'.",
-          "verification": ""
-        },
-        {
-          "name": "Wayka Perú",
-          "handle": "@WaykaPeru",
-          "role": "comunicador",
-          "platform": "FB",
-          "url": "https://www.facebook.com/waykaperu",
-          "followers": "no verificado en esta consulta",
-          "notes": "Publicó sobre el mensaje 'entre líneas' de Keiko advirtiendo impugnación de votos y comentó: '¿Mantendrá nuevamente al país en vilo?' Transmitió en vivo la marcha del 30 de mayo desde el centro de Lima.",
           "verification": ""
         },
         {
@@ -22417,16 +22492,6 @@
           "url": "https://www.instagram.com/p/DY-GxSHDXow/",
           "followers": "N/D",
           "notes": "Vocera de colectivos convocantes de la marcha del 30 de mayo, advirtió que 'un voto perdido favorece a la lideresa de Fuerza Popular' e instó a no viciar el sufragio.",
-          "verification": ""
-        },
-        {
-          "name": "Ernesto Zunini",
-          "handle": "N/D",
-          "role": "frente de defensa",
-          "platform": "X",
-          "url": "N/D",
-          "followers": "N/D",
-          "notes": "Miembro del equipo técnico de Juntos por el Perú, participó en la marcha del 30 de mayo afirmando: 'Nuestra presencia aquí ratifica nuestro compromiso con la democracia.'",
           "verification": ""
         },
         {
@@ -22757,16 +22822,6 @@
           "name": "Ricardo Parra",
           "handle": "",
           "role": "Analista político regional de Piura; declarante frecuente en medios nacionales sobre clima social piurano",
-          "platform": "",
-          "url": "",
-          "followers": "",
-          "notes": "",
-          "verification": ""
-        },
-        {
-          "name": "Walac Noticias (cuenta oficial)",
-          "handle": "",
-          "role": "Canal de televisión y portal digital de Piura; cobertura en vivo de la segunda vuelta y plantones en Plazuela Merino",
           "platform": "",
           "url": "",
           "followers": "",
@@ -27471,7 +27526,9 @@
       "side": "institucional",
       "fuente": "Medios nacionales",
       "origen_v3514": true,
-      "verificado_osint": true
+      "verificado_osint": true,
+      "validacion_ronda": 5,
+      "deep_dive_ronda": 5
     },
     {
       "nombre": "Oswaldo Calle",
@@ -27570,6 +27627,93 @@
       "fuente_url": "https://nortesostenible.com/midagri-aprueba-lineamientos-para-compra-de-arroz-pero-productores-de-piura-mantienen-protesta/",
       "validacion_ronda": 4,
       "verificado_osint": true
+    },
+    {
+      "nombre": "Ernesto Zunini",
+      "cargo": "Secretario General Juntos por el Perú",
+      "org": "JP",
+      "handle": "@EZunini",
+      "declaracion_reciente": "Sin aparición pública indexada 17–24 jun. Última cita 13-jun: reconteo EE.UU./Argentina; postura moderada/desescalatoria.",
+      "fecha_declaracion": "2026-06-13",
+      "side": "pro-Sánchez",
+      "fuente": "RPP",
+      "fuente_url": "https://rpp.pe/politica/elecciones/zunini-insiste-con-reconteo-de-votos-en-eeuu-y-argentina-y-exhorta-a-autoridades-de-lima-a-respetar-el-derecho-a-la-protesta-noticia-1692928",
+      "validacion_ronda": 5,
+      "deep_dive_ronda": 5,
+      "verificado_osint": true,
+      "mobilization_role": "institucional JP — sin convocatoria nueva atribuida"
+    },
+    {
+      "nombre": "Antauro Humala Tasso",
+      "cargo": "Dirigente político",
+      "org": "Antauro Humala",
+      "declaracion_reciente": "Denunciado penalmente 19-jun Procuraduría (art. 315-A) por convocatorias previas; sin nueva aparición indexada 17–24 jun.",
+      "fecha_declaracion": "2026-06-19",
+      "side": "convocante",
+      "fuente": "RPP",
+      "fuente_url": "https://rpp.pe/politica/judiciales/procuraduria-denuncia-penalmente-a-antauro-humala-y-otras-ocho-personas-por-presunta-perturbacion-de-la-tranquilidad-publica-noticia-1693848",
+      "validacion_ronda": 5,
+      "deep_dive_ronda": 5,
+      "verificado_osint": true,
+      "estado_legal": "investigación preliminar — DEN-ENT-202602038"
+    },
+    {
+      "nombre": "Raúl Samillán",
+      "cargo": "Asociación de Mártires 9 de enero / vocero aymara Puno",
+      "org": "Asoc. Mártires Juliaca",
+      "declaracion_reciente": "19-jun: rechaza eventual gobierno Fujimori; anuncia marcha Puno→Lima 15–28 jul. Sin bloqueo Ilave activo verificado al 24-jun.",
+      "fecha_declaracion": "2026-06-19",
+      "side": "pro-Sánchez / autoconvocado",
+      "fuente": "Evidencia.pe",
+      "fuente_url": "https://evidencia.pe/raul-samillan-keiko-fujimori-posiblemente-este-gobernando-y-dios-nos-salve/",
+      "validacion_ronda": 5,
+      "deep_dive_ronda": 5,
+      "verificado_osint": true,
+      "eventos_vinculados": [
+        "SUR-C19-04"
+      ]
+    },
+    {
+      "nombre": "Fernando Chuquilín",
+      "cargo": "Presidente Central Única Distrital Rondas Campesinas Cajamarca",
+      "org": "Rondas Campesinas Cajamarca",
+      "declaracion_reciente": "Rondas en alerta: 73% voto cajamarquino pro-Sánchez; evalúan paro regional si resultado pro-F. Patrón paro norte 19-jul documentado Canal B/RPP.",
+      "fecha_declaracion": "2026-06-11",
+      "side": "pro-Sánchez / rondero",
+      "fuente": "RPP Cajamarca",
+      "fuente_url": "https://rpp.pe/peru/cajamarca/cajamarca-por-que-las-rondas-campesinas-evaluan-retomar-su-paro-regional-indefinido-noticia-1659202",
+      "validacion_ronda": 5,
+      "deep_dive_ronda": 5,
+      "verificado_osint": true
+    },
+    {
+      "nombre": "Josué Gutiérrez",
+      "cargo": "Defensor del Pueblo",
+      "org": "Defensoría del Pueblo",
+      "declaracion_reciente": "11-jun: «No hubo fraude, ni siquiera se puede mencionar» — segunda vuelta legítima. Sin nueva declaración indexada 17–24 jun.",
+      "fecha_declaracion": "2026-06-11",
+      "side": "institucional",
+      "fuente": "Infobae",
+      "fuente_url": "https://www.infobae.com/peru/2026/06/11/no-hubo-fraude-ni-siquiera-se-puede-mencionar-defensor-del-pueblo-confirma-que-segunda-vuelta-fue-legitima/",
+      "validacion_ronda": 5,
+      "deep_dive_ronda": 5,
+      "verificado_osint": true
+    },
+    {
+      "nombre": "Liderazgo AIDESEP",
+      "cargo": "Asociación Interétnica de Desarrollo de la Selva Peruana",
+      "org": "AIDESEP",
+      "declaracion_reciente": "Monitoreo postelectoral amazónico activo; agenda territorial/hidrocarburos. Sin concentración masiva indexada 17–24 jun.",
+      "fecha_declaracion": "2026-06-11",
+      "side": "indígena / agenda propia",
+      "fuente": "AIDESEP",
+      "fuente_url": "https://aidesep.org.pe/noticias/movilizacion-nacional-indigena-en-la-amazonia-hasta-lograr-el-adelanto-de-elecciones-generales/",
+      "validacion_ronda": 5,
+      "deep_dive_ronda": 5,
+      "verificado_osint": true,
+      "eventos_vinculados": [
+        "AIDESEP-AGENDA-AMAZONIA"
+      ]
     }
   ],
   "refutaciones_osint_v3514": [
@@ -28110,7 +28254,7 @@
   "prediccion_7dias": {
     "fecha_inicio": "2026-06-19",
     "fecha_fin": "2026-06-26",
-    "nota_metodologica": "v3.9.9 24-jun: JNE pleno nulidad pendiente; Piura terreno no confirmado; ONPE meseta; montecarlo omitido.",
+    "nota_metodologica": "v3.10.0 24-jun: Round 5 deep dives completos; JNE pleno nulidad pendiente; Piura terreno no confirmado; ONPE meseta; montecarlo omitido.",
     "lima": {
       "eventos_esperados": 5,
       "prob_manifestacion_significativa": 0.45,
@@ -28627,5 +28771,113 @@
         "verificado": "2026-06-22T12:00:00-05:00"
       }
     ]
+  },
+  "entity_deep_dives": {
+    "corte": "2026-06-24T10:00:00-05:00",
+    "ronda": 5,
+    "entidades": [
+      {
+        "id": "ENT-EZUNINI",
+        "handle": "@EZunini",
+        "tipo": "cuenta",
+        "deep_dive_ronda": 5,
+        "completo": true
+      },
+      {
+        "id": "ENT-CGTP",
+        "handle": "@cgt_peru",
+        "tipo": "cuenta",
+        "deep_dive_ronda": 5,
+        "completo": true
+      },
+      {
+        "id": "ENT-WALAC",
+        "handle": "@WalacNoticias",
+        "tipo": "medio",
+        "deep_dive_ronda": 5,
+        "completo": true
+      },
+      {
+        "id": "ENT-YARAVI",
+        "handle": "@RadioYaravi",
+        "tipo": "medio",
+        "deep_dive_ronda": 5,
+        "completo": true
+      },
+      {
+        "id": "ENT-CANALB",
+        "nombre": "Canal B Cajamarca",
+        "tipo": "medio",
+        "deep_dive_ronda": 5,
+        "completo": true
+      },
+      {
+        "id": "ENT-ANTAURO",
+        "nombre": "Antauro Humala Tasso",
+        "tipo": "actor",
+        "deep_dive_ronda": 5,
+        "completo": true
+      },
+      {
+        "id": "ENT-SAMILLAN",
+        "nombre": "Raúl Samillán",
+        "tipo": "actor",
+        "deep_dive_ronda": 5,
+        "completo": true
+      },
+      {
+        "id": "ENT-CHUQUILIN",
+        "nombre": "Fernando Chuquilín",
+        "tipo": "actor",
+        "deep_dive_ronda": 5,
+        "completo": true
+      },
+      {
+        "id": "ENT-GUTIERREZ",
+        "nombre": "Josué Gutiérrez",
+        "tipo": "actor",
+        "deep_dive_ronda": 5,
+        "completo": true
+      },
+      {
+        "id": "ENT-AIDESEP",
+        "nombre": "Liderazgo AIDESEP",
+        "tipo": "actor",
+        "deep_dive_ronda": 5,
+        "completo": true
+      },
+      {
+        "id": "ENT-PACHAMAMA-IG",
+        "handle": "@PachamamaRadio_",
+        "tipo": "autoconv",
+        "deep_dive_ronda": 5,
+        "completo": true
+      },
+      {
+        "id": "ENT-KARAMBA",
+        "nombre": "Canales Karamba fantasma",
+        "tipo": "disinfo",
+        "deep_dive_ronda": 5,
+        "completo": true,
+        "nota": "6 canales eliminados post-OjoPúblico 5-jun; dormant 17–24 jun."
+      }
+    ],
+    "pendientes_resueltos": [
+      "@EZunini",
+      "@cgt_peru",
+      "grassroots dedup",
+      "Walac",
+      "Radio Yaraví",
+      "Canal B",
+      "Antauro Humala",
+      "Raúl Samillán",
+      "Fernando Chuquilín",
+      "Josué Gutiérrez",
+      "AIDESEP",
+      "#NoReconocemosResultado",
+      "#ParoAgrarioNacional",
+      "Karamba dormant"
+    ],
+    "fuente_research": "research/entities/deep_dives_round5_jun24.md"
   }
 }

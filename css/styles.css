@@ -1169,8 +1169,8 @@ tr:hover td { background: var(--c-bg-soft); }
 
 /* Mobile tuning for v3 */
 @media (max-width: 640px) {
-  .social-toolbar { padding: var(--s-3); }
-  .filter-group { width: 100%; overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+  .social-toolbar { padding: var(--s-3); overflow-x: hidden; max-width: 100%; }
+  .filter-group { width: 100%; max-width: 100%; overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
   .filter-btn { flex-shrink: 0; }
   #handle-search { width: 100%; }
   .social-stats { grid-template-columns: 1fr 1fr; }
@@ -3107,14 +3107,23 @@ details.foldable > .foldable-body {
   .brand-sub { font-size: 0.65rem; }
 }
 @media (max-width: 600px) {
+  html, body, main { overflow-x: hidden; max-width: 100%; }
+  .rev-actas-card { max-width: 100%; box-sizing: border-box; overflow-x: auto; }
+  .rev-actas-tbl .rev-actas-origen, .rev-actas-tbl .rev-actas-region { white-space: normal; overflow-wrap: anywhere; }
   .brand-sub { display: none; }
   .brand-title { max-width: 38vw; overflow: hidden; text-overflow: ellipsis; }
   .header-inner { gap: var(--s-2); }
   .menu-btn { padding: 0.3rem 0.5rem; font-size: 0.78rem; }
 }
+@media (max-width: 400px) {
+  .site-header .container { padding-left: var(--s-3); padding-right: var(--s-3); }
+  .brand { flex: 1 1 auto; min-width: 0; max-width: calc(100% - 7.5rem); }
+  .brand-title { font-size: 0.72rem; max-width: 100%; }
+  .hide-past-toggle { margin-left: var(--s-1); padding: 0.25rem 0.35rem; font-size: 0.62rem; }
+  .menu-btn { flex-shrink: 0; padding: 0.25rem 0.4rem; font-size: 0.72rem; }
+}
 @media (max-width: 380px) {
   .brand-logo { width: 28px; height: 28px; }
-  .brand-title { max-width: 34vw; }
 }
 
 /* Past events hidden via JS toggle */
