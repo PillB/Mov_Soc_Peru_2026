@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "3.9.0",
+    "version": "3.9.1",
     "generated_at": "2026-06-19T20:43:00-05:00",
     "scope": "Manifestaciones, marchas y eventos de acumulación de personas — Perú + Capa de inteligencia social y medios alternativos",
     "window": "19–26 junio 2026 (post-2da vuelta · corte 99,63% escrutado · margen 41.565 votos)",
@@ -28,7 +28,7 @@
         "url": "https://defensoria.gob.pe"
       }
     ],
-    "last_update": "2026-06-19T20:43:00-05:00",
+    "last_update": "2026-06-20T12:00:00-05:00",
     "expansion": "v3.1 — Capa grassroots por región: 89 cuentas individuales (autoridades locales, dirigentes, activistas), 67 colectivos/frentes, 87 lives identificados, 60 hashtags verificados, 55 rutas/bloqueos documentados, 17 comunicados oficiales nacionales. Investigación paralela en 6 frentes (Lima/Norte/Centro/Sur/Oriente/Nacional).",
     "grassroots_stats": {
       "accounts": 89,
@@ -38,7 +38,7 @@
       "routes": 55,
       "comunicados": 17
     },
-    "last_refresh_summary": "v3.9.0 — 3 rondas research granular: ONPE 99,63%/+41.565; marcha JP 19-jun ejecutada (Paseo Colón, 350-900); Ilave inactivo; Pariahuanca desescalado con acta GORE; Procuraduría denuncia 9 convocantes; JNE nulidad 2.408 actas pendiente; Piura 23-jun vigente; magnitud OSINT multi-fuente.",
+    "last_refresh_summary": "v3.9.1 — magnitude_methodology v1.1: matriz 9 plataformas (X/FB/YT tier-1 proxy 4); research platforms jun20 consolidado en magnitude_methodology.plataformas.",
     "fecha_corte": "2026-06-19T20:43:00-05:00"
   },
   "executive_alert": {
@@ -27723,7 +27723,7 @@
     }
   ],
   "magnitude_methodology": {
-    "version": "1.0",
+    "version": "1.1",
     "doc": "research/methodology/magnitude_estimation.md",
     "report_html": "methodology/magnitude_methodology.html",
     "composite_weights": {
@@ -27731,6 +27731,134 @@
       "medios": 0.25,
       "social": 0.2,
       "movilizadora": 0.2
-    }
+    },
+    "corte": "2026-06-20T12:00:00-05:00",
+    "plataformas": [
+      {
+        "id": "x",
+        "nombre": "X / Twitter",
+        "data_availability": "alto",
+        "proxy_magnitud": 4,
+        "metricas": [
+          "likes",
+          "reposts",
+          "quotes",
+          "views",
+          "replies"
+        ],
+        "rol": "Convocatoria y narrativa electoral; vector @RobertoSanchP",
+        "fuente": "research/social/platforms_x_threads_bluesky_jun20.md"
+      },
+      {
+        "id": "facebook",
+        "nombre": "Facebook",
+        "data_availability": "alto",
+        "proxy_magnitud": 4,
+        "metricas": [
+          "live_views",
+          "reactions",
+          "shares"
+        ],
+        "rol": "Confirmación AV terreno; lives RPP acampamento JNE",
+        "fuente": "research/social/platforms_fb_ig_tiktok_jun20.md"
+      },
+      {
+        "id": "youtube",
+        "nombre": "YouTube",
+        "data_availability": "alto",
+        "proxy_magnitud": 4,
+        "metricas": [
+          "viewCount",
+          "live_vod"
+        ],
+        "rol": "Marcha 19-jun verificada; RPP principal",
+        "fuente": "research/social/platforms_yt_reddit_4chan_jun20.md"
+      },
+      {
+        "id": "instagram",
+        "nombre": "Instagram",
+        "data_availability": "medio",
+        "proxy_magnitud": 3,
+        "metricas": [
+          "reel_likes",
+          "stories"
+        ],
+        "rol": "Amplificación mediática; validar geolocalización",
+        "fuente": "research/social/platforms_fb_ig_tiktok_jun20.md"
+      },
+      {
+        "id": "reddit",
+        "nombre": "Reddit",
+        "data_availability": "medio",
+        "proxy_magnitud": 3,
+        "metricas": [
+          "upvotes",
+          "comments"
+        ],
+        "rol": "Clima electoral r/peru; poca logística protesta",
+        "fuente": "research/social/platforms_yt_reddit_4chan_jun20.md"
+      },
+      {
+        "id": "tiktok",
+        "nombre": "TikTok",
+        "data_availability": "bajo-medio",
+        "proxy_magnitud": 2,
+        "metricas": [
+          "views",
+          "shares"
+        ],
+        "rol": "Vigilancia disinfo; no conteo físico",
+        "fuente": "research/social/platforms_fb_ig_tiktok_jun20.md"
+      },
+      {
+        "id": "threads",
+        "nombre": "Threads",
+        "data_availability": "bajo",
+        "proxy_magnitud": 2,
+        "metricas": [
+          "likes",
+          "reposts"
+        ],
+        "rol": "Eco Meta; sin hashtags electorales Perú indexados",
+        "fuente": "research/social/platforms_x_threads_bluesky_jun20.md"
+      },
+      {
+        "id": "bluesky",
+        "nombre": "Bluesky",
+        "data_availability": "nulo-bajo",
+        "proxy_magnitud": 1,
+        "metricas": [
+          "reposts",
+          "replies"
+        ],
+        "rol": "Base usuarios Perú insignificante",
+        "fuente": "research/social/platforms_x_threads_bluesky_jun20.md"
+      },
+      {
+        "id": "4chan",
+        "nombre": "4chan",
+        "data_availability": "muy_bajo",
+        "proxy_magnitud": 1,
+        "metricas": [],
+        "rol": "Sin hilos Perú verificados 17-20 jun; no operativo",
+        "fuente": "research/social/platforms_yt_reddit_4chan_jun20.md"
+      }
+    ],
+    "formula_social": "C = sum(w_p * score_p) / sum(w_p); w_p = proxy_magnitud 1-5",
+    "tier_1": [
+      "x",
+      "facebook",
+      "youtube"
+    ],
+    "tier_2": [
+      "instagram",
+      "reddit",
+      "tiktok"
+    ],
+    "tier_3": [
+      "threads",
+      "bluesky",
+      "4chan"
+    ]
   }
 }

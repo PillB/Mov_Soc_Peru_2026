@@ -48,10 +48,11 @@
       <h1 class="font-display text-3xl sm:text-4xl font-semibold leading-tight">Metodología de estimación de magnitud</h1>
       <p class="mt-3 text-slate-300 max-w-3xl text-base sm:text-lg leading-relaxed">
         Marco reproducible para cuantificar asistencia, probabilidad de realización y confianza en manifestaciones,
-        protestas, bloqueos y puntos de concentración. Versión <strong class="text-white">1.0</strong> · corte 19-jun-2026.
+        protestas, bloqueos y puntos de concentración. Versión <strong class="text-white">1.1</strong> · corte 20-jun-2026 · 9 plataformas.
       </p>
       <div class="mt-6 flex flex-wrap gap-3 text-sm">
         <span class="bg-navy-2 px-3 py-1 rounded border border-slate-600">Índice compuesto 4 dimensiones</span>
+        <span class="bg-navy-2 px-3 py-1 rounded border border-slate-600">Matriz 9 plataformas</span>
         <span class="bg-navy-2 px-3 py-1 rounded border border-slate-600">Escala XS → XL</span>
         <span class="bg-navy-2 px-3 py-1 rounded border border-slate-600">Anti-alucinación estricta</span>
       </div>
@@ -336,14 +337,88 @@
             <li><span class="inline-block w-16 font-mono text-xs">medio</span> 100–5.000 interacciones</li>
             <li><span class="inline-block w-16 font-mono text-xs">alto</span> &gt;5.000 o cobertura institucional (RPP TV)</li>
           </ul>
-          <p class="text-xs text-amber-text mt-3 border-t border-slate-100 pt-2">Ejemplo: @RobertoSanchP 19-jun ~203K quotes → tier <strong>alto</strong> en narrativa, no en asistencia.</p>
+          <p class="text-xs text-amber-text mt-3 border-t border-slate-100 pt-2">Ejemplo: @RobertoSanchP 19-jun ~205K views → tier <strong>alto</strong> en narrativa, no en asistencia.</p>
         </div>
       </div>
     </section>
 
+    <!-- Platform matrix -->
+    <section id="plataformas">
+      <h2 class="font-display text-2xl font-semibold text-navy mb-2">6b · Matriz multi-plataforma (dimensión C desglosada)</h2>
+      <p class="text-navy-3 mb-6 text-sm max-w-3xl">
+        Cada plataforma aporta a la señal social con peso relativo distinto. La suma de correlaciones no reemplaza terreno (35&nbsp;%).
+        Puntuación <strong>proxy 1–5</strong>: utilidad para anticipar convocatoria y validar narrativa, no para contar personas.
+      </p>
+
+      <!-- Heatmap-style bars -->
+      <div class="bg-white rounded-xl border border-slate-200 p-4 sm:p-6 mb-6 overflow-x-auto">
+        <table class="w-full text-sm min-w-[640px]">
+          <thead>
+            <tr class="text-left border-b border-slate-200 text-xs font-mono uppercase text-navy-3">
+              <th class="pb-3 pr-3">Plataforma</th>
+              <th class="pb-3 pr-3">Datos</th>
+              <th class="pb-3 pr-3">Proxy 1–5</th>
+              <th class="pb-3 pr-3">Métricas clave</th>
+              <th class="pb-3">Rol OSINT Perú</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr><td class="py-3 pr-3 font-semibold">X / Twitter</td><td class="text-teal font-mono">alto</td><td><span class="bg-teal-soft px-2 py-0.5 rounded font-mono">4</span></td><td class="text-navy-3 text-xs">♥ RT quotes views · hashtags</td><td class="text-navy-3 text-xs">Convocatoria + narrativa electoral; @RobertoSanchP vector principal</td></tr>
+            <tr><td class="py-3 pr-3 font-semibold">Facebook</td><td class="text-teal font-mono">alto</td><td><span class="bg-teal-soft px-2 py-0.5 rounded font-mono">4</span></td><td class="text-navy-3 text-xs">Lives · reactions · shares (parcial)</td><td class="text-navy-3 text-xs">Mejor AV terreno: acampamento JNE, lives RPP; Piura vía Walac</td></tr>
+            <tr><td class="py-3 pr-3 font-semibold">YouTube</td><td class="text-teal font-mono">alto</td><td><span class="bg-teal-soft px-2 py-0.5 rounded font-mono">4</span></td><td class="text-navy-3 text-xs">viewCount · live VOD</td><td class="text-navy-3 text-xs">Confirmación marcha 19-jun; RPP mZ1CYpLnTq8 ~7,3K views</td></tr>
+            <tr><td class="py-3 pr-3 font-semibold">Instagram</td><td class="text-amber font-mono">medio</td><td><span class="bg-amber-soft px-2 py-0.5 rounded font-mono">3</span></td><td class="text-navy-3 text-xs">likes reels · stories (login)</td><td class="text-navy-3 text-xs">Amplificación mediática; validar geolocalización (falsos positivos)</td></tr>
+            <tr><td class="py-3 pr-3 font-semibold">Reddit</td><td class="text-amber font-mono">medio</td><td><span class="bg-amber-soft px-2 py-0.5 rounded font-mono">3</span></td><td class="text-navy-3 text-xs">upvotes · comments</td><td class="text-navy-3 text-xs">Clima electoral r/peru; poca logística protesta en calle</td></tr>
+            <tr><td class="py-3 pr-3 font-semibold">TikTok</td><td class="text-amber font-mono">bajo-med</td><td><span class="bg-amber-soft px-2 py-0.5 rounded font-mono">2</span></td><td class="text-navy-3 text-xs">views · shares (opaco)</td><td class="text-navy-3 text-xs">Disinfo #583PatronesAnomalos / Karamba; no conteo físico</td></tr>
+            <tr><td class="py-3 pr-3 font-semibold">Threads</td><td class="text-slate-500 font-mono">bajo</td><td><span class="bg-slate-100 px-2 py-0.5 rounded font-mono">2</span></td><td class="text-navy-3 text-xs">likes · reposts</td><td class="text-navy-3 text-xs">Eco Meta; sin hashtags electorales indexados Perú</td></tr>
+            <tr><td class="py-3 pr-3 font-semibold">Bluesky</td><td class="text-slate-500 font-mono">nulo-bajo</td><td><span class="bg-slate-100 px-2 py-0.5 rounded font-mono">1</span></td><td class="text-navy-3 text-xs">reposts · replies</td><td class="text-navy-3 text-xs">Base usuarios Perú insignificante</td></tr>
+            <tr><td class="py-3 pr-3 font-semibold">4chan</td><td class="text-red-700 font-mono">muy bajo</td><td><span class="bg-red-50 px-2 py-0.5 rounded font-mono">1</span></td><td class="text-navy-3 text-xs">—</td><td class="text-navy-3 text-xs">Sin hilos Perú verificados /pol/ 17–20 jun; no operativo</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Platform funnel diagram -->
+      <div class="grid md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-teal-soft border border-teal/25 rounded-lg p-4">
+          <p class="font-mono text-xs text-teal uppercase mb-2">Tier 1 · Proxy 4–5</p>
+          <p class="text-sm font-semibold">Terreno + narrativa</p>
+          <p class="text-xs text-navy-3 mt-2">X · Facebook · YouTube (+ medios tradicionales en dimensión B)</p>
+        </div>
+        <div class="bg-amber-soft border border-amber/25 rounded-lg p-4">
+          <p class="font-mono text-xs text-amber-text uppercase mb-2">Tier 2 · Proxy 2–3</p>
+          <p class="text-sm font-semibold">Amplificación / sentimiento</p>
+          <p class="text-xs text-navy-3 mt-2">Instagram · Reddit · TikTok (disinfo)</p>
+        </div>
+        <div class="bg-slate-100 border border-slate-200 rounded-lg p-4">
+          <p class="font-mono text-xs text-navy-3 uppercase mb-2">Tier 3 · Proxy 1</p>
+          <p class="text-sm font-semibold">Descartar para magnitud</p>
+          <p class="text-xs text-navy-3 mt-2">Threads · Bluesky · 4chan (ventana 17–20 jun)</p>
+        </div>
+      </div>
+
+      <!-- Formula for social sub-score -->
+      <div class="bg-navy text-slate-200 rounded-xl p-5 sm:p-6 font-mono text-xs sm:text-sm">
+        <p class="text-amber font-sans font-semibold text-sm mb-3">Sub-score dimensión C (señal social)</p>
+        <p class="leading-relaxed">C = Σ (w<sub>p</sub> · score<sub>p</sub>) / Σ w<sub>p</sub> &nbsp; donde w<sub>p</sub> = proxy 1–5 por plataforma con datos en ventana 48h</p>
+        <p class="mt-3 text-slate-400 font-sans text-xs">Ejemplo marcha 19-jun: X(4)×882♥ + FB live(4) + YT 7,3K views(4) → C≈70/100. Asistencia sigue anclada en «cientos» (dimensión A).</p>
+      </div>
+
+      <details class="mt-6 bg-white rounded-lg border border-slate-200">
+        <summary class="px-5 py-4 font-semibold text-sm">Métricas por plataforma (referencia rápida)</summary>
+        <div class="px-5 pb-5 text-xs text-navy-3 space-y-3 border-t border-slate-100 pt-4">
+          <p><strong>X:</strong> likes, RT, quotes, views, replies · convocatorias JP offline compensan @JuntosPorElPer inactivo</p>
+          <p><strong>Facebook:</strong> live views (login), reactions, shares · Walac Piura 53K views (4-jun precedente)</p>
+          <p><strong>Instagram:</strong> reel likes (@rppnoticias ~646K acampamento) · verificar país/ciudad en reel</p>
+          <p><strong>YouTube:</strong> viewCount scrape · sin peak concurrent viewers público RPP</p>
+          <p><strong>TikTok:</strong> views estimados clips RPP · #583PatronesAnomalos riesgo viral legal→disinfo</p>
+          <p><strong>Reddit:</strong> r/peru upvotes · r/Lima = Ohio (descartar)</p>
+          <p><strong>Threads / Bluesky / 4chan:</strong> sin señal operativa Perú en corte 20-jun</p>
+        </div>
+      </details>
+    </section>
+
     <!-- Case studies -->
     <section id="casos">
-      <h2 class="font-display text-2xl font-semibold text-navy mb-6">7 · Casos aplicados (corte 19-jun-2026)</h2>
+      <h2 class="font-display text-2xl font-semibold text-navy mb-6">7 · Casos aplicados (corte 19–20 jun-2026)</h2>
       <div class="space-y-6">
 
         <!-- Case 1 -->
@@ -474,7 +549,7 @@
 
   <footer class="bg-navy text-slate-400 py-8 mt-12 no-print">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 text-sm flex flex-col sm:flex-row justify-between gap-4">
-      <p>Dossier OSINT Perú 2026 · <code class="text-amber">magnitude_methodology v1.0</code></p>
+      <p>Dossier OSINT Perú 2026 · <code class="text-amber">magnitude_methodology v1.1</code></p>
       <p>Fuente markdown: <code class="text-slate-300">research/methodology/magnitude_estimation.md</code></p>
     </div>
   </footer>

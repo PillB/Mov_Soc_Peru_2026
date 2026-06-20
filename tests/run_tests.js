@@ -643,9 +643,9 @@ function section(title) {
   }
   ok('no quedan fechas malformadas tipo YYYY-MM-DDT<garbage>', weirdDates === 0, `n=${weirdDates} samples=${JSON.stringify(weirdSamples)}`);
 
-  section('N21. v3.9.0 — meta.version = 3.9.0');
+  section('N21. v3.9.1 — meta.version = 3.9.1');
   const metaVersion = data_v357.meta && data_v357.meta.version;
-  ok('meta.version es 3.9.0', metaVersion === '3.9.0', `got=${metaVersion}`);
+  ok('meta.version es 3.9.1', metaVersion === '3.9.1', `got=${metaVersion}`);
 
   section('N22. v3.5.8 — gazetteer expone CORRIDORS con polylines de avenidas reales');
   const corridorsInfo = await page.evaluate(() => {
@@ -924,8 +924,8 @@ function section(title) {
     const navOrder = [...document.querySelectorAll('#primaryNav a')].map(a => a.getAttribute('href'));
     return { title, brandTitle, fmlValues, valueDisplay, icBounds, navOrder };
   });
-  ok('brand title actualizado a v3.9.0', /v3\.9\.0/.test(v361Check.brandTitle || ''), v361Check.brandTitle);
-  ok('document.title actualizado a v3.9.0', /v3\.9\.0/.test(v361Check.title), v361Check.title);
+  ok('brand title actualizado a v3.9.1', /v3\.9\.1/.test(v361Check.brandTitle || ''), v361Check.brandTitle);
+  ok('document.title actualizado a v3.9.1', /v3\.9\.1/.test(v361Check.title), v361Check.title);
   ok('fml-kpi-value renderiza como block', v361Check.valueDisplay === 'block', `display=${v361Check.valueDisplay}`);
   const hasEsThousands = (v361Check.fmlValues.find(v => /\d{1,3}\.\d{3}/.test(v)) || '');
   ok('formato es-PE con punto en miles (ej: +1.886)', /\d{1,3}\.\d{3}/.test(hasEsThousands), hasEsThousands || JSON.stringify(v361Check.fmlValues));
@@ -1028,7 +1028,7 @@ function section(title) {
   ok('#post-margin refleja margen ≥41.500', /41\.5\d{2}|41\.565/.test(editorialCheck.postMargin), editorialCheck.postMargin);
   ok('#fml-deck refleja proyección ≥44.000', /44\.8\d{2}|44\.800/.test(editorialCheck.fmlDeck), editorialCheck.fmlDeck);
   ok('#rev-ventaja-sub refleja 99,63 % escrutado', /99,63/.test(editorialCheck.revVentajaSub), editorialCheck.revVentajaSub);
-  ok('#footer-about actualizado a v3.9.0', /v3\.9\.0/.test(editorialCheck.footerAbout) && !/v3\.1/.test(editorialCheck.footerAbout), editorialCheck.footerAbout.slice(0, 80));
+  ok('#footer-about actualizado a v3.9.1', /v3\.9\.1/.test(editorialCheck.footerAbout) && !/v3\.1/.test(editorialCheck.footerAbout), editorialCheck.footerAbout.slice(0, 80));
   ok('#val-lectura tiene 4 bullets dinámicos', editorialCheck.valLectura === 4, `n=${editorialCheck.valLectura}`);
   ok('meta description incluye margen actualizado', /41\.565|41\.5/.test(editorialCheck.metaDesc), editorialCheck.metaDesc.slice(0, 100));
   const revH2Live = await page.evaluate(() => document.getElementById('rev-section-h2')?.textContent.trim() || '');
@@ -1071,11 +1071,21 @@ function section(title) {
     ok(`${vp.name}: validacion-deck poblado`, vpCheck.valDeck.ok === true, vpCheck.valDeck.text);
     ok(`${vp.name}: val-mercados-desc poblado`, vpCheck.mercDesc.ok === true, vpCheck.mercDesc.text);
     ok(`${vp.name}: alert-headline poblado`, vpCheck.alertHead.length > 20, vpCheck.alertHead.slice(0, 50));
-    ok(`${vp.name}: meta-version 3.9.0`, vpCheck.metaVer === '3.9.0', vpCheck.metaVer);
+    ok(`${vp.name}: meta-version 3.9.1`, vpCheck.metaVer === '3.9.1', vpCheck.metaVer);
     ok(`${vp.name}: P(Fuj mantiene) en tabla`, /mantiene/i.test(vpCheck.thProb), vpCheck.thProb);
     ok(`${vp.name}: BLUF ≥6 KPIs`, vpCheck.blufKpis >= 6, `n=${vpCheck.blufKpis}`);
     ok(`${vp.name}: sin Invalid Date / [object Object]`, vpCheck.renderErrors === 0, `hits=${vpCheck.renderErrors}`);
   }
+
+  section('N55. magnitude_methodology v1.1 — 9 plataformas');
+  const platCount = (data_v357.magnitude_methodology || {}).plataformas || [];
+  ok('magnitude_methodology.plataformas tiene 9 entradas', platCount.length === 9, `n=${platCount.length}`);
+  ok('magnitude_methodology version 1.1', (data_v357.magnitude_methodology || {}).version === '1.1', (data_v357.magnitude_methodology || {}).version);
+  const tier1 = (data_v357.magnitude_methodology || {}).tier_1 || [];
+  ok('tier_1 incluye x, facebook, youtube', tier1.includes('x') && tier1.includes('facebook') && tier1.includes('youtube'), JSON.stringify(tier1));
+  const methHtml = fs.readFileSync(path.join(REPO_ROOT, 'methodology', 'magnitude_methodology.html'), 'utf8');
+  ok('magnitude_methodology.html tiene #plataformas', methHtml.includes('id="plataformas"'), 'missing');
+  ok('magnitude_methodology.html v1.1', /v1\.1/.test(methHtml), 'version string');
 
   section('N54. magnitude methodology subsite link');
   const subsiteCheck = await page.evaluate(() => {

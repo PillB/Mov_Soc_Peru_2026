@@ -267,9 +267,9 @@
     const icHi = ic[1] != null ? formatSignedInt(ic[1]) : '+51.400';
     const pF = prob.fujimori != null ? (prob.fujimori * 100).toFixed(1).replace('.', ',') : '99,4';
 
-    const metaDesc = `Dossier OSINT v${meta.version || '3.9.0'} — BLUF + ML forecast. ${convN} convocatorias activas en 5 macroregiones. Margen ONPE ${margen} votos al ${pctActas}, proyección ML ${margenMl} votos Fujimori (IC95 [${icLo}, ${icHi}]), P(F)=${pF} %.`;
+    const metaDesc = `Dossier OSINT v${meta.version || '3.9.1'} — BLUF + ML forecast. ${convN} convocatorias activas en 5 macroregiones. Margen ONPE ${margen} votos al ${pctActas}, proyección ML ${margenMl} votos Fujimori (IC95 [${icLo}, ${icHi}]), P(F)=${pF} %.`;
     setMetaContent('meta[name="description"]', metaDesc);
-    setMetaContent('meta[property="og:title"]', `Dossier OSINT — Manifestaciones Perú · v${meta.version || '3.9.0'} BLUF + ML`);
+    setMetaContent('meta[property="og:title"]', `Dossier OSINT — Manifestaciones Perú · v${meta.version || '3.9.1'} BLUF + ML`);
     setMetaContent('meta[property="og:description"]', metaDesc);
 
     const brandSub = document.querySelector('.brand-sub');
@@ -278,7 +278,7 @@
     const footerAbout = $('#footer-about');
     if (footerAbout) {
       const genDate = meta.generated_at ? formatDate(meta.generated_at) : '16 jun 2026';
-      footerAbout.textContent = `Producto OSINT v${meta.version || '3.9.0'} preparado el ${genDate} para residentes y profesionales en las cinco macroregiones del Perú. Integra terreno, redes sociales y medios alternativos. Su propósito es informar, no movilizar. La información se contrasta exclusivamente con fuentes públicas verificadas.`;
+      footerAbout.textContent = `Producto OSINT v${meta.version || '3.9.1'} preparado el ${genDate} para residentes y profesionales en las cinco macroregiones del Perú. Integra terreno, redes sociales y medios alternativos. Su propósito es informar, no movilizar. La información se contrasta exclusivamente con fuentes públicas verificadas.`;
     }
 
     text('#rev-section-h2', `Resultado consolidado: Fujimori ${margen} votos al ${pctActas} escrutado`);
