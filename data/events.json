@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "3.9.4",
+    "version": "3.9.5",
     "generated_at": "2026-06-19T20:43:00-05:00",
     "scope": "Manifestaciones, marchas y eventos de acumulación de personas — Perú + Capa de inteligencia social y medios alternativos",
     "window": "19–26 junio 2026 (post-2da vuelta · corte 99,63% escrutado · margen 41.565 votos)",
@@ -28,7 +28,7 @@
         "url": "https://defensoria.gob.pe"
       }
     ],
-    "last_update": "2026-06-19T23:30:00-05:00",
+    "last_update": "2026-06-22T20:00:00-05:00",
     "expansion": "v3.1 — Capa grassroots por región: 89 cuentas individuales (autoridades locales, dirigentes, activistas), 67 colectivos/frentes, 87 lives identificados, 60 hashtags verificados, 55 rutas/bloqueos documentados, 17 comunicados oficiales nacionales. Investigación paralela en 6 frentes (Lima/Norte/Centro/Sur/Oriente/Nacional).",
     "grassroots_stats": {
       "accounts": 89,
@@ -38,25 +38,25 @@
       "routes": 55,
       "comunicados": 17
     },
-    "last_refresh_summary": "v3.9.4 Round 4 prep: MML oficial El Peruano; Piura Plus TV reconfirmación parcial; verification_gaps_r4 (8 ítems); RM-01/03/04 histórico; ONPE meseta documentada.",
-    "fecha_corte": "2026-06-19T23:30:00-05:00"
+    "last_refresh_summary": "v3.9.5 Round 4 live: VG-R4 cerrados/parciales; MML expiró 22-jun; autoconv no materializada; Piura 23-jun vigente; JNE sin resolución; ONPE meseta.",
+    "fecha_corte": "2026-06-22T20:00:00-05:00"
   },
   "executive_alert": {
     "level": "CRÍTICO",
     "headline": "Fujimori +41.565 votos al 99,63% actas; marcha JP 19-jun ejecutada (cientos, pacífica); JNE evalúa nulidad 2.408 actas; Procuraduría denuncia 9 convocantes",
     "key_finding": "Margen +41.565 votos al 99,63% ([El Comercio](https://elcomercio.pe/politica/elecciones/resultados-onpe-en-vivo-entre-keiko-fujimori-y-roberto-sanchez-por-la-presidencia-del-peru-segunda-vuelta-lbposting-noticia/), 19-jun 20:43 PET). Marcha JP **realizada** 19-jun desde Paseo Colón (no Campo de Marte): cientos, sin incidentes graves ([RPP](https://rpp.pe/politica/elecciones/roberto-sanchez-salio-de-su-local-de-campana-en-el-inicio-de-marcha-convocada-por-juntos-por-el-peru-noticia-1693850)). 346 actas en JEE (↓ desde 878). JNE sustentó evaluación nulidad 2.408 actas; **resolución no publicada** al corte. Procuraduría denunció penalmente a 9 convocantes (no incluye Sánchez) ([RPP](https://rpp.pe/politica/judiciales/procuraduria-denuncia-penalmente-a-antauro-humala-y-otras-ocho-personas-por-presunta-perturbacion-de-la-tranquilidad-publica-noticia-1693848)). Ilave **sin bloqueo activo** verificado. Pariahuanca: acta GORE 19-jun. Piura arrocera **23-jun** confirmada.",
     "catalysts": [
-      "JNE dejó al voto nulidad 2.408 actas; JP admitió sin prueba material (19-jun).",
-      "Movilización arrocera Piura-Sechura 23-jun vigente sin cancelación.",
-      "MML restricción oficial Centro Histórico 19-jun→22-jun 00:00 (Res. D002556-2026, [El Peruano](https://elperuano.pe/noticia/298272-centro-historico-de-lima-estas-son-las-restricciones-vehiculares-del-19-al-22-de-junio)).",
-      "0 bloqueos viales activos verificados 19-jun (Ilave, La Oroya, El Trébol libres).",
-      "Amparo JP voto exterior presentado; admisión PJ no confirmada.",
-      "Acampamento ~80 carpas JNE activo (conteo 16-jun; sin update 19-20)."
+      "Movilización arrocera Piura-Sechura **23-jun** vigente (monitoreo terreno AM).",
+      "JNE nulidad 2.408 actas: dejó al voto 19-jun; **resolución no publicada** al 22-jun.",
+      "MML restricción Centro Histórico **expiró 22-jun 00:00** (Res. D002556); zona intangible persiste.",
+      "Autoconvocatoria IG 22-jun **no materializada** (sin cobertura indexada).",
+      "0 bloqueos viales activos 20–22 jun verificados (corredores transitables).",
+      "Acampamento JNE activo (~80 carpas baseline 16-jun; sin conteo nuevo)."
     ],
     "top_risks_24_72h": [
       "Resolución JNE nulidad 2.408 actas Lima/EE.UU. (Prob 0,70, Impacto CRÍTICO)",
       "Movilización arrocera Piura 23-jun (Prob 0,65, Impacto ALTO)",
-      "Autoconvocatoria Instagram 22-jun Plaza San Martín (Prob 0,40, Impacto MEDIO)",
+      "Movilización Piura 23-jun escalada El Trébol (Prob 0,70, Impacto ALTO)",
       "Reactivación bloqueo Ilave post-proclamación (Prob 0,40, Impacto ALTO)",
       "Amparo PJ voto exterior sin resolución (Prob 0,15, Impacto CRÍTICO)"
     ],
@@ -1682,19 +1682,20 @@
           "ubicacion": "Plaza San Martín, Centro Histórico, Lima",
           "tipo": "marcha",
           "bando": "pro_sanchez",
-          "estado": "no_verificada",
-          "probabilidad_realizacion": 0.4,
+          "estado": "no_realizada",
+          "probabilidad_realizacion": 0.1,
           "participantes_est": "500-3000",
           "magnitud_codigo": "S",
           "magnitud_confianza": "baja",
           "fuente_url": "https://www.instagram.com/reel/DZQNoG-pSIU/",
           "fuente_nombre": "Instagram reel autoconvocatoria (sin respaldo JP oficial)",
-          "notas": "MML: restricción oficial 19-jun 00:00 → 22-jun 00:00 (El Peruano 19-jun). Reel IG vigente; sin respaldo JP. Post-levantamiento: P(marcha JP formal)=0,25.",
-          "es_pasado": false,
+          "notas": "22-jun: sin cobertura mediática de ejecución. MML restricción expiró 00:00 (Res. D002556). Reel IG sin respaldo JP; zona intangible persiste.",
+          "es_pasado": true,
           "prob_nueva_marcha_jp_post_mml": 0.25,
-          "status_mml": "restriccion_oficial_19-22jun",
+          "status_mml": "levantada_programatica_22jun_00h",
           "mml_resolucion": "D002556-2026-MML-GMU-SER",
-          "mml_fuente_url": "https://elperuano.pe/noticia/298272-centro-historico-de-lima-estas-son-las-restricciones-vehiculares-del-19-al-22-de-junio"
+          "mml_fuente_url": "https://elperuano.pe/noticia/298272-centro-historico-de-lima-estas-son-las-restricciones-vehiculares-del-19-al-22-de-junio",
+          "verificacion_22jun": "no_materializada"
         }
       ],
       "actores": [
@@ -3668,7 +3669,7 @@
           "participantes_est_central": 2000,
           "magnitud_confianza": "baja",
           "status_corredor_19jun": "latente",
-          "next_check": "2026-06-22T08:00:00-05:00",
+          "next_check": "2026-06-23T08:00:00-05:00",
           "concentration_points": [
             {
               "nombre": "Sechura",
@@ -3689,10 +3690,11 @@
               "riesgo": "muy_alto"
             }
           ],
-          "notas": "Vigente sin cancelación 17-19 jun. Reconfirmación parcial Piura Plus TV 19-jun. Monitoreo obligatorio 22-jun AM (Walac, Norte Sostenible, SUTRAN).",
+          "notas": "Vigente 22-jun (Norte Sostenible). Sin comunicado Conveagro nuevo. Monitoreo terreno obligatorio 23-jun AM pre-escalada El Trébol.",
           "fuente_secundaria": "https://www.facebook.com/piuraplustv/videos/pptv-productores-anuncian-nueva-movilizaci%C3%B3n-para-el-23-de-junio-y-advierten-con/1007529818309319/",
           "fuente_secundaria_nombre": "Piura Plus TV (Facebook, 19-jun)",
-          "reconfirmacion_parcial_19jun": true
+          "reconfirmacion_parcial_19jun": true,
+          "status_corredor_22jun": "latente"
         }
       ],
       "actores": [
@@ -11055,9 +11057,9 @@
       "id": "RM-05",
       "category": "Étnico-territorial",
       "scenario": "Reactivación del conflicto en el corredor minero Las Bambas (Apurímac-Cusco): las 40 comunidades que protagonizaron protestas en 2025 contra MMG Limited pueden instrumentalizar la incertidumbre postelectoral para presionar por renegociación de acuerdos o bloquear el corredor vial que conecta la mina con los puertos de Ilo y Matarani. Un bloqueo sostenido afectaría las exportaciones del yacimiento de cobre más grande de Latinoamérica, generando presión inversora internacional.",
-      "probability": "MEDIA",
+      "probability": "BAJA",
       "impact": "ALTO",
-      "timeframe": "7-30d",
+      "timeframe": "cerrado 14-jun",
       "triggers": [
         "Proclamación de Keiko Fujimori interpretada localmente como fin de negociaciones con el Estado",
         "Resolución de JEE que anule actas pro-Sánchez en Cusco o Apurímac",
@@ -11085,8 +11087,9 @@
         }
       ],
       "title": "Reactivación del conflicto en el corredor minero Las Bambas (Apurímac-Cusco): las 40 comunidades que protagonizaron protestas en 2025 contra MMG Limited pueden instrumentalizar la incertidumbre postelectoral para presionar por renegociación de acuerdos o bloquear el corredor vial que conecta la mina con los puertos de Ilo y Matarani. Un bloqueo sostenido afectaría las exportaciones del yacimiento de cobre más grande de Latinoamérica, generando presión inversora internacional.",
-      "level": "ALTO",
-      "evidence": "Reactivación del conflicto en el corredor minero Las Bambas (Apurímac-Cusco): las 40 comunidades que protagonizaron protestas en 2025 contra MMG Limited pueden instrumentalizar la incertidumbre postelectoral para presionar por renegociación de acuerdos o bloquear el corredor vial que conecta la mina con los puertos de Ilo y Matarani. Un bloqueo sostenido afectaría las exportaciones del yacimiento de cobre más grande de Latinoamérica, generando presión inversora internacional."
+      "level": "BAJO",
+      "evidence": "Reactivación del conflicto en el corredor minero Las Bambas (Apurímac-Cusco): las 40 comunidades que protagonizaron protestas en 2025 contra MMG Limited pueden instrumentalizar la incertidumbre postelectoral para presionar por renegociación de acuerdos o bloquear el corredor vial que conecta la mina con los puertos de Ilo y Matarani. Un bloqueo sostenido afectaría las exportaciones del yacimiento de cobre más grande de Latinoamérica, generando presión inversora internacional.",
+      "estado": "historico"
     },
     {
       "id": "RM-06",
@@ -11240,9 +11243,9 @@
       "id": "RM-10",
       "category": "Violencia política",
       "scenario": "Ataques a periodistas y presión sobre la ANP: el período postelectoral de alta tensión eleva el riesgo de agresiones físicas a periodistas cubriendo movilizaciones y audiencias del JEE. IDL-Reporteros ya ha documentado el periodismo bajo ataque en Perú; el CPJ ha registrado intimidaciones durante la campaña. Ataques a reporteros en el Centro Histórico el 13 de junio o en regiones conflictivas del sur podrían generar restricciones de facto a la libertad de prensa.",
-      "probability": "MEDIA",
+      "probability": "BAJA",
       "impact": "MEDIO",
-      "timeframe": "24-72h",
+      "timeframe": "cerrado 13-jun",
       "triggers": [
         "Confrontación física en la marcha del 13 de junio con periodistas en zona de conflicto",
         "Ataques coordinados a equipos de televisión por grupos radicales de ambos bandos",
@@ -11270,16 +11273,17 @@
         }
       ],
       "title": "Ataques a periodistas y presión sobre la ANP: el período postelectoral de alta tensión eleva el riesgo de agresiones físicas a periodistas cubriendo movilizaciones y audiencias del JEE. IDL-Reporteros ya ha documentado el periodismo bajo ataque en Perú; el CPJ ha registrado intimidaciones durante la campaña. Ataques a reporteros en el Centro Histórico el 13 de junio o en regiones conflictivas del sur podrían generar restricciones de facto a la libertad de prensa.",
-      "level": "MEDIO",
-      "evidence": "Ataques a periodistas y presión sobre la ANP: el período postelectoral de alta tensión eleva el riesgo de agresiones físicas a periodistas cubriendo movilizaciones y audiencias del JEE. IDL-Reporteros ya ha documentado el periodismo bajo ataque en Perú; el CPJ ha registrado intimidaciones durante la campaña. Ataques a reporteros en el Centro Histórico el 13 de junio o en regiones conflictivas del sur podrían generar restricciones de facto a la libertad de prensa."
+      "level": "BAJO",
+      "evidence": "Ataques a periodistas y presión sobre la ANP: el período postelectoral de alta tensión eleva el riesgo de agresiones físicas a periodistas cubriendo movilizaciones y audiencias del JEE. IDL-Reporteros ya ha documentado el periodismo bajo ataque en Perú; el CPJ ha registrado intimidaciones durante la campaña. Ataques a reporteros en el Centro Histórico el 13 de junio o en regiones conflictivas del sur podrían generar restricciones de facto a la libertad de prensa.",
+      "estado": "historico"
     },
     {
       "id": "RM-11",
       "category": "Económico",
       "scenario": "Reactivación del paro agrario nacional por Conveagro ante incumplimiento de demandas estructurales: el decreto de urgencia de S/120 millones fue calificado de insuficiente por gremios piuranos. Con el cambio de gobierno y la incertidumbre postelectoral, los productores de arroz del norte y sur pueden reactivar bloqueos en la Panamericana Norte (El Trébol, Piura), la Panamericana Sur (Arequipa) y la Carretera Central simultáneamente, paralizando el abastecimiento nacional.",
-      "probability": "MEDIA",
+      "probability": "BAJA",
       "impact": "ALTO",
-      "timeframe": "7-30d",
+      "timeframe": "cerrado 13-jun",
       "triggers": [
         "Nuevo gobierno no atiende demandas agrarias en las primeras dos semanas de gestión",
         "Precio del arroz cae por debajo de S/40 el saco durante la transición",
@@ -11307,16 +11311,17 @@
         }
       ],
       "title": "Reactivación del paro agrario nacional por Conveagro ante incumplimiento de demandas estructurales: el decreto de urgencia de S/120 millones fue calificado de insuficiente por gremios piuranos. Con el cambio de gobierno y la incertidumbre postelectoral, los productores de arroz del norte y sur pueden reactivar bloqueos en la Panamericana Norte (El Trébol, Piura), la Panamericana Sur (Arequipa) y la Carretera Central simultáneamente, paralizando el abastecimiento nacional.",
-      "level": "ALTO",
-      "evidence": "Reactivación del paro agrario nacional por Conveagro ante incumplimiento de demandas estructurales: el decreto de urgencia de S/120 millones fue calificado de insuficiente por gremios piuranos. Con el cambio de gobierno y la incertidumbre postelectoral, los productores de arroz del norte y sur pueden reactivar bloqueos en la Panamericana Norte (El Trébol, Piura), la Panamericana Sur (Arequipa) y la Carretera Central simultáneamente, paralizando el abastecimiento nacional."
+      "level": "BAJO",
+      "evidence": "Reactivación del paro agrario nacional por Conveagro ante incumplimiento de demandas estructurales: el decreto de urgencia de S/120 millones fue calificado de insuficiente por gremios piuranos. Con el cambio de gobierno y la incertidumbre postelectoral, los productores de arroz del norte y sur pueden reactivar bloqueos en la Panamericana Norte (El Trébol, Piura), la Panamericana Sur (Arequipa) y la Carretera Central simultáneamente, paralizando el abastecimiento nacional.",
+      "estado": "historico"
     },
     {
       "id": "RM-12",
       "category": "Desinformación",
       "scenario": "Narrativa de fraude sistémico amplificada por el entorno de López Aliaga (Plan Morrocoy, actas serie 900K) que genera movilizaciones pro-nulidad de sectores de derecha: la desinformación DIS-002 y DIS-003 —con más de 500.000 impresiones combinadas— puede reactivarse en el período previo a la proclamación si el resultado final es ajustado, generando protestas simultáneas de ambos bandos en sede del JNE y generando la paradoja de una presión de calle simétrica pero contradictoria.",
-      "probability": "MEDIA",
+      "probability": "BAJA",
       "impact": "MEDIO",
-      "timeframe": "3-7d",
+      "timeframe": "cerrado 12-jun",
       "triggers": [
         "Resolución del JEE favorable a Sánchez en actas clave de Lima",
         "Declaraciones de López Aliaga o Martha Chávez denunciando 'Plan Morrocoy' en segunda vuelta",
@@ -11344,8 +11349,9 @@
         }
       ],
       "title": "Narrativa de fraude sistémico amplificada por el entorno de López Aliaga (Plan Morrocoy, actas serie 900K) que genera movilizaciones pro-nulidad de sectores de derecha: la desinformación DIS-002 y DIS-003 —con más de 500.000 impresiones combinadas— puede reactivarse en el período previo a la proclamación si el resultado final es ajustado, generando protestas simultáneas de ambos bandos en sede del JNE y generando la paradoja de una presión de calle simétrica pero contradictoria.",
-      "level": "MEDIO",
-      "evidence": "Narrativa de fraude sistémico amplificada por el entorno de López Aliaga (Plan Morrocoy, actas serie 900K) que genera movilizaciones pro-nulidad de sectores de derecha: la desinformación DIS-002 y DIS-003 —con más de 500.000 impresiones combinadas— puede reactivarse en el período previo a la proclamación si el resultado final es ajustado, generando protestas simultáneas de ambos bandos en sede del JNE y generando la paradoja de una presión de calle simétrica pero contradictoria."
+      "level": "BAJO",
+      "evidence": "Narrativa de fraude sistémico amplificada por el entorno de López Aliaga (Plan Morrocoy, actas serie 900K) que genera movilizaciones pro-nulidad de sectores de derecha: la desinformación DIS-002 y DIS-003 —con más de 500.000 impresiones combinadas— puede reactivarse en el período previo a la proclamación si el resultado final es ajustado, generando protestas simultáneas de ambos bandos en sede del JNE y generando la paradoja de una presión de calle simétrica pero contradictoria.",
+      "estado": "historico"
     },
     {
       "id": "RM-13",
@@ -12254,14 +12260,14 @@
       "name": "Bloqueos viales estratégicos persistentes",
       "category": "Logística",
       "status": "VERDE",
-      "value": "0 bloqueos confirmados 19-jun · Piura 23-jun AMARILLO",
+      "value": "0 bloqueos 20–22 jun · Piura 23-jun ROJO",
       "umbral": "CRÍTICO si >72h sin levantamiento",
       "note": "Ilave, La Oroya, Federico Basadre, Panamericana Norte km 556",
       "fuente": "R1/R2",
       "current_status": "VERDE",
-      "rationale": "Ilave inactivo; La Oroya transitable; Federico Basadre/FB Terry levantados; El Trébol libre con riesgo escalada P=0,65.",
+      "rationale": "Corredores transitables; Piura arrocera mañana 23-jun P(escalada El Trébol)=0,65.",
       "estado": "verde",
-      "next_check": "2026-06-22T08:00:00-05:00"
+      "next_check": "2026-06-23T08:00:00-05:00"
     },
     {
       "id": "EW-21",
@@ -12330,9 +12336,9 @@
       "indicator": "Movilización arrocera Piura-Sechura 23-jun",
       "threshold": "ROJO si bloqueo El Trébol o Catacaos–Piura >4h",
       "status": "AMARILLO",
-      "value": "Convocatoria vigente · sin cancelación 17-19 jun · sin reconfirmación reciente",
+      "value": "Vigente 22-jun · monitoreo terreno 23-jun AM",
       "trend": "→ vigente",
-      "rationale": "NORTE-PARO-023 vigente. Reconfirmar 22-jun AM (Norte Sostenible, Walac, SUTRAN).",
+      "rationale": "NORTE-PARO-023 sin cancelación; Conveagro sin comunicado nuevo.",
       "next_check": "2026-06-22 08:00 PET",
       "data_source": "https://nortesostenible.com/arroceros-de-piura-anuncian-movilizacion-para-el-23-de-junio-y-evaluan-nuevo-paro-por-incumplimiento-de-demandas/"
     },
@@ -14991,8 +14997,8 @@
     }
   ],
   "social_intelligence": {
-    "fecha_corte": "2026-06-19T23:30:00-05:00",
-    "contexto": "Al 99,63% actas (meseta 19-jun), Fujimori +41.565 votos. MML restricción oficial Centro Histórico hasta 22-jun 00:00. Piura 23-jun vigente (reconfirmación parcial). JNE nulidad al voto sin resolución.",
+    "fecha_corte": "2026-06-22T20:00:00-05:00",
+    "contexto": "Al 22-jun 20:00 PET: ONPE meseta 99,63 %/+41.565. MML levantada programática. Piura 23-jun vigente. Autoconv 22-jun no materializada. JNE nulidad sin resolución.",
     "hashtags": [
       {
         "hashtag": "#TomaDeLima",
@@ -27574,7 +27580,7 @@
     "three_things_to_watch": [
       {
         "titulo": "Resolución JNE sobre nulidad 2.408 actas (Lima + EE.UU.)",
-        "detalle": "Pleno dejó al voto 19-jun; JP sin prueba material. ~43.577 votos en juego vs margen +41.565. Resolución estimada 23-27 jun."
+        "detalle": "Resolución JNE no publicada al 22-jun 20:00. ~43.577 votos en juego vs +41.565."
       },
       {
         "titulo": "Denuncia Procuraduría vs. 9 convocantes de marchas",
@@ -27582,7 +27588,7 @@
       },
       {
         "titulo": "Movilización arrocera Piura 23-jun y autoconvocatoria 22-jun",
-        "detalle": "Restricción oficial hasta 22-jun 00:00 (El Peruano). Verificar levantamiento efectivo VG-R4-03."
+        "detalle": "Vigente 22-jun. Monitoreo terreno 23-jun AM (Walac, SUTRAN, Norte Sostenible). P(escalada El Trébol)=0,65."
       }
     ]
   },
@@ -27707,7 +27713,7 @@
   "prediccion_7dias": {
     "fecha_inicio": "2026-06-19",
     "fecha_fin": "2026-06-26",
-    "nota_metodologica": "v3.9.4 Round 4 prep: MML restricción oficial hasta 22-jun 00:00; Piura 23-jun vigente (reconfirmación parcial 19-jun); JNE nulidad al voto sin resolución; 8 brechas VG-R4.",
+    "nota_metodologica": "v3.9.5 Round 4 live: MML levantada 22-jun 00:00; autoconv 22-jun no materializada; Piura 23-jun vigente; JNE nulidad sin resolución; 0 bloqueos 20–22 jun.",
     "lima": {
       "eventos_esperados": 5,
       "prob_manifestacion_significativa": 0.45,
@@ -27715,15 +27721,16 @@
       "prob_paro_gremial": 0.22,
       "justificacion": "Marcha 19-jun realizada pacífica. MML levanta restricción 22-jun 00:00. Autoconvocatoria IG sin JP (P=0,40). Sin convocatoria JP formal 20-23 jun.",
       "prob_nueva_marcha_jp_post_22jun": 0.25,
-      "prob_autoconvocatoria_22jun": 0.4,
+      "prob_autoconvocatoria_22jun": 0.1,
       "status_mml_oficial": "restriccion_19-22jun_D002556",
-      "mml_fuente": "https://elperuano.pe/noticia/298272-centro-historico-de-lima-estas-son-las-restricciones-vehiculares-del-19-al-22-de-junio"
+      "mml_fuente": "https://elperuano.pe/noticia/298272-centro-historico-de-lima-estas-son-las-restricciones-vehiculares-del-19-al-22-de-junio",
+      "status_mml": "levantada_programatica_22jun"
     },
     "norte": {
       "eventos_esperados": 4,
       "prob_escalada": 0.28,
-      "prob_bloqueo_panamericana_norte": 0.65,
-      "justificacion": "Movilización Piura 23-jun confirmada sin cancelar; precedente violento El Trébol mayo."
+      "prob_bloqueo_panamericana_norte": 0.7,
+      "justificacion": "Piura 23-jun vigente 22-jun; precedente El Trébol; monitoreo AM 23-jun."
     },
     "centro": {
       "eventos_esperados": 4,
@@ -28111,21 +28118,24 @@
     ]
   },
   "verification_gaps_r4": {
-    "fecha_corte": "2026-06-19T23:30:00-05:00",
-    "next_monitoreo": "2026-06-22T08:00:00-05:00",
-    "nota": "Brechas explícitas para monitoreo 22-jun AM pre-Piura 23-jun.",
+    "fecha_corte": "2026-06-22T20:00:00-05:00",
+    "next_monitoreo": "2026-06-23T08:00:00-05:00",
+    "nota": "Round 4 live 22-jun: 5/8 ítems cerrados o parciales; Piura 23-jun próximo P0.",
     "gaps": [
       {
         "id": "VG-R4-01",
         "item": "Reconfirmación Conveagro Piura (comunicado, FB, terreno)",
         "prioridad": "P0",
-        "estado": "pendiente",
+        "estado": "parcial",
         "next_check": "2026-06-22T08:00:00-05:00",
         "fuentes": [
           "Walac Noticias",
           "Norte Sostenible",
           "SUTRAN"
-        ]
+        ],
+        "resultado": "Convocatoria Piura 23-jun vigente en Norte Sostenible; sin comunicado Conveagro nuevo 20–22 jun.",
+        "fuente_url": "https://nortesostenible.com/arroceros-de-piura-anuncian-movilizacion-para-el-23-de-junio-y-evaluan-nuevo-paro-por-incumplimiento-de-demandas/",
+        "verificado": "2026-06-22T12:00:00-05:00"
       },
       {
         "id": "VG-R4-02",
@@ -28136,40 +28146,50 @@
         "fuentes": [
           "jne.gob.pe",
           "RPP"
-        ]
+        ],
+        "resultado": "Resolución JNE nulidad 2.408 actas no publicada en portal al corte 22-jun 20:00.",
+        "verificado": "2026-06-22T12:00:00-05:00"
       },
       {
         "id": "VG-R4-03",
         "item": "Levantamiento MML 22-jun 00:00 — tránsito efectivo Centro Histórico",
         "prioridad": "P0",
-        "estado": "pendiente",
+        "estado": "cerrado_programatico",
         "next_check": "2026-06-22T08:00:00-05:00",
         "fuentes": [
           "MML",
           "PNP terreno"
-        ]
+        ],
+        "resultado": "Restricción MML expiró 22-jun 00:00 según Res. D002556-2026; tránsito terreno no auditado.",
+        "fuente_url": "https://elperuano.pe/noticia/298272-centro-historico-de-lima-estas-son-las-restricciones-vehiculares-del-19-al-22-de-junio",
+        "verificado": "2026-06-22T08:00:00-05:00"
       },
       {
         "id": "VG-R4-04",
         "item": "Autoconvocatoria 22-jun Plaza San Martín — ejecución en terreno",
         "prioridad": "P1",
-        "estado": "pendiente",
+        "estado": "no_materializada",
         "next_check": "2026-06-22T18:00:00-05:00",
         "fuentes": [
           "Instagram reel métricas",
           "medios Lima"
-        ]
+        ],
+        "resultado": "Autoconvocatoria IG Plaza San Martín 22-jun sin cobertura mediática indexada.",
+        "verificado": "2026-06-22T20:00:00-05:00"
       },
       {
         "id": "VG-R4-05",
         "item": "Conteo carpas acampamento JNE (baseline ~80 del 16-jun)",
         "prioridad": "P1",
-        "estado": "pendiente",
+        "estado": "sin_update",
         "next_check": "2026-06-22T08:00:00-05:00",
         "fuentes": [
           "RPP",
           "terreno"
-        ]
+        ],
+        "resultado": "Baseline ~80 carpas RPP 16-jun; sin conteo terreno nuevo 20–22 jun.",
+        "fuente_url": "https://rpp.pe/peru/actualidad/simpatizantes-de-juntos-por-el-peru-dicen-que-seguiran-acampando-frente-al-jne-noticia-1693265",
+        "verificado": "2026-06-22T12:00:00-05:00"
       },
       {
         "id": "VG-R4-06",
@@ -28179,27 +28199,33 @@
         "next_check": "2026-06-22T08:00:00-05:00",
         "fuentes": [
           "PJCE consulta expediente"
-        ]
+        ],
+        "resultado": "Amparo JP voto exterior: admisión/rechazo PJ no indexado 20–22 jun.",
+        "verificado": "2026-06-22T12:00:00-05:00"
       },
       {
         "id": "VG-R4-07",
         "item": "Corredores SUTRAN 20–22 jun (El Trébol, FB Terry, La Oroya)",
         "prioridad": "P1",
-        "estado": "pendiente",
+        "estado": "transitable",
         "next_check": "2026-06-22T08:00:00-05:00",
         "fuentes": [
           "SUTRAN"
-        ]
+        ],
+        "resultado": "0 bloqueos SUTRAN indexados 20–22 jun (El Trébol, FB Terry, La Oroya libres).",
+        "verificado": "2026-06-22T12:00:00-05:00"
       },
       {
         "id": "VG-R4-08",
         "item": "ONPE delta actas JEE (baseline 346)",
         "prioridad": "P2",
-        "estado": "pendiente",
+        "estado": "meseta",
         "next_check": "2026-06-22T08:00:00-05:00",
         "fuentes": [
           "segundavuelta.onpe.gob.pe"
-        ]
+        ],
+        "resultado": "ONPE sin delta: 99,63 % / +41.565 / 346 actas JEE (heredado 19-jun).",
+        "verificado": "2026-06-22T12:00:00-05:00"
       }
     ]
   }
